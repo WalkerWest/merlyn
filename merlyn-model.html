@@ -73,7 +73,8 @@
       .snl li{display:block;width:100%;height:48px;overflow:hidden;list-style:none;margin:0;padding:0;}
       .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
-      .sncta{display:none;}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
       .level-grid{grid-template-columns:1fr;}
     }
   </style>
@@ -138,7 +139,7 @@
       </div>
 
       <div class="chart-wrap">
-        <svg viewBox="0 0 680 400" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Merlyn supply and demand model chart">
+        <svg viewBox="0 0 680 450" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Merlyn supply and demand model chart">
 
           <!-- Zone backgrounds -->
           <rect x="70" y="40" width="183" height="262" fill="#F5F4EF" rx="3"/>
@@ -176,31 +177,31 @@
           <line x1="70" y1="40"  x2="70"  y2="302" stroke="#2C2C2A" stroke-width="1.5"/>
 
           <!-- Y axis label -->
-          <text x="18" y="171" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#888780" transform="rotate(-90,18,171)">Capability available to mid-market</text>
+          <text x="18" y="171" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#888780" transform="rotate(-90,18,171)">Capability available to mid-market</text>
 
           <!-- Level labels -->
-          <text x="161" y="322" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#2C2C2A">Level 1</text>
-          <text x="344" y="322" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#2C2C2A">Level 2</text>
-          <text x="527" y="322" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#2C2C2A">Level 3</text>
-          <text x="161" y="338" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#888780">Infrastructure</text>
-          <text x="344" y="338" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#888780">Process intelligence</text>
-          <text x="527" y="338" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#888780">Strategic intelligence</text>
+          <text x="161" y="326" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="600" fill="#2C2C2A">Level 1</text>
+          <text x="344" y="326" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="600" fill="#2C2C2A">Level 2</text>
+          <text x="527" y="326" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="600" fill="#2C2C2A">Level 3</text>
+          <text x="161" y="348" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#888780">Infrastructure</text>
+          <text x="344" y="348" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#888780">Process intelligence</text>
+          <text x="527" y="348" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#888780">Strategic intelligence</text>
 
           <!-- Curve labels -->
-          <rect x="74" y="56" width="118" height="20" rx="3" fill="#F5F4EF"/>
-          <text x="133" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="500" fill="#6B6A65">Provider supply</text>
-          <rect x="74" y="286" width="126" height="20" rx="3" fill="#E1F5EE"/>
-          <text x="137" y="300" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="500" fill="#085041">Business demand</text>
+          <rect x="170" y="51" width="150" height="26" rx="3" fill="#F5F4EF"/>
+          <text x="245" y="69" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="500" fill="#6B6A65">Provider supply</text>
+          <rect x="170" y="270" width="158" height="26" rx="3" fill="#E1F5EE"/>
+          <text x="249" y="288" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="500" fill="#085041">Business demand</text>
 
           <!-- Gap label -->
-          <text x="527" y="148" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#0F6E56">The gap</text>
-          <text x="527" y="163" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#1D9E75">Where mid-market</text>
-          <text x="527" y="176" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#1D9E75">businesses are</text>
-          <text x="527" y="189" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#1D9E75">underserved</text>
+          <text x="527" y="140" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#0F6E56">The gap</text>
+          <text x="527" y="160" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#1D9E75">Where mid-market</text>
+          <text x="527" y="179" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#1D9E75">businesses are</text>
+          <text x="527" y="198" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#1D9E75">underserved</text>
 
           <!-- Oversupply label -->
-          <text x="161" y="88" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="500" fill="#888780">Oversupplied</text>
-          <text x="161" y="101" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#B4B2A9">commodity market</text>
+          <text x="161" y="167" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="500" fill="#888780">Oversupplied</text>
+          <text x="161" y="187" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#B4B2A9">commodity market</text>
 
         </svg>
         <p class="chart-caption">The Merlyn supply/demand model — as business maturity increases, demand for capable technology partners grows while the supply of providers who can serve mid-market businesses at those levels falls sharply.</p>
