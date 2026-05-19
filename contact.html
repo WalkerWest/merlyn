@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Merlyn AI Labs</title>
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;}
+    .sn{border-bottom:0.5px solid var(--b1);}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
+    .snl{display:flex;gap:20px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .hero{border-bottom:0.5px solid var(--b1);}
+    .hero .inner{padding-top:52px;padding-bottom:48px;}
+    .he{font-size:12px;font-weight:500;color:#0F6E56;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+    .hed{width:6px;height:6px;border-radius:50%;background:#1D9E75;display:inline-block;}
+    .hero h1{font-size:34px;font-weight:500;color:var(--t1);line-height:1.15;margin-bottom:14px;letter-spacing:-0.5px;}
+    .hero p{font-size:16px;color:var(--t2);line-height:1.65;max-width:520px;}
+    .contact-wrap{padding:48px 0;background:var(--bg2);}
+    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start;}
+    .form-section h2{font-size:18px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .form-section p{font-size:14px;color:var(--t2);margin-bottom:28px;line-height:1.55;}
+    .field{margin-bottom:18px;}
+    .field label{display:block;font-size:13px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .field input,.field select,.field textarea{width:100%;font-family:inherit;font-size:14px;color:var(--t1);background:var(--bg1);border:0.5px solid var(--b2);border-radius:var(--r1);padding:10px 14px;outline:none;transition:border-color .15s;}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:#0F6E56;box-shadow:0 0 0 3px rgba(15,110,86,0.08);}
+    .field textarea{resize:vertical;min-height:120px;line-height:1.55;}
+    .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6A65' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .submit-btn{width:100%;padding:13px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);font-size:14px;font-weight:500;cursor:pointer;margin-top:4px;transition:background .15s;}
+    .submit-btn:hover{background:#085041;}
+    .form-note{font-size:12px;color:var(--t3);text-align:center;margin-top:12px;line-height:1.5;}
+    .sidebar{display:flex;flex-direction:column;gap:12px;}
+    .sidebar-card{border:0.5px solid var(--b1);border-radius:var(--r2);padding:20px;}
+    .sc-label{font-size:11px;font-weight:500;color:#085041;background:#E1F5EE;padding:3px 9px;border-radius:100px;display:inline-block;margin-bottom:10px;}
+    .sc-title{font-size:14px;font-weight:500;color:var(--t1);margin-bottom:4px;}
+    .sc-desc{font-size:12px;color:var(--t2);line-height:1.55;margin-bottom:10px;}
+    .sc-link{font-size:12px;color:#0F6E56;text-decoration:none;display:flex;align-items:center;gap:4px;}
+    .sc-link:hover{text-decoration:underline;}
+    .sidebar-direct{border:0.5px solid var(--b1);border-radius:var(--r2);padding:20px;}
+    .sd-title{font-size:14px;font-weight:500;color:var(--t1);margin-bottom:12px;}
+    .sd-item{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+    .sd-item:last-child{margin-bottom:0;}
+    .sd-icon{font-size:16px;color:#0F6E56;flex-shrink:0;}
+    .sd-text{font-size:13px;color:var(--t2);}
+    .sd-text a{color:#0F6E56;text-decoration:none;}
+    .sd-text a:hover{text-decoration:underline;}
+    #interest{background:#E1F5EE;border-color:#1D9E75;color:#085041;font-weight:500;}
+    #interest:focus{border-color:#0F6E56;box-shadow:0 0 0 3px rgba(15,110,86,0.15);}
+    .thanks{display:none;text-align:center;padding:48px 24px;}
+    .thanks-icon{font-size:40px;color:#0F6E56;margin-bottom:16px;}
+    .thanks h2{font-size:22px;font-weight:500;color:var(--t1);margin-bottom:8px;}
+    .thanks p{font-size:15px;color:var(--t2);max-width:400px;margin:0 auto;}
+    .sft{border-top:0.5px solid var(--b1);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-size:15px;font-weight:500;color:#0F6E56;}
+    .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
+    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .sn{position:relative;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;list-style:none;margin:0;padding:0;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
+      .sncta{display:none;}
+      .contact-grid{grid-template-columns:1fr;}
+      .sidebar{order:2;}
+      .field-row{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <ul class="snl">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merlyn-model.html">The name</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="inner">
+      <p class="he"><span class="hed"></span>Get in touch</p>
+      <h1>Start the conversation</h1>
+      <p>Tell us a little about your business and what you're trying to solve. We'll get back to you within one business day.</p>
+    </div>
+  </section>
+
+  <div class="contact-wrap">
+    <div class="inner">
+      <div class="contact-grid">
+
+        <div class="form-section">
+          <h2>Send us a message</h2>
+          <p>Not sure which service fits? Just describe what's on your mind — we'll figure out the right place to start.</p>
+          <form id="contact-form" onsubmit="handleSubmit(event)">
+            <div class="field-row">
+              <div class="field">
+                <label for="fname">First name</label>
+                <input type="text" id="fname" name="fname" placeholder="Jane" required>
+              </div>
+              <div class="field">
+                <label for="lname">Last name</label>
+                <input type="text" id="lname" name="lname" placeholder="Smith" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Work email</label>
+              <input type="email" id="email" name="email" placeholder="jane@yourcompany.com" required>
+            </div>
+            <div class="field">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Your company name">
+            </div>
+            <div class="field">
+              <label for="interest">What are you interested in?</label>
+              <select id="interest" name="interest">
+                <option value="" disabled selected>Select an area</option>
+                <option value="l1">Level 1 — Managed IT foundation</option>
+                <option value="l2">Level 2 — Process intelligence</option>
+                <option value="l3">Level 3 — Strategic intelligence / digital twin</option>
+                <option value="academy">AI Academy — cohort enrollment</option>
+                <option value="enterprise">Enterprise training for my team</option>
+                <option value="node">Community node — federation inquiry</option>
+                <option value="assessment">Free IT assessment</option>
+                <option value="general">General inquiry</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Tell us about your situation</label>
+              <textarea id="message" name="message" placeholder="What's the problem you're trying to solve? What does your current setup look like? Any context helps." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send message ↗</button>
+            <p class="form-note">We typically respond within one business day. No spam, no sales pressure.</p>
+          </form>
+          <div class="thanks" id="thanks">
+            <div class="thanks-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg></div>
+            <h2>Message received</h2>
+            <p>Thanks for reaching out. Someone from the team will be in touch within one business day.</p>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <div class="sidebar-card">
+            <span class="sc-label">Level 1</span>
+            <p class="sc-title">Managed foundation</p>
+            <p class="sc-desc">Reliable IT, security, compliance, and AI literacy training for your team.</p>
+            <a href="services-managed-foundation.html" class="sc-link">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+          </div>
+          <div class="sidebar-card">
+            <span class="sc-label">Level 2</span>
+            <p class="sc-title">Process intelligence</p>
+            <p class="sc-desc">Custom AI models, agentic workflows, and a platform subscription that keeps them running.</p>
+            <a href="services-process-intelligence.html" class="sc-link">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+          </div>
+          <div class="sidebar-card">
+            <span class="sc-label">Level 3</span>
+            <p class="sc-title">Strategic intelligence</p>
+            <p class="sc-desc">A financial digital twin with a seat in your executive strategy sessions.</p>
+            <a href="services-strategic-intelligence.html" class="sc-link">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+          </div>
+          <div class="sidebar-direct">
+            <p class="sd-title">Prefer to reach us directly?</p>
+            <div class="sd-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"/><path d="M3 7l9 6l9 -6"/></svg>
+              <p class="sd-text"><a href="mailto:hello@merlynailabs.com">hello@merlynailabs.com</a></p>
+            </div>
+            <div class="sd-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg>
+              <p class="sd-text">Evansville, Indiana</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="sft">
+    <div class="inner">
+      <div>
+        <div class="sfl">merlyn ai labs</div>
+        <p class="sfloc">Evansville, Indiana</p>
+      </div>
+      <ul class="sfls">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merlyn-model.html">The name</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+  (function(){
+    const interest = new URLSearchParams(window.location.search).get('interest');
+    if(interest){const s=document.getElementById('interest');if(s)s.value=interest;}
+  })();
+  function handleSubmit(e){
+    e.preventDefault();
+    document.getElementById('not-connected-modal').style.display='flex';
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('modal-close').addEventListener('click',function(){
+      document.getElementById('not-connected-modal').style.display='none';
+    });
+    document.getElementById('not-connected-modal').addEventListener('click',function(e){
+      if(e.target===this) this.style.display='none';
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape') document.getElementById('not-connected-modal').style.display='none';
+    });
+  });
+</script>
+
+<div id="not-connected-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:#fff;border-radius:12px;padding:36px 32px;max-width:420px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,0.18);text-align:center;">
+    <div style="width:48px;height:48px;background:#FFF3DC;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+    </div>
+    <h2 style="font-size:18px;font-weight:600;color:#1C1C1A;margin-bottom:10px;">Form not connected yet</h2>
+    <p style="font-size:14px;color:#6B6A65;line-height:1.65;margin-bottom:24px;">This contact form hasn't been wired to a backend yet. In the meantime, reach us directly at <a href="mailto:hello@merlynailabs.com" style="color:#0F6E56;font-weight:500;">hello@merlynailabs.com</a>.</p>
+    <button id="modal-close" style="padding:10px 28px;background:#0F6E56;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;">Got it</button>
+  </div>
+</div>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Academy — Merlyn AI Labs</title>
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;}
+    .sn{border-bottom:0.5px solid var(--b1);}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
+    .snl{display:flex;gap:20px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .hero-split{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:48px;align-items:center;}
+    .hero-visual{display:flex;align-items:center;justify-content:flex-end;}
+    .hero-visual svg{width:100%;height:auto;}
+    @media(max-width:680px){.hero-split{grid-template-columns:1fr;}.hero-visual{margin-top:24px;}}
+    .hero{background:#FFF8EE;}
+    .hero .inner{padding-top:52px;padding-bottom:48px;}
+    .he{font-size:12px;font-weight:500;color:#854F0B;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+    .hed{width:6px;height:6px;border-radius:50%;background:#EF9F27;display:inline-block;}
+    .hero h1{font-size:36px;font-weight:500;color:var(--t1);line-height:1.15;margin-bottom:16px;letter-spacing:-0.5px;}
+    .hero h1 em{font-style:normal;color:#0F6E56;}
+    .hero p{font-size:16px;color:var(--t2);line-height:1.65;margin-bottom:28px;max-width:560px;}
+    .ctas{display:flex;gap:10px;flex-wrap:wrap;}
+    .bp{padding:11px 22px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bp:hover{background:#085041;}
+    .bg{padding:11px 22px;background:transparent;color:var(--t1);border:0.5px solid var(--b2);border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bg:hover{background:var(--bg2);}
+    .sec{padding:44px 0;}
+    .secbg{padding:44px 0;background:var(--bg2);}
+    .sl2{font-size:11px;font-weight:500;color:var(--t3);margin-bottom:6px;}
+    .sh2{font-size:22px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .ssub{font-size:15px;color:var(--t2);margin-bottom:28px;}
+    .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+    .diff{border:0.5px solid var(--b1);border-radius:var(--r2);padding:22px 18px;}
+    .diff-icon{width:40px;height:40px;background:#E1F5EE;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:#0F6E56;font-size:20px;}
+    .diff-title{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .diff-desc{font-size:13px;color:var(--t2);line-height:1.55;}
+    .track-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+    .track{border:0.5px solid var(--b1);border-radius:var(--r2);padding:20px 18px;display:flex;flex-direction:column;}
+    .tb{font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:12px;align-self:flex-start;}
+    .tb-gray{background:#2C2C2C;color:#fff;}
+    .tb-teal{background:#085041;color:#fff;}
+    .tb-amber{background:#854F0B;color:#fff;}
+    .tb-cap{background:#E1F5EE;color:#085041;}
+    .track-title{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:4px;}
+    .track-desc{font-size:13px;color:var(--t2);line-height:1.5;margin-bottom:14px;}
+    .track-items{list-style:none;flex:1;}
+    .track-items li{font-size:12px;color:var(--t2);padding:3px 0;display:flex;align-items:center;gap:7px;}
+    .track-items li::before{content:'';width:5px;height:5px;border-radius:50%;background:#1D9E75;flex-shrink:0;}
+    .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px;}
+    .cert{border:0.5px solid var(--b1);border-radius:var(--r2);padding:22px 18px;}
+    .cert-level{font-size:11px;font-weight:500;color:#085041;background:#E1F5EE;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:12px;}
+    .cert-title{font-size:16px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .cert-desc{font-size:13px;color:var(--t2);line-height:1.5;margin-bottom:14px;}
+    .cert-tracks{font-size:12px;color:var(--t3);}
+    .fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px;}
+    .fmt{padding:20px 18px;background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--r2);}
+    .fmt-icon{font-size:22px;color:#0F6E56;margin-bottom:10px;}
+    .fmt-title{font-size:14px;font-weight:500;color:var(--t1);margin-bottom:4px;}
+    .fmt-desc{font-size:13px;color:var(--t2);line-height:1.5;}
+    .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px;}
+    .who{border:0.5px solid var(--b1);border-radius:var(--r2);padding:20px 18px;}
+    .who-icon{font-size:22px;color:#0F6E56;margin-bottom:10px;}
+    .who-title{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .who-desc{font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:12px;}
+    .who-link{font-size:12px;color:#0F6E56;text-decoration:none;}
+    .who-link:hover{text-decoration:underline;}
+    .acta{padding:52px 0;background:#085041;text-align:center;}
+    .acta h2{font-size:24px;font-weight:500;color:#fff;margin-bottom:8px;}
+    .acta p{font-size:15px;color:#9FE1CB;margin-bottom:28px;}
+    .acta-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+    .bw{padding:12px 24px;background:#fff;color:#085041;border:none;border-radius:var(--r1);font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bw:hover{background:#E1F5EE;}
+    .bo{padding:12px 24px;background:transparent;color:#9FE1CB;border:0.5px solid #1D9E75;border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bo:hover{background:rgba(29,158,117,0.15);}
+    .sft{border-top:0.5px solid var(--b1);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-size:15px;font-weight:500;color:#0F6E56;}
+    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .sn{position:relative;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;list-style:none;margin:0;padding:0;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
+      .sncta{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <ul class="snl">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merlyn-model.html">The name</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="inner">
+      <div class="hero-split">
+        <div class="hero-text">
+          <p class="he"><span class="hed"></span>AI Academy</p>
+          <h1>Where AI practitioners<br><em>are made</em></h1>
+          <p>Hands-on AI certification across five curriculum tracks — built on real NVIDIA and AMD GPU hardware, industry-specific instruction, and delivered locally in Evansville, Indiana. Not cloud simulations. The real thing.</p>
+          <div class="ctas">
+            <a href="contact.html?interest=academy" class="bp">Apply for a cohort ↗</a>
+            <a href="contact.html?interest=enterprise" class="bg">Enterprise training inquiry ↗</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <svg viewBox="0 0 560 320" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Five AI Academy curriculum tracks converging into certification">
+            <rect x="0"   y="24"  width="330" height="42" rx="8" fill="#F0EFEA"/>
+            <rect x="0"   y="24"  width="42"  height="42" rx="8" fill="#2C2C2A"/>
+            <text x="21"  y="45"  text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">1</text>
+            <text x="56"  y="45"  dominant-baseline="central" font-family="Arial,sans-serif" font-size="15" font-weight="500" fill="#1C1C1A">Infrastructure engineering</text>
+            <text x="326" y="45"  text-anchor="end" dominant-baseline="central" font-family="Arial,sans-serif" font-size="13" fill="#888780">12 wks</text>
+            <rect x="0"   y="82"  width="330" height="42" rx="8" fill="#F0EFEA"/>
+            <rect x="0"   y="82"  width="42"  height="42" rx="8" fill="#2C2C2A"/>
+            <text x="21"  y="103" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">2</text>
+            <text x="56"  y="103" dominant-baseline="central" font-family="Arial,sans-serif" font-size="15" font-weight="500" fill="#1C1C1A">Enterprise AI bootcamp</text>
+            <text x="326" y="103" text-anchor="end" dominant-baseline="central" font-family="Arial,sans-serif" font-size="13" fill="#888780">8 wks</text>
+            <rect x="0"   y="140" width="330" height="42" rx="8" fill="#E1F5EE"/>
+            <rect x="0"   y="140" width="42"  height="42" rx="8" fill="#085041"/>
+            <text x="21"  y="161" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">3</text>
+            <text x="56"  y="161" dominant-baseline="central" font-family="Arial,sans-serif" font-size="15" font-weight="500" fill="#085041">Simulation science</text>
+            <text x="326" y="161" text-anchor="end" dominant-baseline="central" font-family="Arial,sans-serif" font-size="13" fill="#0F6E56">12 wks</text>
+            <rect x="0"   y="198" width="330" height="42" rx="8" fill="#E1F5EE"/>
+            <rect x="0"   y="198" width="42"  height="42" rx="8" fill="#085041"/>
+            <text x="21"  y="219" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">4</text>
+            <text x="56"  y="219" dominant-baseline="central" font-family="Arial,sans-serif" font-size="15" font-weight="500" fill="#085041">Vertical practitioner</text>
+            <text x="326" y="219" text-anchor="end" dominant-baseline="central" font-family="Arial,sans-serif" font-size="13" fill="#0F6E56">20 wks</text>
+            <rect x="0"   y="256" width="330" height="42" rx="8" fill="#FAEEDA"/>
+            <rect x="0"   y="256" width="42"  height="42" rx="8" fill="#854F0B"/>
+            <text x="21"  y="277" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">5</text>
+            <text x="56"  y="277" dominant-baseline="central" font-family="Arial,sans-serif" font-size="15" font-weight="500" fill="#854F0B">Node development</text>
+            <text x="326" y="277" text-anchor="end" dominant-baseline="central" font-family="Arial,sans-serif" font-size="13" fill="#854F0B">8 wks</text>
+            <path d="M330,45  C395,45  415,161 458,161" fill="none" stroke="#B4B2A9" stroke-width="1.5" opacity="0.7"/>
+            <path d="M330,103 C385,103 410,161 458,161" fill="none" stroke="#B4B2A9" stroke-width="1.5" opacity="0.7"/>
+            <path d="M330,161 L458,161"                  fill="none" stroke="#1D9E75" stroke-width="2"   opacity="0.8"/>
+            <path d="M330,219 C385,219 410,161 458,161" fill="none" stroke="#1D9E75" stroke-width="1.5" opacity="0.7"/>
+            <path d="M330,277 C395,277 415,161 458,161" fill="none" stroke="#FAC775" stroke-width="1.5" opacity="0.7"/>
+            <circle cx="500" cy="148" r="52" fill="#085041" opacity="0.10"/>
+            <circle cx="500" cy="148" r="42" fill="#085041"/>
+            <text x="500" y="137" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#9FE1CB">AI</text>
+            <text x="500" y="162" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="16" fill="#E1F5EE">certified</text>
+            <line x1="500" y1="190" x2="500" y2="208" stroke="#085041" stroke-width="1.5" opacity="0.5"/>
+            <rect x="432" y="208" width="136" height="68" rx="6" fill="#085041"/>
+            <text x="500" y="226" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#9FE1CB">Hybrid AI</text>
+            <text x="500" y="245" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#9FE1CB">capstone</text>
+            <text x="500" y="262" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="13" fill="#E1F5EE">all tracks</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secbg">
+    <div class="inner">
+      <p class="sl2">What makes it different</p>
+      <h2 class="sh2">Built for practitioners, not slides</h2>
+      <p class="ssub">Three things set the AI Academy apart from online courses and corporate training programs.</p>
+      <div class="diff-grid">
+        <div class="diff">
+          <div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 5m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z"/><path d="M9 9h6v6h-6z"/><path d="M3 10h2"/><path d="M3 14h2"/><path d="M10 3v2"/><path d="M14 3v2"/><path d="M21 10h-2"/><path d="M21 14h-2"/><path d="M10 21v-2"/><path d="M14 21v-2"/></svg></div>
+          <p class="diff-title">Real GPU hardware</p>
+          <p class="diff-desc">Students train on NVIDIA GPU hardware — the same platform powering production AI across the industry — with AMD Instinct available for open-source and federation infrastructure tracks. No shared cloud instances, no variable availability.</p>
+        </div>
+        <div class="diff">
+          <div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/></svg></div>
+          <p class="diff-title">Industry-specific tracks</p>
+          <p class="diff-desc">Five curriculum tracks matched to real industry needs — from infrastructure engineering to digital twin simulation to community node development. You train for your role, not a generic syllabus.</p>
+        </div>
+        <div class="diff">
+          <div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"/><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M17 10h2a2 2 0 0 1 2 2v1"/><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M3 13v-1a2 2 0 0 1 2 -2h2"/></svg></div>
+          <p class="diff-title">Small cohorts, local delivery</p>
+          <p class="diff-desc">Cohorts of 12–20 students in Evansville, Indiana. Instructor-led by practitioners who use these tools in production. A 4:1 student-to-instructor ratio in the hands-on lab sessions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="tracks">
+    <div class="inner">
+      <p class="sl2">Curriculum</p>
+      <h2 class="sh2">Five tracks. One academy.</h2>
+      <p class="ssub">Each track is a standalone certification pathway. Tracks can be combined — the joint capstone cohort brings infrastructure and simulation together.</p>
+      <div class="track-grid">
+
+        <div class="track">
+          <span class="tb tb-gray">Track 1 · 12 weeks</span>
+          <p class="track-title">Infrastructure engineering</p>
+          <p class="track-desc">GPU cluster operations, NVIDIA and AMD hardware, and production AI infrastructure.</p>
+          <ul class="track-items">
+            <li>GPU hardware and cluster setup</li>
+            <li>NVIDIA CUDA, TensorRT, and inference optimization</li>
+            <li>AMD ROCm for open-source federation deployments</li>
+            <li>Networking and storage for AI</li>
+            <li>Monitoring and incident response</li>
+            <li>Power management and cooling</li>
+          </ul>
+        </div>
+
+        <div class="track">
+          <span class="tb tb-gray">Track 2 · 8 weeks</span>
+          <p class="track-title">Enterprise AI bootcamp</p>
+          <p class="track-desc">Practical AI tools for business teams — the literacy foundation every organization needs.</p>
+          <ul class="track-items">
+            <li>AI tools for your industry</li>
+            <li>Prompt engineering and workflows</li>
+            <li>AI-assisted decision making</li>
+            <li>Data literacy fundamentals</li>
+            <li>Safe and responsible AI use</li>
+          </ul>
+        </div>
+
+        <div class="track">
+          <span class="tb tb-teal">Track 3 · 12 weeks</span>
+          <p class="track-title">Simulation science</p>
+          <p class="track-desc">Digital twin methodology — build, validate, and run operational simulations for real business decisions.</p>
+          <ul class="track-items">
+            <li>Digital twin foundations</li>
+            <li>Data pipeline instrumentation</li>
+            <li>Simulation model construction</li>
+            <li>Scenario design and validation</li>
+            <li>Julia and Python for simulation</li>
+          </ul>
+        </div>
+
+        <div class="track">
+          <span class="tb tb-teal">Track 4 · 20 weeks</span>
+          <p class="track-title">Vertical practitioner</p>
+          <p class="track-desc">Deep AI expertise in one of five industry verticals — where domain knowledge meets AI capability.</p>
+          <ul class="track-items">
+            <li>Manufacturing + operations AI</li>
+            <li>Healthcare + clinical AI</li>
+            <li>Insurance + underwriting AI</li>
+            <li>Logistics + routing AI</li>
+            <li>Agriculture + precision farming AI</li>
+          </ul>
+        </div>
+
+        <div class="track">
+          <span class="tb tb-amber">Track 5 · 8 weeks</span>
+          <p class="track-title">Node development</p>
+          <p class="track-desc">For community leaders and civic entrepreneurs building the next AI center of excellence in their region.</p>
+          <ul class="track-items">
+            <li>Community node launch playbook</li>
+            <li>Benefit LLC and cooperative structure</li>
+            <li>Infrastructure planning and procurement</li>
+            <li>Non-dilutive capital sources</li>
+            <li>Federation membership and governance</li>
+          </ul>
+        </div>
+
+        <div class="track">
+          <span class="tb tb-cap">Joint cohort · 4 weeks</span>
+          <p class="track-title">Hybrid AI capstone</p>
+          <p class="track-desc">For graduates of Tracks 1 and 3 — a combined capstone where infrastructure engineers and simulation scientists build a production system together.</p>
+          <ul class="track-items">
+            <li>End-to-end system design</li>
+            <li>Simulation on dedicated GPU hardware</li>
+            <li>Production deployment and monitoring</li>
+            <li>Team-based client project</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="secbg">
+    <div class="inner">
+      <p class="sl2">Certifications</p>
+      <h2 class="sh2" style="margin-bottom:6px;">Three levels of recognition</h2>
+      <p class="ssub">Certifications are tiered and stackable. Continuing education requirements create a recurring enrollment relationship — practitioners return to maintain and advance their credentials.</p>
+      <div class="cert-grid">
+        <div class="cert">
+          <span class="cert-level">Foundation</span>
+          <p class="cert-title">AI practitioner</p>
+          <p class="cert-desc">Core AI literacy and practical tool proficiency. The baseline certification for any professional working alongside AI systems.</p>
+          <p class="cert-tracks">Track 2 · Enterprise AI bootcamp</p>
+        </div>
+        <div class="cert">
+          <span class="cert-level">Advanced</span>
+          <p class="cert-title">AI architect</p>
+          <p class="cert-desc">System design, model deployment, and production AI operations. For engineers and technical leads responsible for AI infrastructure and platforms.</p>
+          <p class="cert-tracks">Track 1 · Track 3 · Joint capstone</p>
+        </div>
+        <div class="cert">
+          <span class="cert-level">Specialist</span>
+          <p class="cert-title">AI specialist</p>
+          <p class="cert-desc">Deep vertical expertise combining AI methodology with domain knowledge. For practitioners who are the AI authority in their industry.</p>
+          <p class="cert-tracks">Track 4 · Vertical practitioner</p>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;">
+        <p class="sl2">Enrollment formats</p>
+        <h2 class="sh2" style="margin-bottom:4px;">Three ways to train</h2>
+        <div class="fmt-grid" style="margin-top:16px;">
+          <div class="fmt">
+            <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></svg></div>
+            <p class="fmt-title">Cohort programs</p>
+            <p class="fmt-desc">Instructor-led cohorts of 12–20 students, delivered on-site in Evansville. Scheduled quarterly. Includes GPU lab access and hands-on projects.</p>
+          </div>
+          <div class="fmt">
+            <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 19l18 0"/><path d="M5 6m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z"/></svg></div>
+            <p class="fmt-title">Self-paced online</p>
+            <p class="fmt-desc">Module-based online delivery for Track 2 and certification prep. Learn at your own pace with access to the learning management system and community forums.</p>
+          </div>
+          <div class="fmt">
+            <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M9 8l1 0"/><path d="M9 12l1 0"/><path d="M9 16l1 0"/><path d="M14 8l1 0"/><path d="M14 12l1 0"/><path d="M14 16l1 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/></svg></div>
+            <p class="fmt-title">Enterprise on-site</p>
+            <p class="fmt-desc">We bring the Academy to your organization. Customized workshops for company teams — delivered at your facility or ours. Minimum 8 participants.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="inner">
+      <p class="sl2">Who enrolls</p>
+      <h2 class="sh2" style="margin-bottom:6px;">Practitioners, teams, and builders</h2>
+      <p class="ssub">The Academy serves three distinct audiences — each with a different goal and a different path through the curriculum.</p>
+      <div class="who-grid">
+        <div class="who">
+          <div class="who-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4"/><path d="M15 19l2 2l4 -4"/></svg></div>
+          <p class="who-title">Individual practitioners</p>
+          <p class="who-desc">Data scientists, engineers, IT professionals, and operations managers seeking AI certification to advance their careers or take on new responsibilities at their current organization.</p>
+          <a href="contact.html?interest=academy" class="who-link">Apply for a cohort ↗</a>
+        </div>
+        <div class="who">
+          <div class="who-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M14 3v8"/><path d="M3 16l4 -4l4 4l5 -5l5 5"/><path d="M8 21v-5"/><path d="M14 21v-5"/></svg></div>
+          <p class="who-title">Enterprise teams</p>
+          <p class="who-desc">Companies investing in their workforce — sending staff through Track 2 for baseline AI literacy, or through deeper tracks to build in-house AI capability. Often paired with a Level 2 or Level 3 engagement.</p>
+          <a href="contact.html?interest=enterprise" class="who-link">Enterprise training inquiry ↗</a>
+        </div>
+        <div class="who">
+          <div class="who-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg></div>
+          <p class="who-title">Community builders</p>
+          <p class="who-desc">Civic leaders, economic development professionals, and entrepreneurs interested in bringing the Merlyn model to their own region through Track 5 — Node development.</p>
+          <a href="contact.html?interest=node" class="who-link">Node development inquiry ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acta">
+    <div class="inner">
+      <h2>Ready to start training?</h2>
+      <p>Applications are open for the next cohort. Enterprise and node development inquiries welcome any time.</p>
+      <div class="acta-ctas">
+        <a href="contact.html?interest=academy" class="bw">Apply for a cohort ↗</a>
+        <a href="contact.html?interest=enterprise" class="bo">Enterprise training inquiry ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sft">
+    <div class="inner">
+      <div class="sfl">merlyn ai labs</div>
+      <ul class="sfls">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

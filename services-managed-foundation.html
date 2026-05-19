@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managed foundation — Merlyn AI Labs</title>
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;}
+    .sn{border-bottom:0.5px solid var(--b1);}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
+    .snl{display:flex;gap:20px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .bc{border-bottom:0.5px solid var(--b1);}
+    .bc .inner{padding-top:10px;padding-bottom:10px;font-size:12px;color:var(--t3);}
+    .bc a{color:var(--t3);text-decoration:none;}
+    .bc a:hover{color:var(--t2);}
+    .hero1{background:#E1F5EE;}
+    .hero1 .inner{padding-top:40px;padding-bottom:44px;}
+    .tp{font-size:11px;font-weight:500;color:#085041;background:#9FE1CB;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:14px;}
+    .hero1 h1{font-size:32px;font-weight:500;color:#085041;line-height:1.2;margin-bottom:14px;letter-spacing:-0.4px;}
+    .hero1 p{font-size:15px;color:#0F6E56;line-height:1.65;margin-bottom:24px;max-width:520px;}
+    .bdark{padding:11px 22px;background:#085041;color:#fff;border:none;border-radius:var(--r1);font-size:13px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bdark:hover{background:#0F6E56;}
+    .bout{padding:11px 22px;background:transparent;color:#085041;border:0.5px solid #0F6E56;border-radius:var(--r1);font-size:13px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bout:hover{background:rgba(15,110,86,0.08);}
+    .sec{padding:40px 0;}
+    .secbg{padding:40px 0;background:var(--bg2);}
+    .sl2{font-size:11px;font-weight:500;color:var(--t3);margin-bottom:6px;}
+    .sh2{font-size:20px;font-weight:500;color:var(--t1);margin-bottom:18px;}
+    .sg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .sc{background:var(--bg2);border-radius:var(--r2);padding:18px;}
+    .si{font-size:22px;color:#0F6E56;margin-bottom:8px;}
+    .st{font-size:14px;font-weight:500;color:var(--t1);margin-bottom:4px;}
+    .sd{font-size:13px;color:var(--t2);line-height:1.5;}
+    .wg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+    .wc{border:0.5px solid var(--b1);border-radius:var(--r2);padding:16px 14px;}
+    .wt{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:8px;}
+    .wi{list-style:none;}
+    .wi li{font-size:12px;color:var(--t2);padding:2px 0;display:flex;align-items:center;gap:6px;}
+    .wi li::before{content:'';width:4px;height:4px;border-radius:50%;background:#1D9E75;flex-shrink:0;}
+    .stps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;}
+    .stp{background:var(--bg1);border-radius:var(--r2);padding:18px;border:0.5px solid var(--b1);}
+    .stn{width:26px;height:26px;border-radius:50%;background:#E1F5EE;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:#0F6E56;margin-bottom:10px;}
+    .stt{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:4px;}
+    .std{font-size:12px;color:var(--t2);line-height:1.5;}
+    .pcta{padding:48px 0;background:#0F6E56;text-align:center;}
+    .pcta h2{font-size:22px;font-weight:500;color:#fff;margin-bottom:8px;}
+    .pcta p{font-size:14px;color:#9FE1CB;margin-bottom:22px;}
+    .bw{padding:12px 28px;background:#fff;color:#0F6E56;border:none;border-radius:var(--r1);font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bw:hover{background:#E1F5EE;}
+    .sft{border-top:0.5px solid var(--b1);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-size:15px;font-weight:500;color:#0F6E56;}
+    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .sn{position:relative;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;list-style:none;margin:0;padding:0;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
+      .sncta{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <ul class="snl">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merlyn-model.html">The name</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="bc"><div class="inner"><a href="index.html#services">Services</a> · Managed foundation</div></div>
+
+  <section class="hero1">
+    <div class="inner">
+      <span class="tp">Level 1 · Managed foundation</span>
+      <h1>Technology that<br>just works</h1>
+      <p>We manage your IT so you can manage your business. From help desk to security to AI training for your whole team — we become your technology department.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="contact.html?interest=l1" class="bdark">Get a quote ↗</a>
+        <a href="#how" class="bout">How it works</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="inner">
+      <p class="sl2">What's included</p>
+      <h2 class="sh2">Everything your business needs to run</h2>
+      <div class="sg">
+        <div class="sc"><div class="si"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 14v-3a8 8 0 1 1 16 0v3"/><path d="M18 19c0 1.657 -2.686 3 -6 3s-6 -1.343 -6 -3"/><path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z"/><path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z"/></svg></div><p class="st">Help desk support</p><p class="sd">Phone, email, and remote support when something breaks. Real people, fast response.</p></div>
+        <div class="sc"><div class="si"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -3.135 8.833"/><path d="M9 12l2 2l4 -4"/></svg></div><p class="st">Security + compliance</p><p class="sd">Threat monitoring, email filtering, and HIPAA / SOC compliance support.</p></div>
+        <div class="sc"><div class="si"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 19l18 0"/><path d="M5 6m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z"/></svg></div><p class="st">Device management</p><p class="sd">Patches, updates, and monitoring for every device on your network — automatically.</p></div>
+        <div class="sc"><div class="si"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878"/></svg></div><p class="st">Cloud + backup</p><p class="sd">Hosted infrastructure, automated backups, and disaster recovery that actually works.</p></div>
+        <div class="sc"><div class="si"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8"/><path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8"/><path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5"/><path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0"/><path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5"/><path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10"/></svg></div><p class="st">AI literacy training</p><p class="sd">Practical AI skills for your team — tools they'll actually use, taught clearly.</p></div>
+        <div class="sc"><div class="si"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12h4l3 -9l4 18l3 -9h4"/></svg></div><p class="st">Network monitoring</p><p class="sd">24/7 monitoring with proactive alerts before problems become outages.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="inner">
+      <p class="sl2">Who this is for</p>
+      <h2 class="sh2" style="margin-bottom:14px;">Businesses that want IT off their plate</h2>
+      <div class="wg">
+        <div class="wc"><p class="wt">Industries we serve</p><ul class="wi"><li>Accounting firms</li><li>Medical practices</li><li>Body shops</li><li>Car washes</li><li>Service businesses</li></ul></div>
+        <div class="wc"><p class="wt">Common challenges</p><ul class="wi"><li>IT breaks at bad times</li><li>No in-house IT staff</li><li>Compliance pressure</li><li>Staff not using AI tools</li></ul></div>
+        <div class="wc"><p class="wt">What changes</p><ul class="wi"><li>Predictable monthly cost</li><li>Fewer IT emergencies</li><li>Compliance maintained</li><li>Team using AI effectively</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secbg" id="how">
+    <div class="inner">
+      <p class="sl2">How it works</p>
+      <h2 class="sh2" style="margin-bottom:4px;">Simple from day one</h2>
+      <div class="stps">
+        <div class="stp"><div class="stn">1</div><p class="stt">We assess</p><p class="std">A free audit of your current IT — what's working, what's at risk, what's missing.</p></div>
+        <div class="stp"><div class="stn">2</div><p class="stt">We take over</p><p class="std">Smooth transition to managed services. Your team keeps working. We handle the rest.</p></div>
+        <div class="stp"><div class="stn">3</div><p class="stt">Monthly, no surprises</p><p class="std">Flat monthly fee. Regular reports. Scale up or down as your business changes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pcta">
+    <div class="inner">
+      <h2>Ready to hand off your IT?</h2>
+      <p>Start with a free assessment — no commitment required.</p>
+      <a href="contact.html?interest=l1" class="bw">Get a free quote ↗</a>
+    </div>
+  </section>
+
+  <footer class="sft">
+    <div class="inner">
+      <div class="sfl">merlyn ai labs</div>
+      <ul class="sfls">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

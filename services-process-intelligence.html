@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Process intelligence — Merlyn AI Labs</title>
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;}
+    .sn{border-bottom:0.5px solid var(--b1);}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
+    .snl{display:flex;gap:20px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .bc{border-bottom:0.5px solid var(--b1);}
+    .bc .inner{padding-top:10px;padding-bottom:10px;font-size:12px;color:var(--t3);}
+    .bc a{color:var(--t3);text-decoration:none;}
+    .bc a:hover{color:var(--t2);}
+    .hero2{border-bottom:0.5px solid var(--b1);}
+    .hero2 .inner{padding-top:44px;padding-bottom:44px;}
+    .tp{font-size:11px;font-weight:500;color:#085041;background:#5DCAA5;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:14px;}
+    .hero2 h1{font-size:32px;font-weight:500;color:var(--t1);line-height:1.2;margin-bottom:14px;letter-spacing:-0.4px;}
+    .hero2 h1 em{font-style:normal;color:#0F6E56;}
+    .hero2 p{font-size:15px;color:var(--t2);line-height:1.65;margin-bottom:24px;max-width:520px;}
+    .bpri{padding:11px 22px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);font-size:13px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bpri:hover{background:#085041;}
+    .bghost{padding:11px 22px;background:transparent;color:var(--t1);border:0.5px solid var(--b2);border-radius:var(--r1);font-size:13px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bghost:hover{background:var(--bg2);}
+    .sec{padding:40px 0;}
+    .secbg{padding:40px 0;background:var(--bg2);}
+    .sl2{font-size:11px;font-weight:500;color:var(--t3);margin-bottom:6px;}
+    .sh2{font-size:20px;font-weight:500;color:var(--t1);margin-bottom:18px;}
+    .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:0.5px solid var(--b1);border-radius:var(--r2);overflow:hidden;}
+    .ph{padding:22px 18px;}
+    .ph:not(:last-child){border-right:0.5px solid var(--b1);}
+    .phb{font-size:11px;font-weight:500;padding:3px 8px;border-radius:100px;display:inline-block;margin-bottom:12px;}
+    .phb1,.phb2{background:#E1F5EE;color:#085041;}
+    .phb3{background:#0F6E56;color:#fff;}
+    .ph3{background:#085041;}
+    .pht{font-size:14px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .ph3 .pht{color:#fff;}
+    .phd{font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:12px;}
+    .ph3 .phd{color:#9FE1CB;}
+    .phi{list-style:none;}
+    .phi li{font-size:12px;color:var(--t2);padding:3px 0;display:flex;align-items:center;gap:6px;}
+    .phi li::before{content:'';width:4px;height:4px;border-radius:50%;background:#1D9E75;flex-shrink:0;}
+    .ph3 .phi li{color:#9FE1CB;}
+    .ph3 .phi li::before{background:#5DCAA5;}
+    .plat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+    .pc{border:0.5px solid var(--b1);border-radius:var(--r2);padding:18px;}
+    .pt{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+    .pi{font-size:18px;color:#0F6E56;}
+    .pd{font-size:12px;color:var(--t2);line-height:1.5;}
+    .tl{margin-top:18px;border-left:2px solid #E1F5EE;padding-left:22px;}
+    .tli{margin-bottom:18px;position:relative;}
+    .tli::before{content:'';width:10px;height:10px;border-radius:50%;background:#1D9E75;position:absolute;left:-27px;top:4px;}
+    .tlt{font-size:12px;color:#0F6E56;margin-bottom:3px;font-weight:500;}
+    .tlh{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:3px;}
+    .tld{font-size:12px;color:var(--t2);line-height:1.5;}
+    .wg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
+    .wc{border:0.5px solid var(--b1);border-radius:var(--r2);padding:16px 14px;}
+    .wt{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:8px;}
+    .wi{list-style:none;}
+    .wi li{font-size:12px;color:var(--t2);padding:2px 0;display:flex;align-items:center;gap:6px;}
+    .wi li::before{content:'';width:4px;height:4px;border-radius:50%;background:#1D9E75;flex-shrink:0;}
+    .pcta{padding:48px 0;background:#0F6E56;text-align:center;}
+    .pcta h2{font-size:22px;font-weight:500;color:#fff;margin-bottom:8px;}
+    .pcta p{font-size:14px;color:#9FE1CB;margin-bottom:22px;}
+    .bw{padding:12px 28px;background:#fff;color:#0F6E56;border:none;border-radius:var(--r1);font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bw:hover{background:#E1F5EE;}
+    .sft{border-top:0.5px solid var(--b1);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-size:15px;font-weight:500;color:#0F6E56;}
+    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .sn{position:relative;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;list-style:none;margin:0;padding:0;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
+      .sncta{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <ul class="snl">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merlyn-model.html">The name</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="bc"><div class="inner"><a href="index.html#services">Services</a> · Process intelligence</div></div>
+
+  <section class="hero2">
+    <div class="inner">
+      <span class="tp">Level 2 · Process intelligence</span>
+      <h1>AI built into<br><em>how you work</em></h1>
+      <p>We map your business processes, identify where AI creates real value, build the models and agents that make it happen — then host them so they keep running month after month.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="contact.html?interest=l2" class="bpri">Book a process assessment ↗</a>
+        <a href="#platform" class="bghost">See the platform</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="inner">
+      <p class="sl2">How it works</p>
+      <h2 class="sh2">Three phases. One ongoing relationship.</h2>
+      <div class="phases">
+        <div class="ph"><span class="phb phb1">Discover</span><p class="pht">We map your processes</p><p class="phd">Understand how your business works and where AI creates the most value.</p><ul class="phi"><li>Business process mapping</li><li>AI opportunity analysis</li><li>ROI modeling</li><li>Data source inventory</li></ul></div>
+        <div class="ph"><span class="phb phb2">Build</span><p class="pht">We build your models</p><p class="phd">Custom AI models and agents built for your specific processes and systems.</p><ul class="phi"><li>Custom model development</li><li>Agentic AI workflows</li><li>System integrations</li><li>Production deployment</li></ul></div>
+        <div class="ph ph3"><span class="phb phb3">Subscribe ↻</span><p class="pht">We keep it running</p><p class="phd">Your agents run on our platform. We monitor, optimize, and evolve them.</p><ul class="phi"><li>Agent hosting + execution</li><li>Performance monitoring</li><li>Monthly optimization</li><li>API integration management</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secbg" id="platform">
+    <div class="inner">
+      <p class="sl2">The platform</p>
+      <h2 class="sh2">Your AI agents — always on</h2>
+      <div class="plat">
+        <div class="pc"><p class="pt"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 5m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z"/><path d="M9 9h6v6h-6z"/><path d="M3 10h2"/><path d="M3 14h2"/><path d="M10 3v2"/><path d="M14 3v2"/><path d="M21 10h-2"/><path d="M21 14h-2"/><path d="M10 21v-2"/><path d="M14 21v-2"/></svg>Agent execution environment</p><p class="pd">Your custom agents run on dedicated infrastructure with guaranteed availability and performance.</p></div>
+        <div class="pc"><p class="pt"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 12l5 5l-1.5 1.5a3.536 3.536 0 1 1 -5 -5l1.5 -1.5z"/><path d="M17 12l-5 -5l1.5 -1.5a3.536 3.536 0 1 1 5 5l-1.5 1.5z"/><path d="M3 21l4 -4"/><path d="M15 8l-4 4"/><path d="M9 15l-4 4"/></svg>API integration hub</p><p class="pd">One platform manages all your vendor API connections — CRMs, ERPs, industry tools.</p></div>
+        <div class="pc"><p class="pt"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 19l4 0"/><path d="M20 19l-4 0"/><path d="M20 4v11"/><path d="M4 4v11"/><path d="M4 15l4 -6l4 2l4 -5l4 9"/></svg>Process performance monitoring</p><p class="pd">See how your AI-assisted processes are performing, month over month.</p></div>
+        <div class="pc"><p class="pt"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"/></svg>Continuous improvement</p><p class="pd">Monthly review and optimization cycles. Your models get better as your business evolves.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="inner">
+      <p class="sl2">Typical engagement</p>
+      <h2 class="sh2" style="margin-bottom:4px;">What to expect</h2>
+      <div class="tl">
+        <div class="tli"><p class="tlt">Weeks 1–4</p><p class="tlh">Discovery and process mapping</p><p class="tld">We learn your business, document your processes, and identify the highest-value AI opportunities.</p></div>
+        <div class="tli"><p class="tlt">Weeks 5–12</p><p class="tlh">Model development and integration</p><p class="tld">We build your first AI models and agents, integrate them with your systems, and validate in a staging environment.</p></div>
+        <div class="tli"><p class="tlt">Week 13+</p><p class="tlh">Production deployment and subscription begins</p><p class="tld">Your agents go live. Monthly subscription starts. We monitor, report, and optimize on an ongoing basis.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="inner">
+      <p class="sl2">Who this is for</p>
+      <h2 class="sh2" style="margin-bottom:14px;">Organizations ready to go beyond basic IT</h2>
+      <div class="wg">
+        <div class="wc"><p class="wt">Good fit</p><ul class="wi"><li>Mid-size businesses</li><li>Process-heavy operations</li><li>Companies with unused data</li><li>Teams doing manual AI-ready work</li></ul></div>
+        <div class="wc"><p class="wt">Common triggers</p><ul class="wi"><li>Competitive pressure</li><li>Staff capacity limits</li><li>Inconsistent process execution</li><li>Growing data, no insights</li></ul></div>
+        <div class="wc"><p class="wt">Outcomes</p><ul class="wi"><li>Recurring AI-driven efficiency</li><li>Measurable process improvement</li><li>Predictable monthly investment</li><li>Foundation for Level 3</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pcta">
+    <div class="inner">
+      <h2>Ready to build your first AI model?</h2>
+      <p>A process assessment shows you exactly where to start — and what it's worth.</p>
+      <a href="contact.html?interest=l2" class="bw">Book a process assessment ↗</a>
+    </div>
+  </section>
+
+  <footer class="sft">
+    <div class="inner">
+      <div class="sfl">merlyn ai labs</div>
+      <ul class="sfls">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

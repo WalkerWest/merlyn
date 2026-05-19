@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategic intelligence — Merlyn AI Labs</title>
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;}
+    .sn{border-bottom:0.5px solid var(--b1);}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
+    .snl{display:flex;gap:20px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .bc{border-bottom:0.5px solid var(--b1);}
+    .bc .inner{padding-top:10px;padding-bottom:10px;font-size:12px;color:var(--t3);}
+    .bc a{color:var(--t3);text-decoration:none;}
+    .bc a:hover{color:var(--t2);}
+    .hero3{background:#085041;}
+    .hero3 .inner{padding-top:52px;padding-bottom:48px;}
+    .tp{font-size:11px;font-weight:500;color:#633806;background:#FAC775;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:16px;}
+    .hero3 h1{font-size:34px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:16px;letter-spacing:-0.5px;}
+    .hero3 p{font-size:15px;color:#9FE1CB;line-height:1.65;margin-bottom:28px;max-width:520px;}
+    .bgold{padding:12px 22px;background:#FAC775;color:#412402;border:none;border-radius:var(--r1);font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bgold:hover{background:#EF9F27;}
+    .bghost{padding:12px 22px;background:transparent;color:#9FE1CB;border:0.5px solid #1D9E75;border-radius:var(--r1);font-size:13px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bghost:hover{background:rgba(29,158,117,0.15);}
+    .stats{background:#085041;}
+    .stats .inner{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#0F6E56;}
+    .stat{background:#085041;padding:22px 18px;text-align:center;}
+    .snum{font-size:24px;font-weight:500;color:#FAC775;margin-bottom:4px;}
+    .slbl{font-size:12px;color:#9FE1CB;}
+    .sec{padding:40px 0;}
+    .secbg{padding:40px 0;background:var(--bg2);}
+    .sl2{font-size:11px;font-weight:500;color:var(--t3);margin-bottom:6px;}
+    .sh2{font-size:20px;font-weight:500;color:var(--t1);margin-bottom:18px;}
+    .tg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .tc{border:0.5px solid var(--b1);border-radius:var(--r2);padding:20px;border-left:3px solid #0F6E56;border-radius:0 var(--r2) var(--r2) 0;}
+    .ti2{font-size:22px;color:#0F6E56;margin-bottom:8px;}
+    .tt{font-size:14px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .td{font-size:13px;color:var(--t2);line-height:1.5;}
+    .jrny{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px;}
+    .js{padding:18px 14px;background:var(--bg1);border-radius:var(--r2);border:0.5px solid var(--b1);}
+    .jn{width:24px;height:24px;border-radius:50%;background:#E1F5EE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#0F6E56;margin-bottom:10px;}
+    .jt2{font-size:12px;color:#0F6E56;margin-bottom:3px;font-weight:500;}
+    .jh{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:4px;}
+    .jd{font-size:11px;color:var(--t2);line-height:1.5;}
+    .sess{background:#085041;border-radius:var(--r2);padding:26px;margin-top:18px;}
+    .sesh{font-size:16px;font-weight:500;color:#fff;margin-bottom:8px;}
+    .sesd{font-size:13px;color:#9FE1CB;line-height:1.6;margin-bottom:18px;}
+    .sesig{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .sesi{background:#0F6E56;border-radius:var(--r1);padding:12px 14px;}
+    .sesit{font-size:12px;font-weight:500;color:#fff;margin-bottom:3px;}
+    .sesid{font-size:11px;color:#9FE1CB;line-height:1.4;}
+    .wg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
+    .wc{border:0.5px solid var(--b1);border-radius:var(--r2);padding:16px 14px;}
+    .wt{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:8px;}
+    .wi{list-style:none;}
+    .wi li{font-size:12px;color:var(--t2);padding:2px 0;display:flex;align-items:center;gap:6px;}
+    .wi li::before{content:'';width:4px;height:4px;border-radius:50%;background:#1D9E75;flex-shrink:0;}
+    .pcta{padding:48px 0;background:#FAC775;text-align:center;}
+    .pcta h2{font-size:22px;font-weight:500;color:#412402;margin-bottom:8px;}
+    .pcta p{font-size:14px;color:#633806;margin-bottom:22px;}
+    .bdk{padding:12px 28px;background:#085041;color:#fff;border:none;border-radius:var(--r1);font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bdk:hover{background:#0F6E56;}
+    .sft{border-top:0.5px solid var(--b1);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-size:15px;font-weight:500;color:#0F6E56;}
+    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .sn{position:relative;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;list-style:none;margin:0;padding:0;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
+      .sncta{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <ul class="snl">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merlyn-model.html">The name</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="bc"><div class="inner"><a href="index.html#services">Services</a> · Strategic intelligence</div></div>
+
+  <section class="hero3">
+    <div class="inner">
+      <span class="tp">Level 3 · Strategic intelligence</span>
+      <h1>A digital twin<br>in your boardroom</h1>
+      <p>A financial and operational model of your business that your leadership team can run scenarios on — built by us, hosted by us, and present at every major strategic decision.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="contact.html?interest=l3" class="bgold">Discuss your digital twin ↗</a>
+        <a href="#journey" class="bghost">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="inner">
+      <div class="stat"><p class="snum">6–12</p><p class="slbl">months to first twin</p></div>
+      <div class="stat"><p class="snum">Quarterly</p><p class="slbl">executive strategy sessions</p></div>
+      <div class="stat"><p class="snum">Ongoing</p><p class="slbl">hosted platform + refinement</p></div>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="inner">
+      <p class="sl2">What the twin does</p>
+      <h2 class="sh2">Your business — modeled, simulated, hosted</h2>
+      <div class="tg">
+        <div class="tc"><div class="ti2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 4m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M19 7m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M19 17m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M10 20m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M4 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M11 5l-6 6"/><path d="M18 8l-4 3"/><path d="M18 16l-4 -2"/><path d="M11 19l-6 -6"/></svg></div><p class="tt">Operational model</p><p class="td">A living digital representation of your key processes, assets, and decision points — instrumented from your real operational data.</p></div>
+        <div class="tc"><div class="ti2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 4l0 16"/><path d="M5 7l3 -3l3 3"/><path d="M11 17l3 3l3 -3"/><path d="M16 4l0 16"/></svg></div><p class="tt">Scenario simulation</p><p class="td">Run "what if" scenarios before you commit capital — market shifts, pricing changes, capacity decisions, new market entry.</p></div>
+        <div class="tc"><div class="ti2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 13m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v5a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M9 9m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v9a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M15 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v13a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/></svg></div><p class="tt">Executive dashboard</p><p class="td">A leadership-facing view of your twin's outputs — strategic KPIs, scenario results, and forward-looking indicators.</p></div>
+        <div class="tc"><div class="ti2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M16 3l0 4"/><path d="M8 3l0 4"/><path d="M4 11l16 0"/><path d="M14 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/></svg></div><p class="tt">Strategy facilitation</p><p class="td">Quarterly sessions where your leadership team works with the twin directly, guided by our simulation scientists.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secbg" id="journey">
+    <div class="inner">
+      <p class="sl2">The engagement journey</p>
+      <h2 class="sh2" style="margin-bottom:4px;">Four phases from scope to boardroom</h2>
+      <div class="jrny">
+        <div class="js"><div class="jn">1</div><p class="jt2">Weeks 1–4</p><p class="jh">Scope</p><p class="jd">Define the twin's boundaries, data sources, and key decision points. Identify the scenarios that matter most.</p></div>
+        <div class="js"><div class="jn">2</div><p class="jt2">Months 2–6</p><p class="jh">Build</p><p class="jd">Instrument data pipelines, construct the simulation model, validate against historical outcomes.</p></div>
+        <div class="js"><div class="jn">3</div><p class="jt2">Month 7+</p><p class="jh">Host</p><p class="jd">Twin goes live on our infrastructure. Continuous data feeds, model refinement, and performance monitoring.</p></div>
+        <div class="js"><div class="jn">4</div><p class="jt2">Ongoing</p><p class="jh">Facilitate</p><p class="jd">Quarterly strategy sessions. The twin runs your scenarios. We facilitate the leadership conversation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="inner">
+      <p class="sl2">Executive sessions</p>
+      <h2 class="sh2" style="margin-bottom:4px;">What a strategy session looks like</h2>
+      <div class="sess">
+        <p class="sesh">A typical quarterly session</p>
+        <p class="sesd">Your leadership team gathers around the twin. We bring three pre-modeled scenarios based on current business conditions. The team runs variations, asks questions, and the twin responds with simulated outcomes in real time.</p>
+        <div class="sesig">
+          <div class="sesi"><p class="sesit">Capital allocation modeling</p><p class="sesid">Where does the next dollar of investment produce the most return?</p></div>
+          <div class="sesi"><p class="sesit">Market scenario planning</p><p class="sesid">What happens if demand drops 20%? If a key supplier fails?</p></div>
+          <div class="sesi"><p class="sesit">Operational optimization</p><p class="sesid">Which process changes produce the largest EBITDA improvement?</p></div>
+          <div class="sesi"><p class="sesit">Strategic initiative modeling</p><p class="sesid">Model a new product line, acquisition, or market entry before committing.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0;">
+    <div class="inner">
+      <p class="sl2">Who this is for</p>
+      <h2 class="sh2" style="margin-bottom:14px;">Leadership teams making decisions that matter</h2>
+      <div class="wg">
+        <div class="wc"><p class="wt">Industries</p><ul class="wi"><li>Manufacturing</li><li>Construction</li><li>Logistics</li><li>Mining + extraction</li><li>Transportation</li></ul></div>
+        <div class="wc"><p class="wt">Decision context</p><ul class="wi"><li>Significant capital allocation</li><li>Strategic inflection points</li><li>Competitive pressure</li><li>Operational complexity at scale</li></ul></div>
+        <div class="wc"><p class="wt">What changes</p><ul class="wi"><li>Decisions backed by simulation</li><li>Scenarios explored before commitment</li><li>Leadership aligned on data</li><li>Strategic planning transformed</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pcta">
+    <div class="inner">
+      <h2>Ready for strategic-level AI?</h2>
+      <p>Every digital twin engagement starts with a scoping conversation — no commitment, no pressure.</p>
+      <a href="contact.html?interest=l3" class="bdk">Discuss your digital twin ↗</a>
+    </div>
+  </section>
+
+  <footer class="sft">
+    <div class="inner">
+      <div class="sfl">merlyn ai labs</div>
+      <ul class="sfls">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
