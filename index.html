@@ -19,7 +19,10 @@
     .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
 
     .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
-    .hero{padding:64px 0 52px;}
+    .hero{padding:52px 0 48px;}
+    .hero-split{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:48px;align-items:center;}
+    .hero-visual{display:flex;align-items:center;justify-content:center;}
+    .hero-visual svg{width:100%;height:auto;}
     .he{font-size:12px;font-weight:500;color:#0F6E56;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
     .hed{width:6px;height:6px;border-radius:50%;background:#1D9E75;display:inline-block;}
     .hero h1{font-size:44px;font-weight:500;color:var(--t1);line-height:1.15;margin-bottom:20px;letter-spacing:-0.8px;}
@@ -80,6 +83,8 @@
       .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
       .sn .inner{justify-content:flex-start;}
       .svc-grid{grid-template-columns:1fr;}
+      .hero-split{grid-template-columns:1fr;}
+      .hero-visual{margin-top:28px;}
 
     }
   </style>
@@ -103,12 +108,125 @@
 
   <section class="hero">
     <div class="inner">
-      <p class="he"><span class="hed"></span>Evansville, Indiana</p>
-      <h1>Locally owned businesses<br><em>behave differently.</em></h1>
-      <p>They reinvest. They hire neighbors. They stay.<br>Merlyn AI Labs gives them the tools to keep doing exactly that.</p>
-      <div class="ctas">
-        <a href="services.html" class="bp">See how we help</a>
-        <a href="contact.html?interest=assessment" class="bg">Free assessment ↗</a>
+      <div class="hero-split">
+        <div>
+          <p class="he"><span class="hed"></span>Evansville, Indiana</p>
+          <h1>Locally owned businesses<br><em>behave differently.</em></h1>
+          <p>They reinvest. They hire neighbors. They stay.<br>Merlyn AI Labs gives them the tools to keep doing exactly that.</p>
+          <div class="ctas">
+            <a href="services.html" class="bp">See how we help</a>
+            <a href="contact.html?interest=assessment" class="bg">Free assessment ↗</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <svg viewBox="0 0 420 400" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Community AI center — Merlyn AI Labs connecting enterprises, schools, municipalities, and federation nodes">
+
+            <!-- Outer glow ring -->
+            <circle cx="210" cy="195" r="130" fill="none" stroke="#E1F5EE" stroke-width="1" opacity="0.6"/>
+            <circle cx="210" cy="195" r="96"  fill="none" stroke="#E1F5EE" stroke-width="0.5" opacity="0.4" stroke-dasharray="4 6"/>
+
+            <!-- Spoke connection lines — drawn first so nodes sit on top -->
+            <!-- Enterprise (top-right) -->
+            <line x1="210" y1="195" x2="318" y2="95"  stroke="#1D9E75" stroke-width="1.5" opacity="0.35"/>
+            <!-- Municipality (right) -->
+            <line x1="210" y1="195" x2="336" y2="195" stroke="#1D9E75" stroke-width="1.5" opacity="0.35"/>
+            <!-- Federation node (bottom-right) -->
+            <line x1="210" y1="195" x2="308" y2="308" stroke="#FAC775" stroke-width="1.5" opacity="0.45"/>
+            <!-- Trade / workforce (bottom-left) -->
+            <line x1="210" y1="195" x2="112" y2="308" stroke="#FAC775" stroke-width="1.5" opacity="0.45"/>
+            <!-- College (left) -->
+            <line x1="210" y1="195" x2="84"  y2="195" stroke="#1D9E75" stroke-width="1.5" opacity="0.35"/>
+            <!-- K-12 (top-left) -->
+            <line x1="210" y1="195" x2="102" y2="95"  stroke="#1D9E75" stroke-width="1.5" opacity="0.35"/>
+
+            <!-- Pulse dots along spokes -->
+            <circle cx="264" cy="145" r="3" fill="#1D9E75" opacity="0.5"/>
+            <circle cx="273" cy="195" r="3" fill="#1D9E75" opacity="0.5"/>
+            <circle cx="259" cy="252" r="3" fill="#FAC775" opacity="0.6"/>
+            <circle cx="161" cy="252" r="3" fill="#FAC775" opacity="0.6"/>
+            <circle cx="147" cy="195" r="3" fill="#1D9E75" opacity="0.5"/>
+            <circle cx="156" cy="145" r="3" fill="#1D9E75" opacity="0.5"/>
+
+            <!-- CENTER HUB — Merlyn AI Labs -->
+            <circle cx="210" cy="195" r="52" fill="#085041"/>
+            <circle cx="210" cy="195" r="58" fill="none" stroke="#1D9E75" stroke-width="1" opacity="0.4"/>
+            <!-- Building icon -->
+            <rect x="196" y="182" width="28" height="20" rx="2" fill="#0F6E56"/>
+            <polygon points="192,182 210,168 228,182" fill="#1D9E75"/>
+            <rect x="202" y="186" width="6" height="6" rx="1" fill="#9FE1CB" opacity="0.7"/>
+            <rect x="212" y="186" width="6" height="6" rx="1" fill="#9FE1CB" opacity="0.7"/>
+            <rect x="205" y="193" width="10" height="9" rx="1" fill="#E1F5EE" opacity="0.2"/>
+            <text x="210" y="218" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#9FE1CB">merlyn ai labs</text>
+
+            <!-- TOP-LEFT: K-12 Schools -->
+            <circle cx="102" cy="86" r="36" fill="#F5F4EF" stroke="#D3D1C7" stroke-width="0.8"/>
+            <!-- Graduation cap icon -->
+            <polygon points="102,68 86,76 102,84 118,76" fill="#6B6A65"/>
+            <rect x="115" y="76" width="2" height="10" rx="1" fill="#6B6A65"/>
+            <circle cx="116" cy="87" r="3" fill="#6B6A65"/>
+            <text x="102" y="100" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#2C2C2A">K–12</text>
+            <text x="102" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#6B6A65">Schools</text>
+
+            <!-- TOP-RIGHT: Enterprise -->
+            <circle cx="318" cy="86" r="36" fill="#F0FAF5" stroke="#9FE1CB" stroke-width="0.8"/>
+            <!-- Office building -->
+            <rect x="304" y="68" width="28" height="22" rx="2" fill="#085041"/>
+            <rect x="307" y="71" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+            <rect x="315" y="71" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+            <rect x="323" y="71" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+            <rect x="307" y="79" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+            <rect x="315" y="79" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+            <rect x="323" y="79" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+            <text x="318" y="100" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#085041">Enterprise</text>
+            <text x="318" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#0F6E56">Local business</text>
+
+            <!-- LEFT: College -->
+            <circle cx="75" cy="195" r="36" fill="#F5F4EF" stroke="#D3D1C7" stroke-width="0.8"/>
+            <!-- Book icon -->
+            <rect x="60" y="182" width="30" height="22" rx="2" fill="#888780"/>
+            <rect x="62" y="184" width="12" height="18" rx="1" fill="#F5F4EF"/>
+            <rect x="76" y="184" width="12" height="18" rx="1" fill="#E8E6DF"/>
+            <line x1="75" y1="184" x2="75" y2="202" stroke="#B4B2A9" stroke-width="1"/>
+            <text x="75" y="215" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#2C2C2A">Higher Ed</text>
+            <text x="75" y="227" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#6B6A65">Rize partner</text>
+
+            <!-- RIGHT: Municipality -->
+            <circle cx="345" cy="195" r="36" fill="#F0FAF5" stroke="#9FE1CB" stroke-width="0.8"/>
+            <!-- City hall columns -->
+            <rect x="330" y="182" width="30" height="18" rx="1" fill="#1D9E75"/>
+            <polygon points="330,182 345,172 360,182" fill="#085041"/>
+            <rect x="333" y="186" width="4" height="14" rx="1" fill="#E1F5EE" opacity="0.5"/>
+            <rect x="340" y="186" width="4" height="14" rx="1" fill="#E1F5EE" opacity="0.5"/>
+            <rect x="347" y="186" width="4" height="14" rx="1" fill="#E1F5EE" opacity="0.5"/>
+            <text x="345" y="210" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#085041">Municipality</text>
+            <text x="345" y="222" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#0F6E56">Fiber + data</text>
+
+            <!-- BOTTOM-LEFT: Workforce / Trades -->
+            <circle cx="112" cy="316" r="36" fill="#FEF9EE" stroke="#FAC775" stroke-width="0.8"/>
+            <!-- Wrench + circuit icon -->
+            <rect x="100" y="303" width="24" height="16" rx="3" fill="#854F0B"/>
+            <circle cx="104" cy="307" r="3" fill="#FAEEDA"/>
+            <circle cx="128" cy="307" r="3" fill="#FAEEDA"/>
+            <line x1="107" y1="307" x2="125" y2="307" stroke="#FAEEDA" stroke-width="1.5"/>
+            <line x1="112" y1="307" x2="112" y2="319" stroke="#FAEEDA" stroke-width="1.5"/>
+            <line x1="120" y1="307" x2="120" y2="319" stroke="#FAEEDA" stroke-width="1.5"/>
+            <text x="112" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#633806">Trades</text>
+            <text x="112" y="345" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#854F0B">Workforce dev</text>
+
+            <!-- BOTTOM-RIGHT: Federation Node -->
+            <circle cx="308" cy="316" r="36" fill="#FEF9EE" stroke="#FAC775" stroke-width="0.8"/>
+            <!-- Network nodes icon -->
+            <circle cx="308" cy="303" r="5" fill="#854F0B"/>
+            <circle cx="295" cy="318" r="4" fill="#FAC775"/>
+            <circle cx="321" cy="318" r="4" fill="#FAC775"/>
+            <line x1="308" y1="303" x2="295" y2="318" stroke="#854F0B" stroke-width="1.5"/>
+            <line x1="308" y1="303" x2="321" y2="318" stroke="#854F0B" stroke-width="1.5"/>
+            <line x1="295" y1="318" x2="321" y2="318" stroke="#FAC775" stroke-width="1" stroke-dasharray="3 2"/>
+            <text x="308" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#633806">Federation</text>
+            <text x="308" y="345" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#854F0B">Node operator</text>
+
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -128,21 +246,21 @@
       <div class="svc-grid">
 
         <a href="services.html#levels" class="svc-card">
-          <p class="svc-label">Level 1</p>
+          <p class="svc-label">Level 1 · Get IT off your plate</p>
           <p class="svc-title">Managed IT foundation</p>
           <p class="svc-desc">Networks, computers, security, help desk, and backup — centralized and shared so the cost stays as low as possible. The IT your business needs but doesn't need to think about.</p>
           <p class="svc-link">Managed foundation ↗</p>
         </a>
 
         <a href="services.html#levels" class="svc-card">
-          <p class="svc-label">Level 2</p>
+          <p class="svc-label">Level 2 · Make operations smarter</p>
           <p class="svc-title">Process intelligence</p>
           <p class="svc-desc">API-level integration of your existing tools, agentic AI, custom ML models, and operational science — scheduling optimization, predictive modeling, and simulation. Hosted if needed.</p>
           <p class="svc-link">Process intelligence ↗</p>
         </a>
 
         <a href="services.html#levels" class="svc-card">
-          <p class="svc-label">Level 3</p>
+          <p class="svc-label">Level 3 · Lead with better decisions</p>
           <p class="svc-title">Strategic intelligence</p>
           <p class="svc-desc">Digital twins — financial or operational — that let leadership simulate before they commit capital. Executive sessions at our facility. Platform hosted on-site.</p>
           <p class="svc-link">Strategic intelligence ↗</p>
