@@ -19,7 +19,7 @@
     .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
 
     .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
-    .hero{padding:52px 0 48px;}
+    .hero{padding:72px 0 52px;}
     .hero-split{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:48px;align-items:center;}
     .hero-visual{display:flex;align-items:center;justify-content:center;}
     .hero-visual svg{width:100%;height:auto;}
@@ -32,7 +32,14 @@
     .bp{padding:11px 22px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
     .bg{padding:11px 22px;background:transparent;color:var(--t1);border:0.5px solid var(--b2);border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
     .bg:hover{background:var(--bg2);}
-    .problem{padding:44px 0;border-bottom:0.5px solid var(--b1);}
+    .splash{min-height:calc(100vh - 56px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background-image:linear-gradient(rgba(8,80,65,0.78),rgba(5,50,40,0.88)),url('https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=1600&q=80&fit=crop&crop=center');background-color:#085041;background-size:cover;background-position:center;padding:40px 32px;position:relative;}
+    .splash h1{font-size:clamp(36px,6vw,72px);font-weight:500;color:#FFFFFF;line-height:1.15;letter-spacing:-1.5px;margin-bottom:20px;max-width:720px;}
+    .splash h1 em{font-style:normal;color:#9FE1CB;}
+    .splash p{font-size:clamp(16px,2vw,20px);color:#9FE1CB;line-height:1.65;max-width:520px;margin-bottom:0;}
+    .splash-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;}
+    .splash-scroll span{font-size:11px;font-weight:500;color:#9FE1CB;letter-spacing:0.08em;text-transform:uppercase;opacity:0.7;}
+    .splash-scroll svg{animation:bounce 2s infinite;}
+    @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
     .problem p{font-size:17px;color:var(--t2);line-height:1.75;max-width:680px;}
     .problem p+p{margin-top:14px;}
     .problem strong{color:var(--t1);}
@@ -69,10 +76,7 @@
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
     .hamburger.open span:nth-child(2){opacity:0;}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .problem{padding:44px 0;}
-    .problem p{font-size:17px;color:var(--t2);line-height:1.75;max-width:680px;}
-    .problem p+p{margin-top:14px;}
-    .problem strong{color:var(--t1);}
+
     @media(max-width:680px){
       .hamburger{display:flex;}
       .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
@@ -106,7 +110,16 @@
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="splash">
+    <h1>You built something<br>real here.<br><em>We're here to make sure<br>it stays yours.</em></h1>
+    <p>Merlyn AI Labs — community AI center, Evansville, Indiana.</p>
+    <a href="#story" class="splash-scroll" aria-label="Scroll down">
+      <span>scroll</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9FE1CB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+  </section>
+
+  <section class="hero" id="story" style="scroll-margin-top:72px;">
     <div class="inner">
       <div class="hero-split">
         <div>
