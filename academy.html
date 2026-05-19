@@ -35,6 +35,16 @@
     .bg:hover{background:var(--bg2);}
     .sec{padding:44px 0;}
     .secbg{padding:44px 0;background:var(--bg2);}
+    .aud{padding:44px 0;}
+    .aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:4px;}
+    .ac{background:var(--bg2);border:0.5px solid var(--b1);border-radius:var(--r2);padding:22px 18px;display:flex;flex-direction:column;}
+    .ac.ac-ft{border:1.5px solid #1D9E75;background:#F0FAF5;}
+    .ac-icon{width:38px;height:38px;background:#E1F5EE;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:#0F6E56;font-size:18px;}
+    .ac-title{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .ac-sub{font-size:12px;font-weight:500;color:#0F6E56;margin-bottom:8px;}
+    .ac-desc{font-size:13px;color:var(--t2);line-height:1.55;flex:1;margin-bottom:14px;}
+    .ac-cta{font-size:12px;color:#0F6E56;background:transparent;border:0.5px solid #1D9E75;border-radius:var(--r1);padding:7px 14px;text-decoration:none;display:inline-block;align-self:flex-start;}
+    .ac-cta:hover{background:#E1F5EE;}
     .sl2{font-size:11px;font-weight:500;color:var(--t3);margin-bottom:6px;}
     .sh2{font-size:22px;font-weight:500;color:var(--t1);margin-bottom:6px;}
     .ssub{font-size:15px;color:var(--t2);margin-bottom:28px;}
@@ -103,6 +113,8 @@
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
       .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
       .sn .inner{justify-content:flex-start;}
+      .track-grid{grid-template-columns:repeat(2,1fr);}
+      .diff-grid,.cert-grid,.fmt-grid,.who-grid,.aud-grid{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -112,8 +124,8 @@
     <div class="inner">
       <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
       <ul class="snl">
-        <li><a href="index.html#services">Services</a></li>
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="merlyn-model.html">The name</a></li>
@@ -127,12 +139,12 @@
     <div class="inner">
       <div class="hero-split">
         <div class="hero-text">
-          <p class="he"><span class="hed"></span>AI Academy</p>
-          <h1>Where AI practitioners<br><em>are made</em></h1>
-          <p>Hands-on AI certification across five curriculum tracks — built on real NVIDIA and AMD GPU hardware, industry-specific instruction, and delivered locally in Evansville, Indiana. Not cloud simulations. The real thing.</p>
+          <p class="he"><span class="hed"></span>AI Academy · 9700 Highway 57, Evansville</p>
+          <h1>AI education that reaches<br><em>every level of the community.</em></h1>
+          <p>From K–12 classrooms to college programs to trade apprenticeships to enterprise teams — Merlyn AI Labs builds the AI capability pipeline that keeps talent and opportunity local.</p>
           <div class="ctas">
             <a href="contact.html?interest=academy" class="bp">Apply for a cohort ↗</a>
-            <a href="contact.html?interest=enterprise" class="bg">Enterprise training inquiry ↗</a>
+            <a href="contact.html?interest=enterprise" class="bg">Enterprise training ↗</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -178,6 +190,57 @@
             <text x="500" y="262" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="13" fill="#E1F5EE">all tracks</text>
           </svg>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aud">
+    <div class="inner">
+      <p class="sl2">Who we teach</p>
+      <h2 class="sh2">Four audiences. One pipeline.</h2>
+      <p class="ssub">AI capability built locally — from the first computer science class to the executive team making the next capital decision.</p>
+      <div class="aud-grid">
+
+        <div class="ac">
+          <div class="ac-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 6 0 0 0 12 0v-5.4"/></svg>
+          </div>
+          <p class="ac-title">K–12 schools</p>
+          <p class="ac-sub">Municipal partnership</p>
+          <p class="ac-desc">Computer science curriculum at every grade level — project-based learning for juniors and seniors, and a vocational track covering fiber optics, TCP/IP, and network infrastructure for students headed directly into the workforce. We provide the curriculum, instructors, and GPU lab access at our facility. Districts get a program they couldn't otherwise afford.</p>
+          <a href="contact.html?interest=k12" class="ac-cta">Talk to us about your district ↗</a>
+        </div>
+
+        <div class="ac">
+          <div class="ac-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M9 8l1 0"/><path d="M9 12l1 0"/><path d="M9 16l1 0"/><path d="M14 8l1 0"/><path d="M14 12l1 0"/><path d="M14 16l1 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/></svg>
+          </div>
+          <p class="ac-title">Colleges + universities</p>
+          <p class="ac-sub">Rize Education partnership</p>
+          <p class="ac-desc">Small private colleges want to offer AI, data science, and cybersecurity programs — but can't fund the faculty or curriculum development alone. Through our partnership with Rize Education, whose shared course model lets institutions launch high-demand programs at a fraction of traditional cost, Merlyn provides the regional delivery layer: real GPU hardware, practitioner instruction, and local employer connections baked into the curriculum.</p>
+          <a href="contact.html?interest=highered" class="ac-cta">Talk to us about your institution ↗</a>
+        </div>
+
+        <div class="ac">
+          <div class="ac-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 3h4a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1z"/><path d="M15 7h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1"/><path d="M9 7h-1a2 2 0 0 0 -2 2v3a2 2 0 0 0 2 2h1"/><path d="M12 16v4"/><path d="M8 20h8"/></svg>
+          </div>
+          <p class="ac-title">Trade unions + apprenticeship programs</p>
+          <p class="ac-sub">Workforce development · roadmap</p>
+          <p class="ac-desc">Data center construction and operations is skilled trades work — fiber splicing, structured cabling, power systems, cooling infrastructure. Trade union members already have the physical foundation. Merlyn trains the next layer: data center buildout, fiber network operations, and the technical skills that turn experienced tradespeople into the builders of AI infrastructure. We're building this pipeline now and welcome union partners to join us early.</p>
+          <a href="contact.html?interest=union" class="ac-cta">Talk to us about a partnership ↗</a>
+        </div>
+
+        <div class="ac ac-ft">
+          <div class="ac-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M3 7l9 -4l9 4"/><path d="M4 21v-14"/><path d="M20 21v-14"/><path d="M8 21v-4a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v4"/><path d="M9 7v-1"/><path d="M15 7v-1"/><path d="M9 14h6"/></svg>
+          </div>
+          <p class="ac-title">Local enterprises</p>
+          <p class="ac-sub">Commercial + enterprise training</p>
+          <p class="ac-desc">Hands-on AI certification for your team — across five curriculum tracks built on real NVIDIA and AMD GPU hardware. From the literacy foundation every employee needs to deep vertical expertise in your industry. Cohorts run at our facility at 9700 Highway 57, with enterprise custom engagements available on-site at your location.</p>
+          <a href="contact.html?interest=enterprise" class="ac-cta">Inquire about enterprise training ↗</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -273,7 +336,7 @@
           <p class="track-desc">For community leaders and civic entrepreneurs building the next AI center of excellence in their region.</p>
           <ul class="track-items">
             <li>Community node launch playbook</li>
-            <li>Benefit LLC and cooperative structure</li>
+            <li>B Corp / Public Benefit Corporation structure</li>
             <li>Infrastructure planning and procurement</li>
             <li>Non-dilutive capital sources</li>
             <li>Federation membership and governance</li>
@@ -389,8 +452,8 @@
     <div class="inner">
       <div class="sfl">merlyn ai labs</div>
       <ul class="sfls">
-        <li><a href="index.html#services">Services</a></li>
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="community.html">Community</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
