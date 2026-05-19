@@ -16,6 +16,8 @@
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
     .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
+
     .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
     .hero{background:#2C2C2C;}
     .hero-split{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;align-items:center;}
@@ -126,7 +128,7 @@
       <ul class="snl">
         <li><a href="academy.html">Academy</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
+        <li><a href="community.html" class="nav-active">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="merlyn-model.html">The name</a></li>
       </ul>
