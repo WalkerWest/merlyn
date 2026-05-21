@@ -70,7 +70,7 @@
     /* Feature cards */
     .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
     .feat{border:0.5px solid var(--b1);border-radius:var(--r2);padding:24px 20px;}
-    .feat-icon{font-size:24px;margin-bottom:12px;}
+    .feat-icon{width:40px;height:40px;background:#E1F5EE;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:#0F6E56;font-size:20px;}
     .feat-title{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;}
     .feat-desc{font-size:13px;color:var(--t2);line-height:1.55;}
     /* Track ladder */
@@ -212,18 +212,6 @@
   <!-- PRICING -->
   <section class="price-band">
     <div class="inner">
-      <div style="display:flex;justify-content:center;margin-bottom:28px;">
-        <svg viewBox="0 0 72 72" width="72" height="72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TeamIQ logo">
-          <title>TeamIQ</title>
-          <rect width="72" height="72" rx="14" fill="#04342C"/>
-          <rect x="9" y="44" width="11" height="19" rx="2.5" fill="#1D9E75"/>
-          <rect x="24" y="36" width="11" height="27" rx="2.5" fill="#1D9E75"/>
-          <rect x="39" y="26" width="11" height="37" rx="2.5" fill="#9FE1CB"/>
-          <rect x="54" y="15" width="11" height="48" rx="2.5" fill="#FAC775"/>
-          <polyline points="55.5,12 59.5,5 63.5,12" fill="none" stroke="#FAC775" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="59.5" y1="5" x2="59.5" y2="15" stroke="#FAC775" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-      </div>
       <div class="price-grid">
         <div class="price-card">
           <div class="price-label">Individual</div>
@@ -312,32 +300,32 @@
       <h2 class="sh2">A complete learning environment.</h2>
       <div class="feat-grid">
         <div class="feat">
-          <div class="feat-icon">📚</div>
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/><path d="M3 6v13"/><path d="M12 6v13"/><path d="M21 6v13"/></svg></div>
           <div class="feat-title">Living curriculum library</div>
           <div class="feat-desc">Five tracks covering AI literacy, data fundamentals, process automation, ML, and agentic workflows. New modules added as Merlyn builds them — your subscription grows with the field.</div>
         </div>
         <div class="feat">
-          <div class="feat-icon">🎯</div>
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M15 15l3.35 3.35"/><path d="M18 12h3"/><path d="M12 18v3"/></svg></div>
           <div class="feat-title">Adaptive assessments</div>
           <div class="feat-desc">Short, practical assessments after each module. Not multiple choice busywork — scenarios drawn from real operations in manufacturing, logistics, healthcare, and finance.</div>
         </div>
         <div class="feat">
-          <div class="feat-icon">🏅</div>
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 15m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M12 12v-8"/><path d="M8.5 4h7l1 4h-9z"/></svg></div>
           <div class="feat-title">Verified digital badges</div>
           <div class="feat-desc">Completion badges backed by Merlyn's curriculum. Stackable toward Academy certifications. Shareable to LinkedIn and employer portals. Recognized by regional employers in the Merlyn network.</div>
         </div>
         <div class="feat">
-          <div class="feat-icon">🖥️</div>
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z"/><path d="M7 20h10"/><path d="M9 16v4"/><path d="M15 16v4"/></svg></div>
           <div class="feat-title">GPU lab access</div>
           <div class="feat-desc">Select modules include hands-on GPU lab sessions at 9700 Highway 57. Real NVIDIA and AMD hardware. Real inference workloads. Not a simulation — the actual stack the industry uses.</div>
         </div>
         <div class="feat">
-          <div class="feat-icon">👥</div>
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"/><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M17 10h2a2 2 0 0 1 2 2v1"/><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M3 13v-1a2 2 0 0 1 2 -2h2"/></svg></div>
           <div class="feat-title">Community forum</div>
           <div class="feat-desc">Peer learning across Merlyn's subscriber network. Ask questions, share projects, find collaborators. Moderated by Merlyn practitioners — not algorithms.</div>
         </div>
         <div class="feat">
-          <div class="feat-icon">🔀</div>
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17h5l1.5 -1.5m3 -3l1.5 -1.5h7"/><path d="M18 4l3 3l-3 3"/><path d="M3 7h5l7 10h6"/><path d="M18 17l3 3l-3 3"/></svg></div>
           <div class="feat-title">Academy routing</div>
           <div class="feat-desc">When your assessments show you're ready for more than digital content can give, TeamIQ says so. We'll recommend the right next step — a cohort, a GPU immersion, or a conversation with our process intelligence team.</div>
         </div>
