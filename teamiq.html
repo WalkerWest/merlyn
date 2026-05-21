@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeamIQ — Merlyn AI Labs</title>
   <style>
@@ -25,6 +27,9 @@
     .bg:hover{background:var(--bg2);}
     .ctas{display:flex;gap:10px;flex-wrap:wrap;}
     .hero{background:var(--bg2);}
+    .hero-split{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
+    .hero-visual{display:flex;align-items:center;justify-content:center;}
+    @media(max-width:680px){.hero-split{grid-template-columns:1fr;}.hero-visual{justify-content:flex-start;margin-top:24px;}}
     .hero .inner{padding-top:72px;padding-bottom:52px;}
     .he{font-size:12px;font-weight:500;color:#1D9E75;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
     .hed{width:6px;height:6px;border-radius:50%;background:#1D9E75;display:inline-block;}
@@ -109,6 +114,7 @@
       <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
       <ul class="snl">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="teamiq.html" class="nav-active">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
@@ -121,12 +127,84 @@
   <!-- HERO -->
   <section class="hero">
     <div class="inner">
-      <p class="he"><span class="hed"></span>TeamIQ</p>
-      <h1>AI keeps moving.<br><em>So does TeamIQ.</em></h1>
-      <p>A living subscription library — not a fixed course package. Every month, new content. Every assessment, a clearer picture of where your team stands. And when you're ready for more than a screen can give you, we'll know.</p>
-      <div class="ctas">
-        <a href="contact.html" class="bp">Start for $17/month</a>
-        <a href="#enterprise" class="bg">Enterprise pricing</a>
+      <div class="hero-split">
+        <div>
+          <p class="he"><span class="hed"></span>TeamIQ</p>
+          <h1>AI keeps moving.<br><em>So does TeamIQ.</em></h1>
+          <p>A living subscription library — not a fixed course package. Every month, new content. Every assessment, a clearer picture of where your team stands. And when you're ready for more than a screen can give you, we'll know.</p>
+          <div class="ctas">
+            <a href="contact.html?interest=teamiq" class="bp">Start for $17/month</a>
+            <a href="#enterprise" class="bg">Enterprise pricing</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <!-- Dashboard mockup with logo overlay -->
+          <div style="background:#085041;border-radius:16px;padding:20px;width:340px;">
+
+            <!-- Header -->
+            <div style="margin-bottom:16px;padding-right:52px;">
+              <div style="font-size:10px;font-weight:500;color:#9FE1CB;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:3px;">Team AI Readiness</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.55);">Operations · 12 members · Q2 2025</div>
+            </div>
+
+            <!-- IQ Score + bars -->
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+              <div style="width:52px;height:52px;border-radius:50%;border:2.5px solid #1D9E75;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(29,158,117,0.1);flex-shrink:0;">
+                <div style="font-size:17px;font-weight:500;color:#fff;line-height:1;">61</div>
+                <div style="font-size:9px;color:#9FE1CB;">IQ score</div>
+              </div>
+              <div style="flex:1;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;">
+                  <div style="font-size:10px;color:rgba(255,255,255,0.65);width:110px;flex-shrink:0;">AI literacy</div>
+                  <div style="flex:1;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;"><div style="width:82%;height:100%;background:#1D9E75;border-radius:3px;"></div></div>
+                  <div style="font-size:10px;font-weight:500;color:#fff;width:22px;text-align:right;">82</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;">
+                  <div style="font-size:10px;color:rgba(255,255,255,0.65);width:110px;flex-shrink:0;">Process automation</div>
+                  <div style="flex:1;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;"><div style="width:44%;height:100%;background:#FAC775;border-radius:3px;"></div></div>
+                  <div style="font-size:10px;font-weight:500;color:#fff;width:22px;text-align:right;">44</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="font-size:10px;color:rgba(255,255,255,0.65);width:110px;flex-shrink:0;">Agentic workflows</div>
+                  <div style="flex:1;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;"><div style="width:12%;height:100%;background:#854F0B;border-radius:3px;"></div></div>
+                  <div style="font-size:10px;font-weight:500;color:#fff;width:22px;text-align:right;">12</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="border-top:0.5px solid rgba(255,255,255,0.1);margin-bottom:12px;"></div>
+
+            <!-- Top performers -->
+            <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,0.35);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">Top performers</div>
+            <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:12px;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;border-radius:50%;background:#1D3A2E;color:#9FE1CB;font-size:9px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;">SR</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.8);flex:1;">S. Reyes</div>
+                <div style="flex:1;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;"><div style="width:88%;height:100%;background:#9FE1CB;border-radius:2px;"></div></div>
+                <div style="font-size:10px;font-weight:500;color:#9FE1CB;width:22px;text-align:right;">88</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;border-radius:50%;background:#1D3A2E;color:#9FE1CB;font-size:9px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;">JW</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.8);flex:1;">J. Washington</div>
+                <div style="flex:1;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;"><div style="width:79%;height:100%;background:#9FE1CB;border-radius:2px;"></div></div>
+                <div style="font-size:10px;font-weight:500;color:#9FE1CB;width:22px;text-align:right;">79</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;border-radius:50%;background:#1D3A2E;color:#9FE1CB;font-size:9px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;">MP</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.8);flex:1;">M. Patel</div>
+                <div style="flex:1;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;"><div style="width:74%;height:100%;background:#9FE1CB;border-radius:2px;"></div></div>
+                <div style="font-size:10px;font-weight:500;color:#9FE1CB;width:22px;text-align:right;">74</div>
+              </div>
+            </div>
+
+            <!-- Ready badge -->
+            <div style="background:rgba(250,199,117,0.12);border:0.5px solid rgba(250,199,117,0.35);border-radius:6px;padding:7px 10px;display:flex;align-items:center;gap:7px;">
+              <div style="width:5px;height:5px;border-radius:50%;background:#FAC775;flex-shrink:0;"></div>
+              <div style="font-size:10px;color:#FAC775;">3 members ready for Academy cohort or L2 engagement →</div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -134,6 +212,18 @@
   <!-- PRICING -->
   <section class="price-band">
     <div class="inner">
+      <div style="display:flex;justify-content:center;margin-bottom:28px;">
+        <svg viewBox="0 0 72 72" width="72" height="72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TeamIQ logo">
+          <title>TeamIQ</title>
+          <rect width="72" height="72" rx="14" fill="#04342C"/>
+          <rect x="9" y="44" width="11" height="19" rx="2.5" fill="#1D9E75"/>
+          <rect x="24" y="36" width="11" height="27" rx="2.5" fill="#1D9E75"/>
+          <rect x="39" y="26" width="11" height="37" rx="2.5" fill="#9FE1CB"/>
+          <rect x="54" y="15" width="11" height="48" rx="2.5" fill="#FAC775"/>
+          <polyline points="55.5,12 59.5,5 63.5,12" fill="none" stroke="#FAC775" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="59.5" y1="5" x2="59.5" y2="15" stroke="#FAC775" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="price-grid">
         <div class="price-card">
           <div class="price-label">Individual</div>
@@ -147,7 +237,7 @@
             <li>Community forum access</li>
             <li>Academy routing — when you're ready, we'll say so</li>
           </ul>
-          <a href="contact.html" class="bw">Start learning</a>
+          <a href="contact.html?interest=teamiq" class="bw">Start learning</a>
         </div>
         <div class="price-card featured" id="enterprise">
           <div class="price-label">Enterprise</div>
@@ -300,7 +390,7 @@
           <p style="margin-top:12px;">Some of our best hires started as TeamIQ subscribers. Someone who completes multiple tracks, scores well on assessments, and starts asking smart questions — that's someone we want to talk to. The subscription is an open door, not just a product.</p>
         </div>
         <div class="ind-cta">
-          <a href="contact.html" class="bam">Subscribe now</a>
+          <a href="contact.html?interest=teamiq" class="bam">Subscribe now</a>
           <div style="font-size:12px;color:#633806;margin-top:10px;text-align:center;">Cancel anytime. No commitment.</div>
         </div>
       </div>
