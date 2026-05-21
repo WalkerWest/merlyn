@@ -21,6 +21,11 @@
     .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
     .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
     .sncta:hover{background:#085041;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
     .bp{padding:11px 22px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
     .bp:hover{background:#085041;}
     .bg{padding:11px 22px;background:transparent;color:var(--t1);border:0.5px solid var(--b2);border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
@@ -93,17 +98,27 @@
     .ind-cta{flex-shrink:0;}
     .bam{padding:13px 26px;background:#085041;color:#fff;border:none;border-radius:var(--r1);font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;}
     .bam:hover{background:#0F6E56;}
-    .sft{background:#085041;padding:28px 0;}
-    .sft .inner{display:flex;align-items:center;justify-content:space-between;}
-    .sfl{font-size:15px;font-weight:500;color:#fff;}
-    .sfls{list-style:none;display:flex;gap:20px;}
-    .sfls a{font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;}
-    .sfls a:hover{color:#fff;}
+    .sft{border-top:0.5px solid var(--b1);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-size:15px;font-weight:500;color:#0F6E56;}
     .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
+    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
     @media(max-width:680px){
+      .hamburger{display:flex;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;list-style:none;margin:0;padding:0;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
       .price-grid,.iq-grid,.feat-grid,.ind-inner{grid-template-columns:1fr;flex-direction:column;}
       .pipeline{flex-direction:column;gap:16px;}
       .hero h1{font-size:30px;}
+      .hero-split{grid-template-columns:1fr;}
+      .hero-visual{justify-content:flex-start;margin-top:24px;}
+      .sfls{display:flex;gap:14px;list-style:none;}
     }
   </style>
 </head>
@@ -120,7 +135,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="merlyn-model.html">The name</a></li>
       </ul>
-      <a href="contact.html" class="sncta">Get started</a>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
@@ -389,22 +405,25 @@
     <div class="inner">
       <div>
         <div class="sfl">merlyn ai labs</div>
-        <div class="sfloc">9700 Highway 57, Evansville, Indiana</div>
+        <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="merlyn-model.html">The name</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </footer>
 
 <script>
-  const hbtn = document.querySelector('.sn button, .sn [data-hamburger]');
-  const menu = document.querySelector('.snl');
-  if(hbtn && menu) hbtn.addEventListener('click',()=>menu.classList.toggle('open'));
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
 </script>
 </body>
 </html>
