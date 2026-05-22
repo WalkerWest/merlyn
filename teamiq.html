@@ -11,7 +11,7 @@
     *{box-sizing:border-box;margin:0;padding:0;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
-    .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translateZ(0);transform:translateZ(0);}
+    .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
     .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
@@ -242,7 +242,7 @@
           </ul>
           <a href="contact.html?interest=teamiq" class="bw">Start learning</a>
         </div>
-        <div class="price-card featured" id="enterprise">
+        <div class="price-card featured" id="enterprise" style="scroll-margin-top:72px;">
           <div class="price-label">Enterprise</div>
           <div class="price-amount">Custom<span> pricing</span></div>
           <div class="price-desc">For teams that need more than individual progress — they need organizational readiness.</div>
@@ -255,7 +255,7 @@
             <li>Quarterly readiness briefing with Merlyn team</li>
             <li>Pipeline routing to L2 Process Intelligence</li>
           </ul>
-          <a href="contact.html" class="bw">Talk to us</a>
+          <a href="contact.html?interest=teamiq-enterprise" class="bw">Talk to us</a>
         </div>
       </div>
     </div>
