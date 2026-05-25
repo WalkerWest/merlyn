@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merlyn AI Labs + Dominion Hyperscale — The Partnership</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <style>
+    :root{
+      --bg:#F5F4EF;--bg2:#ECEAE3;--bg3:#FFFFFF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;
+      --green:#0F6E56;--green2:#1D9E75;--green3:#9FE1CB;
+      --acc:#E87722;--acc2:#F5A050;
+      --b1:rgba(0,0,0,0.08);--b2:rgba(0,0,0,0.14);
+      --r1:8px;--r2:12px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{overflow-x:hidden;}
+    body{padding-top:60px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.6;overflow-x:hidden;}
+    .inner{max-width:980px;margin:0 auto;padding:0 32px;}
+
+    /* NAV */
+    .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{font-size:18px;font-weight:500;color:var(--green);letter-spacing:-0.3px;text-decoration:none;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
+    .snl{display:flex;gap:22px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
+    .snl a:hover,.snl a.nav-active{color:var(--t1);}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .nav-short{display:none;}
+
+    /* HERO */
+    .hero{padding:72px 0 52px;border-bottom:0.5px solid var(--b1);}
+    .sl2{font-size:11px;font-weight:500;color:var(--green);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .sl2::before{content:'';display:block;width:24px;height:1px;background:var(--green);}
+    .hero h1{font-size:44px;font-weight:600;line-height:1.1;letter-spacing:-0.8px;color:var(--t1);margin-bottom:16px;}
+    .hero h1 em{font-style:normal;color:var(--green);}
+    .hero-sub{font-size:17px;color:var(--t2);line-height:1.7;max-width:660px;}
+    .lockup{display:flex;align-items:center;gap:24px;margin-top:36px;flex-wrap:wrap;}
+    .lockup-div{font-size:28px;color:var(--t3);}
+
+    /* SECTIONS */
+    .sec{padding:48px 0;}
+    .secbg{padding:48px 0;background:var(--bg2);}
+    .sh2{font-size:28px;font-weight:600;letter-spacing:-0.4px;color:var(--t1);margin-bottom:12px;line-height:1.2;}
+    .ssub{font-size:15px;color:var(--t2);line-height:1.7;max-width:580px;margin-bottom:40px;}
+
+    /* COMPANY CARDS */
+    .company-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .company-card{border-radius:var(--r2);padding:28px 24px;background:var(--bg3);}
+    .company-card.merlyn{border:0.5px solid rgba(15,110,86,0.25);}
+    .company-card.dominion{border:0.5px solid rgba(232,119,34,0.25);}
+    .co-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+    .co-label.green{color:var(--green);}
+    .co-label.orange{color:var(--acc);}
+    .co-title{font-size:18px;font-weight:600;color:var(--t1);margin-bottom:12px;}
+    .co-body{font-size:13px;color:var(--t2);line-height:1.7;}
+    .co-body p+p{margin-top:10px;}
+    .co-body strong{color:var(--t1);}
+    .not-list{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:5px;}
+    .not-list li{font-size:12px;color:var(--t3);display:flex;align-items:center;gap:7px;}
+    .not-list li::before{content:'✕';font-size:10px;}
+
+    /* LINE */
+    .line-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:0.5px solid var(--b1);border-radius:var(--r2);overflow:hidden;}
+    .line-col{padding:24px 20px;background:var(--bg3);}
+    .line-col.merlyn{border-right:0.5px solid var(--b1);background:rgba(15,110,86,0.03);}
+    .line-col.dominion{background:rgba(232,119,34,0.03);}
+    .line-col h3{font-size:13px;font-weight:600;margin-bottom:14px;}
+    .line-col h3.green{color:var(--green);}
+    .line-col h3.orange{color:var(--acc);}
+    .line-item{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:0.5px solid var(--b1);}
+    .line-item:last-child{border-bottom:none;}
+    .line-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:7px;}
+    .line-dot.green{background:var(--green);}
+    .line-dot.orange{background:var(--acc);}
+    .line-text{font-size:13px;color:var(--t2);line-height:1.55;}
+    .line-text strong{color:var(--t1);}
+
+    /* FLOW */
+    .flow{display:flex;flex-direction:column;gap:0;}
+    .flow-step{display:grid;grid-template-columns:36px 1fr 1fr;gap:18px;padding:22px 0;border-bottom:0.5px solid var(--b1);align-items:start;}
+    .flow-step:last-child{border-bottom:none;}
+    .flow-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;}
+    .flow-num.green{background:rgba(15,110,86,0.1);border:0.5px solid rgba(15,110,86,0.3);color:var(--green);}
+    .flow-num.orange{background:rgba(232,119,34,0.1);border:0.5px solid rgba(232,119,34,0.3);color:var(--acc);}
+    .flow-label{font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:5px;}
+    .flow-label.green{color:var(--green);}
+    .flow-label.orange{color:var(--acc);}
+    .flow-title{font-size:15px;font-weight:600;color:var(--t1);margin-bottom:6px;}
+    .flow-body{font-size:13px;color:var(--t2);line-height:1.6;}
+    .flow-side{border-left:2px solid rgba(15,110,86,0.2);padding-left:14px;}
+    .flow-side.orange{border-left-color:rgba(232,119,34,0.2);}
+    .flow-side-label{font-size:11px;font-weight:500;margin-bottom:5px;}
+    .flow-side-label.green{color:var(--green);}
+    .flow-side-label.orange{color:var(--acc);}
+    .flow-side-body{font-size:12px;color:var(--t2);line-height:1.55;}
+
+    /* ADVANTAGES */
+    .adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .adv{background:var(--bg3);border:0.5px solid var(--b1);border-radius:var(--r2);padding:24px 20px;}
+    .adv-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+    .adv-label.green{color:var(--green);}
+    .adv-label.orange{color:var(--acc);}
+    .adv-title{font-size:16px;font-weight:600;color:var(--t1);margin-bottom:8px;line-height:1.25;}
+    .adv-body{font-size:13px;color:var(--t2);line-height:1.7;}
+    .adv-body p+p{margin-top:8px;}
+    .adv-body strong{color:var(--t1);}
+
+    /* CTA */
+    .cta-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;}
+    .cta-box{border-radius:var(--r2);padding:24px 20px;background:var(--bg3);}
+    .cta-box.green{border:0.5px solid rgba(15,110,86,0.25);}
+    .cta-box.orange{border:0.5px solid rgba(232,119,34,0.25);}
+    .cta-box h3{font-size:15px;font-weight:600;color:var(--t1);margin-bottom:7px;}
+    .cta-box p{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:14px;}
+    .btn-green{display:inline-block;padding:10px 18px;background:var(--green);color:#fff;border-radius:var(--r1);font-size:13px;font-weight:500;text-decoration:none;}
+    .btn-orange{display:inline-block;padding:10px 18px;background:var(--acc);color:#fff;border-radius:var(--r1);font-size:13px;font-weight:500;text-decoration:none;}
+
+    /* FOOTER */
+    .sft{border-top:0.5px solid var(--b1);padding:24px 0;}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .sfl{font-size:13px;color:var(--t3);}
+    .sfls{display:flex;gap:16px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+
+    @media(max-width:720px){
+      .hamburger{display:flex;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(245,244,239,0.97);border-bottom:0.5px solid var(--b1);z-index:200;padding:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--b1);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
+      .sncta{font-size:12px;padding:6px 12px;}
+      .nav-full{display:none;}
+      .nav-short{display:inline;}
+      .hero h1{font-size:30px;}
+      .company-grid,.line-grid,.adv-grid,.cta-pair{grid-template-columns:1fr;}
+      .flow-step{grid-template-columns:36px 1fr;}
+      .flow-side{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="sn">
+  <div class="inner">
+    <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+    <ul class="snl">
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="teamiq.html">TeamIQ</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="partnership.html" class="nav-active">Partnership</a></li>
+    </ul>
+    <a href="contact.html" class="sncta">Get started ↗</a>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="inner">
+    <p class="sl2">The partnership</p>
+    <h1>Two companies.<br>One team.<br><em>Designed to work together.</em></h1>
+    <p class="hero-sub">Merlyn AI Labs and Dominion Hyperscale were built by the same founding team and are designed to operate as a system. They are legally separate, serve different audiences, and raise different kinds of capital. But they are not independent — they are two halves of a complete AI infrastructure and services platform.</p>
+    <div class="lockup">
+      <a href="index.html" style="flex-shrink:0;display:block;">
+        <svg width="110" height="112" viewBox="0 0 110 112" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          <rect width="110" height="112" rx="10" fill="#FFFFFF" stroke="#D0D0CC" stroke-width="1"/>
+          <rect x="20" y="12" width="76" height="13" rx="2" fill="#0F6E56"/>
+          <rect x="20" y="30" width="57" height="13" rx="2" fill="#1D9E75"/>
+          <rect x="20" y="48" width="38" height="13" rx="2" fill="#9FE1CB"/>
+          <text x="20" y="86" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="20" font-weight="500" letter-spacing="-0.3" fill="#1C1C1A">merlyn</text>
+          <text x="20" y="101" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="12" font-weight="400" letter-spacing="0.5" fill="#6B6A65">ai labs</text>
+        </svg>
+      </a>
+      <span class="lockup-div">+</span>
+      <a href="https://walkerwest.github.io/dominion" target="_blank" style="flex-shrink:0;display:block;"><img src="images/DomHS.svg" alt="Dominion Hyperscale" style="height:112px;width:auto;display:block;border-radius:10px;border:1px solid #D0D0CC;background:#fff;padding:8px;"></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT EACH IS -->
+<section class="sec" id="companies">
+  <div class="inner">
+    <p class="sl2">What each company is</p>
+    <h2 class="sh2">Different businesses.<br>Deliberately designed that way.</h2>
+    <p class="ssub">The separation is intentional. Dominion's capital structure and Merlyn's B Corp mission require different legal homes. But they were designed to operate as a system from the start.</p>
+    <div class="company-grid">
+      <div class="company-card merlyn">
+        <div class="co-label green">AI services company &amp; anchor tenant</div>
+        <div class="co-title">Merlyn delivers AI services to regional employers.</div>
+        <div class="co-body">
+          <p>Three service tiers: L1 managed IT and AI literacy, L2 API-level integration and custom model deployment, and L3 financial and operational digital twins. Revenue comes from MSP contracts, consulting engagements, and SaaS subscriptions.</p>
+          <p>Merlyn runs on Dominion infrastructure as the <strong>anchor tenant</strong> — its compute spend provides base-load demand certainty for Dominion's Evansville campus from day one.</p>
+          <p>Structured as a <strong>Certified B Corp</strong> under steward ownership. Targets community capital — Reg CF shares at $500–$1,000, USDA financing, and mission-aligned investors.</p>
+        </div>
+        <ul class="not-list">
+          <li>Does not build or own data center infrastructure</li>
+          <li>Does not raise infrastructure capital</li>
+          <li>Does not sell raw GPU compute</li>
+        </ul>
+      </div>
+      <div class="company-card dominion">
+        <div class="co-label orange">Infrastructure developer &amp; operator</div>
+        <div class="co-title">Dominion builds and operates the AI data centers.</div>
+        <div class="co-body">
+          <p>Dominion identifies sites, raises infrastructure capital, constructs campuses, and operates them. Revenue comes from selling managed compute services — GPU-hours, reserved clusters, dedicated infrastructure — to enterprise clients.</p>
+          <p>Dominion's structural advantage is <strong>$0.02/kWh on-site natural gas generation</strong> — a physical asset tied to the site that competitors cannot replicate without the same pipeline access.</p>
+          <p>Targets <strong>institutional capital</strong> — infrastructure funds, family offices, sovereign wealth. The business model produces 65–79% EBITDA margins at scale.</p>
+        </div>
+        <ul class="not-list">
+          <li>Does not provide consulting services</li>
+          <li>Does not manage client IT operations</li>
+          <li>Does not run workforce training programs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE THE LINE IS -->
+<section class="secbg" id="theline">
+  <div class="inner">
+    <p class="sl2">Where the line is</p>
+    <h2 class="sh2">Who owns what.<br>Who does what.</h2>
+    <p class="ssub">The handoffs between the two companies are deliberate and clean. A client relationship that starts with Merlyn can graduate to Dominion without confusion about who is responsible for what.</p>
+    <div class="line-grid">
+      <div class="line-col merlyn">
+        <h3 class="green">Merlyn owns and operates</h3>
+        <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Client relationships</strong> — every regional employer, manufacturer, hospital, and university in the Merlyn client base</div></div>
+        <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Service delivery</strong> — managed IT, AI consulting engagements, Academy training programs</div></div>
+        <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Platform software</strong> — TeamIQ, Academy LMS, SaaS subscriptions</div></div>
+        <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Workforce pipeline</strong> — Academy graduates, corporate training cohorts, certifications</div></div>
+        <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Community governance</strong> — B Corp structure, steward ownership, community share offering</div></div>
+      </div>
+      <div class="line-col dominion">
+        <h3 class="orange">Dominion owns and operates</h3>
+        <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The physical facility</strong> — land, building, power infrastructure, cooling, networking</div></div>
+        <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The compute cluster</strong> — NVIDIA and AMD GPU infrastructure, storage, Kubernetes control plane</div></div>
+        <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>Enterprise compute contracts</strong> — inference cloud, reserved clusters, dedicated infrastructure tiers</div></div>
+        <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The fiber hub</strong> — regional interconnection, USDA ReConnect and NTIA BEAD eligible</div></div>
+        <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>Campus operator relationships</strong> — Merlyn leases space and compute from Dominion</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PIPELINE -->
+<section class="sec" id="pipeline">
+  <div class="inner">
+    <p class="sl2">The pipeline</p>
+    <h2 class="sh2">How Merlyn fills<br>Dominion's facility.</h2>
+    <p class="ssub">Merlyn's client relationships are the sales pipeline for Dominion's compute business. Every managed IT client is a future compute client. Every Academy cohort is a future self-service infrastructure user.</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num green">1</div>
+        <div>
+          <div class="flow-label green">Merlyn — L1</div>
+          <div class="flow-title">Managed IT engagement begins</div>
+          <div class="flow-body">A regional manufacturer, hospital, or logistics company signs an L1 managed IT contract with Merlyn. Merlyn handles IT operations, runs AI literacy training, and assesses AI readiness. Dominion is in the background — the client isn't buying compute yet.</div>
+        </div>
+        <div class="flow-side">
+          <div class="flow-side-label green">Merlyn revenue</div>
+          <div class="flow-side-body">MSP retainer. SaaS subscriptions. Academy training. Non-cyclical — doesn't depend on AI investment trends.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num green">2</div>
+        <div>
+          <div class="flow-label green">Merlyn — L2</div>
+          <div class="flow-title">First model deployed on Dominion infrastructure</div>
+          <div class="flow-body">The client is ready to deploy AI. Merlyn designs and builds the model. It runs on Dominion's managed GPU infrastructure — the client doesn't think about the data center; Merlyn manages that. Dominion now has a paying enterprise compute client introduced by Merlyn.</div>
+        </div>
+        <div class="flow-side">
+          <div class="flow-side-label green">Both companies earn</div>
+          <div class="flow-side-body">Merlyn: consulting fees. Dominion: inference cloud or reserved cluster revenue. The client pays both — for different things.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num green">3</div>
+        <div>
+          <div class="flow-label green">Merlyn — L3</div>
+          <div class="flow-title">Digital twin deployed at scale</div>
+          <div class="flow-body">For sophisticated clients, Merlyn builds financial and operational digital twins — simulation models running continuously on Dominion's infrastructure. High-utilization, sustained workloads. Exactly the kind of compute that fills a data center and justifies the next phase build.</div>
+        </div>
+        <div class="flow-side">
+          <div class="flow-side-label green">Sustained demand</div>
+          <div class="flow-side-body">Digital twins run 24/7. Not speculative inference — continuous operational workloads that don't go away when the hype cycle turns.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num orange">4</div>
+        <div>
+          <div class="flow-label orange">Dominion — Direct</div>
+          <div class="flow-title">Client graduates to self-managed infrastructure</div>
+          <div class="flow-body">When a client's internal ML team matures, they graduate from Merlyn-managed L2 to a direct Dominion Compute contract. Same infrastructure — different operating model. Merlyn still holds the consulting relationship; Dominion holds the compute contract directly.</div>
+        </div>
+        <div class="flow-side orange">
+          <div class="flow-side-label orange">Dominion direct revenue</div>
+          <div class="flow-side-body">Reserved cluster or dedicated infrastructure contract. Long-term committed revenue that supports the next phase capital raise.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num orange">5</div>
+        <div>
+          <div class="flow-label orange">Dominion — Enterprise sales</div>
+          <div class="flow-title">Enterprise sales runs in parallel</div>
+          <div class="flow-body">Dominion's sales motion doesn't wait for Merlyn introductions. The Dominion sales team makes direct contact with regional enterprises. Merlyn's reference clients give Dominion a warmer door to open — and validate the campus to enterprise buyers who might otherwise wait to see a track record.</div>
+        </div>
+        <div class="flow-side orange">
+          <div class="flow-side-label orange">Enterprise pipeline</div>
+          <div class="flow-side-body">Dedicated infrastructure at $18M/MW/yr. Reserved clusters at $9M/MW/yr equivalent. These contracts trigger the next phase build.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT WORKS -->
+<section class="secbg" id="why">
+  <div class="inner">
+    <p class="sl2">Why it works</p>
+    <h2 class="sh2">Four structural advantages<br>from the relationship.</h2>
+    <p class="ssub">Neither company would be as strong without the other. The relationship produces advantages that neither could create independently.</p>
+    <div class="adv-grid">
+      <div class="adv">
+        <div class="adv-label green">For Merlyn</div>
+        <div class="adv-title">Infrastructure economics no independent MSP can match.</div>
+        <div class="adv-body">
+          <p>An independent MSP trying to offer AI infrastructure to regional clients can either rent from AWS at $0.10/kWh equivalent, or build their own facility — a capital commitment well beyond their means.</p>
+          <p>Merlyn has a third option. At <strong>$0.02/kWh</strong>, Merlyn can offer clients compute pricing that no independent MSP can compete with. That's a physical asset tied to the site — it compounds with every client Merlyn brings to the campus.</p>
+        </div>
+      </div>
+      <div class="adv">
+        <div class="adv-label orange">For Dominion</div>
+        <div class="adv-title">Day-one base-load demand certainty.</div>
+        <div class="adv-body">
+          <p>A data center with no clients on day one is a liability. Merlyn's managed IT and consulting workloads provide base-load compute demand before a single external enterprise client is signed — making Dominion's break-even utilization reachable from day one.</p>
+          <p>And because Merlyn's revenue comes from services regional employers need regardless of AI investment trends, that demand doesn't evaporate when the hype cycle turns.</p>
+        </div>
+      </div>
+      <div class="adv">
+        <div class="adv-label green">For Merlyn</div>
+        <div class="adv-title">The same team accountable for both layers.</div>
+        <div class="adv-body">
+          <p>When Merlyn deploys a digital twin for a regional manufacturer, the model runs on infrastructure built and operated by the same people who designed the service. No vendor relationship to manage, no SLA dispute to escalate.</p>
+          <p>When a production model fails at 2am, the person who picks up the phone knows both the code and the cluster.</p>
+        </div>
+      </div>
+      <div class="adv">
+        <div class="adv-label orange">For Dominion</div>
+        <div class="adv-title">A credible partner that opens enterprise doors.</div>
+        <div class="adv-body">
+          <p>A new data center company in a secondary market asking a regional hospital to sign a $9M/yr compute contract is a hard sell without reference clients. Merlyn's existing employer relationships — and the live workloads already running on Dominion infrastructure — give the sales team something to point to.</p>
+          <p>Merlyn converts the campus from a construction project into an operating facility before the first enterprise contract is signed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" id="contact">
+  <div class="inner">
+    <p class="sl2">Get in touch</p>
+    <h2 class="sh2">Two conversations.<br>One team to talk to.</h2>
+    <p class="ssub">Whether you're a regional employer evaluating AI services, an infrastructure investor, or an economic development authority — you're talking to the same founding team.</p>
+    <div class="cta-pair">
+      <div class="cta-box green">
+        <h3>Merlyn AI Labs</h3>
+        <p>Managed IT, AI consulting, Academy training, or community partnership.</p>
+        <a href="contact.html" class="btn-green">Get in touch with Merlyn →</a>
+      </div>
+      <div class="cta-box orange">
+        <h3>Dominion Hyperscale</h3>
+        <p>Infrastructure investment, enterprise compute, or campus development.</p>
+        <a href="https://walkerwest.github.io/dominion/contact.html" target="_blank" class="btn-orange">Get in touch with Dominion →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="sft">
+  <div class="inner">
+    <div class="sfl">© 2025 Merlyn AI Labs · Evansville, Indiana</div>
+    <ul class="sfls">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="partnership.html">Partnership</a></li>
+      <li><a href="https://walkerwest.github.io/dominion" target="_blank">Dominion ↗</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click', function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
