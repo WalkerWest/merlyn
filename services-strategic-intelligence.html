@@ -63,6 +63,9 @@
     .sesid{font-size:11px;color:#9FE1CB;line-height:1.4;}
     .wg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
     .wc{border:0.5px solid var(--b1);border-radius:var(--r2);padding:16px 14px;}
+    .plat-card{padding:24px 22px;}
+    .plat-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:32px;align-items:start;}
+    @media (max-width:720px){.plat-grid{grid-template-columns:1fr;gap:18px;}}
     .wt{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:8px;}
     .wi{list-style:none;}
     .wi li{font-size:12px;color:var(--t2);padding:2px 0 2px 10px;position:relative;line-height:1.5;}
@@ -122,9 +125,9 @@
     <div class="inner">
       <span class="tp">Level 3 · Lead with better decisions</span>
       <h1>Decisions backed by data,<br><em>made in community.</em></h1>
-      <p>Digital twins — financial or operational — that let your leadership team simulate before they commit capital. We provide the platform, the compute, and the space at 9700 Highway 57. Bring your team. Run the scenarios. Leave with alignment.</p>
+      <p>Decision-intelligence twins — financial or operational — that let your leadership team simulate before they commit capital. Available two ways: as a configurable platform subscription with industry templates, or as a bespoke build around your specific data and decision points. Both run on Merlyn infrastructure, both backed by quarterly executive facilitation.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="contact.html?interest=l3" class="bgold">Discuss your digital twin ↗</a>
+        <a href="contact.html?interest=l3-bespoke" class="bgold">Discuss your digital twin ↗</a>
         <a href="#journey" class="bghost">See how it works</a>
       </div>
     </div>
@@ -153,8 +156,9 @@
 
   <section class="secbg" id="journey">
     <div class="inner">
-      <p class="sl2">The engagement journey</p>
+      <p class="sl2">The bespoke engagement journey</p>
       <h2 class="sh2" style="margin-bottom:4px;">Four phases from scope to boardroom</h2>
+      <p style="font-size:14px;color:var(--t2);max-width:580px;margin-bottom:24px;line-height:1.65;">For organizations whose twin requires custom data integration, proprietary decision logic, or modeling of operations not yet covered by our industry templates. Platform-tier customers skip the build phase — they configure their twin from existing templates in days or weeks.</p>
       <div class="jrny">
         <div class="js"><div class="jn">1</div><p class="jt2">Weeks 1–4</p><p class="jh">Scope</p><p class="jd">Define the twin's boundaries, data sources, and key decision points. Identify the scenarios that matter most.</p></div>
         <div class="js"><div class="jn">2</div><p class="jt2">Months 2–6</p><p class="jh">Build</p><p class="jd">Instrument data pipelines, construct the simulation model, validate against historical outcomes.</p></div>
@@ -196,8 +200,32 @@
   <section class="sec" id="pricing">
     <div class="inner">
       <h2>What it costs</h2>
-      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:600px;margin-bottom:8px;">Traditional strategy consulting charges $200K–$500K for a one-time engagement that produces a report. The report is stale within 18 months and the relationship ends. Merlyn builds the twin, hosts it on our infrastructure, and bundles quarterly facilitation into the monthly subscription — so leadership actually uses it.</p>
-      <p style="font-size:13px;color:var(--t3);margin-bottom:32px;">Discovery fee is the scoping engagement — it confirms the data sources, defines the twin's scope, and produces a clear ROI estimate. Build fee covers construction. Subscription keeps it running and your team using it.</p>
+      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:680px;margin-bottom:8px;">Two ways to get a decision-intelligence twin. The <strong>platform tier</strong> gets you a configured twin from our industry templates with light-touch onboarding — fastest path to value, lowest commitment. The <strong>bespoke tier</strong> builds a custom twin around your specific operational data and decision points, with quarterly executive facilitation.</p>
+      <p style="font-size:13px;color:var(--t3);margin-bottom:32px;">Companies often start on platform and graduate to bespoke as their decision-intelligence needs deepen. No L1 or L2 prerequisite — companies can enter directly at L3.</p>
+
+      <!-- PLATFORM TIER -->
+      <p style="font-size:11px;font-weight:600;color:#0F6E56;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Platform tier · Self-service to light-touch</p>
+      <div class="wc plat-card" style="border-color:#1D9E75;background:rgba(29,158,117,0.04);margin-bottom:32px;">
+        <div class="plat-grid">
+          <div>
+            <p class="wt" style="color:#0F6E56;">Platform subscription</p>
+            <p style="font-size:12px;color:var(--t2);margin-bottom:14px;">Industry templates · self-service · light facilitation</p>
+            <p style="font-size:13px;color:var(--t2);margin-bottom:2px;">No discovery fee · no build fee</p>
+            <p style="font-size:22px;font-weight:500;color:#0F6E56;margin-bottom:2px;">$2,000–$3,500<span style="font-size:12px;font-weight:400;color:var(--t2);">/mo</span></p>
+            <p style="font-size:11px;color:var(--t3);">12-month minimum · monthly billing</p>
+          </div>
+          <ul class="wi" style="margin:0;">
+            <li>Industry-specific templates: trucking and logistics, manufacturing, regional healthcare, distribution</li>
+            <li>Self-service onboarding · configure your twin from the platform UI in days, not months</li>
+            <li>2 quarterly check-ins per year · on-demand scenario support · ongoing data refreshes</li>
+            <li>Same Merlyn AI OS that powers our bespoke engagements — graduate up when ready</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BESPOKE TIER -->
+      <p style="font-size:11px;font-weight:600;color:#854F0B;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Bespoke tier · Built around your specific business</p>
+      <p style="font-size:13px;color:var(--t3);margin-bottom:20px;">Discovery fee is the scoping engagement. Build fee covers custom construction. Subscription keeps it running and your team using it.</p>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
 
@@ -241,7 +269,7 @@
         </div>
 
       </div>
-      <p style="font-size:13px;color:var(--t3);margin-top:20px;">Monthly subscription includes platform hosting, data pipeline maintenance, model retraining, all facilitation sessions, on-call scenario support, and an annual twin audit. Companies can enter directly at L3 — no L1 or L2 prerequisite required.</p>
+      <p style="font-size:13px;color:var(--t3);margin-top:20px;">Bespoke monthly subscription includes platform hosting, data pipeline maintenance, model retraining, all facilitation sessions, on-call scenario support, and an annual twin audit.</p>
     </div>
   </section>
 
@@ -249,7 +277,7 @@
     <div class="inner">
       <h2>Ready for strategic-level AI?</h2>
       <p>Every digital twin engagement starts with a scoping conversation — no commitment, no pressure.</p>
-      <a href="contact.html?interest=l3" class="bdk">Discuss your digital twin ↗</a>
+      <a href="contact.html?interest=l3-bespoke" class="bdk">Discuss your digital twin ↗</a>
     </div>
   </section>
 
