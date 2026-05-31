@@ -53,6 +53,15 @@
     .cb-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;}
     .cb-sub{font-size:14px;color:#9FE1CB;line-height:1.65;}
     .lg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px;}
+    .l0-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;background:var(--bg2);border:0.5px solid var(--b1);border-left:3px solid #6B6A65;border-radius:var(--r2);padding:22px 24px;margin-bottom:24px;}
+    .l0-row .lb{margin-bottom:0;background:#E8E7E2;color:#444441;}
+    .l0-row .l0-body{display:flex;flex-direction:column;gap:6px;min-width:0;}
+    .l0-row .lt{margin-bottom:0;}
+    .l0-row .ld{margin-bottom:0;}
+    .l0-row .lcta{padding:8px 14px;white-space:nowrap;}
+    .ai-os-band{margin-top:8px;margin-bottom:14px;display:flex;align-items:baseline;gap:14px;}
+    .ai-os-band .sl2{margin-bottom:0;color:#0F6E56;}
+    .ai-os-band h3{font-size:18px;font-weight:500;color:var(--t1);}
     .lc{border:0.5px solid var(--b1);border-radius:var(--r2);padding:22px 18px;display:flex;flex-direction:column;}
     .lb{font-size:11px;font-weight:500;color:#085041;background:#E1F5EE;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:12px;align-self:flex-start;}
     .lt{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;}
@@ -93,6 +102,9 @@
       .hero-split{grid-template-columns:1fr;}
       .hero-visual{margin-top:24px;}
       .tg,.lg{grid-template-columns:1fr;}
+      .l0-row{grid-template-columns:1fr;text-align:left;}
+      .l0-row .lb{align-self:flex-start;}
+      .l0-row .lcta{align-self:flex-start;}
     }
   </style>
 </head>
@@ -119,27 +131,44 @@
       <div class="hero-split">
         <div>
           <p class="he"><span class="hed"></span>9700 Highway 57 · Evansville, IN</p>
-          <h1>Drive down the cost<br>of IT. Invest those<br><em>savings where it counts.</em></h1>
-          <p>We centralize the IT your business needs but doesn't need to think about — then help you use that headroom to build the things that actually make you competitive.</p>
+          <h1>An AI OS for<br>your business — on a<br><em>managed foundation.</em></h1>
+          <p>Most AI vendors sell point solutions. Merlyn builds the whole stack: people who can direct AI, data that AI can see, and agents that perform the work. Three layers, layered like an operating system — on top of the managed IT foundation that makes the AI work possible.</p>
           <div class="ctas">
-            <a href="#levels" class="bp">See the three levels</a>
+            <a href="#levels" class="bp">See the three layers</a>
             <a href="contact.html?interest=assessment" class="bg">Free assessment ↗</a>
           </div>
         </div>
         <div class="hero-visual">
-          <svg width="100%" viewBox="0 0 680 420" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Three service tier sunrise bands">
+          <svg width="100%" viewBox="0 0 680 525" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Merlyn AI OS — three layers built on a managed foundation">
+            <!-- Thicker, lighter gray foundation bar -->
+            <rect x="0" y="420" width="680" height="20" fill="#9B9A95"/>
+
+            <!-- Three AI OS arc bands (outer L3 → middle L2 → inner L1) -->
             <path d="M55,420 A285,285,0,0,1,625,420" fill="none" stroke="#085041" stroke-width="110" stroke-linecap="butt"/>
             <path d="M165,420 A175,175,0,0,1,515,420" fill="none" stroke="#1D9E75" stroke-width="110" stroke-linecap="butt"/>
             <path d="M280,420 A60,60,0,0,1,400,420"  fill="none" stroke="#FAC775" stroke-width="120" stroke-linecap="butt"/>
+
+            <!-- Faded numeral watermarks per band -->
             <text x="415" y="410" text-anchor="middle" font-family="Arial,sans-serif" font-size="86" font-weight="700" fill="#412402" opacity="0.18">1</text>
-            <text x="515" y="410" text-anchor="middle" font-family="Arial,sans-serif" font-size="86" font-weight="700" fill="#FFFFFF"  opacity="0.15">2</text>
-            <text x="625" y="410" text-anchor="middle" font-family="Arial,sans-serif" font-size="86" font-weight="700" fill="#FFFFFF"  opacity="0.12">3</text>
-            <text x="340" y="122" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#E1F5EE">Financial</text>
-            <text x="340" y="148" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#E1F5EE">digital twin</text>
-            <text x="340" y="233" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#FFFFFF">Process</text>
-            <text x="340" y="259" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#FFFFFF">intelligence</text>
-            <text x="340" y="367" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#412402">Managed</text>
-            <text x="340" y="393" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#412402">foundation</text>
+            <text x="515" y="410" text-anchor="middle" font-family="Arial,sans-serif" font-size="86" font-weight="700" fill="#FFFFFF" opacity="0.15">2</text>
+            <text x="625" y="410" text-anchor="middle" font-family="Arial,sans-serif" font-size="86" font-weight="700" fill="#FFFFFF" opacity="0.12">3</text>
+
+            <!-- L0 white oval with "0" — centered on gray bar, overlapping gold band above -->
+            <ellipse cx="340" cy="430" rx="33" ry="38" fill="#FFFFFF" stroke="#9B9A95" stroke-width="1.5"/>
+            <text x="340" y="439" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="86" font-weight="700" fill="#9B9A95">0</text>
+
+            <!-- Outer band label -->
+            <text x="340" y="145" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="22" font-weight="600" fill="#E1F5EE">Agents Deployed</text>
+
+            <!-- Middle band label -->
+            <text x="340" y="255" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="22" font-weight="600" fill="#FFFFFF">Data Connected</text>
+
+            <!-- Inner band label — two lines, moved up to clear the L0 oval below -->
+            <text x="340" y="341" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="22" font-weight="600" fill="#412402">People</text>
+            <text x="340" y="367" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="22" font-weight="600" fill="#412402">Directing</text>
+
+            <!-- Foundation Managed text centered below the L0 oval -->
+            <text x="340" y="488" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="22" font-weight="600" fill="#9B9A95">Foundation Managed</text>
           </svg>
         </div>
       </div>
@@ -163,56 +192,72 @@
   <section class="levels" id="levels">
     <div class="inner">
       <p class="sl2">For local enterprises</p>
-      <h2 class="sh2">Three levels. One business conversation.</h2>
-      <p class="ssub">Level 1 is where most businesses start — get the IT overhead out of the way and redirect that money toward what actually makes you competitive. Level 2 is where operations get smarter. Level 3 is where leadership makes decisions backed by simulation rather than gut feel.</p>
+      <h2 class="sh2">An AI OS for your business — built on a managed foundation.</h2>
+      <p class="ssub">Most AI vendors sell point solutions — a chatbot here, a model there, a dashboard somewhere else. Merlyn builds the whole stack: people who can direct AI, data that AI can see, and agents that perform the work. Three layers, layered like an operating system, on top of the managed IT foundation that makes the AI work possible. Most customers start at L0 and build upward; some enter directly at a higher layer.</p>
+
+      <!-- L0 foundation banner -->
+      <div class="l0-row">
+        <span class="lb">L0 · Foundation</span>
+        <div class="l0-body">
+          <h3 class="lt">Managed foundation</h3>
+          <p class="ld">The IT your business needs but doesn't need to think about. Managed networks, computers, security, and backup. Necessary today while your business operates on internal infrastructure; the footprint lightens over time as compute migrates to cloud-native and wireless. Not part of the AI OS itself — but the prerequisite that makes the AI OS work. <strong>From $1,500/mo, shared across the membership.</strong></p>
+        </div>
+        <a href="services-managed-foundation.html" class="lcta">Learn more ↗</a>
+      </div>
+
+      <!-- AI OS sub-band -->
+      <div class="ai-os-band">
+        <p class="sl2">Merlyn AI OS</p>
+        <h3>Three layers. Layered like an operating system.</h3>
+      </div>
+
       <div class="lg">
 
         <div class="lc">
-          <span class="lb">Level 1 · Get IT off your plate</span>
-          <h3 class="lt">Managed foundation</h3>
-          <p class="ld">The IT your business needs but doesn't need to think about. We centralize and share the cost across our member base — so you get enterprise-grade infrastructure at a fraction of what it would cost you alone.</p>
+          <span class="lb">L1 · Train people to direct AI</span>
+          <h3 class="lt">AI workforce readiness</h3>
+          <p class="ld">Your team becomes fluent in directing AI agents. Daily practice via the TeamIQ platform, structured curriculum via Academy, focused topical work via classroom training and company workshops.</p>
           <ul class="ll">
-            <li>Networks, computers + security appliances</li>
-            <li>Help desk + patch management</li>
-            <li>Cloud services + backup</li>
-            <li>AI literacy training for your team</li>
-            <li>Shared cost across the membership</li>
+            <li>TeamIQ platform — per-user SaaS</li>
+            <li>Academy — cohort programs</li>
+            <li>Classroom training — instructor-led</li>
+            <li>Company workshops — bespoke topical</li>
+            <li>$17–19/user/mo + training engagements</li>
           </ul>
-          <a href="services-managed-foundation.html" class="lcta">Learn more ↗</a>
+          <a href="services-workforce-readiness.html" class="lcta">Learn more ↗</a>
         </div>
 
         <div class="lc">
-          <span class="lb">Level 2 · Make your operations smarter</span>
+          <span class="lb">L2 · Connect data to AI</span>
           <h3 class="lt">Process intelligence</h3>
-          <p class="ld">Where your business actually gets faster. We connect your existing software and cloud tools at the API layer, then add agentic AI, custom ML models, and operational science to the places in your workflow where they create measurable improvement.</p>
+          <p class="ld">All your systems, all your data, accessible to AI. API integrations to your existing tools, custom models that act on your operational data, and the semantic layer that makes every system queryable. Year 1 starts with one or two processes; by Year 3 the AI has visibility into the whole business.</p>
           <ul class="ll">
             <li>API-level integration of existing tools</li>
             <li>Agentic AI + custom ML models</li>
-            <li>Scheduling optimization</li>
-            <li>Predictive modeling</li>
-            <li>Simulation + scenario planning</li>
-            <li>Hosted at our facility if needed</li>
+            <li>Scheduling, prediction, scenario planning</li>
+            <li>Managed by Merlyn on Dominion infrastructure</li>
+            <li>$1,500–$8,000/mo</li>
           </ul>
           <a href="services-process-intelligence.html" class="lcta">Learn more ↗</a>
         </div>
 
         <div class="lc">
-          <span class="lb">Level 3 · Lead with better decisions</span>
+          <span class="lb">L3 · Deploy agents that act</span>
           <h3 class="lt">Strategic intelligence</h3>
-          <p class="ld">Decisions backed by data, made in community. Digital twins — financial or operational — that let leadership simulate before they commit capital. We provide the platform, the compute, and the space. Bring your team. Run the scenarios. Leave with alignment.</p>
+          <p class="ld">Agents that simulate, decide, and act. Digital twins for executive decision-making. Operational agents for the work below that. Once your team knows how to direct AI (L1) and your data is visible to AI (L2), the agents become genuinely useful — they have context, instructions, and a workforce that knows how to supervise them.</p>
           <ul class="ll">
             <li>Financial + operational digital twins</li>
             <li>Scenario simulation before capital commitment</li>
-            <li>Executive sessions at our facility</li>
-            <li>Twin platform hosted on-site</li>
-            <li>Ongoing facilitation available</li>
+            <li>Operational agents on connected data</li>
+            <li>Platform subscription or bespoke build</li>
+            <li>$30–100K/yr platform · $4–25K/mo bespoke</li>
           </ul>
           <a href="services-strategic-intelligence.html" class="lcta">Learn more ↗</a>
         </div>
 
       </div>
       <div class="note">
-        <strong>Not sure which level fits?</strong> Most businesses start at Level 1 and grow from there. Our free assessment shows you exactly where you are — and what's possible.
+        <strong>Not sure where to start?</strong> Most businesses begin at L0 to clear the foundation, then add L1 when they're ready to skill up their team on AI. Some come to us already past L0 and want to jump straight to L2 or L3. Our free assessment shows you exactly where you are — and what's possible.
       </div>
     </div>
   </section>

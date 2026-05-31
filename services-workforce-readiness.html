@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L1 Train people to direct AI — Merlyn AI Labs</title>
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;}
+    .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
+    .snl{display:flex;gap:20px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
+
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .bc{border-bottom:0.5px solid var(--b1);}
+    .bc .inner{padding-top:10px;padding-bottom:10px;font-size:12px;color:var(--t3);}
+    .bc a{color:var(--t3);text-decoration:none;}
+    .bc a:hover{color:var(--t2);}
+    .hero1{background:#E1F5EE;}
+    .hero1 .inner{padding-top:40px;padding-bottom:44px;}
+    .tp{font-size:11px;font-weight:500;color:#085041;background:#9FE1CB;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:14px;}
+    .hero1 h1{font-size:32px;font-weight:500;color:#085041;line-height:1.2;margin-bottom:14px;letter-spacing:-0.4px;}
+    .hero1 p{font-size:15px;color:#0F6E56;line-height:1.65;margin-bottom:24px;max-width:520px;}
+    .bdark{padding:11px 22px;background:#085041;color:#fff;border:none;border-radius:var(--r1);font-size:13px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bdark:hover{background:#0F6E56;}
+    .bout{padding:11px 22px;background:transparent;color:#085041;border:0.5px solid #0F6E56;border-radius:var(--r1);font-size:13px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bout:hover{background:rgba(15,110,86,0.08);}
+    .sec{padding:40px 0;}
+    .secbg{padding:40px 0;background:var(--bg2);}
+    .sl2{font-size:11px;font-weight:500;color:var(--t3);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;}
+    .sh2{font-size:20px;font-weight:500;color:var(--t1);margin-bottom:18px;}
+    .formats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+    .fmt{background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--r2);padding:22px;display:flex;flex-direction:column;}
+    .fmt-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+    .fmt-icon{width:36px;height:36px;background:#E1F5EE;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;color:#0F6E56;font-size:18px;flex-shrink:0;}
+    .fmt-title{font-size:15px;font-weight:500;color:var(--t1);}
+    .fmt-price{font-size:11px;color:#0F6E56;font-weight:500;}
+    .fmt-body{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:12px;}
+    .fmt-bullets{list-style:none;}
+    .fmt-bullets li{font-size:12px;color:var(--t2);padding:2px 0 2px 12px;position:relative;line-height:1.5;}
+    .fmt-bullets li::before{content:'';width:4px;height:4px;border-radius:50%;background:#1D9E75;position:absolute;left:0;top:9px;}
+    .wg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+    .wc{border:0.5px solid var(--b1);border-radius:var(--r2);padding:16px 14px;}
+    .wt{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:8px;}
+    .wi{list-style:none;}
+    .wi li{font-size:12px;color:var(--t2);padding:2px 0 2px 10px;position:relative;line-height:1.5;}
+    .wi li::before{content:'';width:4px;height:4px;border-radius:50%;background:#1D9E75;position:absolute;left:0;top:9px;}
+    .stps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px;}
+    .stp{background:var(--bg1);border-radius:var(--r2);padding:18px;border:0.5px solid var(--b1);}
+    .stn{width:26px;height:26px;border-radius:50%;background:#E1F5EE;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:#0F6E56;margin-bottom:10px;}
+    .stt{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:4px;}
+    .std{font-size:12px;color:var(--t2);line-height:1.5;}
+    .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;}
+    .pcta{padding:48px 0;background:#0F6E56;text-align:center;}
+    .pcta h2{font-size:22px;font-weight:500;color:#fff;margin-bottom:8px;}
+    .pcta p{font-size:14px;color:#9FE1CB;margin-bottom:22px;}
+    .bw{padding:12px 28px;background:#fff;color:#0F6E56;border:none;border-radius:var(--r1);font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bw:hover{background:#E1F5EE;}
+    .sft{border-top:0.5px solid var(--b1);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;list-style:none;margin:0;padding:0;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
+      .formats,.wg,.stps,.pricing-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <ul class="snl">
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="teamiq.html">TeamIQ</a></li>
+        <li><a href="services.html" class="nav-active">Services</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="bc"><div class="inner"><a href="services.html">Services</a> · L1 Train people to direct AI</div></div>
+
+  <section class="hero1">
+    <div class="inner">
+      <span class="tp">L1 · Train people to direct AI</span>
+      <h1>Your team becomes fluent<br><em>at directing AI agents.</em></h1>
+      <p>L1 is the human layer of the Merlyn AI OS — where your workforce learns to direct AI rather than be displaced by it. Daily practice through the TeamIQ platform. Structured curriculum through Academy cohorts. Role-specific instruction through classroom training. Bespoke topical work through company workshops. Four formats, one outcome: people who can supervise AI agents and get useful work out of them.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="contact.html?interest=l1" class="bdark">Talk to us ↗</a>
+        <a href="#formats" class="bout">See the formats</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="formats">
+    <div class="inner">
+      <p class="sl2">Four delivery formats</p>
+      <h2 class="sh2">One product family — four ways to learn</h2>
+      <div class="formats">
+
+        <div class="fmt">
+          <div class="fmt-head">
+            <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4"/><path d="M8 9h8"/><path d="M8 13h6"/></svg></div>
+            <div>
+              <div class="fmt-title">TeamIQ platform</div>
+              <div class="fmt-price">$17–19/user/mo</div>
+            </div>
+          </div>
+          <p class="fmt-body">The software platform where AI literacy becomes daily practice. Per-user subscription. Role-based curriculum that adapts to what each team member actually does. AI workflow templates they can use immediately.</p>
+          <ul class="fmt-bullets">
+            <li>Daily AI-direction practice</li>
+            <li>Role-based learning paths</li>
+            <li>Workflow templates for every department</li>
+            <li>Progress dashboards for managers</li>
+          </ul>
+          <a href="teamiq.html" style="font-size:12px;color:#0F6E56;text-decoration:none;font-weight:500;margin-top:14px;display:inline-block;">Learn more about TeamIQ →</a>
+        </div>
+
+        <div class="fmt">
+          <div class="fmt-head">
+            <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></svg></div>
+            <div>
+              <div class="fmt-title">Academy cohorts</div>
+              <div class="fmt-price">$3,500–$5,500 per seat</div>
+            </div>
+          </div>
+          <p class="fmt-body">Structured 8–12 week programs taught in cohort format. Mixed-company enrollment so participants learn alongside peers from other industries. Hands-on labs run on Dominion GPU infrastructure.</p>
+          <ul class="fmt-bullets">
+            <li>8-week AI Fundamentals track</li>
+            <li>12-week Applied AI track</li>
+            <li>Per-seat enrollment, scheduled quarterly</li>
+            <li>Capstone project on real company data</li>
+          </ul>
+          <a href="academy.html" style="font-size:12px;color:#0F6E56;text-decoration:none;font-weight:500;margin-top:14px;display:inline-block;">Learn more about Academy →</a>
+        </div>
+
+        <div class="fmt">
+          <div class="fmt-head">
+            <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg></div>
+            <div>
+              <div class="fmt-title">Classroom training</div>
+              <div class="fmt-price">$2,500–$4,500 per day</div>
+            </div>
+          </div>
+          <p class="fmt-body">Instructor-led sessions at your office, in our Evansville training space, or virtual. Half-day or full-day sessions tailored to a specific team, role, or skill area. Smaller groups, more interaction than cohorts.</p>
+          <ul class="fmt-bullets">
+            <li>Half-day or full-day formats</li>
+            <li>On-site, in our facility, or virtual</li>
+            <li>Up to 25 participants per session</li>
+            <li>Customized to your team's tools</li>
+          </ul>
+        </div>
+
+        <div class="fmt">
+          <div class="fmt-head">
+            <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/></svg></div>
+            <div>
+              <div class="fmt-title">Company workshops</div>
+              <div class="fmt-price">$8,000–$25,000 per engagement</div>
+            </div>
+          </div>
+          <p class="fmt-body">Bespoke, topical engagements built around your specific company context. Two-day to multi-week formats. Topic-focused rather than role-focused — e.g., "AI in your finance function" or "AI for your operations leadership team."</p>
+          <ul class="fmt-bullets">
+            <li>Custom scope, custom audience</li>
+            <li>Built on your company's actual workflows</li>
+            <li>Leadership team or department-wide</li>
+            <li>Often follow-on to an Academy cohort</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="secbg">
+    <div class="inner">
+      <p class="sl2">Who this is for</p>
+      <h2 class="sh2" style="margin-bottom:14px;">Organizations whose people need to direct AI, not be displaced by it</h2>
+      <div class="wg">
+        <div class="wc"><p class="wt">Common situations</p><ul class="wi"><li>Leadership pushing AI adoption</li><li>Team using AI tools inconsistently</li><li>Hiring slowed by skills gap</li><li>Compliance concerns around AI use</li></ul></div>
+        <div class="wc"><p class="wt">What we hear</p><ul class="wi"><li>"Our people are afraid of AI"</li><li>"Half the team uses ChatGPT, half doesn't"</li><li>"We need a coherent AI policy"</li><li>"Where do we even start?"</li></ul></div>
+        <div class="wc"><p class="wt">What changes</p><ul class="wi"><li>Team uses AI confidently</li><li>Consistent practices across roles</li><li>Productivity gains measurable</li><li>Ready for L2 data work</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="how">
+    <div class="inner">
+      <p class="sl2">How it works</p>
+      <h2 class="sh2" style="margin-bottom:4px;">Start where your team is, grow from there</h2>
+      <div class="stps">
+        <div class="stp"><div class="stn">1</div><p class="stt">Assess</p><p class="std">Skills baseline across your team. Where each role stands, what each role needs.</p></div>
+        <div class="stp"><div class="stn">2</div><p class="stt">Mix the formats</p><p class="std">TeamIQ for daily practice, Academy or classroom for foundational skills, workshops for leadership.</p></div>
+        <div class="stp"><div class="stn">3</div><p class="stt">Deliver</p><p class="std">Scheduled cohorts, on-site sessions, and ongoing platform use. We coordinate the calendar.</p></div>
+        <div class="stp"><div class="stn">4</div><p class="stt">Measure</p><p class="std">Skill progression, tool adoption, and productivity outcomes — reported quarterly.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="pricing">
+    <div class="inner">
+      <h2>What it costs</h2>
+      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:680px;margin-bottom:32px;">L1 has two pricing models. The TeamIQ platform is a recurring per-user SaaS subscription — the recurring base that keeps AI literacy a daily practice. Academy, classroom, and workshops are priced per engagement — bursts of intensive learning when your team needs to skill up faster than the platform alone can deliver.</p>
+      <div class="pricing-grid">
+
+        <div class="wc">
+          <p class="wt">Recurring — TeamIQ platform</p>
+          <p style="font-size:26px;font-weight:500;color:var(--t1);margin:10px 0 4px;">$17–19<span style="font-size:14px;font-weight:400;color:var(--t2);">/user/mo</span></p>
+          <p style="font-size:12px;color:var(--t2);margin-bottom:12px;">Per active user · annual or monthly billing</p>
+          <ul class="wi">
+            <li>$19/user/mo monthly</li>
+            <li>$17/user/mo annual (10% discount)</li>
+            <li>Volume discount at 250+ users</li>
+            <li>Custom enterprise pricing at 1,000+ users</li>
+          </ul>
+        </div>
+
+        <div class="wc" style="border-color:#1D9E75;background:rgba(15,110,86,0.03);">
+          <p class="wt" style="color:#0F6E56;">Per engagement — Academy, classroom, workshops</p>
+          <p style="font-size:18px;font-weight:500;color:var(--t1);margin:10px 0 4px;">Project-based</p>
+          <p style="font-size:12px;color:var(--t2);margin-bottom:12px;">Scoped per engagement</p>
+          <ul class="wi">
+            <li>Academy cohort: $3,500–$5,500 per seat</li>
+            <li>Classroom session: $2,500–$4,500 per day</li>
+            <li>Company workshop: $8,000–$25,000</li>
+            <li>Discounts on bundled engagements</li>
+          </ul>
+        </div>
+
+      </div>
+      <p style="font-size:13px;color:var(--t3);margin-top:20px;">Pricing is for the Evansville/Tri-State market. Bundled L1 packages and multi-year platform agreements available at a discount. Most L1 customers also have L0 with us — see the L1 + L0 bundle pricing in the assessment.</p>
+    </div>
+  </section>
+
+  <section class="secbg">
+    <div class="inner">
+      <p class="sl2">L1 in context</p>
+      <h2 class="sh2">Where L1 sits in the Merlyn AI OS</h2>
+      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:680px;margin-bottom:18px;">L1 is the human layer — the OS users. Without people who can direct AI, the data plumbing in L2 doesn't get used and the agents in L3 don't get supervised. Most customers come to L1 from L0 (the managed IT foundation) or arrive at L1 directly if their IT is already in good shape. After L1, the next step is L2 — connecting your operational data so the AI your team has learned to direct can actually see and act on the work.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;">
+        <a href="services-managed-foundation.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">← L0 · Managed foundation</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">The IT foundation that makes L1 work possible — networks, security, help desk.</p></div></a>
+        <a href="services-process-intelligence.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">L2 · Connect data to AI →</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">API integration, custom ML, and the semantic layer that makes data AI-queryable.</p></div></a>
+        <a href="services-strategic-intelligence.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">L3 · Deploy agents that act →</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">Digital twins and operational agents that act on the data L2 has connected.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pcta">
+    <div class="inner">
+      <h2>Ready to skill up your team?</h2>
+      <p>Start with a free assessment — we'll map where each role stands and what each needs.</p>
+      <a href="contact.html?interest=l1" class="bw">Talk to us ↗</a>
+    </div>
+  </section>
+
+  <footer class="sft">
+    <div class="inner">
+      <div>
+        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <p class="sfloc">Evansville, Indiana</p>
+      </div>
+      <ul class="sfls">
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="teamiq.html">TeamIQ</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
