@@ -60,6 +60,26 @@
     .stt{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:4px;}
     .std{font-size:12px;color:var(--t2);line-height:1.5;}
     .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;}
+
+    .teamiq-banner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;background:var(--bg2);border:0.5px solid var(--b1);border-left:3px solid #0F6E56;border-radius:var(--r2);padding:22px 24px;margin-top:8px;}
+    .teamiq-banner .tbn-pill{font-size:11px;font-weight:500;color:#085041;background:#9FE1CB;padding:3px 10px;border-radius:100px;display:inline-block;white-space:nowrap;}
+    .teamiq-banner .tbn-body{display:flex;flex-direction:column;gap:6px;min-width:0;}
+    .teamiq-banner .tbn-title{font-size:16px;font-weight:500;color:var(--t1);}
+    .teamiq-banner .tbn-desc{font-size:13px;color:var(--t2);line-height:1.6;}
+    .teamiq-banner .tbn-cta{padding:8px 14px;font-size:12px;color:#085041;border:0.5px solid #0F6E56;border-radius:var(--r1);text-decoration:none;background:transparent;white-space:nowrap;}
+    .teamiq-banner .tbn-cta:hover{background:rgba(15,110,86,0.08);}
+
+    .tracks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px;}
+    .track-card{background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--r2);padding:18px;display:flex;flex-direction:column;}
+    .tk-pill{font-size:10px;font-weight:500;letter-spacing:0.4px;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:10px;align-self:flex-start;text-transform:uppercase;}
+    .tk-pill.enables-l1{color:#085041;background:#9FE1CB;}
+    .tk-pill.enables-l2{color:#854F0B;background:#FBE9C7;}
+    .tk-pill.enables-l3{color:#FFFFFF;background:#0F6E56;}
+    .tk-title{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;}
+    .tk-who{font-size:12px;font-weight:500;color:var(--t2);margin-bottom:8px;}
+    .tk-body{font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:10px;}
+    .tk-meta{font-size:11px;color:var(--t3);margin-top:auto;padding-top:10px;border-top:0.5px solid var(--b1);line-height:1.55;}
+
     .pcta{padding:48px 0;background:#0F6E56;text-align:center;}
     .pcta h2{font-size:22px;font-weight:500;color:#fff;margin-bottom:8px;}
     .pcta p{font-size:14px;color:#9FE1CB;margin-bottom:22px;}
@@ -86,7 +106,9 @@
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);border:none;text-decoration:none;white-space:nowrap;overflow:hidden;}
       .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
       .sn .inner{justify-content:flex-start;}
-      .formats,.wg,.stps,.pricing-grid{grid-template-columns:1fr;}
+      .formats,.wg,.stps,.pricing-grid,.tracks-grid{grid-template-columns:1fr;}
+      .teamiq-banner{grid-template-columns:1fr;text-align:left;}
+      .teamiq-banner .tbn-pill,.teamiq-banner .tbn-cta{align-self:flex-start;}
     }
   </style>
 </head>
@@ -113,55 +135,115 @@
   <section class="hero1">
     <div class="inner">
       <span class="tp">L1 · Train people to direct AI</span>
-      <h1>Your team becomes fluent<br><em>at directing AI agents.</em></h1>
-      <p>L1 is the human layer of the Merlyn AI OS — where your workforce learns to direct AI rather than be displaced by it. Daily practice through the TeamIQ platform. Structured curriculum through Academy cohorts. Role-specific instruction through classroom training. Bespoke topical work through company workshops. Four formats, one outcome: people who can supervise AI agents and get useful work out of them.</p>
+      <h1>Train your team<br><em>to build their AI OS.</em></h1>
+      <p>L1 is the education layer of the Merlyn AI OS. We teach your people what they need to direct AI (at any layer) — whether you're skilling up the whole workforce for daily AI use, training your data team to build L2, or preparing your ML engineers to build L3. TeamIQ is the always-on practice platform; the multi-track curriculum is what scales your capability.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a href="contact.html?interest=l1" class="bdark">Talk to us ↗</a>
-        <a href="#formats" class="bout">See the formats</a>
+        <a href="#tracks" class="bout">See the tracks</a>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="formats">
+  <section class="sec">
     <div class="inner">
-      <p class="sl2">Four delivery formats</p>
-      <h2 class="sh2">One product family — four ways to learn</h2>
-      <div class="formats">
+      <p class="sl2">The platform</p>
+      <h2 class="sh2" style="margin-bottom:12px;">TeamIQ — every track member gets a seat</h2>
+      <p style="font-size:14px;color:var(--t2);line-height:1.65;max-width:680px;margin-bottom:8px;">TeamIQ is the always-on practice platform that anchors every track. Daily AI-direction exercises, role-based workflows, and a personal reference library that grows with your team. Track members keep their TeamIQ seat after the cohort ends — the platform is what makes AI literacy a continuous practice, not a one-time class.</p>
 
-        <div class="fmt">
-          <div class="fmt-head">
-            <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4"/><path d="M8 9h8"/><path d="M8 13h6"/></svg></div>
-            <div>
-              <div class="fmt-title">TeamIQ platform</div>
-              <div class="fmt-price">$17–19/user/mo</div>
-            </div>
-          </div>
-          <p class="fmt-body">The software platform where AI literacy becomes daily practice. Per-user subscription. Role-based curriculum that adapts to what each team member actually does. AI workflow templates they can use immediately.</p>
-          <ul class="fmt-bullets">
-            <li>Daily AI-direction practice</li>
-            <li>Role-based learning paths</li>
-            <li>Workflow templates for every department</li>
-            <li>Progress dashboards for managers</li>
-          </ul>
-          <a href="teamiq.html" style="font-size:12px;color:#0F6E56;text-decoration:none;font-weight:500;margin-top:14px;display:inline-block;">Learn more about TeamIQ →</a>
+      <div class="teamiq-banner">
+        <span class="tbn-pill">Included with every track</span>
+        <div class="tbn-body">
+          <div class="tbn-title">TeamIQ platform</div>
+          <div class="tbn-desc">Per-user SaaS. Daily AI-direction practice, role-based curriculum that adapts to what each team member does, workflow templates, and progress dashboards for managers. <strong>$17–19/user/mo</strong> — included for every enrolled track member; volume discounts at 250+ users.</div>
         </div>
+        <a href="teamiq.html" class="tbn-cta">TeamIQ details ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secbg" id="tracks">
+    <div class="inner">
+      <p class="sl2">The curriculum</p>
+      <h2 class="sh2" style="margin-bottom:6px;">Five tracks — pick the ones that match your AI OS plan</h2>
+      <p style="font-size:14px;color:var(--t2);line-height:1.65;max-width:680px;margin-bottom:18px;">The track a customer enrolls in depends on which layer of the AI OS they want their team to own. Plan to build L2 in-house? Send your data engineers through the L2-enablement track. Plan to have Merlyn build L3 but want your leadership to direct it well? Send executives through Business Leaders. <strong>Tracks combine</strong> — a real enterprise rollout usually mixes generalist tracks (everyone) with role-specific deep dives (specific teams).</p>
+
+      <div class="tracks-grid">
+
+        <div class="track-card">
+          <span class="tk-pill enables-l1">Enables L1</span>
+          <p class="tk-title">AI Fundamentals</p>
+          <p class="tk-who">For everyone in your organization</p>
+          <p class="tk-body">Baseline AI literacy. What current AI can and can't do, how to prompt and iterate productively, when to trust an output, and how to integrate AI into daily work. Anchored on TeamIQ for ongoing practice after the course ends.</p>
+          <p class="tk-meta">8 weeks · cohort or self-paced · entry to the AI OS</p>
+        </div>
+
+        <div class="track-card">
+          <span class="tk-pill enables-l1">Enables L1</span>
+          <p class="tk-title">AI for Business Leaders</p>
+          <p class="tk-who">For executives + people managers</p>
+          <p class="tk-body">How to direct AI work, supervise digital twins, evaluate AI proposals, set governance, and translate AI capability into strategy. Smaller cohorts, more discussion-led, designed around the decisions leaders actually face.</p>
+          <p class="tk-meta">6 weeks · executive cohort · supervising AI work</p>
+        </div>
+
+        <div class="track-card">
+          <span class="tk-pill enables-l2">Enables L2</span>
+          <p class="tk-title">Data Engineering for AI</p>
+          <p class="tk-who">For your data team</p>
+          <p class="tk-body">How to build the L2 data layer in-house: API integration, schema design for AI consumption, semantic layers, retrieval and RAG architectures, and the operational discipline to keep data flows running. Hands-on labs on Dominion infrastructure.</p>
+          <p class="tk-meta">12 weeks · technical track · build L2 yourself</p>
+        </div>
+
+        <div class="track-card">
+          <span class="tk-pill enables-l2">Enables L2</span>
+          <p class="tk-title">ML Engineering for AI</p>
+          <p class="tk-who">For your ML / data science team</p>
+          <p class="tk-body">Custom model development, training and evaluation, deployment pipelines, monitoring, retraining cadence. Builds on Data Engineering or assumes equivalent background. Same MLOps tooling we use in our own engagements (MLflow, Prefect, Feast, BentoML, Evidently).</p>
+          <p class="tk-meta">12 weeks · advanced technical · build L2 ML yourself</p>
+        </div>
+
+        <div class="track-card">
+          <span class="tk-pill enables-l3">Enables L3</span>
+          <p class="tk-title">Agent Construction</p>
+          <p class="tk-who">For your agent / advanced ML team</p>
+          <p class="tk-body">How to build L3: digital twins, multi-step agentic workflows, simulation engines, and operational agents. Architectural patterns, evaluation harnesses, and the safety practices that keep autonomous systems trustworthy. The most advanced track in the curriculum.</p>
+          <p class="tk-meta">10 weeks · advanced · build L3 yourself</p>
+        </div>
+
+        <div class="track-card" style="background:rgba(15,110,86,0.04);border-style:dashed;">
+          <span class="tk-pill enables-l1" style="background:transparent;border:1px dashed #0F6E56;">Custom track</span>
+          <p class="tk-title">Industry-specific curriculum</p>
+          <p class="tk-who">For company-wide programs</p>
+          <p class="tk-body">When the standard tracks don't quite fit your industry, we build a custom curriculum. Common requests: AI for healthcare operations, AI for trucking/logistics dispatch, AI for manufacturing quality, AI for regional banking.</p>
+          <p class="tk-meta">Custom scope · custom duration · contact us</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="inner">
+      <p class="sl2">How tracks are delivered</p>
+      <h2 class="sh2" style="margin-bottom:6px;">Three delivery formats — same curriculum, different consumption model</h2>
+      <p style="font-size:14px;color:var(--t2);line-height:1.65;max-width:680px;margin-bottom:18px;">Each track is available in three delivery formats. The format you choose depends on cohort size, scheduling flexibility, and how much customization you want.</p>
+
+      <div class="formats">
 
         <div class="fmt">
           <div class="fmt-head">
             <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></svg></div>
             <div>
               <div class="fmt-title">Academy cohorts</div>
-              <div class="fmt-price">$3,500–$5,500 per seat</div>
+              <div class="fmt-price">Multi-company · scheduled quarterly</div>
             </div>
           </div>
-          <p class="fmt-body">Structured 8–12 week programs taught in cohort format. Mixed-company enrollment so participants learn alongside peers from other industries. Hands-on labs run on Dominion GPU infrastructure.</p>
+          <p class="fmt-body">Standard cohort format. Mixed-company enrollment so participants learn alongside peers from other industries. Scheduled per-quarter calendar. Hands-on labs run on Dominion GPU infrastructure. Best for organizations sending 1–10 people from any single track.</p>
           <ul class="fmt-bullets">
-            <li>8-week AI Fundamentals track</li>
-            <li>12-week Applied AI track</li>
-            <li>Per-seat enrollment, scheduled quarterly</li>
-            <li>Capstone project on real company data</li>
+            <li>Per-seat enrollment</li>
+            <li>Quarterly start dates</li>
+            <li>Mixed-company peer learning</li>
+            <li>Capstone project</li>
           </ul>
-          <a href="academy.html" style="font-size:12px;color:#0F6E56;text-decoration:none;font-weight:500;margin-top:14px;display:inline-block;">Learn more about Academy →</a>
         </div>
 
         <div class="fmt">
@@ -169,15 +251,15 @@
             <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12l3 0"/><path d="M12 3l0 3"/><path d="M7.8 7.8l-2.2 -2.2"/><path d="M16.2 7.8l2.2 -2.2"/><path d="M7.8 16.2l-2.2 2.2"/><path d="M12 12l9 3l-4 2l-2 4l-3 -9"/></svg></div>
             <div>
               <div class="fmt-title">Classroom training</div>
-              <div class="fmt-price">$2,500–$4,500 per day</div>
+              <div class="fmt-price">Single-company · scheduled when you are</div>
             </div>
           </div>
-          <p class="fmt-body">Instructor-led sessions at your office, in our Evansville training space, or virtual. Half-day or full-day sessions tailored to a specific team, role, or skill area. Smaller groups, more interaction than cohorts.</p>
+          <p class="fmt-body">Track content delivered as instructor-led classroom sessions to a single company's team. Half-day or full-day sessions; can be scheduled on your timeline rather than the quarterly cohort cadence. Best for organizations sending 10–25 people from a single team.</p>
           <ul class="fmt-bullets">
             <li>Half-day or full-day formats</li>
             <li>On-site, in our facility, or virtual</li>
             <li>Up to 25 participants per session</li>
-            <li>Customized to your team's tools</li>
+            <li>Customized to your tools</li>
           </ul>
         </div>
 
@@ -186,15 +268,15 @@
             <div class="fmt-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/></svg></div>
             <div>
               <div class="fmt-title">Company workshops</div>
-              <div class="fmt-price">$8,000–$25,000 per engagement</div>
+              <div class="fmt-price">Bespoke topical · built for your context</div>
             </div>
           </div>
-          <p class="fmt-body">Bespoke, topical engagements built around your specific company context. Two-day to multi-week formats. Topic-focused rather than role-focused — e.g., "AI in your finance function" or "AI for your operations leadership team."</p>
+          <p class="fmt-body">When a standard track doesn't quite fit, we run a bespoke workshop around your specific situation. Two-day to multi-week formats. Topic-focused rather than role-focused — e.g., "AI in your finance function" or "AI for your operations leadership team during the merger."</p>
           <ul class="fmt-bullets">
             <li>Custom scope, custom audience</li>
             <li>Built on your company's actual workflows</li>
-            <li>Leadership team or department-wide</li>
             <li>Often follow-on to an Academy cohort</li>
+            <li>Multi-week engagement format</li>
           </ul>
         </div>
 
@@ -205,11 +287,11 @@
   <section class="secbg">
     <div class="inner">
       <p class="sl2">Who this is for</p>
-      <h2 class="sh2" style="margin-bottom:14px;">Organizations whose people need to direct AI, not be displaced by it</h2>
+      <h2 class="sh2" style="margin-bottom:14px;">Organizations whose people need to direct AI — at any layer</h2>
       <div class="wg">
-        <div class="wc"><p class="wt">Common situations</p><ul class="wi"><li>Leadership pushing AI adoption</li><li>Team using AI tools inconsistently</li><li>Hiring slowed by skills gap</li><li>Compliance concerns around AI use</li></ul></div>
-        <div class="wc"><p class="wt">What we hear</p><ul class="wi"><li>"Our people are afraid of AI"</li><li>"Half the team uses ChatGPT, half doesn't"</li><li>"We need a coherent AI policy"</li><li>"Where do we even start?"</li></ul></div>
-        <div class="wc"><p class="wt">What changes</p><ul class="wi"><li>Team uses AI confidently</li><li>Consistent practices across roles</li><li>Productivity gains measurable</li><li>Ready for L2 data work</li></ul></div>
+        <div class="wc"><p class="wt">Common situations</p><ul class="wi"><li>Leadership pushing AI adoption</li><li>Team using AI tools inconsistently</li><li>Want to build L2 or L3 in-house</li><li>Compliance concerns around AI use</li></ul></div>
+        <div class="wc"><p class="wt">What we hear</p><ul class="wi"><li>"Our people are afraid of AI"</li><li>"Half the team uses ChatGPT, half doesn't"</li><li>"We want to own this, not outsource it"</li><li>"Where do we even start?"</li></ul></div>
+        <div class="wc"><p class="wt">What changes</p><ul class="wi"><li>Team uses AI confidently</li><li>Consistent practices across roles</li><li>Internal capability for L2/L3</li><li>Ready to direct AI work, at any layer</li></ul></div>
       </div>
     </div>
   </section>
@@ -217,12 +299,12 @@
   <section class="sec" id="how">
     <div class="inner">
       <p class="sl2">How it works</p>
-      <h2 class="sh2" style="margin-bottom:4px;">Start where your team is, grow from there</h2>
+      <h2 class="sh2" style="margin-bottom:4px;">Assess, build the mix, deliver, measure</h2>
       <div class="stps">
-        <div class="stp"><div class="stn">1</div><p class="stt">Assess</p><p class="std">Skills baseline across your team. Where each role stands, what each role needs.</p></div>
-        <div class="stp"><div class="stn">2</div><p class="stt">Mix the formats</p><p class="std">TeamIQ for daily practice, Academy or classroom for foundational skills, workshops for leadership.</p></div>
-        <div class="stp"><div class="stn">3</div><p class="stt">Deliver</p><p class="std">Scheduled cohorts, on-site sessions, and ongoing platform use. We coordinate the calendar.</p></div>
-        <div class="stp"><div class="stn">4</div><p class="stt">Measure</p><p class="std">Skill progression, tool adoption, and productivity outcomes — reported quarterly.</p></div>
+        <div class="stp"><div class="stn">1</div><p class="stt">Assess</p><p class="std">Skills baseline across your team. Which layers (L2, L3) you want to own internally. Which tracks fit which people.</p></div>
+        <div class="stp"><div class="stn">2</div><p class="stt">Build the mix</p><p class="std">Combine the right tracks across the right formats. TeamIQ for everyone, deeper tracks for your engineering teams, workshops for leadership.</p></div>
+        <div class="stp"><div class="stn">3</div><p class="stt">Deliver</p><p class="std">Cohort enrollments, on-site sessions, ongoing TeamIQ practice. We coordinate the calendar against your fiscal year and project timeline.</p></div>
+        <div class="stp"><div class="stn">4</div><p class="stt">Measure</p><p class="std">Skill progression, tool adoption, productivity outcomes — reported quarterly. Plus: trained engineers are ready to take on L2 or L3 internally.</p></div>
       </div>
     </div>
   </section>
@@ -230,47 +312,76 @@
   <section class="sec" id="pricing">
     <div class="inner">
       <h2>What it costs</h2>
-      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:680px;margin-bottom:32px;">L1 has two pricing models. The TeamIQ platform is a recurring per-user SaaS subscription — the recurring base that keeps AI literacy a daily practice. Academy, classroom, and workshops are priced per engagement — bursts of intensive learning when your team needs to skill up faster than the platform alone can deliver.</p>
-      <div class="pricing-grid">
+      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:720px;margin-bottom:32px;">L1 has two pricing dimensions. TeamIQ is recurring per-user SaaS — the always-on baseline. Tracks are priced per-seat (for Academy cohort delivery) or per-engagement (for classroom and workshop delivery). Most L1 customers combine the recurring TeamIQ subscription with one or two tracks per year for specific teams.</p>
 
-        <div class="wc">
-          <p class="wt">Recurring — TeamIQ platform</p>
-          <p style="font-size:26px;font-weight:500;color:var(--t1);margin:10px 0 4px;">$17–19<span style="font-size:14px;font-weight:400;color:var(--t2);">/user/mo</span></p>
-          <p style="font-size:12px;color:var(--t2);margin-bottom:12px;">Per active user · annual or monthly billing</p>
-          <ul class="wi">
-            <li>$19/user/mo monthly</li>
-            <li>$17/user/mo annual (10% discount)</li>
-            <li>Volume discount at 250+ users</li>
-            <li>Custom enterprise pricing at 1,000+ users</li>
-          </ul>
-        </div>
-
-        <div class="wc" style="border-color:#1D9E75;background:rgba(15,110,86,0.03);">
-          <p class="wt" style="color:#0F6E56;">Per engagement — Academy, classroom, workshops</p>
-          <p style="font-size:18px;font-weight:500;color:var(--t1);margin:10px 0 4px;">Project-based</p>
-          <p style="font-size:12px;color:var(--t2);margin-bottom:12px;">Scoped per engagement</p>
-          <ul class="wi">
-            <li>Academy cohort: $3,500–$5,500 per seat</li>
-            <li>Classroom session: $2,500–$4,500 per day</li>
-            <li>Company workshop: $8,000–$25,000</li>
-            <li>Discounts on bundled engagements</li>
-          </ul>
-        </div>
-
+      <p style="font-size:11px;font-weight:600;color:#0F6E56;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Recurring · TeamIQ platform</p>
+      <div class="wc" style="margin-bottom:24px;">
+        <p class="wt">TeamIQ subscription</p>
+        <p style="font-size:26px;font-weight:500;color:var(--t1);margin:10px 0 4px;">$17–19<span style="font-size:14px;font-weight:400;color:var(--t2);">/user/mo</span></p>
+        <p style="font-size:12px;color:var(--t2);margin-bottom:12px;">$19/mo monthly · $17/mo annual (10% discount) · volume at 250+ users · enterprise at 1,000+ users</p>
+        <p style="font-size:12px;color:var(--t3);">Included for every enrolled track member; standalone subscriptions also available for organizations not enrolling in formal tracks.</p>
       </div>
-      <p style="font-size:13px;color:var(--t3);margin-top:20px;">Pricing is for the Evansville/Tri-State market. Bundled L1 packages and multi-year platform agreements available at a discount. Most L1 customers also have L0 with us — see the L1 + L0 bundle pricing in the assessment.</p>
+
+      <p style="font-size:11px;font-weight:600;color:#854F0B;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Per seat · Academy cohort enrollment</p>
+      <p style="font-size:13px;color:var(--t3);margin-bottom:20px;">All five tracks are available as Academy cohorts. Per-seat pricing varies by track depth and duration.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:32px;">
+        <div class="wc">
+          <p class="wt">AI Fundamentals</p>
+          <p style="font-size:13px;color:var(--t2);margin-bottom:8px;">8 weeks · entry-level</p>
+          <p style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:4px;">$2,500–$3,500<span style="font-size:13px;font-weight:400;color:var(--t2);">/seat</span></p>
+        </div>
+        <div class="wc">
+          <p class="wt">AI for Business Leaders</p>
+          <p style="font-size:13px;color:var(--t2);margin-bottom:8px;">6 weeks · executive cohort</p>
+          <p style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:4px;">$4,500–$6,500<span style="font-size:13px;font-weight:400;color:var(--t2);">/seat</span></p>
+        </div>
+        <div class="wc">
+          <p class="wt">Data Engineering for AI</p>
+          <p style="font-size:13px;color:var(--t2);margin-bottom:8px;">12 weeks · technical</p>
+          <p style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:4px;">$5,500–$8,500<span style="font-size:13px;font-weight:400;color:var(--t2);">/seat</span></p>
+        </div>
+        <div class="wc">
+          <p class="wt">ML Engineering for AI</p>
+          <p style="font-size:13px;color:var(--t2);margin-bottom:8px;">12 weeks · advanced</p>
+          <p style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:4px;">$6,500–$9,500<span style="font-size:13px;font-weight:400;color:var(--t2);">/seat</span></p>
+        </div>
+        <div class="wc" style="grid-column:1 / -1;">
+          <p class="wt">Agent Construction</p>
+          <p style="font-size:13px;color:var(--t2);margin-bottom:8px;">10 weeks · advanced · the most technical track in the curriculum</p>
+          <p style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:4px;">$6,000–$9,000<span style="font-size:13px;font-weight:400;color:var(--t2);">/seat</span></p>
+        </div>
+      </div>
+
+      <p style="font-size:11px;font-weight:600;color:#854F0B;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Per engagement · Classroom + Workshops</p>
+      <div class="pricing-grid">
+        <div class="wc">
+          <p class="wt">Classroom training</p>
+          <p style="font-size:13px;color:var(--t2);margin-bottom:8px;">Track content, single-company audience, day-rate</p>
+          <p style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:4px;">$2,500–$4,500<span style="font-size:13px;font-weight:400;color:var(--t2);">/day</span></p>
+          <p style="font-size:12px;color:var(--t3);">Half-day or full-day · up to 25 participants · on-site / our facility / virtual</p>
+        </div>
+        <div class="wc">
+          <p class="wt">Company workshops</p>
+          <p style="font-size:13px;color:var(--t2);margin-bottom:8px;">Bespoke topical engagements</p>
+          <p style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:4px;">$8,000–$25,000<span style="font-size:13px;font-weight:400;color:var(--t2);">/engagement</span></p>
+          <p style="font-size:12px;color:var(--t3);">Custom scope · multi-day to multi-week · executive or department-wide</p>
+        </div>
+      </div>
+
+      <p style="font-size:13px;color:var(--t3);margin-top:20px;">Pricing is for the Evansville/Tri-State market. Bundled L1 packages and multi-year platform agreements available at a discount. Most L1 customers also have L0 with us — see the L1 + L0 bundle pricing in the free assessment.</p>
     </div>
   </section>
 
   <section class="secbg">
     <div class="inner">
       <p class="sl2">L1 in context</p>
-      <h2 class="sh2">Where L1 sits in the Merlyn AI OS</h2>
-      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:680px;margin-bottom:18px;">L1 is the human layer — the OS users. Without people who can direct AI, the data plumbing in L2 doesn't get used and the agents in L3 don't get supervised. Most customers come to L1 from L0 (the managed IT foundation) or arrive at L1 directly if their IT is already in good shape. After L1, the next step is L2 — connecting your operational data so the AI your team has learned to direct can actually see and act on the work.</p>
+      <h2 class="sh2">Trained engineers = L2 and L3 DIY</h2>
+      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:720px;margin-bottom:18px;">L1 is the prerequisite for the build-it-yourself option at L2 and L3. After your data engineers go through the L2-enablement track, they can build the L2 layer themselves — Merlyn moves to a light-touch advisory role. After your ML team finishes Agent Construction, they can build the L3 layer themselves. Or if you prefer Merlyn to do the build, your trained team supervises the work effectively. Either way, L1 makes the rest of the AI OS yours.</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;">
-        <a href="services-managed-foundation.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">← L0 · Managed foundation</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">The IT foundation that makes L1 work possible — networks, security, help desk.</p></div></a>
-        <a href="services-process-intelligence.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">L2 · Connect data to AI →</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">API integration, custom ML, and the semantic layer that makes data AI-queryable.</p></div></a>
-        <a href="services-strategic-intelligence.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">L3 · Deploy agents that act →</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">Digital twins and operational agents that act on the data L2 has connected.</p></div></a>
+        <a href="services-managed-foundation.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">← L0 · Managed foundation</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">The IT foundation that makes the AI OS possible — networks, security, help desk, backup.</p></div></a>
+        <a href="services-process-intelligence.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">L2 · Connect data to AI →</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">Build it yourself (post-L1), let Merlyn build it, or work together. Three engagement modes.</p></div></a>
+        <a href="services-strategic-intelligence.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">L3 · Deploy agents that act →</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">Same three engagement modes. Digital twins and operational agents — yours, ours, or together.</p></div></a>
       </div>
     </div>
   </section>
