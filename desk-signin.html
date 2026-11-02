@@ -36,20 +36,43 @@
     .hamburger.open span:nth-child(2){opacity:0;}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-    /* ---- the embed ---- */
-    .frame-head{padding-top:18px;padding-bottom:14px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-    .frame-head h1{font-size:20px;font-weight:500;letter-spacing:-0.2px;}
+    /* ---- the embed ----
+       Full-bleed rather than inside the 960px content column. What loads in here
+       is whatever the Desk backend serves, and a presentation needs roughly
+       1200px before its own layout stops overflowing; boxing it into the column
+       guaranteed a horizontal scrollbar no matter how wide the window was. */
+    .frame-head{padding:16px 24px 12px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+    .frame-head h1{font-size:19px;font-weight:500;letter-spacing:-0.2px;}
+    .frame-head .head-right{display:flex;align-items:center;gap:16px;}
     .frame-head a{font-size:12.5px;color:#0F6E56;text-decoration:none;}
     .frame-head a:hover{text-decoration:underline;}
-    .frame-wrap{flex:1;min-height:0;padding-bottom:18px;display:flex;flex-direction:column;}
-    .frame-wrap .inner{height:100%;display:flex;flex-direction:column;}
-    .frame-wrap .frame-box{flex:1;min-height:0;}
-    .frame-box{height:100%;min-height:460px;border:0.5px solid var(--b2);border-radius:var(--r2);background:#fff;overflow:hidden;}
+    .maxbtn{font-size:12.5px;color:#0F6E56;background:transparent;border:0.5px solid var(--b2);border-radius:var(--r1);padding:6px 12px;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+    .maxbtn:hover{background:#fff;border-color:#0F6E56;}
+    .maxbtn svg{width:13px;height:13px;}
+
+    .frame-wrap{flex:1;min-height:0;padding:0 24px 20px;display:flex;flex-direction:column;}
+    .frame-box{flex:1;min-height:460px;border:0.5px solid var(--b2);border-radius:var(--r2);background:#fff;overflow:hidden;}
     .frame-box iframe{width:100%;height:100%;border:0;display:block;}
 
     .frame-note{font-size:12.5px;color:var(--t3);margin-top:10px;line-height:1.6;}
     .frame-note a{color:#0F6E56;text-decoration:none;}
     .frame-note a:hover{text-decoration:underline;}
+
+    /* ---- maximized: the frame takes the whole viewport, the site gets out of
+       the way. Not the Fullscreen API: that hides the browser chrome too, and a
+       presenter usually still wants their tabs and address bar. */
+    body.maximized{padding-top:0;overflow:hidden;}
+    body.maximized .sn,
+    body.maximized .frame-head,
+    body.maximized .frame-note{display:none;}
+    body.maximized .frame-wrap{position:fixed;inset:0;padding:0;z-index:300;}
+    body.maximized .frame-box{border:0;border-radius:0;min-height:0;}
+    .restore{display:none;position:fixed;top:12px;right:14px;z-index:310;font-size:12px;
+      background:rgba(28,28,26,0.72);color:#fff;border:0;border-radius:100px;padding:7px 14px;
+      cursor:pointer;font-family:inherit;align-items:center;gap:7px;backdrop-filter:blur(4px);}
+    .restore:hover{background:rgba(28,28,26,0.92);}
+    .restore svg{width:12px;height:12px;}
+    body.maximized .restore{display:inline-flex;}
 
     @media(max-width:780px) and (min-width:681px){
       .snl{gap:8px;}
@@ -97,25 +120,38 @@
     </div>
   </nav>
 
-  <div class="inner frame-head">
-    <h1>Sign in to Desk</h1>
-    <a href="desk.html">&larr; About Desk</a>
+  <div class="frame-head">
+    <h1>Desk</h1>
+    <div class="head-right">
+      <a href="desk.html">&larr; About Desk</a>
+      <button type="button" class="maxbtn" id="maximize" aria-label="Expand to full window">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+        </svg>
+        Full window
+      </button>
+    </div>
   </div>
 
   <div class="frame-wrap">
-    <div class="inner">
-      <div class="frame-box">
-        <iframe id="desk-frame"
-                src="https://overlay-backend-861109469186.us-central1.run.app/admin/signin"
-                title="Regularis Desk sign in"
-                referrerpolicy="no-referrer"
-                allow="clipboard-write"></iframe>
-      </div>
-      <p class="frame-note">Sign-in not appearing above?
-        <a href="https://overlay-backend-861109469186.us-central1.run.app/admin/signin" target="_blank" rel="noopener">Open it in a new tab ↗</a>
-        &nbsp;·&nbsp; No workspace yet? <a href="contact.html?interest=desk">Request access</a>.</p>
+    <div class="frame-box">
+      <iframe id="desk-frame"
+              src="https://overlay-backend-861109469186.us-central1.run.app/admin/signin"
+              title="Regularis Desk"
+              referrerpolicy="no-referrer"
+              allow="clipboard-write"></iframe>
     </div>
+    <p class="frame-note">Not appearing above?
+      <a href="https://overlay-backend-861109469186.us-central1.run.app/admin/signin" target="_blank" rel="noopener">Open it in a new tab ↗</a>
+      &nbsp;·&nbsp; No workspace yet? <a href="contact.html?interest=desk">Request access</a>.</p>
   </div>
+
+  <button type="button" class="restore" id="restore" aria-label="Exit full window">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14l-7 7"/>
+    </svg>
+    Exit full window <span style="opacity:.6;">Esc</span>
+  </button>
 
 <script>
   document.querySelector('.hamburger').addEventListener('click',function(){
@@ -128,6 +164,25 @@
   // document is unreadable in both cases. So rather than guess wrong in one
   // direction or the other, the escape hatch is simply always present below the
   // frame. It costs one line of text and is never misleading.
+
+  // Full window. The frame covers the viewport and the site chrome is hidden,
+  // which is also what gives an embedded presentation enough width to stop
+  // overflowing its own layout.
+  (function () {
+    var body = document.body;
+    function on()  { body.classList.add('maximized'); document.getElementById('restore').focus(); }
+    function off() { body.classList.remove('maximized'); document.getElementById('maximize').focus(); }
+
+    document.getElementById('maximize').addEventListener('click', on);
+    document.getElementById('restore').addEventListener('click', off);
+
+    // Esc is the expected way out, but it only reaches us while focus is in this
+    // document - once the visitor clicks into the frame, keystrokes belong to the
+    // framed page and we never see them. Hence a visible button as well.
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && body.classList.contains('maximized')) off();
+    });
+  })();
 </script>
 </body>
 </html>
