@@ -21,7 +21,7 @@
     .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
     .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;}
-    .snl{display:flex;gap:20px;list-style:none;}
+    .snl{display:flex;gap:18px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
     .snl a:hover{color:var(--t1);}
     .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
@@ -30,6 +30,11 @@
     .hero-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:48px;align-items:center;}
     .hero-visual{display:flex;align-items:center;justify-content:flex-end;}
     .hero-visual svg{width:100%;height:auto;}
+    /* 7 nav items: tighten the row in the band above the hamburger breakpoint */
+    @media(max-width:780px) and (min-width:681px){
+      .snl{gap:8px;}
+      .snl a{font-size:11.5px;}
+    }
     @media(max-width:680px){.hero-split{grid-template-columns:1fr;}.hero-visual{margin-top:24px;}}
     .hero{background:#F5F4EF;}
     .hero .inner{padding-top:52px;padding-bottom:48px;}
@@ -150,6 +155,7 @@
       <ul class="snl">
         <li><a href="services.html">Services</a></li>
         <li><a href="desk.html">Desk</a></li>
+        <li><a href="bench.html">Bench</a></li>
         <li><a href="academy.html" class="nav-active">Academy</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="about.html">About</a></li>
@@ -269,7 +275,7 @@
         <div class="diff">
           <div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 5m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z"/><path d="M9 9h6v6h-6z"/><path d="M3 10h2"/><path d="M3 14h2"/><path d="M10 3v2"/><path d="M14 3v2"/><path d="M21 10h-2"/><path d="M21 14h-2"/><path d="M10 21v-2"/><path d="M14 21v-2"/></svg></div>
           <p class="diff-title">Real GPU hardware</p>
-          <p class="diff-desc">Students train on NVIDIA GPU hardware — the same platform powering production AI across the industry — with AMD Instinct available for open-source and federation infrastructure tracks. No shared cloud instances, no variable availability.</p>
+          <p class="diff-desc">Students work on the NVIDIA and AMD toolchains the industry actually runs on, with GPU time provisioned per cohort rather than shared across classes.</p>
         </div>
         <div class="diff">
           <div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/></svg></div>
@@ -279,7 +285,7 @@
         <div class="diff">
           <div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"/><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M17 10h2a2 2 0 0 1 2 2v1"/><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M3 13v-1a2 2 0 0 1 2 -2h2"/></svg></div>
           <p class="diff-title">Small cohorts, local delivery</p>
-          <p class="diff-desc">Cohorts of 12–20 students in Evansville, Indiana. Instructor-led by practitioners who use these tools in production. A 4:1 student-to-instructor ratio in the hands-on lab sessions.</p>
+          <p class="diff-desc">Cohorts of 12–20 students in Evansville, Indiana. Instructor-led by practitioners who build with these tools daily. A 4:1 student-to-instructor ratio in the hands-on lab sessions.</p>
         </div>
       </div>
     </div>
@@ -539,6 +545,7 @@
       <ul class="sfls">
         <li><a href="services.html">Services</a></li>
         <li><a href="desk.html">Desk</a></li>
+        <li><a href="bench.html">Bench</a></li>
         <li><a href="academy.html">Academy</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="about.html">About</a></li>

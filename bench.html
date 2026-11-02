@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>Regularis Bench — Regularis Systems</title>
+  <meta name="description" content="Regularis Bench automates the mechanical part of back-office work exactly, and routes the judgment part deliberately. Every figure it proposes can be re-derived from its inputs years later.">
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
+    body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;}
+
+    /* ---- nav ---- */
+    .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;backface-visibility:hidden;}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;}
+    .snl{display:flex;gap:18px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .sncta:hover{background:#085041;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* ---- buttons ---- */
+    .bp{padding:11px 22px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bp:hover{background:#085041;}
+    .bg{padding:11px 22px;background:transparent;color:var(--t1);border:0.5px solid var(--b2);border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bg:hover{background:var(--bg2);}
+    .ctas{display:flex;gap:10px;flex-wrap:wrap;}
+
+    /* ---- status band ---- */
+    .status{background:#412402;color:#FAC775;font-size:13px;}
+    .status .inner{padding-top:11px;padding-bottom:11px;display:flex;gap:10px;align-items:flex-start;}
+    .status strong{color:#FFF;font-weight:500;}
+
+    /* ---- hero ---- */
+    .hero{background:var(--bg2);}
+    .hero .inner{padding-top:64px;padding-bottom:52px;}
+    .he{font-size:12px;font-weight:500;color:#1D9E75;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+    .hed{width:6px;height:6px;border-radius:50%;background:#1D9E75;display:inline-block;}
+    .hero h1{font-size:40px;font-weight:500;color:var(--t1);line-height:1.15;margin-bottom:16px;letter-spacing:-0.4px;}
+    .hero h1 em{font-style:normal;color:#0F6E56;}
+    .hero p{font-size:17px;color:var(--t2);line-height:1.65;margin-bottom:8px;max-width:620px;}
+
+    /* ---- sections ---- */
+    section .inner{padding-top:56px;padding-bottom:56px;}
+    h2{font-size:26px;font-weight:500;color:var(--t1);margin-bottom:10px;letter-spacing:-0.3px;}
+    .sub{font-size:15px;color:var(--t2);max-width:660px;margin-bottom:30px;line-height:1.65;}
+    .prose p{font-size:15px;color:var(--t2);line-height:1.75;max-width:660px;}
+    .prose p+p{margin-top:14px;}
+    .prose strong{color:var(--t1);font-weight:500;}
+
+    /* ---- the two tiers ---- */
+    .tiers{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;}
+    .tier{border:0.5px solid var(--b2);border-radius:var(--r2);padding:24px 22px;background:#fff;}
+    .tier.det{border-color:#1D9E75;background:#F7FCFA;}
+    .tier-tag{font-size:11px;font-weight:500;letter-spacing:0.03em;margin-bottom:8px;display:inline-block;padding:3px 9px;border-radius:100px;margin-left:-9px;}
+    .det .tier-tag{color:#085041;background:#E1F5EE;}
+    .jud .tier-tag{color:#633806;background:#FAEEDA;}
+    .tier h3{font-size:17px;font-weight:500;margin-bottom:8px;}
+    .tier p{font-size:13px;color:var(--t2);line-height:1.65;}
+    .tier ul{list-style:none;margin-top:12px;}
+    .tier li{font-size:13px;color:var(--t2);line-height:1.55;padding-left:16px;position:relative;margin-bottom:7px;}
+    .tier li:before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#1D9E75;}
+    .jud li:before{background:#FAC775;}
+
+    /* ---- steps ---- */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s;}
+    .step{position:relative;padding-top:38px;}
+    .step:before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:26px;height:26px;border-radius:50%;background:#1D9E75;color:#fff;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;}
+    .step h4{font-size:15px;font-weight:500;margin-bottom:6px;}
+    .step p{font-size:13px;color:var(--t2);line-height:1.6;}
+
+    /* ---- dark band ---- */
+    .band{background:#085041;color:#E1F5EE;}
+    .band h2{color:#fff;}
+    .band .sub{color:#9FE1CB;}
+    .band .prose p{color:#9FE1CB;}
+    .band .prose strong{color:#fff;}
+    .refusals{list-style:none;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;}
+    .refusals li{border-top:1px solid rgba(159,225,203,0.3);padding-top:14px;}
+    .refusals h4{font-size:15px;font-weight:500;color:#FAC775;margin-bottom:7px;}
+    .refusals p{font-size:13.5px;color:#9FE1CB;line-height:1.7;}
+
+    /* ---- gaps table ---- */
+    .gaps{list-style:none;border-top:0.5px solid var(--b1);}
+    .gaps li{display:flex;gap:24px;padding:15px 0;border-bottom:0.5px solid var(--b1);}
+    .gaps .g-name{font-size:14px;font-weight:500;color:var(--t1);flex:0 0 190px;}
+    .gaps .g-note{font-size:13.5px;color:var(--t2);line-height:1.65;flex:1;}
+
+    /* ---- footer ---- */
+    .sft{border-top:0.5px solid var(--b1);background:var(--bg2);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
+    .sfls{display:flex;gap:14px;list-style:none;flex-wrap:wrap;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
+
+    @media(max-width:860px){
+      .steps{grid-template-columns:1fr 1fr;gap:26px;}
+      .tiers{grid-template-columns:1fr;}
+      .refusals{grid-template-columns:1fr;gap:18px;}
+      .snl{gap:14px;}
+    }
+    /* 7 nav items: tighten the row in the band above the hamburger breakpoint */
+    @media(max-width:780px) and (min-width:681px){
+      .snl{gap:8px;}
+      .snl a{font-size:11.5px;}
+    }
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
+      .hero h1{font-size:30px;}
+      .steps{grid-template-columns:1fr;}
+      .gaps li{flex-direction:column;gap:5px;}
+      .gaps .g-name{flex:none;}
+      .inner{padding:0 22px;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
+      <ul class="snl">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="desk.html">Desk</a></li>
+        <li><a href="bench.html" class="nav-active">Bench</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="teamiq.html">TeamIQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- STATUS: update when Bench has a scheduled run and a write path. See bench-guide.adoc "What is not built". -->
+  <div class="status">
+    <div class="inner">
+      <span>▲</span>
+      <span><strong>In development.</strong> Bench is built and under test. It is not running anywhere, no one is using it, and its first application has no write path yet — it proposes figures and changes nothing.</span>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="inner">
+      <p class="he"><span class="hed"></span>Regularis Bench</p>
+      <h1>Most of it is arithmetic.<br><em>A little of it is judgment.</em></h1>
+      <p>In a lot of back-office work there is a correct answer, a person is deriving it by hand, and most of the derivation is mechanical. Rules, lookups, thresholds, arithmetic. The small remainder is the part that genuinely needs a person — and it is the reason the whole job is still manual.</p>
+      <p>Bench does the mechanical part exactly, and routes the rest deliberately. It proposes; a person decides.</p>
+      <div class="ctas" style="margin-top:26px;">
+        <a href="contact.html?interest=bench" class="bp">Talk to us about Bench</a>
+        <a href="desk.html" class="bg">See Desk, the front-of-house half</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>Desk is the front of house. Bench is the back.</h2>
+      <p class="sub">The two are siblings, and the difference between them drives nearly every engineering decision.</p>
+      <div class="prose">
+        <p><strong>Desk</strong> runs where a person is standing there — an operator, a customer waiting, a payment to take. Everything about it is shaped by that. It has to be fast and it has to be interactive.</p>
+        <p><strong>Bench</strong> runs where nobody is standing there. Overnight, in batch, against records rather than people. Nothing it does is sub-second and nothing it does is interactive, which means it can afford to think — and can afford to be thorough in ways an interactive tool cannot.</p>
+        <p>Both names describe a place rather than a function, which is the rule the naming settled on after two earlier attempts went the other way.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg2);">
+    <div class="inner">
+      <h2>Two tiers, and a hard line between them</h2>
+      <p class="sub">The split is not an implementation detail. It is the product, and it is why the outputs are defensible.</p>
+      <div class="tiers">
+        <div class="tier det">
+          <span class="tier-tag">The deterministic pass</span>
+          <h3>Rules, and nothing else</h3>
+          <p>Pure functions over the records and the rate book. This is where the bulk of the value is.</p>
+          <ul>
+            <li>Contains no model</li>
+            <li>Makes no network call</li>
+            <li>Needs no credential, and costs nothing to run</li>
+            <li>Produces the same answer from the same inputs, forever</li>
+          </ul>
+        </div>
+        <div class="tier jud">
+          <span class="tier-tag">The judgment tier</span>
+          <h3>Only what the rules refused</h3>
+          <p>Sees one contested item at a time, with its evidence, and returns a recommendation and a reason.</p>
+          <ul>
+            <li>Never sees anything the rules already closed</li>
+            <li>Cannot change a finding</li>
+            <li>Cannot write anywhere</li>
+            <li>Cannot move work into the billable column on its own</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>Everything a person may have to defend is re-derivable</h2>
+      <div class="prose">
+        <p>This is the line the whole design hangs off: <strong>every output someone may have to defend must be re-derivable from its inputs, years later, by code that did not change in between.</strong></p>
+        <p>A correction gets disputed months after the invoice goes out. &ldquo;The model said so&rdquo; is not an answer anybody can give a customer. So the deterministic pass holds everything that has to survive that conversation, and the judgment tier holds only what the rules explicitly declined to close.</p>
+        <p>The two live in separate classes for the same reason they live in separate paragraphs: the line has to stay visible to stay true. A reviewer should be able to tell which side of it a piece of code is on without reading its body.</p>
+        <p>Which is also why we do not call this an agentic AI product, even though it has a model in it. In the first application, something like nine tenths of the value is deterministic. Describe it as AI and the part that earns the money looks like plumbing while the part that cannot be audited looks like the point. That is backwards, and it would mislead a buyer. <strong>Bench is back-office automation with a judgment tier.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="inner">
+      <h2>What the judgment tier is not allowed to do</h2>
+      <p class="sub">A contested item becomes billable without a person only if the model said yes <em>and</em> said it was sure. Everything else queues for a reviewer. Several further refusals are built in on top of that, each pinned by a test.</p>
+      <ul class="refusals">
+        <li>
+          <h4>An unparseable answer is no answer</h4>
+          <p>If the reply does not parse, the finding stays exactly where the rules left it. Guessing at a malformed response is how a tool starts billing on noise.</p>
+        </li>
+        <li>
+          <h4>A yes with no number attached is rejected</h4>
+          <p>An affirmative that does not say how many minutes is not an instruction anybody can act on, so it is discarded rather than interpreted.</p>
+        </li>
+        <li>
+          <h4>A missing reference table is never put to the model</h4>
+          <p>Where a rounding rule is data we simply do not hold, no model can supply it. Asking would be inviting it to invent one. We would rather hand over an unrounded figure than a confidently wrong one.</p>
+        </li>
+        <li>
+          <h4>An unknown stop reason means &ldquo;unfinished&rdquo;</h4>
+          <p>A reply that ended for a reason we do not recognise is treated as truncated, never as complete. Otherwise a new stop reason introduced next year silently starts feeding half-sentences into a billing decision.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>The first application: closing trips against the record</h2>
+      <p class="sub">A vehicle fleet bills for distance and waiting time. The figures come from events a driver taps on a tablet, which record where the vehicle was <em>when the driver tapped</em> — not where the event actually happened. The GPS trail is what actually happened. Reconciling the two recovers work that was done and not billed.</p>
+      <div class="steps">
+        <div class="step">
+          <h4>Find where it stopped</h4>
+          <p>Stops come from dwell time, clustered within a fixed radius — never from a speed field, because most fixes carry no speed and parked vehicles routinely report null rather than zero.</p>
+        </div>
+        <div class="step">
+          <h4>Re-anchor the events</h4>
+          <p>An event tapped while moving is matched to the real stop beside it. Being away from the planned location is not by itself an error — crews and cargo are handled where the work is.</p>
+        </div>
+        <div class="step">
+          <h4>Price what the rules close</h4>
+          <p>Grace periods, thresholds and rates come from a generated rate book rather than retyped figures, so a rate in the engine cannot drift from a rate in the sheet.</p>
+        </div>
+        <div class="step">
+          <h4>Hand over the rest</h4>
+          <p>Anything the rules found but could not close is marked and routed, with its evidence attached, in the terms the person defending the correction would use.</p>
+        </div>
+      </div>
+      <div class="prose" style="margin-top:34px;">
+        <p><strong>Two details that turned out to matter more than they sound.</strong></p>
+        <p>The fleet system pauses its pings while a vehicle sits and resumes on departure, so a seventeen-minute stop is two fixes a few feet apart with seventeen minutes between them — not thirty-four readings in a heap. A detector that needs many samples inside the window finds none of these, which is most of them.</p>
+        <p>And the stop anchor is fixed rather than rolling. A rolling centre lets a vehicle creep arbitrarily far in small steps and still read as parked; a fixed anchor bounds the cluster to one radius, so a slow crawl across a yard is correctly not a stop.</p>
+        <p>There is also a class of bug worth naming, because it will recur anywhere money turns on a comparison. An early run found nothing where it should have found something: the stop measured <strong>4.999917 minutes</strong> against a five-minute floor, five milliseconds short. GPS fixes carry sub-second offsets, so a stop any person would call five minutes measures just under about as often as just over. All duration thresholds now compare on whole seconds.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg2);">
+    <div class="inner">
+      <h2>Where it admits it is guessing</h2>
+      <div class="prose">
+        <p>Some figures cannot be made exact from the records Bench can currently see. It neither refuses to price them nor quietly picks a value.</p>
+        <p>Where a rate depends on a division or hub that is not in the trip log, the finding is priced at the midpoint of that range and <strong>marked as an estimate</strong>. Refusing outright would hide the size of the finding; picking silently would overstate it.</p>
+        <p>Some consequences are not priced at all. Re-anchoring an event to the correct stop changes which leg its distance falls on, and that depends on leg structure and an odometer that live in the system of record. Bench states the displacement as evidence and declines to put a figure on it, because reporting a dollar amount from GPS alone would be inventing precision.</p>
+        <p>And the value of a trip's proposed corrections <strong>deliberately excludes everything still needing judgment</strong>. Counting unvetted time as recovered revenue is how a recovery tool starts over-billing the customer it was meant to help — a worse outcome than under-billing, and much harder to undo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>What is not built</h2>
+      <p class="sub">Stated plainly, because the gaps shape what Bench is useful for today.</p>
+      <ul class="gaps">
+        <li>
+          <span class="g-name">No write path</span>
+          <span class="g-note">The engine proposes. Nothing is written to the system of record, no status is set, no invoice is touched. This is the next decision rather than the next task — an advisory queue and a direct write-back are different products.</span>
+        </li>
+        <li>
+          <span class="g-name">No join to the system of record</span>
+          <span class="g-note">Division, hub, leg structure and odometer all live elsewhere. Joining to them makes pricing exact and sharpens every finding. The cheapest large improvement available.</span>
+        </li>
+        <li>
+          <span class="g-name">No scheduler</span>
+          <span class="g-note">There is no nightly run. A record is analysed when something asks for it.</span>
+        </li>
+        <li>
+          <span class="g-name">An open question about the unit of billing</span>
+          <span class="g-note">Two sources describe how the work earns money and they do not agree. The engine implements the one the current procedures and rate sheet describe, and says so, rather than burying the assumption.</span>
+        </li>
+        <li>
+          <span class="g-name">Separate from the payment path</span>
+          <span class="g-note">Bench shares a repository with Desk and nothing at build time. It has no payment path and no UI, so a Bench change never rebuilds or retests the money path.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="background:var(--bg2);">
+    <div class="inner">
+      <h2>How it is tested</h2>
+      <div class="prose">
+        <p><strong>55 deterministic tests.</strong> None needs a credential and none touches a network.</p>
+        <p><strong>The judgment tier is tested without a model.</strong> A scripted gateway returns exactly what each case needs — including refusals, truncations and malformed replies — so every rule about what the tier may not do is pinned by a test that costs nothing to run.</p>
+        <p><strong>Customer data stays out of the repository.</strong> The regression pinning the most important ruling is built from synthetic geometry rather than a real record. That is not only a privacy measure: it pins the <em>principle</em> rather than one customer's case, so it keeps holding when the underlying data changes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner" style="text-align:center;">
+      <h2>Is somebody doing this by hand?</h2>
+      <p class="sub" style="margin-left:auto;margin-right:auto;">If a person in your organisation derives a number every week that the records already contain, that is the shape Bench is built for. Tell us what they do and we will tell you honestly whether it fits.</p>
+      <div class="ctas" style="justify-content:center;">
+        <a href="contact.html?interest=bench" class="bp">Start a conversation</a>
+        <a href="services.html" class="bg">How Regularis works</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sft">
+    <div class="inner">
+      <div>
+        <a href="index.html" class="sfl">regularis</a>
+        <p class="sfloc">Evansville, Indiana</p>
+      </div>
+      <ul class="sfls">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="desk.html">Desk</a></li>
+        <li><a href="bench.html">Bench</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="teamiq.html">TeamIQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
+    </div>
+  </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

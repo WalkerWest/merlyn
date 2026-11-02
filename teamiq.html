@@ -20,7 +20,7 @@
     .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
     .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;}
-    .snl{display:flex;gap:20px;list-style:none;}
+    .snl{display:flex;gap:18px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
     .snl a:hover{color:var(--t1);}
     .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
@@ -39,6 +39,11 @@
     .hero{background:var(--bg2);}
     .hero-split{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
     .hero-visual{display:flex;align-items:center;justify-content:center;}
+    /* 7 nav items: tighten the row in the band above the hamburger breakpoint */
+    @media(max-width:780px) and (min-width:681px){
+      .snl{gap:8px;}
+      .snl a{font-size:11.5px;}
+    }
     @media(max-width:680px){.hero-split{grid-template-columns:1fr;}.hero-visual{justify-content:flex-start;margin-top:24px;}}
     .hero .inner{padding-top:72px;padding-bottom:52px;}
     .he{font-size:12px;font-weight:500;color:#1D9E75;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
@@ -146,6 +151,7 @@
       <ul class="snl">
         <li><a href="services.html">Services</a></li>
         <li><a href="desk.html">Desk</a></li>
+        <li><a href="bench.html">Bench</a></li>
         <li><a href="academy.html">Academy</a></li>
         <li><a href="teamiq.html" class="nav-active">TeamIQ</a></li>
         <li><a href="about.html">About</a></li>
@@ -440,6 +446,7 @@
       <ul class="sfls">
         <li><a href="services.html">Services</a></li>
         <li><a href="desk.html">Desk</a></li>
+        <li><a href="bench.html">Bench</a></li>
         <li><a href="academy.html">Academy</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="about.html">About</a></li>
