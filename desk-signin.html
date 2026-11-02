@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>Sign in to Desk — Regularis Systems</title>
+  <meta name="robots" content="noindex">
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
+    html,body{height:100%;}
+    body{padding-top:56px;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg2);color:var(--t1);line-height:1.5;display:flex;flex-direction:column;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;width:100%;}
+
+    /* ---- nav ---- */
+    .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;backface-visibility:hidden;}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;}
+    .snl{display:flex;gap:18px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .sncta:hover{background:#085041;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* ---- the embed ---- */
+    .frame-head{padding-top:18px;padding-bottom:14px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+    .frame-head h1{font-size:20px;font-weight:500;letter-spacing:-0.2px;}
+    .frame-head a{font-size:12.5px;color:#0F6E56;text-decoration:none;}
+    .frame-head a:hover{text-decoration:underline;}
+    .frame-wrap{flex:1;min-height:0;padding-bottom:18px;display:flex;flex-direction:column;}
+    .frame-wrap .inner{height:100%;display:flex;flex-direction:column;}
+    .frame-wrap .frame-box{flex:1;min-height:0;}
+    .frame-box{height:100%;min-height:460px;border:0.5px solid var(--b2);border-radius:var(--r2);background:#fff;overflow:hidden;}
+    .frame-box iframe{width:100%;height:100%;border:0;display:block;}
+
+    .frame-note{font-size:12.5px;color:var(--t3);margin-top:10px;line-height:1.6;}
+    .frame-note a{color:#0F6E56;text-decoration:none;}
+    .frame-note a:hover{text-decoration:underline;}
+
+    @media(max-width:780px) and (min-width:681px){
+      .snl{gap:8px;}
+      .snl a{font-size:11.5px;}
+    }
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
+      .inner{padding:0 22px;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
+      <ul class="snl">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="desk.html" class="nav-active">Desk</a></li>
+        <li><a href="bench.html">Bench</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="teamiq.html">TeamIQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="inner frame-head">
+    <h1>Sign in to Desk</h1>
+    <a href="desk.html">&larr; About Desk</a>
+  </div>
+
+  <div class="frame-wrap">
+    <div class="inner">
+      <div class="frame-box">
+        <iframe id="desk-frame"
+                src="https://overlay-backend-861109469186.us-central1.run.app/admin/signin"
+                title="Regularis Desk sign in"
+                referrerpolicy="no-referrer"
+                allow="clipboard-write"></iframe>
+      </div>
+      <p class="frame-note">Sign-in not appearing above?
+        <a href="https://overlay-backend-861109469186.us-central1.run.app/admin/signin" target="_blank" rel="noopener">Open it in a new tab ↗</a>
+        &nbsp;·&nbsp; No workspace yet? <a href="contact.html?interest=desk">Request access</a>.</p>
+    </div>
+  </div>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+
+  // A frame refused by X-Frame-Options or frame-ancestors cannot be detected
+  // reliably from the parent document - the load event fires either way and the
+  // document is unreadable in both cases. So rather than guess wrong in one
+  // direction or the other, the escape hatch is simply always present below the
+  // frame. It costs one line of text and is never misleading.
+</script>
+</body>
+</html>
