@@ -27,7 +27,7 @@
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
     .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
     .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
-    .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
     .snl a:hover{color:var(--t1);}
@@ -190,13 +190,19 @@
     <p class="hero-sub">Dominion Hyperscale builds and operates the AI data center infrastructure; Regularis is the AI services and workforce training line of business conducted under that entity. Regularis does not build, own, or operate data center infrastructure itself — where an engagement requires compute, it runs on Dominion's infrastructure. Two distinct businesses, serving different audiences, run by the same founding team.</p>
     <div class="lockup">
       <a href="index.html" style="flex-shrink:0;display:block;">
-        <svg width="110" height="112" viewBox="0 0 110 112" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+        <svg width="110" height="112" viewBox="0 0 110 112" xmlns="http://www.w3.org/2000/svg" style="display:block;" aria-label="Regularis Systems">
           <rect width="110" height="112" rx="10" fill="#FFFFFF" stroke="#D0D0CC" stroke-width="1"/>
-          <rect x="20" y="12" width="76" height="13" rx="2" fill="#0F6E56"/>
-          <rect x="20" y="30" width="57" height="13" rx="2" fill="#1D9E75"/>
-          <rect x="20" y="48" width="38" height="13" rx="2" fill="#9FE1CB"/>
-          <text x="20" y="86" font-family="Zilla Slab,Georgia,serif" font-size="20" font-weight="500" letter-spacing="-0.3" fill="#1C1C1A">regularis</text>
-          <text x="20" y="101" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="12" font-weight="400" letter-spacing="0.5" fill="#6B6A65">ai labs</text>
+          <!-- The mark: ruled page, margin rule in mint, first rule illuminated in gold -->
+          <g transform="translate(33 8) scale(1.375)">
+            <rect width="32" height="32" rx="6" fill="#085041"/>
+            <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+            <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+            <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+            <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+            <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          </g>
+          <text x="55" y="79" text-anchor="middle" font-family="Zilla Slab,Georgia,serif" font-size="15" font-weight="500" letter-spacing="-0.2" fill="#0F6E56">regularis</text>
+          <text x="55" y="97" text-anchor="middle" font-family="Zilla Slab,Georgia,serif" font-size="15" font-weight="400" letter-spacing="-0.2" fill="#9B9A95">systems</text>
         </svg>
       </a>
       <span class="lockup-div">+</span>
