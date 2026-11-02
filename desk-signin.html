@@ -15,7 +15,13 @@
     *{box-sizing:border-box;margin:0;padding:0;}
     h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     html,body{height:100%;}
-    body{padding-top:56px;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg2);color:var(--t1);line-height:1.5;display:flex;flex-direction:column;}
+    /* Same treatment as the homepage splash: the photograph under a deep-green
+       gradient, with #085041 as the fallback if the image never arrives. Fixed
+       The page itself does not scroll, so no fixed attachment is needed. */
+    body{padding-top:56px;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      background-image:linear-gradient(rgba(8,80,65,0.78),rgba(5,50,40,0.88)),url('https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=1600&q=80&fit=crop&crop=center');
+      background-color:#085041;background-size:cover;background-position:center;
+      color:#E1F5EE;line-height:1.5;display:flex;flex-direction:column;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;width:100%;}
 
     /* ---- nav ---- */
@@ -42,21 +48,24 @@
        1200px before its own layout stops overflowing; boxing it into the column
        guaranteed a horizontal scrollbar no matter how wide the window was. */
     .frame-head{padding:16px 24px 12px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-    .frame-head h1{font-size:19px;font-weight:500;letter-spacing:-0.2px;}
+    .frame-head h1{font-size:19px;font-weight:500;letter-spacing:-0.2px;color:#FFFFFF;}
     .frame-head .head-right{display:flex;align-items:center;gap:16px;}
-    .frame-head a{font-size:12.5px;color:#0F6E56;text-decoration:none;}
-    .frame-head a:hover{text-decoration:underline;}
-    .maxbtn{font-size:12.5px;color:#0F6E56;background:transparent;border:0.5px solid var(--b2);border-radius:var(--r1);padding:6px 12px;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
-    .maxbtn:hover{background:#fff;border-color:#0F6E56;}
+    .frame-head a{font-size:12.5px;color:#9FE1CB;text-decoration:none;}
+    .frame-head a:hover{color:#FFFFFF;text-decoration:underline;}
+    .maxbtn{font-size:12.5px;color:#E1F5EE;background:rgba(255,255,255,0.08);border:0.5px solid rgba(159,225,203,0.45);border-radius:var(--r1);padding:6px 12px;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+    .maxbtn:hover{background:rgba(255,255,255,0.18);border-color:#9FE1CB;color:#FFFFFF;}
+    .maxbtn:focus-visible{outline:2px solid #9FE1CB;outline-offset:2px;}
     .maxbtn svg{width:13px;height:13px;}
 
     .frame-wrap{flex:1;min-height:0;padding:0 24px 20px;display:flex;flex-direction:column;}
-    .frame-box{flex:1;min-height:460px;border:0.5px solid var(--b2);border-radius:var(--r2);background:#fff;overflow:hidden;}
+    /* A pale ring and a lifted shadow so the white framed page reads as a panel
+       sitting on the photograph rather than a hole punched through it. */
+    .frame-box{flex:1;min-height:460px;border:1px solid rgba(159,225,203,0.35);border-radius:var(--r2);background:#fff;overflow:hidden;box-shadow:0 10px 36px rgba(0,0,0,0.3);}
     .frame-box iframe{width:100%;height:100%;border:0;display:block;}
 
-    .frame-note{font-size:12.5px;color:var(--t3);margin-top:10px;line-height:1.6;}
-    .frame-note a{color:#0F6E56;text-decoration:none;}
-    .frame-note a:hover{text-decoration:underline;}
+    .frame-note{font-size:12.5px;color:#9FE1CB;margin-top:12px;line-height:1.6;}
+    .frame-note a{color:#FFFFFF;text-decoration:underline;text-underline-offset:2px;}
+    .frame-note a:hover{color:#9FE1CB;}
 
     /* ---- maximized: the frame takes the whole viewport, the site gets out of
        the way. Not the Fullscreen API: that hides the browser chrome too, and a
