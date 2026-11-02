@@ -5,15 +5,20 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TeamIQ — Merlyn AI Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>TeamIQ — Regularis Systems</title>
   <style>
     :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
     *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
     .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
@@ -100,11 +105,12 @@
     .bam:hover{background:#0F6E56;}
     .sft{border-top:0.5px solid var(--b1);}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
-    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
     .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
     .sfls{display:flex;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
     @media(max-width:680px){
       .hamburger{display:flex;}
       .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
@@ -126,12 +132,22 @@
 
   <nav class="sn">
     <div class="inner">
-      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
       <ul class="snl">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html" class="nav-active">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
       </ul>
@@ -253,7 +269,7 @@
             <li>Skills gap analysis vs. your industry</li>
             <li>Manager view — assign, track, report</li>
             <li>SSO + HRIS integration</li>
-            <li>Quarterly readiness briefing with Merlyn team</li>
+            <li>Quarterly readiness briefing with Regularis team</li>
             <li>Pipeline routing to L2 Process Intelligence</li>
           </ul>
           <a href="contact.html?interest=teamiq-enterprise" class="bw">Talk to us</a>
@@ -318,7 +334,7 @@
         <div class="feat">
           <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/><path d="M3 6v13"/><path d="M12 6v13"/><path d="M21 6v13"/></svg></div>
           <div class="feat-title">Living curriculum library</div>
-          <div class="feat-desc">Five tracks covering AI literacy, data fundamentals, process automation, ML, and agentic workflows. New modules added as Merlyn builds them — your subscription grows with the field.</div>
+          <div class="feat-desc">Five tracks covering AI literacy, data fundamentals, process automation, ML, and agentic workflows. New modules added as Regularis builds them — your subscription grows with the field.</div>
         </div>
         <div class="feat">
           <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M15 15l3.35 3.35"/><path d="M18 12h3"/><path d="M12 18v3"/></svg></div>
@@ -328,17 +344,17 @@
         <div class="feat">
           <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 15m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M12 12v-8"/><path d="M8.5 4h7l1 4h-9z"/></svg></div>
           <div class="feat-title">Verified digital badges</div>
-          <div class="feat-desc">Completion badges backed by Merlyn's curriculum. Stackable toward Academy certifications. Shareable to LinkedIn and employer portals. Recognized by regional employers in the Merlyn network.</div>
+          <div class="feat-desc">Completion badges backed by Regularis's curriculum. Stackable toward Academy certifications. Shareable to LinkedIn and employer portals. Recognized by regional employers in the Regularis network.</div>
         </div>
         <div class="feat">
           <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z"/><path d="M7 20h10"/><path d="M9 16v4"/><path d="M15 16v4"/></svg></div>
-          <div class="feat-title">GPU lab access</div>
-          <div class="feat-desc">Select modules include hands-on GPU lab sessions at 9700 Highway 57. Real NVIDIA and AMD hardware. Real inference workloads. Not a simulation — the actual stack the industry uses.</div>
+          <div class="feat-title">Hands-on compute</div>
+          <div class="feat-desc">Select modules include hands-on sessions on cloud-hosted GPU instances. Real inference workloads against real models — not a simulation, and nothing to install locally.</div>
         </div>
         <div class="feat">
           <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"/><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M17 10h2a2 2 0 0 1 2 2v1"/><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M3 13v-1a2 2 0 0 1 2 -2h2"/></svg></div>
           <div class="feat-title">Community forum</div>
-          <div class="feat-desc">Peer learning across Merlyn's subscriber network. Ask questions, share projects, find collaborators. Moderated by Merlyn practitioners — not algorithms.</div>
+          <div class="feat-desc">Peer learning across Regularis's subscriber network. Ask questions, share projects, find collaborators. Moderated by Regularis practitioners — not algorithms.</div>
         </div>
         <div class="feat">
           <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17h5l1.5 -1.5m3 -3l1.5 -1.5h7"/><path d="M18 4l3 3l-3 3"/><path d="M3 7h5l7 10h6"/><path d="M18 17l3 3l-3 3"/></svg></div>
@@ -407,7 +423,7 @@
       <p style="font-size:13px;color:var(--t3);line-height:1.65;max-width:680px;">
         <strong style="color:var(--t2);">The full progression:</strong> TeamIQ identifies AI readiness →
         the <a href="academy.html" style="color:#0F6E56;">Academy</a> builds the skills →
-        <a href="services-process-intelligence.html" style="color:#0F6E56;">L2 engagements</a> deploy the first models with Merlyn managing the infrastructure →
+        <a href="services-process-intelligence.html" style="color:#0F6E56;">L2 engagements</a> deploy the first models with Regularis managing the infrastructure →
         organizations with mature ML teams graduate to self-managed compute on
         <a href="https://walkerwest.github.io/dominion/compute.html" target="_blank" style="color:#E87722;">Dominion Compute Services</a>.
         Every step runs on infrastructure built by the same founding team. <a href="partnership.html" style="color:#E87722;text-decoration:none;font-weight:500;">How the two companies work together →</a>
@@ -418,18 +434,19 @@
   <footer class="sft">
     <div class="inner">
       <div>
-        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <a href="index.html" class="sfl">regularis</a>
         <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
     </div>
   </footer>
 

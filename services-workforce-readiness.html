@@ -5,15 +5,20 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L1 Train people to direct AI — Merlyn AI Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>L1 Train people to direct AI — Regularis Systems</title>
   <style>
     :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
     *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
     .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
@@ -87,10 +92,12 @@
     .bw:hover{background:#E1F5EE;}
     .sft{border-top:0.5px solid var(--b1);}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
-    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
     .sfls{display:flex;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
 
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
@@ -116,12 +123,22 @@
 
   <nav class="sn">
     <div class="inner">
-      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
       <ul class="snl">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html" class="nav-active">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
       </ul>
@@ -136,7 +153,7 @@
     <div class="inner">
       <span class="tp">L1 · Train people to direct AI</span>
       <h1>Train your team<br><em>to build their AI OS.</em></h1>
-      <p>L1 is the education layer of the Merlyn AI OS. We teach your people what they need to direct AI (at any layer) — whether you're skilling up the whole workforce for daily AI use, training your data team to build L2, or preparing your ML engineers to build L3. TeamIQ is the always-on practice platform; the multi-track curriculum is what scales your capability.</p>
+      <p>L1 is the education layer of the Regularis AI OS. We teach your people what they need to direct AI (at any layer) — whether you're skilling up the whole workforce for daily AI use, training your data team to build L2, or preparing your ML engineers to build L3. TeamIQ is the always-on practice platform; the multi-track curriculum is what scales your capability.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a href="contact.html?interest=l1" class="bdark">Talk to us ↗</a>
         <a href="#tracks" class="bout">See the tracks</a>
@@ -165,7 +182,7 @@
     <div class="inner">
       <p class="sl2">The curriculum</p>
       <h2 class="sh2" style="margin-bottom:6px;">Five tracks — pick the ones that match your AI OS plan</h2>
-      <p style="font-size:14px;color:var(--t2);line-height:1.65;max-width:680px;margin-bottom:18px;">The track a customer enrolls in depends on which layer of the AI OS they want their team to own. Plan to build L2 in-house? Send your data engineers through the L2-enablement track. Plan to have Merlyn build L3 but want your leadership to direct it well? Send executives through Business Leaders. <strong>Tracks combine</strong> — a real enterprise rollout usually mixes generalist tracks (everyone) with role-specific deep dives (specific teams).</p>
+      <p style="font-size:14px;color:var(--t2);line-height:1.65;max-width:680px;margin-bottom:18px;">The track a customer enrolls in depends on which layer of the AI OS they want their team to own. Plan to build L2 in-house? Send your data engineers through the L2-enablement track. Plan to have Regularis build L3 but want your leadership to direct it well? Send executives through Business Leaders. <strong>Tracks combine</strong> — a real enterprise rollout usually mixes generalist tracks (everyone) with role-specific deep dives (specific teams).</p>
 
       <div class="tracks-grid">
 
@@ -257,7 +274,7 @@
           <p class="fmt-body">Track content delivered as instructor-led classroom sessions to a single company's team. Half-day or full-day sessions; can be scheduled on your timeline rather than the quarterly cohort cadence. Best for organizations sending 10–25 people from a single team.</p>
           <ul class="fmt-bullets">
             <li>Half-day or full-day formats</li>
-            <li>On-site, in our facility, or virtual</li>
+            <li>On-site at your location, or virtual</li>
             <li>Up to 25 participants per session</li>
             <li>Customized to your tools</li>
           </ul>
@@ -359,7 +376,7 @@
           <p class="wt">Classroom training</p>
           <p style="font-size:13px;color:var(--t2);margin-bottom:8px;">Track content, single-company audience, day-rate</p>
           <p style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:4px;">$2,500–$4,500<span style="font-size:13px;font-weight:400;color:var(--t2);">/day</span></p>
-          <p style="font-size:12px;color:var(--t3);">Half-day or full-day · up to 25 participants · on-site / our facility / virtual</p>
+          <p style="font-size:12px;color:var(--t3);">Half-day or full-day · up to 25 participants · on-site or virtual</p>
         </div>
         <div class="wc">
           <p class="wt">Company workshops</p>
@@ -377,10 +394,10 @@
     <div class="inner">
       <p class="sl2">L1 in context</p>
       <h2 class="sh2">Trained engineers = L2 and L3 DIY</h2>
-      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:720px;margin-bottom:18px;">L1 is the prerequisite for the build-it-yourself option at L2 and L3. After your data engineers go through the L2-enablement track, they can build the L2 layer themselves — Merlyn moves to a light-touch advisory role. After your ML team finishes Agent Construction, they can build the L3 layer themselves. Or if you prefer Merlyn to do the build, your trained team supervises the work effectively. Either way, L1 makes the rest of the AI OS yours.</p>
+      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:720px;margin-bottom:18px;">L1 is the prerequisite for the build-it-yourself option at L2 and L3. After your data engineers go through the L2-enablement track, they can build the L2 layer themselves — Regularis moves to a light-touch advisory role. After your ML team finishes Agent Construction, they can build the L3 layer themselves. Or if you prefer Regularis to do the build, your trained team supervises the work effectively. Either way, L1 makes the rest of the AI OS yours.</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;">
         <a href="services-managed-foundation.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">← L0 · Managed foundation</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">The IT foundation that makes the AI OS possible — networks, security, help desk, backup.</p></div></a>
-        <a href="services-process-intelligence.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">L2 · Connect data to AI →</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">Build it yourself (post-L1), let Merlyn build it, or work together. Three engagement modes.</p></div></a>
+        <a href="services-process-intelligence.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">L2 · Connect data to AI →</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">Build it yourself (post-L1), let Regularis build it, or work together. Three engagement modes.</p></div></a>
         <a href="services-strategic-intelligence.html" style="text-decoration:none;color:inherit;"><div class="wc" style="cursor:pointer;"><p class="wt" style="color:#0F6E56;">L3 · Deploy agents that act →</p><p style="font-size:12px;color:var(--t2);line-height:1.55;margin-top:6px;">Same three engagement modes. Digital twins and operational agents — yours, ours, or together.</p></div></a>
       </div>
     </div>
@@ -397,18 +414,19 @@
   <footer class="sft">
     <div class="inner">
       <div>
-        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <a href="index.html" class="sfl">regularis</a>
         <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
     </div>
   </footer>
 

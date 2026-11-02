@@ -5,16 +5,21 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community Education — Merlyn AI Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>Community Education — Regularis Systems</title>
   <style>
     html{overflow-x:hidden;}
     :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
     *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
     .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
@@ -98,10 +103,12 @@
     .bo:hover{background:rgba(29,158,117,0.15);}
     .sft{border-top:0.5px solid var(--b1);}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
-    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
     .sfls{display:flex;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
 
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
@@ -128,12 +135,22 @@
 
   <nav class="sn">
     <div class="inner">
-      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
       <ul class="snl">
         <li><a href="academy.html" class="nav-active">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
       </ul>
@@ -146,7 +163,7 @@
     <div class="inner">
       <div class="hero-split">
         <div class="hero-text">
-          <p class="he"><span class="hed"></span>Community Education · 9700 Highway 57, Evansville</p>
+          <p class="he"><span class="hed"></span>Community Education · Evansville, Indiana</p>
           <h1>AI capability built<br><em>at every level of the community.</em></h1>
           <p>K–12 computer science. College AI programs through Rize Education. Trade union workforce development. The Node Development track for civic entrepreneurs starting their own AI center. The pipeline that builds AI capability where talent lives — not just in coastal hubs.</p>
           <div class="ctas">
@@ -162,7 +179,7 @@
     <div class="inner">
       <p class="sl2">Four audiences</p>
       <h2 class="sh2">The community AI pipeline.</h2>
-      <p class="ssub">Community education is Merlyn's mission-driven layer — separate from the enterprise Academy curriculum. We work with school districts, colleges, trade unions, and civic entrepreneurs to make AI capability accessible at every stage of a person's career.</p>
+      <p class="ssub">Community education is Regularis's mission-driven layer — separate from the enterprise Academy curriculum. We work with school districts, colleges, trade unions, and civic entrepreneurs to make AI capability accessible at every stage of a person's career.</p>
       <div class="aud-grid">
 
         <div class="ac">
@@ -171,7 +188,7 @@
           </div>
           <p class="ac-title">K–12 schools</p>
           <p class="ac-sub">Municipal partnership</p>
-          <p class="ac-desc">Computer science curriculum at every grade level — project-based learning for juniors and seniors, and a vocational track covering fiber optics, TCP/IP, and network infrastructure for students headed directly into the workforce. We provide the curriculum, instructors, and GPU lab access at our facility. Districts get a program they couldn't otherwise afford.</p>
+          <p class="ac-desc">Computer science curriculum at every grade level — project-based learning for juniors and seniors, and a vocational track covering fiber optics, TCP/IP, and network infrastructure for students headed directly into the workforce. We provide the curriculum, the instructors, and cloud-hosted compute for coursework. Districts get a program they couldn't otherwise afford.</p>
           <a href="contact.html?interest=k12" class="ac-cta">Talk to us about your district ↗</a>
         </div>
 
@@ -181,7 +198,7 @@
           </div>
           <p class="ac-title">Colleges + universities</p>
           <p class="ac-sub">Rize Education partnership</p>
-          <p class="ac-desc">Small private colleges want to offer AI, data science, and cybersecurity programs — but can't fund the faculty or curriculum development alone. Through our partnership with Rize Education, whose shared course model lets institutions launch high-demand programs at a fraction of traditional cost, Merlyn provides the regional delivery layer: real GPU hardware, practitioner instruction, and local employer connections baked into the curriculum.</p>
+          <p class="ac-desc">Small private colleges want to offer AI, data science, and cybersecurity programs — but can't fund the faculty or curriculum development alone. Through our partnership with Rize Education, whose shared course model lets institutions launch high-demand programs at a fraction of traditional cost, Regularis provides the regional delivery layer: real GPU hardware, practitioner instruction, and local employer connections baked into the curriculum.</p>
           <a href="contact.html?interest=highered" class="ac-cta">Talk to us about your institution ↗</a>
         </div>
 
@@ -191,7 +208,7 @@
           </div>
           <p class="ac-title">Trade unions + apprenticeship programs</p>
           <p class="ac-sub">Workforce development · roadmap</p>
-          <p class="ac-desc">Data center construction and operations is skilled trades work — fiber splicing, structured cabling, power systems, cooling infrastructure. Trade union members already have the physical foundation. Merlyn trains the next layer: data center buildout, fiber network operations, and the technical skills that turn experienced tradespeople into the builders of AI infrastructure. We're building this pipeline now and welcome union partners to join us early.</p>
+          <p class="ac-desc">Data center construction and operations is skilled trades work — fiber splicing, structured cabling, power systems, cooling infrastructure. Trade union members already have the physical foundation. Regularis trains the next layer: data center buildout, fiber network operations, and the technical skills that turn experienced tradespeople into the builders of AI infrastructure. We're building this pipeline now and welcome union partners to join us early.</p>
           <a href="contact.html?interest=union" class="ac-cta">Talk to us about a partnership ↗</a>
         </div>
 
@@ -201,7 +218,7 @@
           </div>
           <p class="ac-title">Civic entrepreneurs · Node Development</p>
           <p class="ac-sub">For founders starting their own AI node</p>
-          <p class="ac-desc">An 8-week intensive for civic leaders, economic development professionals, and entrepreneurs interested in bringing the Merlyn model to their own region. Covers the community node launch playbook, B Corp / Public Benefit Corporation structure, infrastructure planning and procurement, non-dilutive capital sources, and federation membership and governance.</p>
+          <p class="ac-desc">An 8-week intensive for civic leaders, economic development professionals, and entrepreneurs interested in bringing the Regularis model to their own region. Covers the community node launch playbook, a survey of mission-driven legal structures (B Corp, Public Benefit Corporation, cooperative), infrastructure planning and procurement, non-dilutive capital sources, and federation membership and governance.</p>
           <a href="contact.html?interest=node" class="ac-cta">Node development inquiry ↗</a>
         </div>
 
@@ -215,7 +232,7 @@
       <h2 class="sh2">Community education is mission, not revenue.</h2>
       <div style="max-width:720px;color:var(--t2);font-size:15px;line-height:1.7;">
         <p style="margin-bottom:14px;">The enterprise Academy is the cohort delivery format for L1 of our service stack — paid B2B training that helps companies build their AI OS. <strong>Community education is something different</strong>: programs we run because the talent pipeline matters more than the next billable engagement.</p>
-        <p style="margin-bottom:14px;">K-12 districts can't afford a real CS program on their own — we run them at cost, with the districts paying what they can and Merlyn covering the rest through enterprise revenue. Small private colleges can't fund AI faculty on their own — the Rize Education partnership shares that cost across a network of institutions. Trade unions don't have curriculum for the data-center buildout era — we're building it together because the workforce needs to exist before the data centers do.</p>
+        <p style="margin-bottom:14px;">K-12 districts can't afford a real CS program on their own — we run them at cost, with the districts paying what they can and Regularis covering the rest through enterprise revenue. Small private colleges can't fund AI faculty on their own — the Rize Education partnership shares that cost across a network of institutions. Trade unions don't have curriculum for the data-center buildout era — we're building it together because the workforce needs to exist before the data centers do.</p>
         <p>The Node Development track is for civic entrepreneurs replicating what we built in Evansville. The economics of community AI infrastructure work better with multiple federated nodes than with a single Evansville facility. We have a vested interest in helping more nodes get built.</p>
       </div>
     </div>
@@ -231,18 +248,19 @@
   <footer class="sft">
     <div class="inner">
       <div>
-        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <a href="index.html" class="sfl">regularis</a>
         <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
     </div>
   </footer>
 

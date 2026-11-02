@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Reversed mark for dark placements: no frame; rules carry the form. -->
+  <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+  <rect x="11.5" y="7"    width="9"    height="3" rx="1.5" fill="#FAC775"/>
+  <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#9FE1CB"/>
+  <rect x="11.5" y="18"   width="12"   height="3" rx="1.5" fill="#9FE1CB"/>
+  <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#9FE1CB"/>
+</svg>

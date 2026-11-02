@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>Regularis Desk — Regularis Systems</title>
+  <meta name="description" content="Regularis Desk is the channel between your business processes and the people who run them. A tray application and browser extension for work that software can't finish on its own.">
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;}
+
+    /* ---- nav ---- */
+    .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;backface-visibility:hidden;}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
+    .snl{display:flex;gap:20px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .sncta:hover{background:#085041;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* ---- buttons ---- */
+    .bp{padding:11px 22px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bp:hover{background:#085041;}
+    .bg{padding:11px 22px;background:transparent;color:var(--t1);border:0.5px solid var(--b2);border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;}
+    .bg:hover{background:var(--bg2);}
+    .ctas{display:flex;gap:10px;flex-wrap:wrap;}
+
+
+    /* ---- hero ---- */
+    .hero{background:var(--bg2);}
+    .hero .inner{padding-top:64px;padding-bottom:52px;}
+    .he{font-size:12px;font-weight:500;color:#1D9E75;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+    .hed{width:6px;height:6px;border-radius:50%;background:#1D9E75;display:inline-block;}
+    .hero h1{font-family:'Zilla Slab',Georgia,serif;font-size:40px;font-weight:500;color:var(--t1);line-height:1.15;margin-bottom:16px;letter-spacing:-0.4px;}
+    .hero h1 em{font-style:normal;color:#0F6E56;}
+    .hero p{font-size:17px;color:var(--t2);line-height:1.65;margin-bottom:8px;max-width:620px;}
+
+    /* ---- sections ---- */
+    section .inner{padding-top:56px;padding-bottom:56px;}
+    h2{font-family:'Zilla Slab',Georgia,serif;font-size:26px;font-weight:500;color:var(--t1);margin-bottom:10px;letter-spacing:-0.3px;}
+    .sub{font-size:15px;color:var(--t2);max-width:620px;margin-bottom:30px;line-height:1.65;}
+
+
+    /* ---- steps ---- */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s;}
+    .step{position:relative;padding-top:38px;}
+    .step:before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:26px;height:26px;border-radius:50%;background:#1D9E75;color:#fff;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;}
+    .step h4{font-size:15px;font-weight:500;margin-bottom:6px;}
+    .step p{font-size:13px;color:var(--t2);line-height:1.6;}
+
+    /* ---- dark band ---- */
+    .band{background:#085041;color:#E1F5EE;}
+    .band h2{color:#fff;}
+    .band .sub{color:#9FE1CB;}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+    .two h4{font-family:'Zilla Slab',Georgia,serif;font-size:16px;font-weight:500;color:#FAC775;margin-bottom:8px;}
+    .two p{font-size:14px;color:#9FE1CB;line-height:1.7;}
+
+    /* ---- requirements ---- */
+    .req{list-style:none;border-top:0.5px solid var(--b1);}
+    .req li{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:0.5px solid var(--b1);font-size:14px;}
+    .req span:first-child{color:var(--t2);}
+    .req span:last-child{color:var(--t1);text-align:right;}
+
+    /* ---- footer ---- */
+    .sft{border-top:0.5px solid var(--b1);background:var(--bg2);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
+    .sfls{display:flex;gap:14px;list-style:none;flex-wrap:wrap;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
+
+    @media(max-width:860px){
+      .steps{grid-template-columns:1fr;gap:26px;}
+      .two{grid-template-columns:1fr;gap:22px;}
+    }
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
+      .hero h1{font-size:30px;}
+      .inner{padding:0 22px;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
+      <ul class="snl">
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html" class="nav-active">Desk</a></li>
+        <li><a href="teamiq.html">TeamIQ</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="inner">
+      <p class="he"><span class="hed"></span>Regularis Desk</p>
+      <h1>Some work still needs<br><em>a person.</em></h1>
+      <p>Regularis Desk is the channel between your business processes and the people who run them. When a workflow reaches a step that software can't finish on its own — an application with no API, a judgment call, an approval — Desk brings that step to the right person and carries the result back.</p>
+      <p>It runs in the browser — there is nothing to install. Your organization provisions a workspace and issues you an account. It is not a chatbot and not a monitoring tool.</p>
+      <div class="ctas" style="margin-top:26px;">
+        <a href="https://overlay-backend-861109469186.us-central1.run.app/admin/signin" class="bp" target="_blank" rel="noopener">Sign in to Desk ↗</a>
+        <a href="contact.html" class="bg">Request access</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg2);">
+    <div class="inner">
+      <h2>How it works</h2>
+      <p class="sub">Desk is one end of a governed workflow. The other end is Ordinarium, the discipline that decides what gets routed, to whom, and what happens to the answer.</p>
+      <div class="steps">
+        <div class="step">
+          <h4>A process reaches a human step</h4>
+          <p>A workflow needs something only a person can do — a decision, an approval, or an action in a system with no API.</p>
+        </div>
+        <div class="step">
+          <h4>Desk brings it to the right person</h4>
+          <p>The task appears in the tray or the browser, with the context needed to act on it. No inbox to watch, no queue to remember to check.</p>
+        </div>
+        <div class="step">
+          <h4>The result goes back, on the record</h4>
+          <p>The outcome returns to the process and the workflow continues. Who did what, and when, is recorded as part of the normal run — not as extra instrumentation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="inner">
+      <h2>It works in both directions</h2>
+      <p class="sub">Desk is a channel, not a mailbox.</p>
+      <div class="two">
+        <div>
+          <h4>The business reaches the operator</h4>
+          <p>A running process hands a step to a named person and waits for the answer. This is most of the traffic: approvals, exceptions, judgment calls, and work inside applications that were never built to be automated.</p>
+        </div>
+        <div>
+          <h4>The operator starts the work</h4>
+          <p>A person can also initiate a process from Desk — kicking off a workflow from the desktop or from the page they are already looking at, without switching to another system to do it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>What you need</h2>
+      <ul class="req">
+        <li><span>Browser</span><span>Chrome, Edge, or Firefox — current release</span></li>
+        <li><span>Account</span><span>A Regularis workspace, provisioned by your organization</span></li>
+        <li><span>Network</span><span>Outbound HTTPS to your organization's Regularis endpoint</span></li>
+        <li><span>Install</span><span>None — Desk runs in the browser</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="background:var(--bg2);">
+    <div class="inner" style="text-align:center;">
+      <h2>Need a workspace?</h2>
+      <p class="sub" style="margin-left:auto;margin-right:auto;">Desk is provisioned per organization. Tell us about your processes and we'll work out what it needs from your environment.</p>
+      <div class="ctas" style="justify-content:center;">
+        <a href="contact.html?interest=desk" class="bp">Get in touch</a>
+        <a href="services.html" class="bg">How Regularis works</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sft">
+    <div class="inner">
+      <div>
+        <a href="index.html" class="sfl">regularis</a>
+        <p class="sfloc">Evansville, Indiana</p>
+      </div>
+      <ul class="sfls">
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
+        <li><a href="teamiq.html">TeamIQ</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. © 2026 Dominion Hyperscale.</p>
+    </div>
+  </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

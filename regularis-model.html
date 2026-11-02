@@ -5,15 +5,20 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Merlyn Model — Merlyn AI Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>The maturity model — Regularis Systems</title>
   <style>
     :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
     *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
     .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
@@ -59,11 +64,12 @@
     .bw:hover{background:#E1F5EE;}
     .sft{border-top:0.5px solid var(--b1);}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
-    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
     .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
     .sfls{display:flex;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -87,12 +93,22 @@
 
   <nav class="sn">
     <div class="inner">
-      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
       <ul class="snl">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html" class="nav-active">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
       </ul>
@@ -104,19 +120,12 @@
   <section class="hero">
     <div class="inner">
       <p style="font-size:12px;color:var(--t3);margin-bottom:20px;"><a href="about.html" style="color:var(--t3);text-decoration:none;">← About</a></p>
-      <p class="he"><span class="hed"></span>The name</p>
-      <h1>Named for a model.<br><em>Built on its insight.</em></h1>
-      <p class="hero-sub">The name Merlyn AI Labs comes from a specific framework developed at Ernst &amp; Young — one that shaped how we think about every client engagement before we wrote a single line of code.</p>
+      <p class="he"><span class="hed"></span>The maturity model</p>
+      <h1>A model from 1990.<br><em>Still the best map we have.</em></h1>
+      <p class="hero-sub">How we scope every engagement traces back to an IT maturity framework developed at Ernst &amp; Young. We did not invent it, and we credit it — but it explains the gap our whole service model is built to close.</p>
     </div>
   </section>
 
-
-  <div style="background:#F5F4EF;border-top:0.5px solid rgba(239,159,39,0.3);border-bottom:0.5px solid rgba(239,159,39,0.3);">
-    <div class="inner" style="padding-top:12px;padding-bottom:12px;display:flex;align-items:center;gap:10px;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B6A65" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <p style="font-size:13px;color:#854F0B;margin:0;"><strong style="color:#78350F;">Name under review.</strong> The "Merlyn" trademark is currently undergoing legal clearance. We are conducting due diligence before final adoption of the company name.</p>
-    </div>
-  </div>
   <section class="sec">
     <div class="inner">
       <p class="sl2">The origin</p>
@@ -138,14 +147,14 @@
   <section class="secbg">
     <div class="inner">
       <p class="sl2">The model</p>
-      <h2 class="sh2">Supply, demand, and the gap that built a company</h2>
+      <h2 class="sh2">Supply, demand, and the gap in between</h2>
       <div class="prose">
-        <p>The graph below illustrates the core dynamic the Merlyn model reveals. As business maturity increases — from basic infrastructure needs to strategic intelligence — demand for capable technology partners grows. But the supply of providers who can actually serve mid-market businesses at those higher levels falls sharply.</p>
+        <p>The graph below illustrates the core dynamic the model reveals. As business maturity increases — from basic infrastructure needs to strategic intelligence — demand for capable technology partners grows. But the supply of providers who can actually serve mid-market businesses at those higher levels falls sharply.</p>
         <p>The shaded region is the opportunity. It is also the problem. It is where most mid-sized American businesses currently sit, unable to get what they need from the market at a price they can afford.</p>
       </div>
 
       <div class="chart-wrap">
-        <svg viewBox="0 0 680 450" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Merlyn supply and demand model chart">
+        <svg viewBox="0 0 680 450" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="IT maturity supply and demand model chart">
 
           <!-- Zone backgrounds -->
           <rect x="70" y="40" width="183" height="262" fill="#F5F4EF" rx="3"/>
@@ -218,11 +227,11 @@
   <section class="sec">
     <div class="inner">
       <p class="sl2">The connection</p>
-      <h2 class="sh2">How the model became the company</h2>
+      <h2 class="sh2">How the model shapes the service tiers</h2>
       <div class="prose">
-        <p>The Merlyn framework shaped how the founding team thought about the AI services market long before Merlyn AI Labs existed. When we looked at the AI consulting landscape, the same dynamic was playing out — only more dramatically. The gap between what mid-sized businesses needed and what they could actually access had grown wider, not narrower, as AI emerged as a competitive differentiator.</p>
+        <p>The framework shaped how the founding team thought about the AI services market long before Regularis existed. When we looked at the AI consulting landscape, the same dynamic was playing out — only more dramatically. The gap between what mid-sized businesses needed and what they could actually access had grown wider, not narrower, as AI emerged as a competitive differentiator.</p>
         <p>Vaughan Merlyn's three demand levels map directly to three of our four service tiers. Level 1 Infrastructure is our <strong>L0 Foundation Managed</strong> — the reliable IT prerequisite under everything else. Level 2 Process Intelligence is our <strong>L2 Data Connected</strong> — the data integration and custom ML that makes operational data accessible to AI. Level 3 Strategic Intelligence is our <strong>L3 Agents Deployed</strong> — digital twins and operational agents that act on the connected data.</p>
-        <p>We named the company for the framework because the framework explains why the company needs to exist. The gap is real, it is large, and mid-sized businesses in communities like Evansville deserve access to the full range of it.</p>
+        <p>We build against the framework because it explains why this business needs to exist. The gap is real, it is large, and mid-sized businesses in communities like Evansville deserve access across the full range of it.</p>
       </div>
 
       <div class="level-grid">
@@ -255,7 +264,7 @@
       <div class="prose">
         <p>Vaughan Merlyn developed the IT maturity framework in the early 1990s, when "technology" meant servers, networks, and the applications that ran on them. The model was about what businesses demanded from their IT providers. It didn't address — because it didn't need to — what the workforce needed to do with technology.</p>
         <p>The AI era introduced a layer the framework didn't anticipate. Before your workforce can direct AI agents, they have to know how. Before they know how, someone has to teach them — in formats that work for the role each person actually performs. That's not L0 infrastructure work. It's not L2 process intelligence. It's not L3 strategic intelligence. It's <strong>L1 People Directing</strong> — a service tier in its own right, distinct from the three levels Vaughan Merlyn identified, distinct from anything most consulting firms or training vendors deliver coherently.</p>
-        <p>Together, the three VM-anchored tiers plus the modern L1 extension form what we now call the <em>Merlyn AI OS</em> — three layers (L1 People Directing, L2 Data Connected, L3 Agents Deployed) built on top of the L0 managed foundation. The framework still names the company. The AI era expanded what it means.</p>
+        <p>Together, the three framework-anchored tiers plus the modern L1 extension form what we call the <em>Regularis AI OS</em> — three layers (L1 People Directing, L2 Data Connected, L3 Agents Deployed) built on top of the L0 managed foundation. The framework still maps the territory. The AI era added a layer to it.</p>
       </div>
 
       <div class="level-card l1" style="max-width:600px;margin:24px auto 0;border:1.5px solid #1D9E75;background:rgba(15,110,86,0.04);">
@@ -278,18 +287,19 @@
   <footer class="sft">
     <div class="inner">
       <div>
-        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <a href="index.html" class="sfl">regularis</a>
         <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
     </div>
   </footer>
 

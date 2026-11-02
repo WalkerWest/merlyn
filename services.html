@@ -5,15 +5,20 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services — Merlyn AI Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>Services — Regularis Systems</title>
   <style>
     :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
     *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
     .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
@@ -80,11 +85,12 @@
     .bw:hover{background:#E1F5EE;}
     .sft{border-top:0.5px solid var(--b1);}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
-    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
     .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
     .sfls{display:flex;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -112,12 +118,22 @@
 
   <nav class="sn">
     <div class="inner">
-      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
       <ul class="snl">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html" class="nav-active">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
       </ul>
@@ -130,16 +146,16 @@
     <div class="inner">
       <div class="hero-split">
         <div>
-          <p class="he"><span class="hed"></span>9700 Highway 57 · Evansville, IN</p>
+          <p class="he"><span class="hed"></span>Evansville, Indiana</p>
           <h1>An AI OS for<br>your business — on a<br><em>managed foundation.</em></h1>
-          <p>Most AI vendors sell point solutions. Merlyn builds the whole stack: people who can direct AI, data that AI can see, and agents that perform the work. Three layers, layered like an operating system — on top of the managed IT foundation that makes the AI work possible.</p>
+          <p>Most AI vendors sell point solutions. Regularis builds the whole stack: people who can direct AI, data that AI can see, and agents that perform the work. Three layers, layered like an operating system — on top of the managed IT foundation that makes the AI work possible.</p>
           <div class="ctas">
             <a href="#levels" class="bp">See the three layers</a>
             <a href="contact.html?interest=assessment" class="bg">Free assessment ↗</a>
           </div>
         </div>
         <div class="hero-visual">
-          <svg width="100%" viewBox="0 0 680 525" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Merlyn AI OS — three layers built on a managed foundation">
+          <svg width="100%" viewBox="0 0 680 525" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Regularis AI OS — three layers built on a managed foundation">
             <!-- Thicker, lighter gray foundation bar -->
             <rect x="0" y="420" width="680" height="20" fill="#9B9A95"/>
 
@@ -182,8 +198,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M3 7l9 -4l9 4"/><path d="M4 21v-14"/><path d="M20 21v-14"/><path d="M8 21v-4a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v4"/><path d="M9 7v-1"/><path d="M15 7v-1"/><path d="M9 14h6"/></svg>
         </div>
         <div>
-          <p class="cb-title">Merlyn AI Labs is a community AI center</p>
-          <p class="cb-sub">Compute, connectivity, training space, and shared infrastructure — all under one roof at 9700 Highway 57, Evansville. Open to member businesses, municipalities, and federation node operators. Costs spread across the membership so every member pays less than they would alone.</p>
+          <p class="cb-title">Regularis is a shared AI capability for the region</p>
+          <p class="cb-sub">Compute, connectivity, and shared services, pooled across the membership — open to member businesses, municipalities, and federation node operators. Costs spread across the membership so every member pays less than they would alone.</p>
         </div>
       </div>
     </div>
@@ -193,7 +209,7 @@
     <div class="inner">
       <p class="sl2">For local enterprises</p>
       <h2 class="sh2">An AI OS for your business — built on a managed foundation.</h2>
-      <p class="ssub">Most AI vendors sell point solutions — a chatbot here, a model there, a dashboard somewhere else. Merlyn builds the whole stack: people who can direct AI, data that AI can see, and agents that perform the work. Three layers, layered like an operating system, on top of the managed IT foundation that makes the AI work possible. Most customers start at L0 and build upward; some enter directly at a higher layer.</p>
+      <p class="ssub">Most AI vendors sell point solutions — a chatbot here, a model there, a dashboard somewhere else. Regularis builds the whole stack: people who can direct AI, data that AI can see, and agents that perform the work. Three layers, layered like an operating system, on top of the managed IT foundation that makes the AI work possible. Most customers start at L0 and build upward; some enter directly at a higher layer.</p>
 
       <!-- L0 foundation banner -->
       <div class="l0-row">
@@ -207,7 +223,7 @@
 
       <!-- AI OS sub-band -->
       <div class="ai-os-band">
-        <p class="sl2">Merlyn AI OS</p>
+        <p class="sl2">Regularis AI OS</p>
         <h3>Three layers. Layered like an operating system.</h3>
       </div>
 
@@ -231,7 +247,7 @@
         <div class="lc">
           <span class="lb">L2 · Connect data to AI</span>
           <h3 class="lt">Process intelligence</h3>
-          <p class="ld">All your systems, all your data, accessible to AI. API integrations to your existing tools, custom ML models, semantic layer. <strong>Three engagement modes:</strong> your trained team builds it (DIY), Merlyn builds it for you (Done-for-you), or we build it together (Collaborative).</p>
+          <p class="ld">All your systems, all your data, accessible to AI. API integrations to your existing tools, custom ML models, semantic layer. <strong>Three engagement modes:</strong> your trained team builds it (DIY), Regularis builds it for you (Done-for-you), or we build it together (Collaborative).</p>
           <ul class="ll">
             <li>API-level integration of existing tools</li>
             <li>Custom ML model development + retraining</li>
@@ -262,28 +278,28 @@
       <div style="margin-top:48px;padding-top:32px;border-top:0.5px solid var(--b1);">
         <p class="sl2">Three engagement modes at L2 and L3</p>
         <h3 style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:8px;">DIY, Done-for-you, or Collaborative</h3>
-        <p style="font-size:14px;color:var(--t2);line-height:1.65;max-width:720px;margin-bottom:20px;">At L2 and L3, three engagement modes are available. The mode depends on whether your team builds it, Merlyn builds it, or we build it together — and which L1 track your team has been through. <strong>Same capability in all three modes</strong>; what changes is who owns the operational muscle long-term.</p>
+        <p style="font-size:14px;color:var(--t2);line-height:1.65;max-width:720px;margin-bottom:20px;">At L2 and L3, three engagement modes are available. The mode depends on whether your team builds it, Regularis builds it, or we build it together — and which L1 track your team has been through. <strong>Same capability in all three modes</strong>; what changes is who owns the operational muscle long-term.</p>
 
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
 
           <div class="lc" style="border-left:3px solid #FAC775;">
             <span style="font-size:10px;font-weight:500;letter-spacing:0.4px;text-transform:uppercase;color:#854F0B;background:#FBE9C7;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:10px;align-self:flex-start;">Mode A · DIY</span>
             <h3 class="lt">You build it</h3>
-            <p class="ld" style="margin-bottom:10px;">Your trained team builds and operates after the matching L1 track. Merlyn provides advisory and the platform. Lowest ongoing cost; longest time to first value (training + build).</p>
+            <p class="ld" style="margin-bottom:10px;">Your trained team builds and operates after the matching L1 track. Regularis provides advisory and the platform. Lowest ongoing cost; longest time to first value (training + build).</p>
             <p style="font-size:11px;color:var(--t3);margin-top:auto;padding-top:10px;border-top:0.5px solid var(--b1);">Requires L1 Data Engineering (for L2) or Agent Construction (for L3)</p>
           </div>
 
           <div class="lc" style="border-left:3px solid #0F6E56;background:rgba(15,110,86,0.03);">
             <span style="font-size:10px;font-weight:500;letter-spacing:0.4px;text-transform:uppercase;color:#FFFFFF;background:#0F6E56;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:10px;align-self:flex-start;">Mode B · Done-for-you</span>
             <h3 class="lt" style="color:#0F6E56;">We build it</h3>
-            <p class="ld" style="margin-bottom:10px;">Merlyn delivers turnkey. Your team consumes outputs and supervises through TeamIQ. Most regional businesses start here — fastest path to value, predictable pricing.</p>
+            <p class="ld" style="margin-bottom:10px;">Regularis delivers turnkey. Your team consumes outputs and supervises through TeamIQ. Most regional businesses start here — fastest path to value, predictable pricing.</p>
             <p style="font-size:11px;color:var(--t3);margin-top:auto;padding-top:10px;border-top:0.5px solid var(--b1);">Requires L1 AI Fundamentals (for users) or Business Leaders (for executives)</p>
           </div>
 
           <div class="lc" style="border-left:3px solid #085041;">
             <span style="font-size:10px;font-weight:500;letter-spacing:0.4px;text-transform:uppercase;color:#085041;background:#9FE1CB;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:10px;align-self:flex-start;">Mode C · Collaborative</span>
             <h3 class="lt">We build it together</h3>
-            <p class="ld" style="margin-bottom:10px;">Merlyn architects + your engineers paired daily. Knowledge transfer scoped into engagement. Customers often start Mode C and transition to Mode A after 12-18 months.</p>
+            <p class="ld" style="margin-bottom:10px;">Regularis architects + your engineers paired daily. Knowledge transfer scoped into engagement. Customers often start Mode C and transition to Mode A after 12-18 months.</p>
             <p style="font-size:11px;color:var(--t3);margin-top:auto;padding-top:10px;border-top:0.5px solid var(--b1);">Requires L1 Data Eng or Agent Construction (in parallel with build)</p>
           </div>
 
@@ -326,7 +342,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg>
           </div>
           <h3 class="tt">Your community</h3>
-          <p class="td">Become a node operator. Own a share of the infrastructure layer itself. Steward-owned, community-backed, and structured so it can never be acquired and stripped.</p>
+          <p class="td">Become a node operator. Own a share of the infrastructure layer itself. Locally governed, community-backed, and built so the value stays where the infrastructure sits.</p>
           <a href="community.html" class="tcta">Join the federation ↗</a>
         </div>
 
@@ -345,18 +361,19 @@
   <footer class="sft">
     <div class="inner">
       <div>
-        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <a href="index.html" class="sfl">regularis</a>
         <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
     </div>
   </footer>
 

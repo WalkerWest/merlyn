@@ -5,15 +5,20 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community AI Federation — Merlyn AI Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>Community AI Federation — Regularis Systems</title>
   <style>
     :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
     *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
     .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
@@ -96,10 +101,12 @@
     .bo:hover{background:rgba(29,158,117,0.15);}
     .sft{border-top:0.5px solid var(--b1);}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
-    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
     .sfls{display:flex;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
 
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
@@ -126,12 +133,22 @@
 
   <nav class="sn">
     <div class="inner">
-      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
       <ul class="snl">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html" class="nav-active">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
       </ul>
@@ -146,14 +163,14 @@
         <div class="hero-text">
           <p class="he"><span class="hed"></span>Community AI Federation</p>
           <h1>Data and connectivity<br><em>should be public utilities.</em><br>We're building the one that is.</h1>
-          <p>Merlyn AI Labs is the founding node of a growing network of locally-owned AI and connectivity infrastructure — owned by the communities it serves, governed democratically, and structured so it can never be sold. The founding team has built this infrastructure before.</p>
+          <p>Regularis is the founding node of an intended network of locally-owned AI and connectivity infrastructure — owned by the communities it serves and governed democratically. The federation model described on this page is what we are building toward; the founding team has built this kind of infrastructure before.</p>
           <div class="ctas">
             <a href="#utility" class="bgold">The utility model ↓</a>
             <a href="#start" class="bgo">Start a node</a>
           </div>
         </div>
         <div class="hero-visual">
-          <svg viewBox="88 4 304 332" style="width:100%;display:block;border-radius:14px;" xmlns="http://www.w3.org/2000/svg" aria-label="B Corp ownership structure">
+          <svg viewBox="88 4 304 332" style="width:100%;display:block;border-radius:14px;" xmlns="http://www.w3.org/2000/svg" aria-label="The intended federation ownership model — community, local clients, founders, and a platform cooperative around Regularis">
             <defs>
               <marker id="cb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
                 <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -170,7 +187,7 @@
             <line x1="295" y1="91"  x2="280" y2="106" stroke="#888780" stroke-width="1.3" marker-end="url(#cb)" marker-start="url(#cb)" opacity="0.6"/>
             <line x1="200" y1="186" x2="185" y2="201" stroke="#E8A830" stroke-width="1.3" marker-end="url(#cb)" opacity="0.7"/>
             <line x1="280" y1="186" x2="295" y2="201" stroke="#1D9E75" stroke-width="1.3" marker-end="url(#cb)" marker-start="url(#cb)" opacity="0.6"/>
-            <!-- CENTER: B Corp / Public Benefit Corporation -->
+            <!-- CENTER: Regularis -->
             <circle cx="240" cy="146" r="56" fill="#085041"/>
             <circle cx="240" cy="146" r="63" fill="none" stroke="#1D9E75" stroke-width="1" stroke-dasharray="5 3" opacity="0.35"/>
             <polygon points="222,137 240,115 258,137" fill="#0F6E56"/>
@@ -178,7 +195,7 @@
             <rect x="228" y="141" width="8"  height="8" rx="1" fill="#9FE1CB" opacity="0.6"/>
             <rect x="244" y="141" width="8"  height="8" rx="1" fill="#9FE1CB" opacity="0.6"/>
             <rect x="233" y="149" width="14" height="10" rx="1" fill="#E1F5EE" opacity="0.22"/>
-            <text x="240" y="176" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#E1F5EE">B Corp</text>
+            <text x="240" y="176" text-anchor="middle" font-family="Zilla Slab,Georgia,serif" font-size="12" font-weight="700" fill="#E1F5EE">regularis</text>
             <!-- TL: Community -->
             <circle cx="150" cy="56" r="50" fill="#FAEEDA" stroke="#FAC775" stroke-width="0.8"/>
             <circle cx="133" cy="20" r="5" fill="#854F0B"/>
@@ -188,8 +205,8 @@
             <circle cx="167" cy="20" r="5" fill="#854F0B"/>
             <ellipse cx="167" cy="34" rx="7" ry="8" fill="#854F0B"/>
             <text x="150" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#633806">Community</text>
-            <text x="150" y="83" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#854F0B">shares from</text>
-            <text x="150" y="94" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#854F0B">$500</text>
+            <text x="150" y="83" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#854F0B">local</text>
+            <text x="150" y="94" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#854F0B">ownership</text>
             <!-- TR: Local clients -->
             <circle cx="330" cy="56" r="50" fill="#F0EFEA" stroke="#D3D1C7" stroke-width="0.8"/>
             <rect x="312" y="9"  width="9" height="7" rx="1" fill="#6B6A65"/>
@@ -229,10 +246,10 @@
             <text x="330" y="253" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#085041">coop</text>
             <text x="330" y="267" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#0F6E56">1 node ·</text>
             <text x="330" y="278" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#0F6E56">1 vote</text>
-            <!-- Cannot be sold — left edge aligned with Community circle left edge (x=100) -->
-            <rect x="175" y="295" width="130" height="34" rx="6" fill="#FAC775"/>
-            <text x="240" y="306" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#412402">Cannot be sold ·</text>
-            <text x="240" y="318" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#633806">steward-ownership</text>
+            <!-- Status badge: the model above is intended, not established -->
+            <rect x="163" y="295" width="154" height="34" rx="6" fill="#FAC775"/>
+            <text x="240" y="306" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#412402">Intended model —</text>
+            <text x="240" y="318" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#633806">not yet established</text>
           </svg>
         </div>
       </div>
@@ -268,14 +285,14 @@
           <p class="mistake-label">The pattern</p>
           <p class="mistake-name">Water systems</p>
           <p class="mistake-what">Mostly municipal — the best outcome of the four. But private equity has been buying municipal water systems and <strong>rate increases follow acquisition within 18 months, every time.</strong> Communities that sell can rarely buy back.</p>
-          <p class="mistake-fix">✓ Steward-ownership means we cannot be sold. Ever.</p>
+          <p class="mistake-fix">✓ Local ownership and governance, so the value stays put.</p>
         </div>
       </div>
 
       <div class="util-cta">
         <div>
-          <p class="util-cta-text">The Merlyn federation is the data and connectivity utility done right.</p>
-          <p class="util-cta-sub">Community-owned nodes. Democratic governance. Cost-recovery pricing. Steward structure prevents acquisition. Natural gas–sited data infrastructure for sustainable, low-cost power. <strong style="color:#E1F5EE;">We will design, build, and operate fiber connectivity for municipalities</strong> — the physical layer your community owns outright from day one. Every node that comes online is another community that owns its piece of the infrastructure layer.</p>
+          <p class="util-cta-text">The Regularis federation is the data and connectivity utility done right.</p>
+          <p class="util-cta-sub">Community-owned nodes. Democratic governance. Cost-recovery pricing. Governance designed to resist acquisition. Natural gas–sited data infrastructure for sustainable, low-cost power. <strong style="color:#E1F5EE;">We will design, build, and operate fiber connectivity for municipalities</strong> — the physical layer your community owns outright from day one. Every node that comes online is another community that owns its piece of the infrastructure layer.</p>
         </div>
         <a href="#start" class="bgold" style="white-space:nowrap;">Start a node ↓</a>
       </div>
@@ -413,7 +430,7 @@
     <div class="inner">
       <p class="sl2">The founding node</p>
       <h2 class="sh2">Evansville: where the model was built</h2>
-      <p class="ssub">Merlyn AI Labs is not just a member of the federation — it is the place where the playbook was written. Every operational procedure, every curriculum track, every client methodology developed here becomes a contribution to the network.</p>
+      <p class="ssub">Regularis is not just a member of the federation — it is the place where the playbook was written. Every operational procedure, every curriculum track, every client methodology developed here becomes a contribution to the network.</p>
       <div class="ev-grid">
         <div class="ev-card">
           <p class="ev-title"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M14 3v8"/><path d="M3 16l4 -4l4 4l5 -5l5 5"/><path d="M8 21v-5"/><path d="M14 21v-5"/></svg>Manufacturing center of excellence</p>
@@ -439,23 +456,22 @@
     <div class="inner">
       <p class="sl2">Ownership model</p>
       <h2 class="sh2">Designed for lasting benefit, not windfall returns</h2>
-      <p class="ssub">The legal structure of each node — and the federation itself — is designed to prevent the concentration of wealth while still compensating the people who build it fairly.</p>
+      <p class="ssub">This is the model we are building toward. None of it is established yet — Regularis currently operates as a trade name (DBA) of Dominion Hyperscale, and the structures below describe intent rather than existing legal commitments.</p>
       <div class="own-grid">
         <div class="own">
-          <span class="own-badge">Each node</span>
-          <p class="own-title">B Corp · Public Benefit Corporation</p>
+          <span class="own-badge">Each node — intended</span>
+          <p class="own-title">A mission-locked legal structure</p>
           <ul class="own-items">
-            <li>Certified B Corp — third-party verified social + environmental standards</li>
-            <li>Public Benefit Corporation legal structure — mission baked into the charter</li>
-            <li>Steward-ownership agreement embedded at founding</li>
-            <li>Community shares available from $500 (Reg CF)</li>
-            <li>Cannot be sold for a windfall without community consent</li>
+            <li>A mission-driven legal form — B Corp, Public Benefit Corporation, or cooperative; the specific structure is under consideration</li>
+            <li>Governance commitments that keep the mission ahead of resale value</li>
+            <li>A route to local ownership at accessible minimums, if and when an offering is lawfully registered</li>
             <li>Profits above operating needs reinvested in platform, Academy, or federation</li>
             <li>Founders earn fair wages and dividends — not exit multiples</li>
           </ul>
+          <p style="font-size:12px;color:var(--t3);line-height:1.55;margin-top:12px;">Regularis holds no B Corp certification today and has no securities offering open. Nothing on this page is an offer to sell securities.</p>
         </div>
         <div class="own">
-          <span class="own-badge">The federation</span>
+          <span class="own-badge">The federation — intended</span>
           <p class="own-title">Platform cooperative</p>
           <ul class="own-items">
             <li>Owned collectively by all member nodes</li>
@@ -466,7 +482,7 @@
           </ul>
         </div>
         <div class="own">
-          <span class="own-badge">The founders</span>
+          <span class="own-badge">The founders — intended</span>
           <p class="own-title">Fair compensation</p>
           <ul class="own-items">
             <li>Fair wages for real work — not below market, not extractive</li>
@@ -486,8 +502,8 @@
       <h2 class="sh2">A different definition of success</h2>
       <div class="val-box">
         <p>Most technology businesses are built to be sold. The founders accumulate equity, investors expect multiples, and the exit event is the goal. The communities that hosted the business are bystanders to that transaction.</p>
-        <p><strong>We are building something different.</strong> Merlyn AI Labs is structured so that the founders cannot get conventionally rich from it — and that is a deliberate design choice, not an accident. The steward-ownership agreement is legally binding. The community shares are real. The platform cooperative will be governed by the nodes, not by the founding team.</p>
-        <p>The founders earn fair wages. They hold equity that pays dividends once the node is stable and profitable. They will not sell the business to a private equity firm. They will not take it public. They will not extract the value that the community helped create.</p>
+        <p><strong>We are trying to build something different.</strong> The intent is that the founders do not get conventionally rich from this — a deliberate design choice, not an accident. We are candid that the governance to enforce that has not been put in place yet: Regularis operates today as a trade name of Dominion Hyperscale, and the commitments described on this page are ones we intend to build into its eventual structure.</p>
+        <p>The founders earn fair wages. The intent is that they hold equity paying dividends once a node is stable and profitable, rather than chasing an exit multiple — and that the value the community helps create stays with the community.</p>
         <p>What they will do is build something that outlasts them — a network of locally-owned AI centers of excellence that helps the communities they serve compete in the next economy, on their own terms, with infrastructure they actually own.</p>
       </div>
     </div>
@@ -501,7 +517,7 @@
       <div style="display:flex;gap:16px;align-items:stretch;flex-wrap:wrap;">
         <div style="flex:1;min-width:200px;background:#fff;border:0.5px solid var(--b1);border-radius:12px;padding:20px;">
           <div style="font-size:11px;font-weight:500;color:#0F6E56;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">Services layer</div>
-          <div style="font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;">Merlyn AI Labs</div>
+          <div style="font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;">Regularis</div>
           <div style="font-size:13px;color:var(--t2);line-height:1.55;">Managed IT, Academy training, AI consulting, TeamIQ — all delivered by people in the community, for employers in the community.</div>
         </div>
         <div style="display:flex;align-items:center;color:var(--t3);font-size:20px;padding:0 4px;">→</div>
@@ -513,11 +529,11 @@
         <div style="display:flex;align-items:center;color:var(--t3);font-size:20px;padding:0 4px;">→</div>
         <div style="flex:1;min-width:200px;background:#fff;border:0.5px solid var(--b1);border-radius:12px;padding:20px;">
           <div style="font-size:11px;font-weight:500;color:#0F6E56;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">Ownership layer</div>
-          <div style="font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;">The community B Corp</div>
-          <div style="font-size:13px;color:var(--t2);line-height:1.55;">Steward-owned. Community shares. Governed by the federation nodes. The infrastructure — and the value it creates — stays in the community it serves.</div>
+          <div style="font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;">Community ownership</div>
+          <div style="font-size:13px;color:var(--t2);line-height:1.55;">The layer we are building toward: locally held, governed by the federation nodes, so the infrastructure — and the value it creates — stays in the community it serves.</div>
         </div>
       </div>
-      <a href="partnership.html" style="display:block;margin-top:10px;font-size:12px;color:#E87722;text-decoration:none;font-weight:500;">How the two companies work together →</a>
+      <a href="partnership.html" style="display:block;margin-top:10px;font-size:12px;color:#E87722;text-decoration:none;font-weight:500;">How the two businesses work together →</a>
     </div>
   </section>
 
@@ -554,18 +570,19 @@
   <footer class="sft">
     <div class="inner">
       <div>
-        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <a href="index.html" class="sfl">regularis</a>
         <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
     </div>
   </footer>
 

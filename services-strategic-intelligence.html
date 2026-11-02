@@ -5,15 +5,20 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L3 Deploy agents that act — Merlyn AI Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>L3 Deploy agents that act — Regularis Systems</title>
   <style>
     :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
     *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
     .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
@@ -77,10 +82,12 @@
     .bdk:hover{background:#0F6E56;}
     .sft{border-top:0.5px solid var(--b1);}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
-    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
     .sfls{display:flex;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
 
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
@@ -105,12 +112,22 @@
 
   <nav class="sn">
     <div class="inner">
-      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
       <ul class="snl">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html" class="nav-active">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
       </ul>
@@ -125,7 +142,7 @@
     <div class="inner">
       <span class="tp">L3 · Deploy agents that act</span>
       <h1>Agents that simulate,<br><em>decide, and act.</em></h1>
-      <p>L3 is the application layer of the Merlyn AI OS — where AI does work, not just analyzes. Operational agents run processes on your behalf. Decision agents recommend next steps from your data. Digital twins simulate outcomes before you commit capital. All of them act on the data L2 has connected, supervised by the people L1 has trained. <strong>Three ways to deploy</strong>: subscribe to our platform of vertical-template agents and twins, commission a bespoke build, or co-build with knowledge transfer.</p>
+      <p>L3 is the application layer of the Regularis AI OS — where AI does work, not just analyzes. Operational agents run processes on your behalf. Decision agents recommend next steps from your data. Digital twins simulate outcomes before you commit capital. All of them act on the data L2 has connected, supervised by the people L1 has trained. <strong>Three ways to deploy</strong>: subscribe to our platform of vertical-template agents and twins, commission a bespoke build, or co-build with knowledge transfer.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a href="contact.html?interest=l3-bespoke" class="bgold">Discuss your agents ↗</a>
         <a href="#modes" class="bghost">See the three modes</a>
@@ -152,11 +169,11 @@
         <div class="wc">
           <span style="font-size:10px;font-weight:500;letter-spacing:0.4px;text-transform:uppercase;color:#854F0B;background:#FBE9C7;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:10px;">Mode A · DIY</span>
           <p class="wt" style="font-size:15px;">You build it</p>
-          <p style="font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:10px;">After your team finishes the L1 Agent Construction track, they configure twins and agents on the Merlyn platform themselves. Industry templates accelerate the work. Merlyn provides architecture advisory and the platform; your team owns the build and operates the layer.</p>
+          <p style="font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:10px;">After your team finishes the L1 Agent Construction track, they configure twins and agents on the Regularis platform themselves. Industry templates accelerate the work. Regularis provides architecture advisory and the platform; your team owns the build and operates the layer.</p>
           <ul class="wi">
             <li>Best for: orgs with ML/agent team + multi-year horizon</li>
             <li>L1 prerequisite: Agent Construction track</li>
-            <li>Merlyn role: platform + advisory</li>
+            <li>Regularis role: platform + advisory</li>
             <li>Time to first deployment: 1–6 months (after training)</li>
           </ul>
         </div>
@@ -164,11 +181,11 @@
         <div class="wc" style="border-color:#854F0B;background:rgba(132,79,11,0.04);">
           <span style="font-size:10px;font-weight:500;letter-spacing:0.4px;text-transform:uppercase;color:#FFFFFF;background:#854F0B;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:10px;">Mode B · Done-for-you</span>
           <p class="wt" style="font-size:15px;color:#854F0B;">We build it</p>
-          <p style="font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:10px;">Merlyn builds bespoke agents and twins around your specific data, decision points, and operational scenarios. For twins, quarterly executive facilitation is included; for operational agents, ongoing tuning and supervision are included. Your team uses the output; we keep it current. Most L3 launches start here.</p>
+          <p style="font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:10px;">Regularis builds bespoke agents and twins around your specific data, decision points, and operational scenarios. For twins, quarterly executive facilitation is included; for operational agents, ongoing tuning and supervision are included. Your team uses the output; we keep it current. Most L3 launches start here.</p>
           <ul class="wi">
             <li>Best for: orgs wanting agentic AI without ML team overhead</li>
             <li>L1 prerequisite: Business Leaders track (or relevant supervisor track)</li>
-            <li>Merlyn role: bespoke build + ongoing operation</li>
+            <li>Regularis role: bespoke build + ongoing operation</li>
             <li>Time to first deployment: 6–12 months</li>
           </ul>
         </div>
@@ -176,11 +193,11 @@
         <div class="wc">
           <span style="font-size:10px;font-weight:500;letter-spacing:0.4px;text-transform:uppercase;color:#085041;background:#9FE1CB;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:10px;">Mode C · Collaborative</span>
           <p class="wt" style="font-size:15px;">We build it together</p>
-          <p style="font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:10px;">Merlyn architects code alongside your engineering team. Knowledge transfer is scoped into the engagement — your team graduates to operating the agents and twins themselves. Customers often transition to Mode A (DIY) after 12–24 months as their team's capability matures.</p>
+          <p style="font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:10px;">Regularis architects code alongside your engineering team. Knowledge transfer is scoped into the engagement — your team graduates to operating the agents and twins themselves. Customers often transition to Mode A (DIY) after 12–24 months as their team's capability matures.</p>
           <ul class="wi">
             <li>Best for: orgs building internal capability + needing decision-grade twins now</li>
             <li>L1 prerequisite: Agent Construction track in parallel</li>
-            <li>Merlyn role: joint build + capability transfer</li>
+            <li>Regularis role: joint build + capability transfer</li>
             <li>Time to first deployment: 4–8 months</li>
           </ul>
         </div>
@@ -206,7 +223,7 @@
     <div class="inner">
       <p class="sl2">The Mode B bespoke engagement journey</p>
       <h2 class="sh2" style="margin-bottom:4px;">Four phases from scope to production</h2>
-      <p style="font-size:14px;color:var(--t2);max-width:580px;margin-bottom:24px;line-height:1.65;">The phases below describe the Mode B (Done-for-you) flow — for organizations whose L3 deployment requires custom data integration, proprietary decision logic, or modeling of operations not covered by templates. Mode A platform customers skip the build phase; Mode C collaborative customers do Build jointly with their own engineers paired with Merlyn architects.</p>
+      <p style="font-size:14px;color:var(--t2);max-width:580px;margin-bottom:24px;line-height:1.65;">The phases below describe the Mode B (Done-for-you) flow — for organizations whose L3 deployment requires custom data integration, proprietary decision logic, or modeling of operations not covered by templates. Mode A platform customers skip the build phase; Mode C collaborative customers do Build jointly with their own engineers paired with Regularis architects.</p>
       <div class="jrny">
         <div class="js"><div class="jn">1</div><p class="jt2">Weeks 1–4</p><p class="jh">Scope</p><p class="jd">Define the deployment's boundaries, data sources, decision points, and supervision model. Identify the tasks agents will handle and the scenarios twins will model.</p></div>
         <div class="js"><div class="jn">2</div><p class="jt2">Months 2–6</p><p class="jh">Build</p><p class="jd">Instrument data pipelines, construct agents and simulation models, validate against historical outcomes and live test cases.</p></div>
@@ -247,7 +264,7 @@
 
   <section class="sec" style="padding-top:0;">
     <div class="inner">
-      <p class="sl2">Two ways L3 customers use Merlyn</p>
+      <p class="sl2">Two ways L3 customers use Regularis</p>
       <h2 class="sh2" style="margin-bottom:14px;">Concrete examples</h2>
       <p style="font-size:14px;color:var(--t2);line-height:1.65;max-width:640px;margin-bottom:24px;">L3 engagements span operational agents and decision twins. The examples below show two patterns — a mid-market manufacturer configuring a capacity-planning twin from the platform, and a regional logistics company commissioning bespoke dispatch agents. Both run continuously on Dominion infrastructure.</p>
 
@@ -255,30 +272,30 @@
 
         <div class="wc" style="border-color:#FAC775;background:rgba(250,199,117,0.06);">
           <p class="wt" style="color:#854F0B;">Regional manufacturer · capacity planning</p>
-          <p style="font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:14px;">A regional manufacturer wants to model how production capacity scales as they add a second shift, commission new equipment, or expand into a second facility. They configure their twin from Merlyn's manufacturing template, plug in their ERP and production data, and run scenarios. Their CFO and COO use it monthly to align on capacity investment decisions. Their team has been through the Agent Construction track at L1, so they own day-to-day operation.</p>
-          <p style="font-size:12px;color:#854F0B;font-weight:500;margin-bottom:4px;">Merlyn answer: L3 Mode A · Platform Pro</p>
-          <p style="font-size:12px;color:var(--t3);">$60–100K/yr · manufacturing template · custom connector to their ERP · monthly facilitation with Merlyn CSM</p>
+          <p style="font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:14px;">A regional manufacturer wants to model how production capacity scales as they add a second shift, commission new equipment, or expand into a second facility. They configure their twin from Regularis's manufacturing template, plug in their ERP and production data, and run scenarios. Their CFO and COO use it monthly to align on capacity investment decisions. Their team has been through the Agent Construction track at L1, so they own day-to-day operation.</p>
+          <p style="font-size:12px;color:#854F0B;font-weight:500;margin-bottom:4px;">Regularis answer: L3 Mode A · Platform Pro</p>
+          <p style="font-size:12px;color:var(--t3);">$60–100K/yr · manufacturing template · custom connector to their ERP · monthly facilitation with Regularis CSM</p>
         </div>
 
         <div class="wc" style="border-color:#854F0B;background:rgba(132,79,11,0.08);">
           <p class="wt" style="color:#854F0B;">Regional logistics company · dispatch + load planning agents</p>
-          <p style="font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:14px;">A regional logistics company wants to automate load planning and dispatch decisions across their fleet — optimizing for fuel cost, driver time, delivery SLAs, and equipment utilization. Merlyn builds agents integrated with their TMS and ELD systems that propose load assignments throughout the day; dispatchers approve or override through TeamIQ. Over six months the agents move from suggesting all decisions to handling the routine 80% autonomously with human review of exceptions. Operations team supervises continuously; weekly ops reviews catch edge cases.</p>
-          <p style="font-size:12px;color:#854F0B;font-weight:500;margin-bottom:4px;">Merlyn answer: L3 Mode B · Bespoke operational agents</p>
+          <p style="font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:14px;">A regional logistics company wants to automate load planning and dispatch decisions across their fleet — optimizing for fuel cost, driver time, delivery SLAs, and equipment utilization. Regularis builds agents integrated with their TMS and ELD systems that propose load assignments throughout the day; dispatchers approve or override through TeamIQ. Over six months the agents move from suggesting all decisions to handling the routine 80% autonomously with human review of exceptions. Operations team supervises continuously; weekly ops reviews catch edge cases.</p>
+          <p style="font-size:12px;color:#854F0B;font-weight:500;margin-bottom:4px;">Regularis answer: L3 Mode B · Bespoke operational agents</p>
           <p style="font-size:12px;color:var(--t3);">$15–25K discovery · $150–250K build · $8,000–$15,000/mo · TeamIQ supervision + weekly ops review · runs on Dominion infrastructure</p>
         </div>
 
       </div>
 
-      <p style="font-size:13px;color:var(--t3);margin-top:18px;line-height:1.65;">Two different organizations, two different L3 deployments. The manufacturer owns the muscle (Mode A platform, twin from template); the logistics company has Merlyn doing the build and operation (Mode B bespoke, operational agents). Customers can also enter at Mode C (collaborative co-build) when they're building internal capability but need agents or twins running soon.</p>
+      <p style="font-size:13px;color:var(--t3);margin-top:18px;line-height:1.65;">Two different organizations, two different L3 deployments. The manufacturer owns the muscle (Mode A platform, twin from template); the logistics company has Regularis doing the build and operation (Mode B bespoke, operational agents). Customers can also enter at Mode C (collaborative co-build) when they're building internal capability but need agents or twins running soon.</p>
     </div>
   </section>
 
   <section class="sec" id="pricing">
     <div class="inner">
       <h2>What it costs</h2>
-      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:720px;margin-bottom:8px;">Pricing varies by engagement mode. <strong>Mode A (DIY)</strong> is the platform subscription — your trained team configures twins from templates and operates them. <strong>Mode B (Done-for-you)</strong> is Merlyn building bespoke twins for you. <strong>Mode C (Collaborative)</strong> is a joint build with scoped knowledge transfer.</p>
-      <p style="font-size:13px;color:var(--t3);margin-bottom:8px;">The same Merlyn AI OS underlies all three modes — twins hosted on Dominion infrastructure, same simulation engine, same scenario framework. What changes is who built the specific twin and who operates it day-to-day. Migration between modes is a configuration change, not a re-platforming.</p>
-      <p style="font-size:13px;color:var(--t3);margin-bottom:32px;"><strong style="color:var(--t1);">Two SLAs, one relationship.</strong> Merlyn's L3 subscription (any mode) includes the application SLA — your twin's data ingestion, simulation accuracy, scenario engine, and (where applicable) executive facilitation are running and current. The infrastructure underneath (GPUs, Kubernetes, storage, network, monitoring) runs on Dominion Hyperscale with its own platform-layer SLA. The two SLAs stack rather than overlap.</p>
+      <p style="font-size:15px;color:var(--t2);line-height:1.7;max-width:720px;margin-bottom:8px;">Pricing varies by engagement mode. <strong>Mode A (DIY)</strong> is the platform subscription — your trained team configures twins from templates and operates them. <strong>Mode B (Done-for-you)</strong> is Regularis building bespoke twins for you. <strong>Mode C (Collaborative)</strong> is a joint build with scoped knowledge transfer.</p>
+      <p style="font-size:13px;color:var(--t3);margin-bottom:8px;">The same Regularis AI OS underlies all three modes — twins hosted on Dominion infrastructure, same simulation engine, same scenario framework. What changes is who built the specific twin and who operates it day-to-day. Migration between modes is a configuration change, not a re-platforming.</p>
+      <p style="font-size:13px;color:var(--t3);margin-bottom:32px;"><strong style="color:var(--t1);">Two SLAs, one relationship.</strong> Regularis's L3 subscription (any mode) includes the application SLA — your twin's data ingestion, simulation accuracy, scenario engine, and (where applicable) executive facilitation are running and current. The infrastructure underneath (GPUs, Kubernetes, storage, network, monitoring) runs on Dominion Hyperscale with its own platform-layer SLA. The two SLAs stack rather than overlap.</p>
 
       <!-- Mode A pricing -->
       <p style="font-size:11px;font-weight:600;color:#854F0B;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Mode A · DIY — Platform subscription</p>
@@ -295,7 +312,7 @@
             <li>Industry templates: trucking/logistics, manufacturing, regional healthcare, distribution</li>
             <li>Self-service configuration from the platform UI</li>
             <li>Quarterly office hours · on-demand scenario support · data refreshes</li>
-            <li>Your team operates the agents/twins; Merlyn keeps the platform current</li>
+            <li>Your team operates the agents/twins; Regularis keeps the platform current</li>
           </ul>
         </div>
 
@@ -315,8 +332,8 @@
       </div>
 
       <!-- Mode B pricing -->
-      <p style="font-size:11px;font-weight:600;color:#854F0B;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Mode B · Done-for-you — Bespoke build by Merlyn</p>
-      <p style="font-size:13px;color:var(--t3);margin-bottom:16px;">Merlyn does discovery, build, and ongoing operation. The three tiers below are common bespoke twin profiles; bespoke operational agents (dispatch, workflow, decision-support, customer-facing) follow similar pricing structures — contact us for scope-specific quotes.</p>
+      <p style="font-size:11px;font-weight:600;color:#854F0B;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Mode B · Done-for-you — Bespoke build by Regularis</p>
+      <p style="font-size:13px;color:var(--t3);margin-bottom:16px;">Regularis does discovery, build, and ongoing operation. The three tiers below are common bespoke twin profiles; bespoke operational agents (dispatch, workflow, decision-support, customer-facing) follow similar pricing structures — contact us for scope-specific quotes.</p>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;">
 
@@ -364,7 +381,7 @@
 
       <!-- Mode C pricing -->
       <p style="font-size:11px;font-weight:600;color:#085041;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Mode C · Collaborative — Co-build twin</p>
-      <p style="font-size:13px;color:var(--t3);margin-bottom:16px;">Joint architecture and build, with your Agent Construction-trained engineers paired with Merlyn architects. Knowledge transfer baked into engagement scope.</p>
+      <p style="font-size:13px;color:var(--t3);margin-bottom:16px;">Joint architecture and build, with your Agent Construction-trained engineers paired with Regularis architects. Knowledge transfer baked into engagement scope.</p>
 
       <div class="wc" style="border-left:3px solid #085041;">
         <p class="wt" style="color:#085041;">Co-build twin engagement</p>
@@ -373,7 +390,7 @@
         <p style="font-size:18px;font-weight:500;color:#085041;margin:8px 0 12px;">$6,000–$10,000<span style="font-size:12px;font-weight:400;color:var(--t2);">/mo joint ops</span></p>
         <ul class="wi">
           <li>Joint scoping + reference architecture (discovery phase, 6–8 weeks)</li>
-          <li>Merlyn architect + 2–3 of your engineers paired daily (co-build phase, 12–20 weeks)</li>
+          <li>Regularis architect + 2–3 of your engineers paired daily (co-build phase, 12–20 weeks)</li>
           <li>Knowledge transfer baked into engagement scope — not extra</li>
           <li>Quarterly executive facilitation included</li>
           <li>Optional transition to Mode A (Platform Pro) after 12–24 months</li>
@@ -415,18 +432,19 @@
   <footer class="sft">
     <div class="inner">
       <div>
-        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <a href="index.html" class="sfl">regularis</a>
         <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
     </div>
   </footer>
 

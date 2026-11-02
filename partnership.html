@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Merlyn AI Labs + Dominion Hyperscale — The Partnership</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>Regularis Systems + Dominion Hyperscale — The Partnership</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.svg">
   <style>
@@ -15,13 +18,15 @@
       --r1:8px;--r2:12px;
     }
     *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
 
     /* NAV */
     .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
@@ -55,7 +60,7 @@
     /* COMPANY CARDS */
     .company-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
     .company-card{border-radius:var(--r2);padding:28px 24px;background:var(--bg3);}
-    .company-card.merlyn{border:0.5px solid rgba(15,110,86,0.25);}
+    .company-card.regularis{border:0.5px solid rgba(15,110,86,0.25);}
     .company-card.dominion{border:0.5px solid rgba(232,119,34,0.25);}
     .co-label{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
     .co-label.green{color:var(--green);}
@@ -71,7 +76,7 @@
     /* LINE */
     .line-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:0.5px solid var(--b1);border-radius:var(--r2);overflow:hidden;}
     .line-col{padding:24px 20px;background:var(--bg3);}
-    .line-col.merlyn{border-right:0.5px solid var(--b1);background:rgba(15,110,86,0.03);}
+    .line-col.regularis{border-right:0.5px solid var(--b1);background:rgba(15,110,86,0.03);}
     .line-col.dominion{background:rgba(232,119,34,0.03);}
     .line-col h3{font-size:13px;font-weight:500;margin-bottom:14px;}
     .line-col h3.green{color:var(--green);}
@@ -127,11 +132,12 @@
     /* FOOTER */
     .sft{border-top:0.5px solid var(--b1);}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
-    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
     .sfls{display:flex;gap:14px;list-style:none;}
     .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
 
     @media(max-width:680px){
       .hamburger{display:flex;}
@@ -153,12 +159,22 @@
 
 <nav class="sn">
   <div class="inner">
-    <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+    <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
     <ul class="snl">
       <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
       <li><a href="teamiq.html">TeamIQ</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="community.html">Community</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="partnership.html" class="nav-active">Partnership</a></li>
     </ul>
@@ -170,8 +186,8 @@
 <section class="hero">
   <div class="inner">
     <p class="he"><span class="hed"></span>The partnership</p>
-    <h1>Two companies.<br>One team.<br><em>Designed to work together.</em></h1>
-    <p class="hero-sub">Merlyn AI Labs and Dominion Hyperscale were built by the same founding team and are designed to operate as a system. They are legally separate, serve different audiences, and raise different kinds of capital. But they are not independent — they are two halves of a complete AI infrastructure and services platform.</p>
+    <h1>Two businesses.<br>One team.<br><em>Designed to work together.</em></h1>
+    <p class="hero-sub">Dominion Hyperscale builds and operates the AI data center infrastructure; Regularis is the AI services and workforce training line of business conducted under that entity. Regularis does not build, own, or operate data center infrastructure itself — where an engagement requires compute, it runs on Dominion's infrastructure. Two distinct businesses, serving different audiences, run by the same founding team.</p>
     <div class="lockup">
       <a href="index.html" style="flex-shrink:0;display:block;">
         <svg width="110" height="112" viewBox="0 0 110 112" xmlns="http://www.w3.org/2000/svg" style="display:block;">
@@ -179,7 +195,7 @@
           <rect x="20" y="12" width="76" height="13" rx="2" fill="#0F6E56"/>
           <rect x="20" y="30" width="57" height="13" rx="2" fill="#1D9E75"/>
           <rect x="20" y="48" width="38" height="13" rx="2" fill="#9FE1CB"/>
-          <text x="20" y="86" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="20" font-weight="500" letter-spacing="-0.3" fill="#1C1C1A">merlyn</text>
+          <text x="20" y="86" font-family="Zilla Slab,Georgia,serif" font-size="20" font-weight="500" letter-spacing="-0.3" fill="#1C1C1A">regularis</text>
           <text x="20" y="101" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="12" font-weight="400" letter-spacing="0.5" fill="#6B6A65">ai labs</text>
         </svg>
       </a>
@@ -192,17 +208,17 @@
 <!-- WHAT EACH IS -->
 <section class="sec" id="companies">
   <div class="inner">
-    <p class="sl2">What each company is</p>
+    <p class="sl2">What each business is</p>
     <h2 class="sh2">Different businesses.<br>Deliberately designed that way.</h2>
-    <p class="ssub">The separation is intentional. Dominion's capital structure and Merlyn's B Corp mission require different legal homes. But they were designed to operate as a system from the start.</p>
+    <p class="ssub">The split is functional, not legal. Dominion owns the ground — land, power, and buildings. Regularis owns the methodology, the delivery, and the workforce. <em>Dominium</em> is lordship over an estate; <em>regularis</em> is living under a rule. Dominion governs the ground; Regularis governs the conduct.</p>
     <div class="company-grid">
-      <div class="company-card merlyn">
+      <div class="company-card regularis">
         <div class="co-label green">AI services company &amp; anchor tenant</div>
-        <div class="co-title">Merlyn delivers AI services to regional employers.</div>
+        <div class="co-title">Regularis delivers AI services to regional employers.</div>
         <div class="co-body">
           <p>Three service tiers: L1 managed IT and AI literacy, L2 API-level integration and custom model deployment, and L3 financial and operational digital twins — delivered both as a configurable platform subscription and as bespoke enterprise engagements. Revenue comes from MSP contracts, consulting engagements, and platform subscriptions.</p>
-          <p>Merlyn runs on Dominion infrastructure as the <strong>anchor tenant</strong> — its compute spend provides base-load demand certainty for Dominion's Evansville campus from day one.</p>
-          <p>Structured as a <strong>Certified B Corp</strong> under steward ownership. Targets community capital — Reg CF shares at $500–$1,000, USDA financing, and mission-aligned investors.</p>
+          <p>Regularis runs on Dominion infrastructure as the <strong>anchor tenant</strong> — its compute spend provides base-load demand certainty for Dominion's Evansville campus from day one.</p>
+          <p>Currently operates as a <strong>trade name (DBA) of Dominion Hyperscale</strong>. The founding team intends to establish Regularis as an independent entity as the organization matures, with durable mission commitments built into its eventual governance; the specific structure is under consideration.</p>
         </div>
         <ul class="not-list">
           <li>Does not build or own data center infrastructure</li>
@@ -234,15 +250,15 @@
   <div class="inner">
     <p class="sl2">Where the line is</p>
     <h2 class="sh2">Who owns what.<br>Who does what.</h2>
-    <p class="ssub">The handoffs between the two companies are deliberate and clean. A client relationship that starts with Merlyn can graduate to Dominion without confusion about who is responsible for what.</p>
+    <p class="ssub">The handoffs between the two businesses are deliberate and clean. A client relationship that starts with Regularis can graduate to Dominion without confusion about who is responsible for what.</p>
     <div class="line-grid">
-      <div class="line-col merlyn">
-        <h3 class="green">Merlyn owns and operates</h3>
-        <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Client relationships</strong> — every regional employer, manufacturer, hospital, and university in the Merlyn client base</div></div>
+      <div class="line-col regularis">
+        <h3 class="green">Regularis owns and operates</h3>
+        <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Client relationships</strong> — every regional employer, manufacturer, hospital, and university in the Regularis client base</div></div>
         <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Service delivery</strong> — managed IT, AI consulting engagements, Academy training programs</div></div>
         <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Platform software</strong> — TeamIQ, Academy LMS, SaaS subscriptions</div></div>
         <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Workforce pipeline</strong> — Academy graduates, corporate training cohorts, certifications</div></div>
-        <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Community governance</strong> — B Corp structure, steward ownership, community share offering</div></div>
+        <div class="line-item"><div class="line-dot green"></div><div class="line-text"><strong>Methodology &amp; delivery</strong> — engagement model, service standards, client relationships</div></div>
       </div>
       <div class="line-col dominion">
         <h3 class="orange">Dominion owns and operates</h3>
@@ -250,7 +266,7 @@
         <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The compute cluster</strong> — NVIDIA and AMD GPU infrastructure, storage, Kubernetes control plane</div></div>
         <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>Enterprise compute contracts</strong> — inference cloud, reserved clusters, dedicated infrastructure tiers</div></div>
         <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The fiber hub</strong> — regional interconnection, USDA ReConnect and NTIA BEAD eligible</div></div>
-        <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>Campus operator relationships</strong> — Merlyn leases space and compute from Dominion</div></div>
+        <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>Campus operator relationships</strong> — Regularis leases space and compute from Dominion</div></div>
       </div>
     </div>
   </div>
@@ -260,39 +276,39 @@
 <section class="sec" id="pipeline">
   <div class="inner">
     <p class="sl2">The pipeline</p>
-    <h2 class="sh2">How Merlyn fills<br>Dominion's facility.</h2>
-    <p class="ssub">Merlyn's client relationships are the sales pipeline for Dominion's compute business. Every managed IT client is a future compute client. Every Academy cohort is a future self-service infrastructure user.</p>
+    <h2 class="sh2">How Regularis fills<br>Dominion's facility.</h2>
+    <p class="ssub">Regularis's client relationships are the sales pipeline for Dominion's compute business. Every managed IT client is a future compute client. Every Academy cohort is a future self-service infrastructure user.</p>
     <div class="flow">
       <div class="flow-step">
         <div class="flow-num green">1</div>
         <div>
-          <div class="flow-label green">Merlyn — L1</div>
+          <div class="flow-label green">Regularis — L1</div>
           <div class="flow-title">Managed IT engagement begins</div>
-          <div class="flow-body">A regional manufacturer, hospital, or logistics company signs an L1 managed IT contract with Merlyn. Merlyn handles IT operations, runs AI literacy training, and assesses AI readiness. Dominion is in the background — the client isn't buying compute yet.</div>
+          <div class="flow-body">A regional manufacturer, hospital, or logistics company signs an L1 managed IT contract with Regularis. Regularis handles IT operations, runs AI literacy training, and assesses AI readiness. Dominion is in the background — the client isn't buying compute yet.</div>
         </div>
         <div class="flow-side">
-          <div class="flow-side-label green">Merlyn revenue</div>
+          <div class="flow-side-label green">Regularis revenue</div>
           <div class="flow-side-body">MSP retainer. SaaS subscriptions. Academy training. Non-cyclical — doesn't depend on AI investment trends.</div>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num green">2</div>
         <div>
-          <div class="flow-label green">Merlyn — L2</div>
+          <div class="flow-label green">Regularis — L2</div>
           <div class="flow-title">First model deployed on Dominion infrastructure</div>
-          <div class="flow-body">The client is ready to deploy AI. Merlyn designs and builds the model. It runs on Dominion's managed GPU infrastructure — the client doesn't think about the data center; Merlyn manages that. Dominion now has a paying enterprise compute client introduced by Merlyn.</div>
+          <div class="flow-body">The client is ready to deploy AI. Regularis designs and builds the model. It runs on Dominion's managed GPU infrastructure — the client doesn't think about the data center; Regularis manages that. Dominion now has a paying enterprise compute client introduced by Regularis.</div>
         </div>
         <div class="flow-side">
-          <div class="flow-side-label green">Both companies earn</div>
-          <div class="flow-side-body">Merlyn: consulting fees. Dominion: inference cloud or reserved cluster revenue. The client pays both — for different things.</div>
+          <div class="flow-side-label green">Both sides earn</div>
+          <div class="flow-side-body">Regularis: consulting fees. Dominion: inference cloud or reserved cluster revenue. The client pays both — for different things.</div>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num green">3</div>
         <div>
-          <div class="flow-label green">Merlyn — L3</div>
+          <div class="flow-label green">Regularis — L3</div>
           <div class="flow-title">Digital twin deployed at scale</div>
-          <div class="flow-body">For sophisticated clients, Merlyn builds financial and operational digital twins — simulation models running continuously on Dominion's infrastructure. Some twins are bespoke enterprise builds; many more are platform subscribers running configured twins from the same Merlyn AI OS. Either way: high-utilization, sustained workloads — exactly the kind of compute that fills a data center and justifies the next phase build.</div>
+          <div class="flow-body">For sophisticated clients, Regularis builds financial and operational digital twins — simulation models running continuously on Dominion's infrastructure. Some twins are bespoke enterprise builds; many more are platform subscribers running configured twins from the same Regularis AI OS. Either way: high-utilization, sustained workloads — exactly the kind of compute that fills a data center and justifies the next phase build.</div>
         </div>
         <div class="flow-side">
           <div class="flow-side-label green">Sustained demand</div>
@@ -304,7 +320,7 @@
         <div>
           <div class="flow-label orange">Dominion — Direct</div>
           <div class="flow-title">Client graduates to self-managed infrastructure</div>
-          <div class="flow-body">When a client's internal ML team matures, they graduate from Merlyn-managed L2 to a direct Dominion Compute contract. Same infrastructure — different operating model. Merlyn still holds the consulting relationship; Dominion holds the compute contract directly.</div>
+          <div class="flow-body">When a client's internal ML team matures, they graduate from Regularis-managed L2 to a direct Dominion Compute contract. Same infrastructure — different operating model. Regularis still holds the consulting relationship; Dominion holds the compute contract directly.</div>
         </div>
         <div class="flow-side orange">
           <div class="flow-side-label orange">Dominion direct revenue</div>
@@ -316,7 +332,7 @@
         <div>
           <div class="flow-label orange">Dominion — Enterprise sales</div>
           <div class="flow-title">Enterprise sales runs in parallel</div>
-          <div class="flow-body">Dominion's sales motion doesn't wait for Merlyn introductions. The Dominion sales team makes direct contact with regional enterprises. Merlyn's reference clients give Dominion a warmer door to open — and validate the campus to enterprise buyers who might otherwise wait to see a track record.</div>
+          <div class="flow-body">Dominion's sales motion doesn't wait for Regularis introductions. The Dominion sales team makes direct contact with regional enterprises. Regularis's reference clients give Dominion a warmer door to open — and validate the campus to enterprise buyers who might otherwise wait to see a track record.</div>
         </div>
         <div class="flow-side orange">
           <div class="flow-side-label orange">Enterprise pipeline</div>
@@ -335,26 +351,26 @@
     <p class="ssub">Neither company would be as strong without the other. The relationship produces advantages that neither could create independently.</p>
     <div class="adv-grid">
       <div class="adv">
-        <div class="adv-label green">For Merlyn</div>
+        <div class="adv-label green">For Regularis</div>
         <div class="adv-title">Infrastructure economics no independent MSP can match.</div>
         <div class="adv-body">
           <p>An independent MSP trying to offer AI infrastructure to regional clients can either rent from AWS at $0.10/kWh equivalent, or build their own facility — a capital commitment well beyond their means.</p>
-          <p>Merlyn has a third option. At <strong>$0.02/kWh</strong>, Merlyn can offer clients compute pricing that no independent MSP can compete with. That's a physical asset tied to the site — it compounds with every client Merlyn brings to the campus.</p>
+          <p>Regularis has a third option. At <strong>$0.02/kWh</strong>, Regularis can offer clients compute pricing that no independent MSP can compete with. That's a physical asset tied to the site — it compounds with every client Regularis brings to the campus.</p>
         </div>
       </div>
       <div class="adv">
         <div class="adv-label orange">For Dominion</div>
         <div class="adv-title">Day-one base-load demand certainty.</div>
         <div class="adv-body">
-          <p>A data center with no clients on day one is a liability. Merlyn's managed IT and consulting workloads provide base-load compute demand before a single external enterprise client is signed — making Dominion's break-even utilization reachable from day one.</p>
-          <p>And because Merlyn's revenue comes from services regional employers need regardless of AI investment trends, that demand doesn't evaporate when the hype cycle turns.</p>
+          <p>A data center with no clients on day one is a liability. Regularis's managed IT and consulting workloads provide base-load compute demand before a single external enterprise client is signed — making Dominion's break-even utilization reachable from day one.</p>
+          <p>And because Regularis's revenue comes from services regional employers need regardless of AI investment trends, that demand doesn't evaporate when the hype cycle turns.</p>
         </div>
       </div>
       <div class="adv">
-        <div class="adv-label green">For Merlyn</div>
+        <div class="adv-label green">For Regularis</div>
         <div class="adv-title">The same team accountable for both layers.</div>
         <div class="adv-body">
-          <p>When Merlyn deploys a digital twin for a regional manufacturer, the model runs on infrastructure built and operated by the same people who designed the service. No vendor relationship to manage, no SLA dispute to escalate.</p>
+          <p>When Regularis deploys a digital twin for a regional manufacturer, the model runs on infrastructure built and operated by the same people who designed the service. No vendor relationship to manage, no SLA dispute to escalate.</p>
           <p>When a production model fails at 2am, the person who picks up the phone knows both the code and the cluster.</p>
         </div>
       </div>
@@ -362,8 +378,8 @@
         <div class="adv-label orange">For Dominion</div>
         <div class="adv-title">A credible partner that opens enterprise doors.</div>
         <div class="adv-body">
-          <p>A new data center company in a secondary market asking a regional hospital to sign a $9M/yr compute contract is a hard sell without reference clients. Merlyn's existing employer relationships — and the live workloads already running on Dominion infrastructure — give the sales team something to point to.</p>
-          <p>Merlyn converts the campus from a construction project into an operating facility before the first enterprise contract is signed.</p>
+          <p>A new data center company in a secondary market asking a regional hospital to sign a $9M/yr compute contract is a hard sell without reference clients. Regularis's existing employer relationships — and the live workloads already running on Dominion infrastructure — give the sales team something to point to.</p>
+          <p>Regularis converts the campus from a construction project into an operating facility before the first enterprise contract is signed.</p>
         </div>
       </div>
     </div>
@@ -378,9 +394,9 @@
     <p class="ssub">Whether you're a regional employer evaluating AI services, an infrastructure investor, or an economic development authority — you're talking to the same founding team.</p>
     <div class="cta-pair">
       <div class="cta-box green">
-        <h3>Merlyn AI Labs</h3>
+        <h3>Regularis</h3>
         <p>Managed IT, AI consulting, Academy training, or community partnership.</p>
-        <a href="contact.html" class="btn-green">Get in touch with Merlyn →</a>
+        <a href="contact.html" class="btn-green">Get in touch with Regularis →</a>
       </div>
       <div class="cta-box orange">
         <h3>Dominion Hyperscale</h3>
@@ -394,18 +410,19 @@
   <footer class="sft">
     <div class="inner">
       <div>
-        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <a href="index.html" class="sfl">regularis</a>
         <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
     </div>
   </footer>
 

@@ -5,15 +5,20 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Merlyn AI Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>About — Regularis Systems</title>
   <style>
     :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
     *{box-sizing:border-box;margin:0;padding:0;}
+    h1,h2,h3,h4{font-family:'Zilla Slab',Georgia,serif;}
     body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
     .inner{max-width:960px;margin:0 auto;padding:0 32px;}
     .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-    .logo{font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.3px;text-decoration:none;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;font-size:14px;}
     .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
@@ -66,11 +71,12 @@
     .bw:hover{background:#E1F5EE;}
     .sft{border-top:0.5px solid var(--b1);}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
-    .sfl{font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
     .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
     .sfls{display:flex;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -96,12 +102,22 @@
 
   <nav class="sn">
     <div class="inner">
-      <a href="index.html" class="logo">merlyn <em>ai labs</em></a>
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
       <ul class="snl">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html" class="nav-active">About</a></li>
           <li><a href="partnership.html">Partnership</a></li>
       </ul>
@@ -125,10 +141,10 @@
       <h2 class="sh2">Why we started this</h2>
       <div class="story">
         <p>Every mid-sized American city has manufacturers, healthcare systems, logistics companies, and agricultural businesses trying to navigate AI — and mostly getting it wrong. Not because AI doesn't work for them. Because the people who understand AI at the enterprise level don't live in Evansville. Or Des Moines. Or Louisville. And the consulting firms that do understand it charge rates that assume a Manhattan ZIP code.</p>
-        <p>The four of us came to this problem from different directions — but three of us came through the same door. Tom founded Sitco, a wireless networking company in Southern Indiana that built and operated broadband infrastructure across the region, ran a co-location data center, acquired a wireless cable company, and had a detailed plan to bury its own fiber before the company was sold. Dan served as CTO at Sitco for eleven years. Todd served as COO. That team already proved it could build real communications infrastructure together — Merlyn is where they finish what they started.</p>
+        <p>The four of us came to this problem from different directions — but three of us came through the same door. Tom founded Sitco, a wireless networking company in Southern Indiana that built and operated broadband infrastructure across the region, ran a co-location data center, acquired a wireless cable company, and had a detailed plan to bury its own fiber before the company was sold. Dan served as CTO at Sitco for eleven years. Todd served as COO. That team already proved it could build real communications infrastructure together — Regularis is where they finish what they started.</p>
         <p>Walker came to Tom's orbit earlier than that — straight out of high school, working at one of Tom's other entrepreneurial ventures while finishing a mathematics degree at the University of Southern Indiana. Twenty-five years later he brings enterprise software, simulation science, and decision intelligence to a founding team that now has the infrastructure credibility to back it up.</p>
-        <p><strong>We built the thing we wished existed.</strong> A locally-rooted AI services firm that works with businesses at every stage — from getting reliable IT in place, to deploying intelligent process automation, to giving executives a real-time financial digital twin of their operation. One that trains local practitioners who stay here. One structured, legally and deliberately, so it cannot extract value from the communities it serves.</p>
-        <p>Merlyn AI Labs is named for the Vaughan Merlyn / Ernst &amp; Young IT maturity framework — a model that maps business technology capability across three levels and has shaped how our founding team thinks about client engagement from the very beginning. <a href="merlyn-model.html" style="color:#0F6E56;font-weight:500;">Read the full story of the name ↗</a> <span style="font-size:12px;color:#6B6A65;font-weight:500;">· Name under trademark review</span></p>
+        <p><strong>We built the thing we wished existed.</strong> A locally-rooted AI services firm that works with businesses at every stage — from getting reliable IT in place, to deploying intelligent process automation, to giving executives a real-time financial digital twin of their operation. One that trains local practitioners who stay here. One built, deliberately, so that the value it creates stays in the communities it serves.</p>
+        <p><em>Regularis</em> is Latin for "according to rule." The <em>Regularis Concordia</em> of around 970 unified monastic observance across every house in England under one standard of practice — a shared discipline adopted across independent institutions so that practice was consistent everywhere. That is the idea we build on: the same standard of practice, available to businesses that each run their own way. The maturity framework that shapes how we scope every engagement is a separate thing, and we credit it. <a href="regularis-model.html" style="color:#0F6E56;font-weight:500;">Read about the maturity model ↗</a></p>
       </div>
     </div>
   </section>
@@ -142,29 +158,29 @@
         <div class="team-card">
           <div class="avatar av-amber">TK</div>
           <p class="member-name">Tom Kolb</p>
-          <p class="member-title">CEO · Dominion Hyperscale &amp; Merlyn AI Labs</p>
-          <p class="member-bio">Tom is the founder of Merlyn AI Labs and the reason it exists. He founded Sitco, a Southern Indiana wireless networking company that built and operated broadband infrastructure across the region, ran a co-location data center, acquired a wireless cable operation, and developed a plan to bury its own fiber — before selling the company. That experience gave him a first-hand understanding of what community-owned connectivity and compute infrastructure actually requires to work. Tom serves as CEO of both Dominion Hyperscale and Merlyn AI Labs — Merlyn is where he finishes what Sitco started — this time with AI, modern data center infrastructure, and a B Corp structure that can never be sold out from under the community it serves.</p>
+          <p class="member-title">CEO · Dominion Hyperscale &amp; Regularis</p>
+          <p class="member-bio">Tom is the founder of Regularis and the reason it exists. He founded Sitco, a Southern Indiana wireless networking company that built and operated broadband infrastructure across the region, ran a co-location data center, acquired a wireless cable operation, and developed a plan to bury its own fiber — before selling the company. That experience gave him a first-hand understanding of what community-owned connectivity and compute infrastructure actually requires to work. Tom serves as CEO of both Dominion Hyperscale and Regularis — Regularis is where he finishes what Sitco started — this time with AI, modern data center infrastructure, and an intent to build durable community commitments into how the business is governed.</p>
         </div>
 
         <div class="team-card">
           <div class="avatar av-teal">TM</div>
           <p class="member-name">Todd Mosby</p>
           <p class="member-title">Advisor · Co-Founder</p>
-          <p class="member-bio">Todd brings operational depth from a career spanning regional technology infrastructure, economic development, and strategic relationship-building across secondary markets. As an advisor, Todd will play a critical role in the Dominion–Merlyn ecosystem, helping define strategic partnerships and customer engagement initiatives. Todd assists infrastructure investors, enterprise compute clients, hyperscale prospects, and economic development organizations, building trusted relationships and identifying growth opportunities. He works closely with technical leadership to guide prospects through evaluation, solution design, and implementation discussions. With decades of experience cultivating public- and private-sector partnerships, Todd has a proven ability to open doors, navigate complex stakeholder environments, and convert opportunities into long-term business relationships. His understanding of secondary markets and economic development dynamics provides a distinct advantage in identifying and securing strategic locations for next-generation technology infrastructure deployments.</p>
+          <p class="member-bio">Todd brings operational depth from a career spanning regional technology infrastructure, economic development, and strategic relationship-building across secondary markets. As an advisor, Todd will play a critical role in the Dominion–Regularis ecosystem, helping define strategic partnerships and customer engagement initiatives. Todd assists infrastructure investors, enterprise compute clients, hyperscale prospects, and economic development organizations, building trusted relationships and identifying growth opportunities. He works closely with technical leadership to guide prospects through evaluation, solution design, and implementation discussions. With decades of experience cultivating public- and private-sector partnerships, Todd has a proven ability to open doors, navigate complex stakeholder environments, and convert opportunities into long-term business relationships. His understanding of secondary markets and economic development dynamics provides a distinct advantage in identifying and securing strategic locations for next-generation technology infrastructure deployments.</p>
         </div>
 
         <div class="team-card">
           <div class="avatar av-amber">DK</div>
           <p class="member-name">Dan Kolb</p>
           <p class="member-title">Chief Operating Officer · Co-Founder</p>
-          <p class="member-bio">Dan brings 25+ years of data center operations, enterprise infrastructure, and networking expertise — all of it rooted in Southern Indiana. He currently serves as Director of Data Center Operations at Watch Communications in Evansville. Before that, he spent eleven years as CTO at Sitco, where he built and operated a co-location data center and high-availability network infrastructure serving eight counties alongside Tom and Todd. As Chief Operating Officer across the Dominion–Merlyn ecosystem, Dan owns data center operations and infrastructure build-out — that working relationship, tested at the infrastructure level, is one of the founding team's core assets.</p>
+          <p class="member-bio">Dan brings 25+ years of data center operations, enterprise infrastructure, and networking expertise — all of it rooted in Southern Indiana. He currently serves as Director of Data Center Operations at Watch Communications in Evansville. Before that, he spent eleven years as CTO at Sitco, where he built and operated a co-location data center and high-availability network infrastructure serving eight counties alongside Tom and Todd. As Chief Operating Officer across the Dominion–Regularis ecosystem, Dan owns data center operations and infrastructure build-out — that working relationship, tested at the infrastructure level, is one of the founding team's core assets.</p>
         </div>
 
         <div class="team-card">
           <div class="avatar av-teal">WW</div>
           <p class="member-name">Walker West</p>
           <p class="member-title">Chief AI Officer · Co-Founder</p>
-          <p class="member-bio">Walker first worked for Tom straight out of high school — at one of Tom's earlier ventures, while completing a BS in Mathematics at the University of Southern Indiana. Twenty-five years later he brings enterprise software engineering, simulation science, and decision intelligence to the founding team. His background spans industrial simulation (ARDVARC autonomous drill platform), production AI systems for Class I railroad logistics, and a tenure as Director of Application Development leading Scrum-based engineering teams building custom software for transportation and financial services. As Chief AI Officer across the Dominion–Merlyn ecosystem, Walker is the architect of the Merlyn digital twin methodology and the technical foundation of the AI platform — Merlyn's decision intelligence stack and Dominion's MLOps environment together.</p>
+          <p class="member-bio">Walker first worked for Tom straight out of high school — at one of Tom's earlier ventures, while completing a BS in Mathematics at the University of Southern Indiana. Twenty-five years later he brings enterprise software engineering, simulation science, and decision intelligence to the founding team. His background spans industrial simulation (ARDVARC autonomous drill platform), production AI systems for Class I railroad logistics, and a tenure as Director of Application Development leading Scrum-based engineering teams building custom software for transportation and financial services. As Chief AI Officer across the Dominion–Regularis ecosystem, Walker is the architect of the Regularis digital twin methodology and the technical foundation of the AI platform — Regularis's decision intelligence stack and Dominion's MLOps environment together.</p>
         </div>
 
       </div>
@@ -175,7 +191,7 @@
         </a>
         <div>
           <div style="font-size:12px;font-weight:500;color:#E87722;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">The same team, two companies</div>
-          <p style="font-size:14px;color:#3d3d3a;line-height:1.65;">The four of us are also building <a href="partnership.html" style="color:#E87722;font-weight:500;">Dominion Hyperscale</a> — the AI data center infrastructure company that Merlyn runs on. Dominion develops and operates hyperscale GPU campuses in secondary markets along interstate natural gas transmission corridors, starting in Warrick County, Indiana. Merlyn is Dominion's anchor tenant and the services layer on top of its infrastructure. The two companies are designed to reinforce each other: Merlyn's non-cyclical revenue provides Dominion with base-load demand certainty; Dominion's $0.02/kWh power cost gives Merlyn infrastructure economics that no regional AI services company can match.</p>
+          <p style="font-size:14px;color:#3d3d3a;line-height:1.65;">The four of us are also building <a href="partnership.html" style="color:#E87722;font-weight:500;">Dominion Hyperscale</a> — the AI data center infrastructure company that Regularis runs on. Dominion develops and operates hyperscale GPU campuses in secondary markets along interstate natural gas transmission corridors, starting in Warrick County, Indiana. Regularis is Dominion's anchor tenant and the services layer on top of its infrastructure. The two companies are designed to reinforce each other: Regularis's non-cyclical revenue provides Dominion with base-load demand certainty; Dominion's $0.02/kWh power cost gives Regularis infrastructure economics that no regional AI services company can match.</p>
         </div>
       </div>
     </div>
@@ -247,7 +263,7 @@
       </div>
 
       <div class="commit">
-        <p><strong>Our commitment to this community is structural, not aspirational.</strong> Merlyn AI Labs is organized as a certified B Corp and Public Benefit Corporation with a steward-ownership agreement. The business cannot be sold to outside investors without community consent. Community shares give local residents a real ownership stake at accessible minimums. Profits above operating needs are reinvested in the platform, the Academy, or the federation.</p>
+        <p><strong>Where the business stands today.</strong> Regularis currently operates as a trade name (DBA) of Dominion Hyperscale. The founding team intends to establish Regularis as an independent entity as the organization matures, and to build durable mission commitments into its eventual governance; the specific structure is under consideration. We would rather tell you that plainly than claim a certification we do not hold.</p>
         <p>The four founders earn fair compensation for the work they do. They do not hold any claim to what other communities build with the playbook. That IP, that value, and that equity belongs to the communities that create it.</p>
       </div>
     </div>
@@ -264,18 +280,19 @@
   <footer class="sft">
     <div class="inner">
       <div>
-        <a href="index.html" class="sfl">merlyn ai labs</a>
+        <a href="index.html" class="sfl">regularis</a>
         <p class="sfloc">Evansville, Indiana</p>
       </div>
       <ul class="sfls">
         <li><a href="academy.html">Academy</a></li>
+        <li><a href="desk.html">Desk</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="community.html">Community</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. &copy; 2026 Dominion Hyperscale.</p>
     </div>
   </footer>
 
