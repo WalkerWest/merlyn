@@ -145,15 +145,42 @@
   <div class="frame-wrap">
     <div class="frame-box">
       <iframe id="desk-frame"
-              src="https://overlay-backend-861109469186.us-central1.run.app/admin/signin"
               title="Regularis Dynamic Content"
               referrerpolicy="no-referrer"
               allow="clipboard-write"></iframe>
     </div>
     <p class="frame-note">Not appearing above?
-      <a href="https://overlay-backend-861109469186.us-central1.run.app/admin/signin" target="_blank" rel="noopener">Open it in a new tab ↗</a>
+      <a id="open-direct" href="https://overlay-backend-861109469186.us-central1.run.app/admin/signin" target="_blank" rel="noopener">Open it in a new tab ↗</a>
       &nbsp;·&nbsp; No workspace yet? <a href="contact.html?interest=desk">Request access</a>.</p>
   </div>
+
+  <script>
+    // Which backend view this page frames. ?v=<key> selects one.
+    //
+    // An allow-list rather than interpolating the query value into the path, for
+    // the same reason the backend keeps its own `Known` dictionary: a value from
+    // a URL that reaches a path is a traversal waiting to be written. An
+    // unrecognised key silently falls back to sign-in, so a mistyped or stale
+    // link lands somewhere sensible instead of on an error.
+    //
+    // Adding a view means adding one line here and one in PresentationModel.
+    (function () {
+      var BASE = 'https://overlay-backend-861109469186.us-central1.run.app';
+      var VIEWS = {
+        '':           '/admin/signin',
+        'presentation-2026-11-02': '/admin/presentations/2026-11-02'
+      };
+
+      var key = '';
+      try { key = new URLSearchParams(window.location.search).get('v') || ''; } catch (e) {}
+      var path = Object.prototype.hasOwnProperty.call(VIEWS, key) ? VIEWS[key] : VIEWS[''];
+      var url = BASE + path;
+
+      document.getElementById('desk-frame').src = url;
+      // The escape hatch should open whatever is framed, not always sign-in.
+      document.getElementById('open-direct').href = url;
+    })();
+  </script>
 
   <button type="button" class="restore" id="restore" aria-label="Exit full window">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
