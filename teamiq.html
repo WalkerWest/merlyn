@@ -20,7 +20,7 @@
     .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
     .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;}
-    .snl{display:flex;gap:18px;list-style:none;}
+    .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
     .snl a:hover{color:var(--t1);}
     .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
@@ -38,11 +38,17 @@
     .ctas{display:flex;gap:10px;flex-wrap:wrap;}
     .hero{background:var(--bg2);}
     .hero-split{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
+    .hero-split>*{min-width:0;}
     .hero-visual{display:flex;align-items:center;justify-content:center;}
-    /* 7 nav items: tighten the row in the band above the hamburger breakpoint */
-    @media(max-width:780px) and (min-width:681px){
-      .snl{gap:8px;}
-      .snl a{font-size:11.5px;}
+    /* Two-column hero: stack before the text column gets squeezed */
+    @media(max-width:900px) and (min-width:681px){
+      .hero-split{grid-template-columns:1fr;}
+      .hero-visual{margin-top:28px;justify-content:flex-start;}
+      .hero-visual svg{max-width:420px;}
+    }
+    /* Narrow desktop band: ease the nav before the hamburger takes over */
+    @media(max-width:760px) and (min-width:681px){
+      .snl{gap:13px;}
     }
     @media(max-width:680px){.hero-split{grid-template-columns:1fr;}.hero-visual{justify-content:flex-start;margin-top:24px;}}
     .hero .inner{padding-top:72px;padding-bottom:52px;}
@@ -112,11 +118,12 @@
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
     .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
     .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
-    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls{display:flex;flex-wrap:wrap;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
     .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
     @media(max-width:680px){
+      .feat-grid{grid-template-columns:1fr;}
       .hamburger{display:flex;}
       .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
       .snl.open{display:block;}
@@ -129,7 +136,7 @@
       .hero h1{font-size:30px;}
       .hero-split{grid-template-columns:1fr;}
       .hero-visual{justify-content:flex-start;margin-top:24px;}
-      .sfls{display:flex;gap:14px;list-style:none;}
+      .sfls{display:flex;flex-wrap:wrap;gap:14px;list-style:none;}
     }
   </style>
 </head>
@@ -150,8 +157,6 @@
       </a>
       <ul class="snl">
         <li><a href="services.html">Services</a></li>
-        <li><a href="desk.html">Desk</a></li>
-        <li><a href="bench.html">Bench</a></li>
         <li><a href="academy.html">Academy</a></li>
         <li><a href="teamiq.html" class="nav-active">TeamIQ</a></li>
         <li><a href="about.html">About</a></li>

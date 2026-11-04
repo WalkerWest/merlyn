@@ -20,7 +20,7 @@
     .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
     .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;}
-    .snl{display:flex;gap:18px;list-style:none;}
+    .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
     .snl a:hover{color:var(--t1);}
     .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
@@ -28,12 +28,18 @@
     .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
     .hero{background:#2C2C2C;}
     .hero-split{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;align-items:center;}
+    .hero-split>*{min-width:0;}
     .hero-visual{display:flex;align-items:center;justify-content:flex-end;}
     .hero-visual svg{width:100%;height:auto;}
-    /* 7 nav items: tighten the row in the band above the hamburger breakpoint */
-    @media(max-width:780px) and (min-width:681px){
-      .snl{gap:8px;}
-      .snl a{font-size:11.5px;}
+    /* Two-column hero: stack before the text column gets squeezed */
+    @media(max-width:900px) and (min-width:681px){
+      .hero-split{grid-template-columns:1fr;}
+      .hero-visual{margin-top:28px;justify-content:flex-start;}
+      .hero-visual svg{max-width:420px;}
+    }
+    /* Narrow desktop band: ease the nav before the hamburger takes over */
+    @media(max-width:760px) and (min-width:681px){
+      .snl{gap:13px;}
     }
     @media(max-width:680px){.hero-split{grid-template-columns:1fr;}.hero-visual{margin-top:24px;max-width:320px;}}
     .hero .inner{padding-top:56px;padding-bottom:52px;}
@@ -108,7 +114,7 @@
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
     .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
     .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
-    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls{display:flex;flex-wrap:wrap;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
     .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
@@ -119,6 +125,7 @@
     .hamburger.open span:nth-child(2){opacity:0;}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
     @media(max-width:680px){
+      .node-steps{grid-template-columns:1fr;}
       .hamburger{display:flex;}
       
       .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
@@ -151,8 +158,6 @@
       </a>
       <ul class="snl">
         <li><a href="services.html">Services</a></li>
-        <li><a href="desk.html">Desk</a></li>
-        <li><a href="bench.html">Bench</a></li>
         <li><a href="academy.html">Academy</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="about.html">About</a></li>
@@ -309,6 +314,116 @@
     <div class="inner">
       <p class="sl2">The federation</p>
       <h2 class="sh2">One network. Many communities. Deep expertise.</h2>
+      <div style="max-width:440px;margin:30px auto 10px;">
+        <svg viewBox="0 0 420 400" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Regularis as a shared hub connecting enterprises, schools, municipalities, trades, and federation nodes">
+
+        <!-- Outer glow ring -->
+        <circle cx="210" cy="195" r="130" fill="none" stroke="#E1F5EE" stroke-width="1" opacity="0.6"/>
+        <circle cx="210" cy="195" r="96"  fill="none" stroke="#E1F5EE" stroke-width="0.5" opacity="0.4" stroke-dasharray="4 6"/>
+
+        <!-- Spoke connection lines — drawn first so nodes sit on top -->
+        <!-- Enterprise (top-right) -->
+        <line x1="210" y1="195" x2="318" y2="95"  stroke="#1D9E75" stroke-width="1.5" opacity="0.35"/>
+        <!-- Municipality (right) -->
+        <line x1="210" y1="195" x2="336" y2="195" stroke="#1D9E75" stroke-width="1.5" opacity="0.35"/>
+        <!-- Federation node (bottom-right) -->
+        <line x1="210" y1="195" x2="308" y2="308" stroke="#FAC775" stroke-width="1.5" opacity="0.45"/>
+        <!-- Trade / workforce (bottom-left) -->
+        <line x1="210" y1="195" x2="112" y2="308" stroke="#FAC775" stroke-width="1.5" opacity="0.45"/>
+        <!-- College (left) -->
+        <line x1="210" y1="195" x2="84"  y2="195" stroke="#1D9E75" stroke-width="1.5" opacity="0.35"/>
+        <!-- K-12 (top-left) -->
+        <line x1="210" y1="195" x2="102" y2="95"  stroke="#1D9E75" stroke-width="1.5" opacity="0.35"/>
+
+        <!-- Pulse dots along spokes -->
+        <circle cx="264" cy="145" r="3" fill="#1D9E75" opacity="0.5"/>
+        <circle cx="273" cy="195" r="3" fill="#1D9E75" opacity="0.5"/>
+        <circle cx="259" cy="252" r="3" fill="#FAC775" opacity="0.6"/>
+        <circle cx="161" cy="252" r="3" fill="#FAC775" opacity="0.6"/>
+        <circle cx="147" cy="195" r="3" fill="#1D9E75" opacity="0.5"/>
+        <circle cx="156" cy="145" r="3" fill="#1D9E75" opacity="0.5"/>
+
+        <!-- CENTER HUB — Regularis -->
+        <circle cx="210" cy="195" r="52" fill="#085041"/>
+        <circle cx="210" cy="195" r="58" fill="none" stroke="#1D9E75" stroke-width="1" opacity="0.4"/>
+        <!-- Building icon -->
+        <rect x="196" y="182" width="28" height="20" rx="2" fill="#0F6E56"/>
+        <polygon points="192,182 210,168 228,182" fill="#1D9E75"/>
+        <rect x="202" y="186" width="6" height="6" rx="1" fill="#9FE1CB" opacity="0.7"/>
+        <rect x="212" y="186" width="6" height="6" rx="1" fill="#9FE1CB" opacity="0.7"/>
+        <rect x="205" y="193" width="10" height="9" rx="1" fill="#E1F5EE" opacity="0.2"/>
+        <text x="210" y="218" text-anchor="middle" font-family="Zilla Slab,Georgia,serif" font-size="10" font-weight="600" fill="#9FE1CB">regularis</text>
+
+        <!-- TOP-LEFT: K-12 Schools -->
+        <circle cx="102" cy="86" r="36" fill="#F5F4EF" stroke="#D3D1C7" stroke-width="0.8"/>
+        <!-- Graduation cap icon -->
+        <polygon points="102,68 86,76 102,84 118,76" fill="#6B6A65"/>
+        <rect x="115" y="76" width="2" height="10" rx="1" fill="#6B6A65"/>
+        <circle cx="116" cy="87" r="3" fill="#6B6A65"/>
+        <text x="102" y="100" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#2C2C2A">K–12</text>
+        <text x="102" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#6B6A65">Schools</text>
+
+        <!-- TOP-RIGHT: Enterprise -->
+        <circle cx="318" cy="86" r="36" fill="#F0FAF5" stroke="#9FE1CB" stroke-width="0.8"/>
+        <!-- Office building -->
+        <rect x="304" y="68" width="28" height="22" rx="2" fill="#085041"/>
+        <rect x="307" y="71" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+        <rect x="315" y="71" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+        <rect x="323" y="71" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+        <rect x="307" y="79" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+        <rect x="315" y="79" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+        <rect x="323" y="79" width="5" height="5" rx="1" fill="#9FE1CB" opacity="0.6"/>
+        <text x="318" y="100" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#085041">Enterprise</text>
+        <text x="318" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#0F6E56">Local business</text>
+
+        <!-- LEFT: College -->
+        <circle cx="75" cy="195" r="36" fill="#F5F4EF" stroke="#D3D1C7" stroke-width="0.8"/>
+        <!-- Book icon -->
+        <rect x="60" y="182" width="30" height="22" rx="2" fill="#888780"/>
+        <rect x="62" y="184" width="12" height="18" rx="1" fill="#F5F4EF"/>
+        <rect x="76" y="184" width="12" height="18" rx="1" fill="#E8E6DF"/>
+        <line x1="75" y1="184" x2="75" y2="202" stroke="#B4B2A9" stroke-width="1"/>
+        <text x="75" y="215" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#2C2C2A">Higher Ed</text>
+        <text x="75" y="227" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#6B6A65">Rize partner</text>
+
+        <!-- RIGHT: Municipality -->
+        <circle cx="345" cy="195" r="36" fill="#F0FAF5" stroke="#9FE1CB" stroke-width="0.8"/>
+        <!-- City hall columns -->
+        <rect x="330" y="182" width="30" height="18" rx="1" fill="#1D9E75"/>
+        <polygon points="330,182 345,172 360,182" fill="#085041"/>
+        <rect x="333" y="186" width="4" height="14" rx="1" fill="#E1F5EE" opacity="0.5"/>
+        <rect x="340" y="186" width="4" height="14" rx="1" fill="#E1F5EE" opacity="0.5"/>
+        <rect x="347" y="186" width="4" height="14" rx="1" fill="#E1F5EE" opacity="0.5"/>
+        <text x="345" y="210" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#085041">Municipality</text>
+        <text x="345" y="222" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#0F6E56">Fiber + data</text>
+
+        <!-- BOTTOM-LEFT: Workforce / Trades -->
+        <circle cx="112" cy="316" r="36" fill="#FEF9EE" stroke="#FAC775" stroke-width="0.8"/>
+        <!-- Wrench + circuit icon -->
+        <rect x="100" y="303" width="24" height="16" rx="3" fill="#854F0B"/>
+        <circle cx="104" cy="307" r="3" fill="#FAEEDA"/>
+        <circle cx="128" cy="307" r="3" fill="#FAEEDA"/>
+        <line x1="107" y1="307" x2="125" y2="307" stroke="#FAEEDA" stroke-width="1.5"/>
+        <line x1="112" y1="307" x2="112" y2="319" stroke="#FAEEDA" stroke-width="1.5"/>
+        <line x1="120" y1="307" x2="120" y2="319" stroke="#FAEEDA" stroke-width="1.5"/>
+        <text x="112" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#633806">Trades</text>
+        <text x="112" y="345" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#854F0B">Workforce dev</text>
+
+        <!-- BOTTOM-RIGHT: Federation Node -->
+        <circle cx="308" cy="316" r="36" fill="#FEF9EE" stroke="#FAC775" stroke-width="0.8"/>
+        <!-- Network nodes icon -->
+        <circle cx="308" cy="303" r="5" fill="#854F0B"/>
+        <circle cx="295" cy="318" r="4" fill="#FAC775"/>
+        <circle cx="321" cy="318" r="4" fill="#FAC775"/>
+        <line x1="308" y1="303" x2="295" y2="318" stroke="#854F0B" stroke-width="1.5"/>
+        <line x1="308" y1="303" x2="321" y2="318" stroke="#854F0B" stroke-width="1.5"/>
+        <line x1="295" y1="318" x2="321" y2="318" stroke="#FAC775" stroke-width="1" stroke-dasharray="3 2"/>
+        <text x="308" y="333" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#633806">Federation</text>
+        <text x="308" y="345" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#854F0B">Node operator</text>
+
+        </svg>
+        <p style="font-size:12px;color:var(--t3);line-height:1.5;text-align:center;margin-top:12px;">Compute, connectivity, and shared services — pooled across member businesses, municipalities, schools, trades, and federation node operators.</p>
+      </div>
       <p class="ssub">Every mid-sized American city has a dominant industry. Evansville has manufacturing. Another city has healthcare. Another has insurance. Another has agriculture. In each of these cities, that dominant industry is navigating the AI transition — and often navigating it badly, because the companies involved are not technology companies.</p>
 
       <div class="node-map">

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
   <title>Services — Regularis Systems</title>
+  <meta name="description" content="Three layers of AI capability on a managed IT foundation: train your people to direct AI, connect your data to it, and deploy agents that act. The capability stays with your team.">
   <style>
     :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
     *{box-sizing:border-box;margin:0;padding:0;}
@@ -20,7 +21,7 @@
     .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
     .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
     .logo em{font-style:normal;color:var(--t3);font-weight:400;}
-    .snl{display:flex;gap:18px;list-style:none;}
+    .snl{display:flex;gap:20px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
     .snl a:hover{color:var(--t1);}
     .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
@@ -28,6 +29,7 @@
     .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
     .hero{padding:52px 0 48px;}
     .hero-split{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:48px;align-items:center;}
+    .hero-split>*{min-width:0;}
     .hero-visual{display:flex;align-items:center;justify-content:flex-end;}
     .hero-visual svg{width:100%;height:auto;}
     .he{font-size:12px;font-weight:500;color:#0F6E56;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
@@ -78,6 +80,7 @@
     .lcta:hover{background:#E1F5EE;}
     .note{margin-top:16px;padding:14px 16px;background:var(--bg2);border:0.5px solid var(--b1);border-left:3px solid #1D9E75;border-radius:0 var(--r1) var(--r1) 0;font-size:13px;color:var(--t2);line-height:1.55;}
     .note strong{color:var(--t1);}
+    .note a{color:#0F6E56;text-decoration:underline;text-underline-offset:2px;}
     .acta{padding:52px 0;background:#085041;text-align:center;}
     .acta h2{font-size:24px;font-weight:500;color:#fff;margin-bottom:8px;}
     .acta p{font-size:15px;color:#9FE1CB;margin-bottom:24px;}
@@ -87,7 +90,7 @@
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
     .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
     .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
-    .sfls{display:flex;gap:14px;list-style:none;}
+    .sfls{display:flex;flex-wrap:wrap;gap:14px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
     .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
@@ -96,12 +99,22 @@
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
     .hamburger.open span:nth-child(2){opacity:0;}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    /* 7 nav items: tighten the row in the band above the hamburger breakpoint */
-    @media(max-width:780px) and (min-width:681px){
-      .snl{gap:8px;}
-      .snl a{font-size:11.5px;}
+    /* Two-column hero: stack before the text column gets squeezed */
+    @media(max-width:900px) and (min-width:681px){
+      .hero-split{grid-template-columns:1fr;}
+      .hero-visual{margin-top:28px;justify-content:flex-start;}
+      .hero-visual svg{max-width:420px;}
+    }
+    /* Narrow desktop band: ease the nav before the hamburger takes over */
+    @media(max-width:760px) and (min-width:681px){
+      .snl{gap:13px;}
     }
     @media(max-width:680px){
+      /* Inline multi-column grids collapse on phones */
+      [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+      .tg{grid-template-columns:1fr;}
+      .levels div[style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+      .aud div[style*="grid-template-columns"]{grid-template-columns:1fr !important;}
       .hamburger{display:flex;}
       .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;list-style:none;margin:0;}
       .snl.open{display:block;}
@@ -136,8 +149,6 @@
       </a>
       <ul class="snl">
         <li><a href="services.html" class="nav-active">Services</a></li>
-        <li><a href="desk.html">Desk</a></li>
-        <li><a href="bench.html">Bench</a></li>
         <li><a href="academy.html">Academy</a></li>
         <li><a href="teamiq.html">TeamIQ</a></li>
         <li><a href="about.html">About</a></li>
@@ -153,8 +164,8 @@
       <div class="hero-split">
         <div>
           <p class="he"><span class="hed"></span>Evansville, Indiana</p>
-          <h1>An AI OS for<br>your business — on a<br><em>managed foundation.</em></h1>
-          <p>Most AI vendors sell point solutions. Regularis builds the whole stack: people who can direct AI, data that AI can see, and agents that perform the work. Three layers, layered like an operating system — on top of the managed IT foundation that makes the AI work possible.</p>
+          <h1>Train the people.<br>Connect the data.<br><em>Deploy the agents.</em></h1>
+          <p>Most AI vendors sell point solutions — a chatbot here, a dashboard there — and keep the capability on their side of the contract. We start instead with business process management: map what your business actually does, find the parts no packaged system covers, and institutionalize them. Regularis builds the capability your own team holds: people who can direct AI, data that AI can see, and agents that perform the work. Three layers, layered like an operating system — on top of the managed IT foundation that makes the AI work possible.</p>
           <div class="ctas">
             <a href="#levels" class="bp">See the three layers</a>
             <a href="contact.html?interest=assessment" class="bg">Free assessment ↗</a>
@@ -312,6 +323,24 @@
         </div>
       </div>
 
+      <!-- Who runs it once it is built -->
+      <div style="margin-top:48px;padding-top:32px;border-top:0.5px solid var(--b1);">
+        <p class="sl2">After the build</p>
+        <h3 style="font-size:20px;font-weight:500;color:var(--t1);margin-bottom:8px;">Then you choose who runs it.</h3>
+        <p style="font-size:14px;color:var(--t2);line-height:1.65;max-width:720px;margin-bottom:20px;">Whichever mode built it, the finished system has to run somewhere. Regularis hosts and maintains it, or your own team does — and the decision is reversible. Everything we build is yours to take: open components, documented handover, and no proprietary runtime you cannot operate without us.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;">
+          <div class="lc" style="border-left:3px solid #0F6E56;">
+            <h3 class="lt">We host and maintain</h3>
+            <p class="ld">Recurring. We run the system, patch it, monitor it, and keep it working as your processes change. Your team consumes the output.</p>
+          </div>
+          <div class="lc" style="border-left:3px solid #FAC775;">
+            <h3 class="lt">You host and maintain</h3>
+            <p class="ld">You take delivery and run it on your own infrastructure. We hand over the build, the documentation, and the operating knowledge with it.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="note">
         <strong>Not sure where to start?</strong> Most businesses begin at L0 to clear the IT foundation, then add L1 to skill up their team. Most L2 and L3 customers start with Mode B (Done-for-you) and graduate to Mode A or C as their internal capability matures. Our free assessment shows you exactly where you are — which layer to tackle next, and which mode fits.
       </div>
@@ -321,37 +350,28 @@
   <section class="aud" id="who">
     <div class="inner">
       <p class="sl2">Who we serve</p>
-      <h2 class="sh2">Enterprises, municipalities, and communities.</h2>
-      <p class="ssub">The three-level model applies to local businesses. But the center is open to everyone building something that stays local.</p>
-      <div class="tg">
+      <h2 class="sh2">Locally owned businesses.</h2>
+      <p class="ssub">Strip out the IT overhead. Invest the savings in the systems that make you harder to compete with — and harder to buy.</p>
+      <div class="note" style="background:var(--bg1);margin-top:4px;"><strong>The layer underneath.</strong> The compute and connectivity all of this runs on is community-owned — which is what lets us offer you the choice of running it yourself. Municipalities and node operators start there instead: <a href="community.html">the federation</a>.</div>
+    </div>
+  </section>
 
-        <div class="tc">
-          <div class="tci">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0"/><path d="M9 8l1 0"/><path d="M9 12l1 0"/><path d="M9 16l1 0"/><path d="M14 8l1 0"/><path d="M14 12l1 0"/><path d="M14 16l1 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/></svg>
-          </div>
-          <h3 class="tt">Local enterprises</h3>
-          <p class="td">Strip out the IT overhead. Invest the savings in the systems that make you harder to compete with — and harder to buy.</p>
-          <a href="#levels" class="tcta">See service levels ↑</a>
+  <section class="levels">
+    <div class="inner">
+      <p class="sl2">What this looks like built</p>
+      <h2 class="sh2">Desk and Bench</h2>
+      <p class="ssub">Two systems built on this method. Both are built and under test; neither is running a customer’s work yet.</p>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;">
+        <div class="lc" style="border-left:3px solid #085041;">
+          <h3 class="lt">Desk</h3>
+          <p class="ld" style="margin-bottom:12px;">Front of house. Where work arrives, gets looked at, and gets acted on.</p>
+          <a href="desk.html" class="tcta" style="margin-top:auto;">See Desk ↗</a>
         </div>
-
-        <div class="tc">
-          <div class="tci">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 9l5 0"/><path d="M8 13l5 0"/><path d="M7 21v-14a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v14"/><path d="M3 21l18 0"/><path d="M3 11v-2a2 2 0 0 1 2 -2h2"/><path d="M17 11v-2a2 2 0 0 0 -2 -2h-2"/></svg>
-          </div>
-          <h3 class="tt">Municipalities</h3>
-          <p class="td">Cable, telephone, and internet followed the same pattern — private build, monopoly rent, community left with no recourse. Data and connectivity should have been public utilities. We design, build, and operate fiber connectivity for municipalities — the physical layer your community owns outright. Compute hosting and operations included, until you're ready to run it yourself.</p>
-          <a href="community.html#utility" class="tcta">The utility model ↗</a>
+        <div class="lc" style="border-left:3px solid #085041;">
+          <h3 class="lt">Bench</h3>
+          <p class="ld" style="margin-bottom:12px;">Back of house. The arithmetic, run the same way every time — with a judgment tier that shows its work and is not allowed to guess quietly.</p>
+          <a href="bench.html" class="tcta" style="margin-top:auto;">See Bench ↗</a>
         </div>
-
-        <div class="tc ft">
-          <div class="tci">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg>
-          </div>
-          <h3 class="tt">Your community</h3>
-          <p class="td">Become a node operator. Own a share of the infrastructure layer itself. Locally governed, community-backed, and built so the value stays where the infrastructure sits.</p>
-          <a href="community.html" class="tcta">Join the federation ↗</a>
-        </div>
-
       </div>
     </div>
   </section>
