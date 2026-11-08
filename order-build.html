@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <title>Regularis Order Build — Regularis Systems</title>
+  <meta name="description" content="Vendors pay you to order more. Regularis Order Build shows which extra parts to add to reach a discount or rebate, the ones you will sell soon, and which to leave off.">
+  <style>
+    :root{--bg1:#FFFFFF;--bg2:#F5F4EF;--t1:#1C1C1A;--t2:#6B6A65;--t3:#9B9A95;--b1:rgba(0,0,0,0.09);--b2:rgba(0,0,0,0.18);--r1:8px;--r2:12px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{padding-top:56px;-webkit-overflow-scrolling:touch;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:var(--t1);line-height:1.5;}
+    .inner{max-width:960px;margin:0 auto;padding:0 32px;}
+
+    /* ---- nav ---- */
+    .sn{border-bottom:0.5px solid var(--b1);position:fixed;top:0;left:0;right:0;z-index:100;background:#CCE8D8;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;backface-visibility:hidden;}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{display:flex;align-items:center;gap:9px;font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:#0F6E56;letter-spacing:-0.2px;text-decoration:none;}
+    .logo svg{width:22px;height:22px;flex-shrink:0;display:block;}
+    .logo em{font-style:normal;color:var(--t3);font-weight:400;}
+    .snl{display:flex;gap:20px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;}
+    .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid #1D9E75;padding-bottom:1px;}
+    .sncta{font-size:13px;padding:8px 16px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;}
+    .sncta:hover{background:#085041;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;outline:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* ---- buttons ---- */
+    .bp{padding:11px 22px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;font-family:inherit;}
+    .bp:hover{background:#085041;}
+    .bg{padding:11px 22px;background:transparent;color:var(--t1);border:0.5px solid var(--b2);border-radius:var(--r1);font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;font-family:inherit;}
+    .bg:hover{background:var(--bg2);}
+    .ctas{display:flex;gap:10px;flex-wrap:wrap;}
+
+    /* ---- hero ---- */
+    .hero{background:var(--bg2);}
+    .hero .inner{padding-top:64px;padding-bottom:52px;}
+    .he,.hero p.he{font-size:17px;font-weight:500;color:var(--t2);margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+    .hed{width:6px;height:6px;border-radius:50%;background:#1D9E75;display:inline-block;}
+    .hero h1{font-family:'Zilla Slab',Georgia,serif;font-size:40px;font-weight:500;color:var(--t1);line-height:1.15;margin-bottom:16px;letter-spacing:-0.4px;}
+    .hero h1 em{font-style:normal;color:#0F6E56;}
+    .hero p{font-size:17px;color:var(--t2);line-height:1.65;margin-bottom:8px;max-width:620px;}
+
+    /* ---- sections ---- */
+    section .inner{padding-top:56px;padding-bottom:56px;}
+    h2{font-family:'Zilla Slab',Georgia,serif;font-size:26px;font-weight:500;color:var(--t1);margin-bottom:10px;letter-spacing:-0.3px;}
+    h3{font-family:'Zilla Slab',Georgia,serif;font-size:18px;font-weight:500;color:var(--t1);margin-bottom:10px;}
+    .sub{font-size:15px;color:var(--t2);max-width:620px;margin-bottom:30px;line-height:1.65;}
+    .prose p{font-size:15px;color:var(--t2);line-height:1.75;max-width:660px;}
+    .prose p+p{margin-top:14px;}
+    .prose strong{color:var(--t1);font-weight:500;}
+
+    /* ---- the two bearings ---- */
+    .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0 22px;max-width:760px;}
+    .pc{border:0.5px solid var(--b1);border-radius:var(--r2);padding:18px 20px;}
+    .pc.no{background:#FEF9EE;border-color:#FAC775;}
+    .pc.yes{background:#E1F5EE;border-color:#9FE1CB;}
+    .pc .what{font-size:13px;color:var(--t2);margin-bottom:10px;}
+    .pc .what b{color:var(--t1);font-weight:500;}
+    .pc dl{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:14px;font-variant-numeric:tabular-nums;}
+    .pc dt{color:var(--t2);}
+    .pc dd{text-align:right;color:var(--t1);}
+    .pc .say{font-family:'Zilla Slab',Georgia,serif;font-size:19px;font-weight:500;margin-top:12px;}
+    .pc.no .say{color:#854F0B;}
+    .pc.yes .say{color:#0F6E56;}
+
+    /* ---- min/max ---- */
+    .mm{border:0.5px solid var(--b1);border-radius:var(--r2);padding:22px 24px;max-width:860px;}
+    .mm h3{font-size:19px;margin-bottom:6px;}
+    .mm-sub{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:16px;max-width:680px;}
+    .mm-grid{display:grid;gap:8px;}
+    .mm-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .mm-row p{font-size:13.5px;line-height:1.55;padding:10px 14px;border-radius:var(--r1);}
+    .mm-a{background:#FEF9EE;color:#6B4A12;}
+    .mm-b{background:#E1F5EE;color:#085041;}
+    .mm-row:first-child .mm-a:before{content:'Min/max';display:block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#854F0B;margin-bottom:3px;}
+    .mm-row:first-child .mm-b:before{content:'Order Build';display:block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#0F6E56;margin-bottom:3px;}
+    .mm-more{font-size:13px;color:var(--t3);margin-top:14px;}
+    .mm-more a{color:#0F6E56;}
+
+    /* ---- what your history adds ---- */
+    .better{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+    .bc{background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--r2);padding:18px;display:flex;flex-direction:column;}
+    .bc h4{font-family:'Zilla Slab',Georgia,serif;font-size:16.5px;font-weight:500;color:var(--t1);margin-bottom:8px;}
+    .bc p{font-size:13.5px;color:var(--t2);line-height:1.6;flex:1;}
+    .bc p.today{flex:0;font-size:12.5px;color:#854F0B;margin-top:12px;padding-top:10px;border-top:0.5px dashed #FAC775;}
+    .bc.ask{background:#085041;border-color:#085041;}
+    .bc.ask h4{color:#FAC775;}
+    .bc.ask p{color:#9FE1CB;}
+    .bc.ask p.how{margin-top:14px;font-size:13px;}
+    .bc.ask .tip{color:#FAC775;border-bottom-color:#FAC775;}
+    .bc.ask .tip:hover,.bc.ask .tip:focus-visible{color:#fff;border-bottom-color:#fff;}
+    .pop.pop-wide{width:min(680px,calc(100% - 32px));}
+    .road{list-style:none;counter-reset:r;margin:14px 0;display:grid;gap:12px;}
+    .road li{counter-increment:r;position:relative;padding:12px 14px 12px 50px;background:var(--bg2);border-radius:var(--r1);}
+    .road li:before{content:counter(r);position:absolute;left:14px;top:12px;width:24px;height:24px;border-radius:50%;background:#1D9E75;color:#fff;font-size:12.5px;font-weight:500;display:flex;align-items:center;justify-content:center;}
+    .road li div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:14.5px;color:var(--t1);}
+    .road li b{font-weight:600;}
+    .road .dur{font-size:12px;color:var(--t3);white-space:nowrap;}
+    .pop .road li p{font-size:13px;margin-top:3px;line-height:1.55;}
+    .pop .road li p.get{color:#0F6E56;}
+    .bc p.how{flex:0;font-size:12px;color:var(--t3);margin-top:8px;}
+    .tip{background:none;border:none;padding:0;font:inherit;color:#0F6E56;text-align:left;cursor:pointer;border-bottom:1px dotted #1D9E75;}
+    .tip:hover,.tip:focus-visible{color:#085041;border-bottom-style:solid;outline:none;}
+    .pop{margin:auto;width:min(600px,calc(100% - 32px));max-height:calc(100vh - 48px);overflow:auto;border:0.5px solid var(--b1);border-radius:var(--r2);padding:24px 26px 20px;background:#fff;color:var(--t1);box-shadow:0 18px 50px rgba(0,0,0,0.18);}
+    .pop::backdrop{background:rgba(8,80,65,0.28);}
+    .pop .pk{font-size:11px;font-weight:500;color:#1D9E75;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
+    .pop h5{font-family:'Zilla Slab',Georgia,serif;font-size:20px;font-weight:500;margin-bottom:10px;line-height:1.25;}
+    .pop p{font-size:14px;color:var(--t2);line-height:1.65;}
+    .pop pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;line-height:1.6;color:var(--t1);background:var(--bg2);border-radius:var(--r1);padding:12px 14px;margin:12px 0;overflow-x:auto;white-space:pre;}
+    .pop-x{margin-top:14px;padding:8px 18px;background:#0F6E56;color:#fff;border:none;border-radius:var(--r1);font:inherit;font-size:13px;cursor:pointer;}
+    .pop-x:hover{background:#085041;}
+    /* Fallback where the popover attribute is not supported */
+    .pop.pop-old{display:none;position:fixed;inset:0;z-index:300;}
+    .pop.pop-old.open{display:block;}
+
+    /* ---- steps ---- */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s;}
+    .step{position:relative;padding-top:38px;}
+    .step:before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:26px;height:26px;border-radius:50%;background:#1D9E75;color:#fff;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;}
+    .step h4{font-size:15px;font-weight:500;margin-bottom:6px;}
+    .step p{font-size:13px;color:var(--t2);line-height:1.6;}
+
+    /* ---- dark band ---- */
+    .band{background:#085041;color:#E1F5EE;}
+    .band h2{color:#fff;}
+    .band .sub{color:#9FE1CB;}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+    .two h4{font-family:'Zilla Slab',Georgia,serif;font-size:16px;font-weight:500;color:#FAC775;margin-bottom:8px;}
+    .two p{font-size:14px;color:#9FE1CB;line-height:1.7;}
+
+    /* ---- requirements ---- */
+    .req{list-style:none;border-top:0.5px solid var(--b1);}
+    .req li{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:0.5px solid var(--b1);font-size:14px;}
+    .req span:first-child{color:var(--t2);}
+    .req span:last-child{color:var(--t1);text-align:right;}
+    .req code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;}
+
+    /* ---- the tool: the story ---- */
+    .story{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+    .sc{background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--r2);padding:20px;display:flex;flex-direction:column;}
+    .sc .n{display:inline-flex;width:24px;height:24px;border-radius:50%;background:#1D9E75;color:#fff;font-size:12.5px;font-weight:500;align-items:center;justify-content:center;margin-bottom:10px;}
+    .sc .k{font-size:13px;color:var(--t2);}
+    .sc .big{font-family:'Zilla Slab',Georgia,serif;font-size:32px;font-weight:500;color:var(--t1);line-height:1.15;margin:2px 0 12px;font-variant-numeric:tabular-nums;}
+    .sc ul{list-style:none;font-size:13.5px;color:var(--t2);line-height:1.55;}
+    .sc li{padding-left:16px;position:relative;margin-top:7px;}
+    .sc li:before{content:'';position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:#C9C7BD;}
+    .sc li.good:before{background:#1D9E75;}
+    .sc li.bad:before{background:#FAC775;}
+    .sc li b{color:var(--t1);font-weight:500;}
+    .sc.result{background:#085041;border-color:#085041;}
+    .sc.result .n{background:#FAC775;color:#085041;}
+    .sc.result .k{color:#9FE1CB;}
+    .sc.result .big{color:#fff;}
+    .sc.result .big.neg{color:#FAC775;}
+    .sc.result ul{color:#9FE1CB;}
+    .sc.result li b{color:#fff;}
+    .sc.result li:before{background:#1D9E75;}
+
+    .ob-gauges{background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--r2);padding:20px 20px 8px;margin-top:14px;display:grid;gap:10px;}
+    .ob-g .lbl{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--t2);margin-bottom:6px;}
+    .ob-g .lbl b{font-weight:500;color:var(--t1);}
+    .ob-track{position:relative;height:14px;background:var(--bg2);border-radius:7px;}
+    .ob-fill{position:absolute;top:0;bottom:0;left:0;border-radius:7px;}
+    .ob-fill.base{background:#D3D1C7;}
+    .ob-fill.built{background:#1D9E75;height:6px;top:4px;}
+    .ob-mark{position:absolute;top:-3px;bottom:-3px;width:0;border-left:1.5px dashed #854F0B;}
+    .ob-mark span{position:absolute;top:19px;left:0;transform:translateX(-50%);font-size:11px;color:#854F0B;white-space:nowrap;}
+    .ob-mark.lo span{top:32px;}
+    .ob-mark.r span{transform:translateX(-100%);}
+    .ob-mark.l span{transform:none;}
+    .ob-g{padding-bottom:20px;}
+    .ob-g.two-rows{padding-bottom:32px;}
+    .ob-key{display:flex;gap:16px;font-size:12px;color:var(--t3);flex-wrap:wrap;padding-bottom:10px;}
+    .ob-key i{display:inline-block;width:14px;height:8px;border-radius:4px;margin-right:5px;}
+
+    /* ---- the tool: details ---- */
+    details.more{background:var(--bg1);border:0.5px solid var(--b1);border-radius:var(--r2);margin-top:14px;}
+    details.more>summary{cursor:pointer;list-style:none;padding:15px 20px;font-size:14.5px;font-weight:500;color:#0F6E56;display:flex;align-items:center;gap:8px;}
+    details.more>summary::-webkit-details-marker{display:none;}
+    details.more>summary:before{content:'';width:7px;height:7px;border-right:1.6px solid #0F6E56;border-bottom:1.6px solid #0F6E56;transform:rotate(-45deg);transition:transform .15s;margin-right:4px;}
+    details.more[open]>summary:before{transform:rotate(45deg);}
+    details.more>summary .hint{font-weight:400;color:var(--t3);font-size:13px;}
+    details.more .body{padding:0 20px 20px;}
+
+    .deal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+    .dc{background:var(--bg2);border-radius:var(--r1);padding:14px 16px;}
+    .dc h4{font-size:11px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+    .dc p{font-size:14.5px;color:var(--t1);line-height:2.1;}
+    .dc p.help{font-size:12px;color:var(--t3);line-height:1.5;margin:-2px 0 4px;}
+    .deal [hidden]{display:none !important;}
+    .f{display:inline-flex;align-items:baseline;background:#fff;border-bottom:1.5px solid #1D9E75;border-radius:4px 4px 0 0;padding:0 6px;color:#0F6E56;font-weight:600;}
+    .f.m:before{content:'$';}
+    .f.p:after{content:'%';}
+    .f input{border:none;background:transparent;font:inherit;color:inherit;padding:2px 0;text-align:center;outline:none;}
+    .f.m input{width:7.5ch;}
+    .f.p input{width:3.2ch;}
+    .f.n input{width:2.6ch;}
+    @supports (field-sizing:content){
+      .f input,.deal select{field-sizing:content;}
+      .f input{width:auto !important;min-width:2ch;padding:2px 2px;}
+      .f.m:before{margin-right:1px;}
+    }
+    .f:focus-within{background:#E1F5EE;box-shadow:0 0 0 3px rgba(29,158,117,0.15);}
+    .deal select{font:inherit;font-weight:600;color:#0F6E56;background:#fff;border:none;border-bottom:1.5px solid #1D9E75;border-radius:4px 4px 0 0;padding:2px 4px;cursor:pointer;max-width:100%;}
+    .deal select:focus{outline:none;background:#E1F5EE;}
+    .lnk{background:none;border:none;font:inherit;font-size:13px;color:#0F6E56;cursor:pointer;padding:0;}
+    .lnk:hover{text-decoration:underline;}
+    .ob-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:5px 0;font-size:13.5px;color:var(--t2);}
+    .ob-row input{width:100px;flex-shrink:0;padding:6px 8px;font-size:13.5px;font-family:inherit;border:0.5px solid var(--b2);border-radius:6px;text-align:right;color:var(--t1);background:#fff;}
+    .ob-row input:focus{outline:none;border-color:#1D9E75;box-shadow:0 0 0 3px rgba(29,158,117,0.15);}
+
+    .ob-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+    .ob-bar .note{font-size:12.5px;color:var(--t3);}
+    .ob-file{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;}
+    .ob-err{display:none;background:#FEF9EE;border:0.5px solid #FAC775;color:#854F0B;border-radius:var(--r1);padding:10px 14px;font-size:13px;margin-top:12px;}
+
+    .ob-compare{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums;}
+    .ob-compare th{font-weight:500;color:var(--t3);font-size:11.5px;text-align:right;padding:0 0 6px 10px;}
+    .ob-compare th:first-child{text-align:left;padding-left:0;}
+    .ob-compare td{padding:7px 0;border-top:0.5px solid var(--b1);text-align:right;color:var(--t1);}
+    .ob-compare td+td{padding-left:10px;white-space:nowrap;}
+    .ob-compare td:first-child{text-align:left;color:var(--t2);}
+    .ob-compare tr.tot td{font-weight:600;border-top:1px solid var(--b2);}
+    .ob-compare .up{color:#0F6E56;}
+    .ob-compare .down{color:#854F0B;}
+
+    .ob-badge{display:inline-block;font-size:12px;font-weight:600;padding:1px 9px;border-radius:10px;white-space:nowrap;}
+    .ob-badge.add{background:#E1F5EE;color:#0F6E56;}
+    .ob-badge.drop{background:#FEF9EE;color:#854F0B;border:0.5px solid #FAC775;}
+    .grp{margin-bottom:22px;}
+    .gs{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:10px;max-width:680px;}
+    .gs b{color:var(--t1);font-weight:600;}
+    .ob-mini{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums;}
+    .ob-mini th{font-weight:500;color:var(--t3);font-size:11.5px;text-align:left;padding:0 10px 6px 0;border-bottom:0.5px solid var(--b2);}
+    .ob-mini td{padding:7px 10px 7px 0;border-bottom:0.5px solid var(--b1);vertical-align:top;color:var(--t2);}
+    .ob-mini th.n,.ob-mini td.n{text-align:right;padding-right:0;}
+    .ob-mini td.n{color:var(--t1);}
+    .ob-mini .sku{display:block;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--t1);}
+    .ob-mini .pd{display:block;font-size:11.5px;color:var(--t3);}
+    .ob-mini tr.x{display:none;}
+    .ob-mini.all tr.x{display:table-row;}
+    .ob-all{margin-top:8px;background:none;border:none;color:#0F6E56;font-size:13px;font-family:inherit;cursor:pointer;padding:4px 0;}
+    .ob-all:hover{text-decoration:underline;}
+    .ob-mini .cpd{display:block;font-weight:600;color:#0F6E56;}
+    .ob-mini .cpd.over{color:#854F0B;}
+    .gs.how-chose{border-left:3px solid #1D9E75;padding:2px 0 2px 12px;margin-bottom:18px;}
+    .ob-row select{max-width:62%;padding:6px 8px;font-size:13.5px;font-family:inherit;border:0.5px solid var(--b2);border-radius:6px;color:var(--t1);background:#fff;}
+    .ob-map{margin-top:16px;}
+    .ob-map h4{font-size:14px;font-weight:500;margin-bottom:4px;}
+    .ob-map .mh{font-size:13px;color:var(--t2);margin-bottom:10px;}
+    .ob-map .mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 32px;}
+    .ob-map .ob-row select{max-width:58%;}
+    .ob-map .req-mark{color:#854F0B;}
+    .ob-map .use{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13.5px;color:var(--t2);margin-top:6px;}
+    .ob-map .use select,.ob-map .use input{padding:6px 8px;font-size:13.5px;font-family:inherit;border:0.5px solid var(--b2);border-radius:6px;background:#fff;color:var(--t1);}
+    .ob-map .use input{width:60px;text-align:right;}
+    @media(max-width:860px){
+      .ob-map .mg{grid-template-columns:1fr;}
+    }
+
+    /* ---- footer ---- */
+    .sft{border-top:0.5px solid var(--b1);background:var(--bg2);}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:22px;padding-bottom:22px;}
+    .sfl{font-family:'Zilla Slab',Georgia,serif;font-size:15px;font-weight:500;color:#0F6E56;text-decoration:none;}
+    .sfloc{font-size:12px;color:var(--t3);margin-top:3px;}
+    .sfls{display:flex;gap:14px;list-style:none;flex-wrap:wrap;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfsub{font-size:12px;color:var(--t3);}
+    .sfls a:hover{color:var(--t2);}
+    .sfcp{font-size:11px;color:var(--t3);margin-top:14px;width:100%;}
+
+    @media(max-width:860px){
+      .steps{grid-template-columns:1fr;gap:26px;}
+      .two{grid-template-columns:1fr;gap:22px;}
+      .story{grid-template-columns:1fr;}
+      .deal{grid-template-columns:1fr;}
+      .better{grid-template-columns:1fr 1fr;}
+    }
+    /* Narrow desktop band: ease the nav before the hamburger takes over */
+    @media(max-width:800px) and (min-width:681px){
+      .snl{gap:8px;}
+      .snl a{font-size:12px;}
+      .sncta{font-size:12px;padding:7px 10px;}
+    }
+    @media(max-width:680px){
+      .hamburger{display:flex;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#CCE8D8;border-top:0.5px solid rgba(0,0,0,0.1);border-bottom:0.5px solid rgba(0,0,0,0.1);z-index:200;padding:0;margin:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;width:100%;height:48px;overflow:hidden;}
+      .snl li+li{border-top:0.5px solid rgba(0,0,0,0.08);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;color:var(--t1);}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
+      .hero h1{font-size:30px;}
+      .inner{padding:0 16px;}
+      .pair{grid-template-columns:1fr;}
+      .better{grid-template-columns:1fr;}
+      .mm{padding:18px 16px;}
+      .mm-row{grid-template-columns:1fr;gap:4px;margin-bottom:6px;}
+      .mm-row .mm-a:before{content:'Min/max';display:block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#854F0B;margin-bottom:3px;}
+      .mm-row .mm-b:before{content:'Order Build';display:block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#0F6E56;margin-bottom:3px;}
+      details.more>summary .hint{display:none;}
+      .req li{flex-direction:column;gap:2px;}
+      .req span:last-child{text-align:left;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sn">
+    <div class="inner">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#085041"/>
+          <rect x="7" y="5" width="1.6" height="22" rx="0.8" fill="#9FE1CB"/>
+          <rect x="11.5" y="7" width="9" height="3" rx="1.5" fill="#FAC775"/>
+          <rect x="11.5" y="12.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="18" width="12" height="3" rx="1.5" fill="#1D9E75"/>
+          <rect x="11.5" y="23.5" width="15.5" height="3" rx="1.5" fill="#1D9E75"/>
+        </svg>
+        regularis <em>systems</em>
+      </a>
+      <ul class="snl">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="teamiq.html">TeamIQ</a></li>
+        <li><a href="community.html">Federation</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+      </ul>
+      <a href="contact.html" class="sncta">Get started ↗</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="inner">
+      <p class="he"><span class="hed"></span>Regularis Order Build</p>
+      <h1>Vendors pay you to order more.<br><em>Order the right more.</em></h1>
+      <p>Bearing vendors reward bigger orders with a discount, free freight, or a rebate at year end. To get there, you add parts to the order. Order Build tells you which parts to add: the ones you will sell soon. And which to leave off: the ones that would sit on the shelf for years.</p>
+      <div class="ctas" style="margin-top:26px;">
+        <a href="#try" class="bp">See it on a sample order</a>
+        <a href="contact.html?interest=order-build" class="bg">Try it on your own order ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner prose">
+      <h2>Not every part is worth adding</h2>
+      <p>Stock on the shelf costs money: the cash tied up in it, the space it takes, and the chance it never sells. Most distributors put that at about a quarter of the part's cost for every year it sits. Here are two parts you could add to reach a 3% discount.</p>
+      <div class="pair">
+        <div class="pc no">
+          <p class="what"><b>A $100 bearing</b> that sells about once every two years</p>
+          <dl><dt>3% discount on it</dt><dd>$3</dd><dt>Cost to hold it about two years</dt><dd>$50</dd></dl>
+          <p class="say">Leave it off.</p>
+        </div>
+        <div class="pc yes">
+          <p class="what"><b>A $100 bearing</b> that sells about once a month</p>
+          <dl><dt>3% discount on it</dt><dd>$3</dd><dt>Cost to hold it about a month</dt><dd>$2</dd></dl>
+          <p class="say">Add it.</p>
+        </div>
+      </div>
+      <p><strong>Both get you to the discount. Only one of them makes you money.</strong> Order Build does this for every part on the order at once, and shows you why for each one.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="inner" style="padding-top:0;">
+      <div class="mm">
+        <h3>Your ERP's suggested order already does some of this. Here is where it stops.</h3>
+        <p class="mm-sub">Min/max, or order point and line point, was built for parts that sell every week, and it does that job well. Most of a bearing catalog sells a few times a year.</p>
+        <div class="mm-grid">
+          <div class="mm-row"><p class="mm-a">The line point fills out the order with whatever is below its max, however long it will sit.</p><p class="mm-b">Order Build prices every extra unit by how long it will sit, and leaves off the ones that cost more to hold than they earn.</p></div>
+          <div class="mm-row"><p class="mm-a">A single part that hits its order point ships on its own, and misses the freight minimum.</p><p class="mm-b">Order Build gathers those parts into the vendor's order, where they help reach the minimum instead of paying freight alone.</p></div>
+          <div class="mm-row"><p class="mm-a">The vendor's discount tiers, freight minimum and rebate are invisible to it.</p><p class="mm-b">Order Build weighs the deal on every order, and says when chasing it doesn't pay.</p></div>
+        </div>
+        <p class="mm-more">What else min/max misses, such as sales lost because a part was out, is in <a href="#better">What your history adds</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="try" style="background:var(--bg2);scroll-margin-top:72px;">
+    <div class="inner">
+      <h2>See it on a sample order</h2>
+      <p class="sub" id="ob-intro">A made-up bearing vendor, late in the year. The buyer's order is ready to send.</p>
+
+      <div class="story" aria-live="polite">
+        <div class="sc">
+          <span class="n">1</span>
+          <p class="k">The buyer's order</p>
+          <p class="big" id="s1-big">&nbsp;</p>
+          <ul id="s1-list"></ul>
+        </div>
+        <div class="sc">
+          <span class="n">2</span>
+          <p class="k">What Order Build changes</p>
+          <p class="big" id="s2-big">&nbsp;</p>
+          <ul id="s2-list"></ul>
+        </div>
+        <div class="sc result">
+          <span class="n">3</span>
+          <p class="k">What you come out with</p>
+          <p class="big" id="s3-big">&nbsp;</p>
+          <ul id="s3-list"></ul>
+        </div>
+      </div>
+
+      <div class="ob-gauges" id="ob-gauges-wrap">
+        <div id="ob-gauges"></div>
+        <div class="ob-key"><span><i style="background:#D3D1C7"></i>buyer's order</span><span><i style="background:#1D9E75"></i>Order Build's order</span></div>
+      </div>
+
+      <details class="more">
+        <summary>Show me every part <span class="hint">what was added, what was left off, and why</span></summary>
+        <div class="body ob-lines" id="ob-lines"></div>
+      </details>
+
+      <details class="more">
+        <summary>Show me the numbers <span class="hint">side by side</span></summary>
+        <div class="body">
+          <table class="ob-compare">
+            <thead><tr><th></th><th>Buyer's order</th><th>Order Build</th><th>Difference</th></tr></thead>
+            <tbody id="ob-compare"></tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="more">
+        <summary>Change the vendor's deal <span class="hint" id="deal-sum">discounts, freight, rebate, holding cost</span></summary>
+        <div class="body">
+          <!-- The deal reads as sentences; each number in it is an editable blank. -->
+          <form class="deal" id="ob-terms" onsubmit="return false">
+            <div class="dc">
+              <h4>Discount</h4>
+              <p>Orders over <span class="f m"><input id="t1Min" inputmode="decimal" aria-label="First discount: orders over, dollars"></span> get <span class="f p"><input id="t1Pct" inputmode="decimal" aria-label="First discount, percent"></span> off.</p>
+              <p>Orders over <span class="f m"><input id="t2Min" inputmode="decimal" aria-label="Bigger discount: orders over, dollars"></span> get <span class="f p"><input id="t2Pct" inputmode="decimal" aria-label="Bigger discount, percent"></span> off.</p>
+            </div>
+            <div class="dc">
+              <h4>Freight</h4>
+              <p>Freight is free on <select id="frMode" aria-label="What the freight minimum applies to"><option value="order">the whole order</option><option value="branch">each branch's shipment</option></select> over <span class="f m"><input id="frMin" inputmode="decimal" aria-label="Free freight over, dollars"></span>.</p>
+              <p>Below that, a shipment costs <span class="f m"><input id="frCost" inputmode="decimal" aria-label="Freight per shipment, dollars"></span>.</p>
+            </div>
+            <div class="dc">
+              <h4>Year-end rebate</h4>
+              <p>Earned by <select id="rbKind" aria-label="How the rebate is earned"><option value="target">reaching a dollar target</option><option value="growth">growing over last year</option><option value="none">nothing: no rebate</option></select>.</p>
+              <p data-kind="target">Reach <span class="f m"><input id="rbMin" inputmode="decimal" aria-label="Rebate target, dollars"></span> for the year and get <span class="f p"><input id="rbPct" inputmode="decimal" aria-label="Rebate at the target, percent"></span> back.</p>
+              <div data-kind="target">
+                <p id="rb2-wrap" hidden>Reach <span class="f m"><input id="rb2Min" inputmode="decimal" aria-label="Higher rebate target, dollars"></span> and get <span class="f p"><input id="rb2Pct" inputmode="decimal" aria-label="Rebate at the higher target, percent"></span> back. <button type="button" class="lnk" id="rb2-del">remove</button></p>
+                <p><button type="button" class="lnk" id="rb2-add">+ add a higher tier</button></p>
+              </div>
+              <p data-kind="growth">Last year you bought <span class="f m"><input id="rbLast" inputmode="decimal" aria-label="Bought last year, dollars"></span>. Grow <span class="f p"><input id="rbGrowth" inputmode="decimal" aria-label="Growth needed, percent"></span> and get <span class="f p"><input id="rbGPct" inputmode="decimal" aria-label="Rebate when reached, percent"></span> back.</p>
+              <p data-kind="target growth">Paid on <select id="rbPaid" aria-label="What the rebate is paid on"><option value="all">every dollar of the year</option><option value="above">only the dollars above the target</option></select>.</p>
+              <p data-kind="target growth">So far this year you've bought <span class="f m"><input id="ytd" inputmode="decimal" aria-label="Bought so far this year, dollars"></span>, with <span class="f m"><input id="rest" inputmode="decimal" aria-label="Other orders planned before year end, dollars"></span> more planned before year end.</p>
+            </div>
+            <div class="dc">
+              <h4>Your costs</h4>
+              <p>Holding stock costs <span class="f p"><input id="carry" inputmode="decimal" aria-label="Holding cost, percent per year"></span> of its value a year.</p>
+              <p class="help">The cash tied up, the shelf space, and the risk it never sells. 20% to 30% is typical, and it is the number the answer depends on most.</p>
+              <p>Never buy more than <span class="f n"><input id="months" inputmode="decimal" aria-label="Most months of sales to buy ahead"></span> months of sales ahead.</p>
+              <p id="cap-wrap" hidden>Spend no more than <span class="f m"><input id="cap" inputmode="decimal" aria-label="Spending limit, dollars"></span> on this order. <button type="button" class="lnk" id="cap-del">remove</button></p>
+              <p><button type="button" class="lnk" id="cap-add">+ set a spending limit</button></p>
+            </div>
+          </form>
+        </div>
+      </details>
+
+      <details class="more">
+        <summary>Use my own order <span class="hint">a spreadsheet export from your ERP</span></summary>
+        <div class="body">
+          <p class="sub" style="margin-bottom:14px;font-size:14px;">Save the suggested purchase order for one vendor as a CSV file. Your column names don't matter: after you load it, you match each column to what it holds. Then set the vendor's deal above.</p>
+          <div class="ob-bar">
+            <label class="bp" for="ob-file" tabindex="0" id="ob-file-label">Choose a CSV file</label>
+            <input class="ob-file" type="file" id="ob-file" accept=".csv,text/csv">
+            <button class="bg" id="ob-template" type="button">Download the sample CSV</button>
+            <button class="bg" id="ob-sample" type="button">Back to the sample</button>
+            <button class="bg" id="ob-export" type="button">Download Order Build's order</button>
+          </div>
+          <p class="ob-bar note" style="margin-top:12px;"><span class="note">It all runs in your browser. Your file is never uploaded anywhere.</span></p>
+          <div class="ob-err" id="ob-err" role="alert"></div>
+          <div class="ob-map" id="ob-map"></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>How it decides</h2>
+      <p class="sub">The same arithmetic a good buyer does in their head, done for every part at once.</p>
+      <div class="steps">
+        <div class="step">
+          <h4>Restock what's needed now</h4>
+          <p>Every part a branch is short of gets ordered. Those parts would be bought anyway, so they cost nothing extra to hold.</p>
+        </div>
+        <div class="step">
+          <h4>Price every extra part by how long it will sit</h4>
+          <p>An extra unit of a part that sells every month sits about a month. One that sells every two years sits about two years, and likely longer: a slow seller's rate is uncertain, so it is charged for that too. The longer it sits, the more it costs to hold.</p>
+        </div>
+        <div class="step">
+          <h4>Pick the order that leaves the most money</h4>
+          <p>It tries every order size, adds up the discount, freight and rebate each one earns, takes off the holding cost, and keeps the best. Then it shows you why, part by part.</p>
+        </div>
+      </div>
+      <div class="prose" style="margin-top:34px;">
+        <p>It is a guide, not a guarantee. "Sells about once a year" is an average, and a part can go longer. Parts bought now count toward this year's rebate instead of next year's. The buyer always has the last word.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="better" style="background:var(--bg2);scroll-margin-top:72px;">
+    <div class="inner">
+      <h2>What your history adds</h2>
+      <p class="sub">The page above works from one sales number per part, with an allowance for how uncertain a slow seller's number is. Most of a bearing catalog sells a few times a year or less, and that is where a single number is weakest. With two to three years of your sales history, the same tool gets sharper in five ways.</p>
+      <div class="better">
+        <div class="bc">
+          <h4>A truer sales rate</h4>
+          <p>Sales history is cleaned before it is counted. Lost sales are added back, because a sale you could not make is still demand; min/max counts only what sold, so a part that runs out looks like it stopped selling, its order point drops, and it stays out. One-time big orders are set aside, so a single project does not look like a trend. Parts with thin history borrow from interchangeable parts and from the same part at your other branches.</p>
+          <p class="today">Today: the sales number in your file, uncleaned, borrowing only from interchangeable parts on the same order.</p>
+          <p class="how">The math: <button type="button" class="tip" popovertarget="tip-croston">Croston and SBA</button>, <button type="button" class="tip" popovertarget="tip-pool">pooling</button></p>
+        </div>
+        <div class="bc">
+          <h4>Honest about slow sellers</h4>
+          <p>A part that sold once last year might sell every six months, or every three years. One year of history cannot tell those apart. The better model charges a slow seller for that uncertainty, so a part that might sit for years is not added just because it might not.</p>
+          <p class="today">Today: done, but the starting point comes from the parts on the order, not your whole catalog.</p>
+          <p class="how">The math: <button type="button" class="tip" popovertarget="tip-gamma">gamma-Poisson</button></p>
+        </div>
+        <div class="bc">
+          <h4>Parts that sell in sets</h4>
+          <p>Bearings often go out four at a time, for one machine. Fewer sales of several units each means extra stock waits longer between sales than the same total sold one at a time. The model learns how each part actually sells.</p>
+          <p class="today">Today: every sale is one unit.</p>
+          <p class="how">The math: <button type="button" class="tip" popovertarget="tip-negbin">negative binomial</button></p>
+        </div>
+        <div class="bc">
+          <h4>Credit for being in stock</h4>
+          <p>An extra unit costs money to hold, but it also means the part is on the shelf when a customer's machine goes down. The better model counts both sides: the holding cost, and the sale it saves.</p>
+          <p class="today">Today: only the holding cost is counted.</p>
+          <p class="how">The math: <button type="button" class="tip" popovertarget="tip-ortools">the value of each unit</button></p>
+        </div>
+        <div class="bc">
+          <h4>Stock targets worth trusting</h4>
+          <p>"Needed now" is only as good as the target behind it. Instead of taking each branch's reorder settings as they stand, the targets are set from the sales history, across all your branches at once, so one unit at one branch can cover its neighbors.</p>
+          <p class="today">Today: your ERP's order points, taken as given.</p>
+          <p class="how">The math: <button type="button" class="tip" popovertarget="tip-ortools">network stocking model (OR-Tools)</button></p>
+        </div>
+        <div class="bc ask">
+          <h4>What it takes</h4>
+          <p>Two to three years of sales by part and branch, including quotes and lost sales if you record them. That is the first thing we would ask for, and it stays yours.</p>
+          <p class="how"><button type="button" class="tip" popovertarget="tip-roadmap">Where it leads, one step at a time</button></p>
+        </div>
+      </div>
+
+      <!-- The roadmap: the undated, general version. No customer names or dates. -->
+      <div class="pop pop-wide" id="tip-roadmap" popover>
+        <p class="pk">Roadmap</p>
+        <h5>Where it leads, one step at a time</h5>
+        <p>Order Build is the first of five steps toward stock levels, reorders and vendor orders all set from your own demand. Each step ends with something you can use on its own, and a decision about whether to take the next. Nothing commits you to the step after.</p>
+        <ol class="road">
+          <li><div><b>Order Build on your orders</b><span class="dur">about 6 weeks</span></div>
+            <p>Your buyer runs real vendor orders through it; we review the results together, line by line.</p>
+            <p class="get">You get: the incentives worth earning, proved on your own orders, with nothing connected.</p></li>
+          <li><div><b>History diagnostic</b><span class="dur">6 to 8 weeks</span></div>
+            <p>Two to three years of your sales history, read-only, cleaned and forecast. Your current reorder settings are compared with optimized ones on demand they haven't seen.</p>
+            <p class="get">You get: a report of inventory dollars against fill rate by branch, slow and dead stock, and where cash is tied up.</p></li>
+          <li><div><b>Stocking review</b><span class="dur">about 3 months</span></div>
+            <p>Stock targets for every part at every branch, set across the whole network. A planner reviews proposed changes each month before anything reaches the ERP.</p>
+            <p class="get">You get: reorder settings set from demand and kept current.</p></li>
+          <li><div><b>Real-time replenishment</b><span class="dur">about 4 months</span></div>
+            <p>Each counter sale is checked against its target as it happens. Single-part reorders wait for the next vendor order unless they are needed now, and lost sales are recorded at the counter.</p>
+            <p class="get">You get: fewer one-part shipments, and the lost sales your history has been missing.</p></li>
+          <li><div><b>Lead times and rollout</b><span class="dur">about 3 months</span></div>
+            <p>Every transfer and purchase is followed until it arrives, so lead times are measured, not assumed. The counter prompt goes to every branch.</p>
+            <p class="get">You get: the whole design running, about a year from the first step.</p></li>
+        </ol>
+        <p>Steps 1 and 2 need no connection to your ERP: an export, then read-only history. The ERP connection, through your ERP's own integration tools, starts at step 3.</p>
+        <button type="button" class="pop-x" popovertarget="tip-roadmap" popovertargetaction="hide">Close</button>
+      </div>
+
+      <!-- Technical notes. Native popovers: Esc or a click outside closes them. -->
+      <div class="pop" id="tip-croston" popover>
+        <p class="pk">Forecasting</p>
+        <h5>Intermittent demand: Croston and SBA</h5>
+        <p>An ordinary moving average treats a part that sells 0, 0, 0, 3, 0, 0 as selling half a unit a month. It is never right: too high in the empty months, too low in the month that matters. Croston's method splits the history into two things and smooths each separately: how big a sale is when one happens, and how long the gaps between sales are.</p>
+<pre>when a sale of size y happens, q periods after the last one:
+  size      z &larr; z + &alpha;(y &minus; z)
+  interval  p &larr; p + &alpha;(q &minus; p)
+rate per period   f = z / p
+bias-corrected    f = (1 &minus; &alpha;/2) &middot; z / p     (Syntetos-Boylan)</pre>
+        <p>Croston's original estimate runs high; the correction removes most of that bias. Parts are first sorted by how often they sell and how much sale sizes vary (average gap above 1.32 periods, squared coefficient of variation above 0.49), and each group gets the method that suits it. A further variant, by Teunter, Syntetos and Babai, updates the chance of a sale every period, so it notices when a part has stopped selling, which matters for obsolete bearings.</p>
+        <button type="button" class="pop-x" popovertarget="tip-croston" popovertargetaction="hide">Close</button>
+      </div>
+
+      <div class="pop" id="tip-gamma" popover>
+        <p class="pk">Uncertain demand</p>
+        <h5>Gamma-Poisson: charging for what we don't know</h5>
+        <p>Sales of a part are modeled as random arrivals at some rate &lambda; a year (a Poisson process). For a slow seller, &lambda; itself is uncertain, so it gets a distribution too: a gamma distribution, which updates neatly as sales come in.</p>
+<pre>before the part's own history:  &lambda; ~ Gamma(a, b)      (from its family)
+after n units sold in T years:  &lambda; ~ Gamma(a + n, b + T)
+
+expected wait for the k-th extra unit:
+  E[k / &lambda;] = k (b + T) / (a + n &minus; 1)</pre>
+        <p>The point is that the average wait is longer than k divided by the average rate, because a slow rate stretches the wait far more than a fast one shortens it. Example: a part that sold once last year, in a family that averages about one sale a year (a = 2, b = 2). Its expected rate is still one a year, but an extra unit's expected wait is 1.5 years, not 1. That is 50% more holding cost, charged to exactly the parts most likely to sit.</p>
+        <p>The tool on this page works this way. Each part's starting point comes from its interchange family on the order, if your file names one and the family has at least three parts, and otherwise from the whole order, fitted loosely so it adds uncertainty without moving a part's own average much. With your full history, the family is drawn from your whole catalog instead.</p>
+        <button type="button" class="pop-x" popovertarget="tip-gamma" popovertargetaction="hide">Close</button>
+      </div>
+
+      <div class="pop" id="tip-negbin" popover>
+        <p class="pk">Lumpy demand</p>
+        <h5>Negative binomial: parts that sell in sets</h5>
+        <p>When customers buy several at once, demand is two random things: how many orders arrive, and how many units each order takes. Orders arriving at random with sizes from a logarithmic distribution add up to a negative binomial; in general it is a compound Poisson.</p>
+<pre>orders  N ~ Poisson(&mu;)
+sizes   S&#8321;, S&#8322;, ...   (fitted from order lines)
+units   D = S&#8321; + ... + S&#8345;
+mean    E[D] = &mu; &middot; E[S]
+spread  Var[D] / E[D] = E[S&sup2;] / E[S]
+        (above 1 once orders exceed one unit)</pre>
+        <p>Two consequences. Lead-time demand is wider than a one-at-a-time model says, which changes how many units a branch needs to cover a breakdown order of four. And extra stock clears in jumps, with longer gaps between them, so it waits longer than the same yearly total sold one at a time. The negative binomial is also what the gamma-Poisson model predicts for future counts, so one family of distributions covers both effects.</p>
+        <button type="button" class="pop-x" popovertarget="tip-negbin" popovertargetaction="hide">Close</button>
+      </div>
+
+      <div class="pop" id="tip-pool" popover>
+        <p class="pk">Sparse data</p>
+        <h5>Pooling across families and branches</h5>
+        <p>Most part-and-branch pairs have too few sales to estimate anything alone. So each borrows strength from groups it belongs to: its interchange family (the same bearing from other makers, with equivalent suffixes, and any part it supersedes), and the same part at your other branches. The family's history sets the starting point; the part's own history moves it.</p>
+<pre>blended rate = (a + n) / (b + T)
+             = w &middot; (n / T)  +  (1 &minus; w) &middot; (a / b)
+weight on the part's own history   w = T / (b + T)</pre>
+        <p>A part with long, busy history follows its own numbers; a part with one sale leans on its family. The family prior (a, b) is fitted from the spread of rates within the family, so a tight family pulls hard and a loose one barely pulls at all. Branch-level demand then comes from the family total times each branch's share. This needs clean interchange and supersession tables, which is often the first real piece of work.</p>
+        <button type="button" class="pop-x" popovertarget="tip-pool" popovertargetaction="hide">Close</button>
+      </div>
+
+      <div class="pop" id="tip-ortools" popover>
+        <p class="pk">Optimization</p>
+        <h5>The network stocking model</h5>
+        <p>The stocking model decides how many of each part every branch should hold, all at once, because the decisions interact: one unit at a hub can cover a breakdown at a neighbor by transfer, and every unit competes for the same inventory budget and shelf space. It is a mixed-integer program, solved with Google OR-Tools (CP-SAT).</p>
+<pre>choose   x[i,b,k] = 1 if part i is stocked at level k at branch b
+value    of the k-th unit: margin &times; P(lead-time demand &ge; k)
+         + cover it gives nearby branches &minus; cost to hold it
+subject  one level per part and branch;  budget and space by branch
+         and in total;  required stock for customer commitments</pre>
+        <p>The demand distributions from the other notes feed the value term, which is why they matter: the chance a unit is needed comes straight from them. The result is a target for every part at every branch, which is what "needed now" should be measured against. On this page, the order build itself is a different, smaller problem: an exact search over order totals with the discount, freight and rebate steps, solved by dynamic programming right in your browser.</p>
+        <button type="button" class="pop-x" popovertarget="tip-ortools" popovertargetaction="hide">Close</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>What it needs</h2>
+      <p class="sub">One row per part and branch on the suggested order, exported from the buyer's suggested purchase order screen. Any column names will do; you match them after loading.</p>
+      <ul class="req">
+        <li><span>Part number</span><span>needed</span></li>
+        <li><span>What one unit costs you</span><span>needed</span></li>
+        <li><span>On the shelf, and how many you want on the shelf</span><span>needed</span></li>
+        <li><span>What the ERP suggests ordering</span><span>needed</span></li>
+        <li><span>How many sell, and over how many years: per year, per month, or a total</span><span>needed</span></li>
+        <li><span>Branch, so freight can be judged per shipment</span><span>if you have it</span></li>
+        <li><span>Box quantity, so parts are ordered in whole boxes</span><span>if you have it</span></li>
+        <li><span>Interchange family, so a part can borrow from its equivalents</span><span>if you have it</span></li>
+        <li><span>Description and quantity on order</span><span>if you have it</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="inner">
+      <h2>Where it fits</h2>
+      <p class="sub">Order Build is one piece of a larger design for distributors who stock one of almost everything.</p>
+      <div class="two">
+        <div>
+          <h4>On its own</h4>
+          <p>The buyer exports the suggested order, runs it through Order Build, and enters the result. Nothing to install, and nothing touches the ERP. That is the version on this page.</p>
+        </div>
+        <div>
+          <h4>Built into purchasing</h4>
+          <p>Connected to the ERP, it gathers the parts itself, holds single-part reorders for the next vendor order instead of shipping them alone, and sends the finished order to the buyer for approval through <a href="desk.html" style="color:#FAC775;">Desk</a>.</p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:#9FE1CB;margin-top:28px;opacity:0.85;">Built as a working demonstration on sample data. No distributor is running it yet.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner" style="text-align:center;">
+      <h2>Try it on your next order</h2>
+      <p class="sub" style="margin-left:auto;margin-right:auto;">Send us one suggested order and the vendor's deal behind it, and we will go through the result with your buyer.</p>
+      <div class="ctas" style="justify-content:center;">
+        <a href="contact.html?interest=order-build" class="bp">Get in touch</a>
+        <a href="services.html" class="bg">How Regularis works</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sft">
+    <div class="inner">
+      <div>
+        <a href="index.html" class="sfl">regularis</a>
+        <p class="sfloc">Evansville, Indiana</p>
+      </div>
+      <ul class="sfls">
+        <li><a href="services.html">Services</a> <span class="sfsub">(<a href="desk.html">Desk</a> · <a href="bench.html">Bench</a> · <a href="order-build.html">Order Build</a>)</span></li>
+        <li><a href="academy.html">Academy</a></li>
+        <li><a href="teamiq.html">TeamIQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="sfcp">Regularis is a trade name of Dominion Hyperscale. © 2026 Dominion Hyperscale.</p>
+    </div>
+  </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+  // Technical notes use native popovers; older browsers get a plain toggle.
+  if (!HTMLElement.prototype.hasOwnProperty('popover')){
+    document.querySelectorAll('.pop').forEach(function(p){ p.classList.add('pop-old'); });
+    document.addEventListener('click', function(e){
+      var b = e.target.closest('[popovertarget]'); if (!b) return;
+      var p = document.getElementById(b.getAttribute('popovertarget'));
+      var hide = b.getAttribute('popovertargetaction') === 'hide';
+      document.querySelectorAll('.pop.open').forEach(function(o){ if (o !== p) o.classList.remove('open'); });
+      p.classList.toggle('open', !hide && !p.classList.contains('open'));
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') document.querySelectorAll('.pop.open').forEach(function(o){ o.classList.remove('open'); });
+    });
+  }
+</script>
+
+<script>
+/* Order Build. Everything runs here, in the page: no file leaves the browser.
+
+   The solver is a knapsack over order value. For each part it may buy anything
+   from the units needed to restock up to a few months of extra supply, in whole
+   boxes; each unit beyond the need is charged holding cost for its expected wait
+   (the k-th extra unit of a part selling L a year waits about k/L years).
+
+   When the freight minimum applies to each branch's shipment, the search runs
+   per branch first (cheapest-to-hold way to reach each branch total), then
+   combines the branches, charging freight on any shipment under the minimum.
+   Finally it picks the order total whose discount and rebate, less freight and
+   holding cost, is highest. */
+(function(){
+  'use strict';
+
+  var SAMPLE_TERMS = {t1Min:5000, t1Pct:2, t2Min:10000, t2Pct:4, frMin:3500, frCost:240, frMode:'order',
+    rbKind:'target', rbMin:250000, rbPct:2, rb2Min:'', rb2Pct:3, rbLast:230000, rbGrowth:5, rbGPct:2, rbPaid:'all',
+    ytd:239000, rest:3000, carry:25, months:12, cap:''};
+
+  // sku, description, branch, unit_cost, on_hand, on_order, target, suggested_qty, sales_per_year_3y, pack_qty
+  // Sales rates are yearly averages over three years of history.
+  var SAMPLE_LINES = [
+    ['6205-2RS C3','Deep groove ball, sealed','Main',4.85,3,0,12,20,60,10],
+    ['6206-2RS C3','Deep groove ball, sealed','Main',6.10,2,0,10,20,48,10],
+    ['6203-2RS C3','Deep groove ball, sealed','North',3.25,6,0,20,30,80,10],
+    ['6004-2RS','Deep groove ball, sealed','West',2.90,5,0,20,30,70,10],
+    ['6308-2Z C3','Deep groove ball, shielded','East',14.20,0,0,2,4,9,1],
+    ['6310-2RS C3','Deep groove ball, sealed','Main',21.75,1,0,3,4,8,1],
+    ['6316-2Z C3','Deep groove ball, shielded','Main',88.00,0,0,1,2,1.5,1],
+    ['6322 C3','Deep groove ball, open','Main',165.00,0,0,1,1,2.5,1],
+    ['LM11949/LM11910','Tapered roller set','North',7.40,4,0,10,18,40,1],
+    ['LM67048/LM67010','Tapered roller set','North',8.15,2,0,8,12,30,1],
+    ['HM212049/HM212011','Tapered roller set','West',38.50,0,0,2,3,6,1],
+    ['30210','Tapered roller','East',27.90,1,0,2,2,4,1],
+    ['32218','Tapered roller','West',112.00,0,0,1,1,3,1],
+    ['22216 EK C3','Spherical roller, tapered bore','Main',168.00,0,0,1,1,2,1],
+    ['22218 EK C3','Spherical roller, tapered bore','Main',198.00,0,0,1,1,4,1],
+    ['22220 EK C3','Spherical roller, tapered bore','East',245.00,1,0,1,0,1.5,1],
+    ['22312 EK C3','Spherical roller, tapered bore','East',285.00,1,0,1,0,3,1],
+    ['22320 EK C3','Spherical roller, tapered bore','Main',640.00,0,0,1,2,0.5,1],
+    ['23130 CC/W33','Spherical roller, large','Main',1180.00,0,0,0,1,0.4,1],
+    ['23222 CCK/W33','Spherical roller, tapered bore','Main',520.00,0,0,1,1,1.5,1],
+    ['NU2214 ECP','Cylindrical roller','Main',212.00,0,0,1,2,0.8,1],
+    ['7312 BECBM','Angular contact','East',96.00,0,0,1,1,1.2,1],
+    ['UCP205-16','Pillow block unit, 1 in.','Main',18.40,2,0,6,10,22,1],
+    ['UCF207-20','4-bolt flange unit, 1-1/4 in.','West',31.60,0,0,2,4,7,1],
+    ['UCFL204-12','2-bolt flange unit, 3/4 in.','North',14.95,3,0,4,8,14,1],
+    ['SYJ 60 TF','Pillow block unit, 60 mm','Main',142.00,1,0,2,2,5,1],
+    ['SNL 516-613','Split housing','Main',210.00,0,0,0,1,0.3,1],
+    ['H316','Adapter sleeve','Main',46.00,0,0,1,2,1,1]
+  ];
+  var SAMPLE_COLS = ['sku','description','branch','unit_cost','on_hand','on_order','target','suggested_qty','sales_per_year_3y','pack_qty'];
+  var SAMPLE_YEARS = 3;
+
+  // What the tool needs from an export, and the column names it guesses from.
+  var FIELDS = [
+    {k:'sku', label:'Part number', req:true, al:['sku','part','part_number','partno','prod','product','item','item_number']},
+    {k:'unit_cost', label:'Your cost for one unit', req:true, fz:/cost/, al:['unit_cost','cost','unitcost','replacement_cost','replcost','repl_cost','net_cost','avg_cost']},
+    {k:'on_hand', label:'On hand', req:true, al:['on_hand','onhand','qty_on_hand','qoh','net_available','available']},
+    {k:'target', label:'Stock target (order point)', req:true, al:['target','order_point','order_pt','orderpt','op','min','target_qty','stock_target']},
+    {k:'suggested_qty', label:'Suggested quantity', req:true, al:['suggested_qty','suggested','suggest_qty','suggested_order_qty','order_qty','qty_to_order','sugg']},
+    {k:'usage', label:'How many sell', req:true, fz:/usage|sales|sold/, al:['sales_per_year','annual_usage','usage_per_year','annual_sales','units_per_year','usage_per_month','monthly_usage','avg_monthly_usage','usage','sales_12m','sales_24m','sales_36m']},
+    {k:'branch', label:'Branch or warehouse', al:['branch','warehouse','whse','location','loc','ship_to']},
+    {k:'pack_qty', label:'Box quantity', fz:/pack|multiple/, al:['pack_qty','pack','box_qty','std_pack','standard_pack','order_multiple','multiple','unit_pack']},
+    {k:'description', label:'Description', al:['description','desc','descrip','name','product_description']},
+    {k:'on_order', label:'On order', al:['on_order','onorder','qty_on_order','qoo']},
+    {k:'family', label:'Interchange family (same bearing, any maker)', fz:/interchange|family/, al:['family','interchange','interchange_family','int_family','xref_family']}
+  ];
+  var MIN_FAMILY = 3;                // a family smaller than this borrows from the whole order
+  var MAX_WAIT_YEARS = 5;            // a part that never sells is charged five years
+  var CELL_BUDGET = 20000000;        // DP cells; above this, order value is bucketed coarser
+  var COMBINE_BUCKETS = 4000;        // order-value resolution when branches are combined
+  var RESCORE = 300;                 // candidate orders re-scored exactly at the end
+
+  var $ = function(id){ return document.getElementById(id); };
+  var lines = [], file = null;
+  var NUM_IDS = ['t1Min','t1Pct','t2Min','t2Pct','frMin','frCost','rbMin','rbPct','rb2Min','rb2Pct','rbLast','rbGrowth','rbGPct','ytd','rest','carry','months','cap'];
+  var SEL_IDS = ['frMode','rbKind','rbPaid'];
+  var BLANK_OK = {cap:1, rb2Min:1};
+
+  function money(v, signed){
+    var s = Math.abs(v).toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+    if (signed) return (v > 0.5 ? '+' : v < -0.5 ? '−' : '') + s;
+    return (v < -0.5 ? '−' : '') + s;
+  }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function plural(n, one, many){ return n + ' ' + (n === 1 ? one : many); }
+  function pctText(p){ return (Math.round(p * 100) / 100) + '%'; }
+  function spanText(y){
+    var m = y * 12;
+    if (m < 1) return 'under a month';
+    if (m < 23.5) return 'about ' + plural(Math.round(m), 'month', 'months');
+    return 'about ' + (Math.round(y * 10) / 10) + ' years';
+  }
+  function oftenText(L){
+    if (!(L > 0)) return 'not in the period';
+    if (L >= 18) return Math.round(L / 12) + ' a month';
+    if (Math.round(12 / L) <= 1) return 'every month';
+    if (Math.round(12 / L) === 12) return 'once a year';
+    if (L >= 1) return 'every ' + plural(Math.round(12 / L), 'month', 'months');
+    return 'every ' + (Math.round(10 / L) / 10) + ' years';
+  }
+
+  // ---- the deal ----
+  // Gamma-Poisson. A part's yearly rate is uncertain: it starts from its family
+  // (gamma prior a, b fitted to the other parts in the family on this order) and
+  // moves toward its own n units sold over T years. The k-th extra unit then
+  // waits E[k / rate] = k (b + T) / (a + n - 1), longer than k divided by the
+  // average rate, and most so for the slow sellers whose rate is least known.
+  function waitYears(l, k){
+    var A = l.a + l.n, B = l.b + l.T;
+    return A > 1 ? Math.min(k * B / (A - 1), MAX_WAIT_YEARS) : MAX_WAIT_YEARS;
+  }
+  function fitPrior(ls){
+    var r = ls.map(function(l){ return l.n / l.T; });
+    var m = r.reduce(function(s, x){ return s + x; }, 0) / r.length;
+    if (!(m > 0)) return {a:1, b:1};
+    var spread = r.reduce(function(s, x){ return s + (x - m) * (x - m); }, 0) / Math.max(1, r.length - 1);
+    var noise = ls.reduce(function(s, l){ return s + l.n / (l.T * l.T); }, 0) / ls.length;
+    // Method of moments, with the sampling noise taken out of the spread; the
+    // shape is held between 0.5 (barely informative) and 20 (a tight family).
+    var v = Math.max(spread - noise, m * m / 20);
+    var a = Math.min(Math.max(m * m / v, 0.5), 20);
+    return {a:a, b:a / m};
+  }
+  function fitPriors(){
+    var all = fitPrior(lines), fams = {};
+    lines.forEach(function(l){ if (l.fam) (fams[l.fam] = fams[l.fam] || []).push(l); });
+    var fit = {};
+    Object.keys(fams).forEach(function(f){ if (fams[f].length >= MIN_FAMILY) fit[f] = fitPrior(fams[f]); });
+    lines.forEach(function(l){ var p = fit[l.fam] || all; l.a = p.a; l.b = p.b; });
+  }
+  function carryFor(line, q, rate){
+    var c = 0;
+    for (var k = 1; k <= q - line.need; k++) c += line.cost * rate * waitYears(line, k);
+    return c;
+  }
+  function rebateTiers(t){
+    var tiers = [];
+    if (t.rbKind === 'target'){
+      if (t.rbMin > 0) tiers.push([t.rbMin, t.rbPct]);
+      if (t.rb2Min > 0) tiers.push([t.rb2Min, t.rb2Pct]);
+    } else if (t.rbKind === 'growth' && t.rbLast > 0){
+      tiers.push([Math.round(t.rbLast * (1 + t.rbGrowth / 100)), t.rbGPct]);
+    }
+    return tiers.sort(function(a, b){ return a[0] - b[0]; });
+  }
+  function rebateFor(total, t){
+    var tiers = rebateTiers(t), hit = null;
+    tiers.forEach(function(x){ if (total >= x[0]) hit = x; });
+    if (!hit) return {amount:0, pct:0, at:0};
+    return {amount:(t.rbPaid === 'above' ? total - hit[0] : total) * hit[1] / 100, pct:hit[1], at:hit[0]};
+  }
+  function shipFreight(S, t){ return (S > 0 && t.frMin > 0 && S < t.frMin) ? t.frCost : 0; }
+  function discPct(S, t){ return (t.t2Min > 0 && S >= t.t2Min) ? t.t2Pct : (t.t1Min > 0 && S >= t.t1Min) ? t.t1Pct : 0; }
+
+  function evaluate(qs, t){
+    var S = 0, carry = 0, rate = t.carry / 100, byBranch = {};
+    lines.forEach(function(l, i){
+      var v = l.cost * qs[i];
+      S += v; carry += carryFor(l, qs[i], rate);
+      byBranch[l.branch] = (byBranch[l.branch] || 0) + v;
+    });
+    var ships = t.frMode === 'branch' ? Object.keys(byBranch).map(function(b){ return byBranch[b]; }).filter(function(v){ return v > 0; }) : (S > 0 ? [S] : []);
+    var freight = 0, short = 0;
+    ships.forEach(function(v){ var f = shipFreight(v, t); freight += f; if (f) short++; });
+    var pct = discPct(S, t), disc = S * pct / 100;
+    var period = t.ytd + t.rest + S, rb = t.rbKind === 'none' ? {amount:0, pct:0, at:0} : rebateFor(period, t);
+    var total = disc + rb.amount - freight;
+    return {S:S, carry:carry, pct:pct, disc:disc, rebate:rb.amount, rbPct:rb.pct, period:period,
+      freight:freight, ships:ships.length, short:short, net:total - carry};
+  }
+
+  // ---- the search ----
+  function lineOptions(l, rate, months){
+    var pack = Math.max(1, l.pack);
+    var base = Math.ceil(l.need / pack) * pack;
+    var extra = Math.max(l.sugg - base, Math.ceil(l.rate * months / 12), 0);
+    var packs = Math.min(Math.ceil(extra / pack), 200);
+    var o = [], c = 0, u = 0;
+    for (var e = 0; e <= packs; e++){
+      var q = base + e * pack;
+      while (u < q - l.need){ u++; c += l.cost * rate * waitYears(l, u); }
+      o.push({q:q, cents:Math.round(l.cost * q * 100), carry:c});
+    }
+    return o;
+  }
+  function groupSearch(idx, opts, unit){
+    var B = idx.reduce(function(s, i){ var o = opts[i]; return s + Math.floor(o[o.length - 1].cents / unit); }, 0);
+    var dp = new Float64Array(B + 1).fill(Infinity), choices = [], reach = 0;
+    dp[0] = 0;
+    idx.forEach(function(i){
+      var nd = new Float64Array(B + 1).fill(Infinity), ch = new Uint8Array(B + 1), o = opts[i], nr = 0;
+      for (var s = 0; s <= reach; s++){
+        if (dp[s] === Infinity) continue;
+        for (var j = 0; j < o.length; j++){
+          var s2 = s + Math.floor(o[j].cents / unit), v = dp[s] + o[j].carry;
+          if (v < nd[s2]){ nd[s2] = v; ch[s2] = j; if (s2 > nr) nr = s2; }
+        }
+      }
+      dp = nd; choices.push(ch); reach = nr;
+    });
+    return {idx:idx, dp:dp, choices:choices, reach:reach};
+  }
+  function build(t){
+    var rate = t.carry / 100, n = lines.length, perShip = t.frMode === 'branch';
+    var opts = lines.map(function(l){ return lineOptions(l, rate, t.months); });
+    var maxCents = opts.reduce(function(s, o){ return s + o[o.length - 1].cents; }, 0);
+    var minCents = opts.reduce(function(s, o){ return s + o[0].cents; }, 0);
+    var capCents = t.cap === '' ? Infinity : Math.round(t.cap * 100);
+
+    var groups = {};
+    lines.forEach(function(l, i){ var g = perShip ? l.branch : '*'; (groups[g] = groups[g] || []).push(i); });
+    var keys = Object.keys(groups);
+    // Floor every bucket, so an order the search believes reaches a threshold
+    // always does at its exact total.
+    var unit = Math.max(1, Math.ceil(maxCents * Math.max(n, 1) / CELL_BUDGET),
+      keys.length > 1 ? Math.ceil(maxCents / COMBINE_BUCKETS) : 1);
+    var gs = keys.map(function(k){ return groupSearch(groups[k], opts, unit); });
+
+    var Btot = gs.reduce(function(s, g){ return s + g.dp.length - 1; }, 0);
+    var G = new Float64Array(Btot + 1).fill(-Infinity), picks = [], reachG = 0;
+    G[0] = 0;
+    gs.forEach(function(g){
+      var N = new Float64Array(Btot + 1).fill(-Infinity), pk = new Int32Array(Btot + 1), nr = 0;
+      for (var s = 0; s <= reachG; s++){
+        if (G[s] === -Infinity) continue;
+        for (var x = 0; x <= g.reach; x++){
+          if (g.dp[x] === Infinity) continue;
+          var v = G[s] - g.dp[x] - (perShip ? shipFreight(x * unit / 100, t) : 0);
+          if (v > N[s + x]){ N[s + x] = v; pk[s + x] = x; if (s + x > nr) nr = s + x; }
+        }
+      }
+      G = N; picks.push(pk); reachG = nr;
+    });
+
+    // Order totals where rounding could hide a threshold: just below each one.
+    var slack = n * unit / 100;
+    var thresholds = [t.t1Min, t.t2Min, perShip ? 0 : t.frMin].concat(
+      (t.rbKind === 'none' ? [] : rebateTiers(t)).map(function(x){ return x[0] - t.ytd - t.rest; }))
+      .filter(function(x){ return x > 0; });
+    var cands = [];
+    for (var s = 0; s <= reachG; s++){
+      if (G[s] === -Infinity) continue;
+      var cents = s * unit, est = cents / 100;
+      if (cents > capCents && cents > minCents) continue;
+      var rb = t.rbKind === 'none' ? 0 : rebateFor(t.ytd + t.rest + est, t).amount;
+      cands.push({s:s, val:G[s] + est * discPct(est, t) / 100 + rb - (perShip ? 0 : shipFreight(est, t)),
+        near:thresholds.some(function(x){ return est < x && est >= x - slack; })});
+    }
+    var orderAt = function(s){
+      var qs = new Array(n), cur = s;
+      for (var gi = gs.length - 1; gi >= 0; gi--){
+        var g = gs[gi], x = picks[gi][cur];
+        cur -= x;
+        for (var k = g.idx.length - 1; k >= 0; k--){
+          var o = opts[g.idx[k]][g.choices[k][x]];
+          qs[g.idx[k]] = o.q;
+          x -= Math.floor(o.cents / unit);
+        }
+      }
+      return qs;
+    };
+    // The search rounds order totals down, so a total just under a threshold may
+    // in fact clear it. Re-score the strongest candidates exactly and keep the best.
+    cands.sort(function(p, q){ return q.val - p.val; });
+    var best = null, bestNet = -Infinity;
+    cands.slice(0, RESCORE).concat(cands.slice(RESCORE).filter(function(c){ return c.near; })).forEach(function(c){
+      var qs = orderAt(c.s), net = evaluate(qs, t).net;
+      if (best === null || net > bestNet + 1e-9){ best = qs; bestNet = net; }
+    });
+    return best || orderAt(0);
+  }
+
+  // ---- input: the deal ----
+  function readTerms(){
+    var t = {};
+    NUM_IDS.forEach(function(id){
+      var raw = String($(id).value).replace(/[$,%\s]/g, '');
+      t[id] = (BLANK_OK[id] && raw === '') ? (id === 'cap' ? '' : 0) : Math.max(0, parseFloat(raw) || 0);
+    });
+    SEL_IDS.forEach(function(id){ t[id] = $(id).value; });
+    return t;
+  }
+  // Dollar blanks show with commas; they are re-formatted when the field is left,
+  // never while typing, so the cursor does not jump.
+  var MONEY_IDS = {t1Min:1, t2Min:1, frMin:1, frCost:1, rbMin:1, rb2Min:1, rbLast:1, ytd:1, rest:1, cap:1};
+  function fmtField(id, v){ return (MONEY_IDS[id] && v !== '' && isFinite(v)) ? Number(v).toLocaleString('en-US') : String(v); }
+  function writeTerms(t){
+    NUM_IDS.forEach(function(id){ $(id).value = fmtField(id, t[id]); });
+    SEL_IDS.forEach(function(id){ $(id).value = t[id]; });
+    showOptional('rb2', t.rb2Min !== '' && t.rb2Min > 0);
+    showOptional('cap', t.cap !== '');
+    syncKind();
+  }
+  function showOptional(key, on){
+    $(key + '-wrap').hidden = !on;
+    $(key + '-add').parentNode.hidden = on;
+  }
+  function dealSummary(t){
+    var p = [];
+    if (t.t1Min > 0) p.push(pctText(t.t1Pct) + ' off over ' + money(t.t1Min) + (t.t2Min > 0 ? ', ' + pctText(t.t2Pct) + ' over ' + money(t.t2Min) : ''));
+    if (t.frMin > 0) p.push('free freight over ' + money(t.frMin) + (t.frMode === 'branch' ? ' per branch' : ''));
+    var tiers = t.rbKind === 'none' ? [] : rebateTiers(t);
+    if (tiers.length) p.push(tiers.map(function(x){ return pctText(x[1]) + ' rebate at ' + money(x[0]); }).join(', '));
+    p.push('holding ' + pctText(t.carry) + ' a year');
+    return p.join(' · ');
+  }
+  function syncKind(){
+    var kind = $('rbKind').value;
+    var rows = document.querySelectorAll ? document.querySelectorAll('[data-kind]') : [];
+    Array.prototype.forEach.call(rows, function(r){ r.hidden = r.getAttribute('data-kind').split(' ').indexOf(kind) < 0; });
+  }
+
+  // ---- input: the order ----
+  function num(v){ var x = parseFloat(String(v == null ? '' : v).replace(/[$,\s]/g, '')); return isFinite(x) ? x : 0; }
+  // perYear is the average yearly sales rate; years is the history behind it.
+  function toLine(r, perYear, years){
+    var onHand = num(r.on_hand), onOrder = num(r.on_order), target = num(r.target);
+    var rate = Math.max(0, perYear), T = Math.max(1, years || 1);
+    return {sku:String(r.sku || '').trim(), desc:String(r.description || '').trim(), branch:String(r.branch || '').trim() || 'All',
+      fam:String(r.family || '').trim(), cost:Math.max(0, num(r.unit_cost)), need:Math.max(0, Math.round(target - onHand - onOrder)),
+      sugg:Math.max(0, Math.round(num(r.suggested_qty))), rate:rate, n:rate * T, T:T, a:1, b:1,
+      pack:Math.max(1, Math.round(num(r.pack_qty)) || 1)};
+  }
+  function loadSample(){
+    file = null; $('ob-map').innerHTML = '';
+    lines = SAMPLE_LINES.map(function(a){
+      var r = {}; SAMPLE_COLS.forEach(function(c, i){ r[c] = a[i]; }); return toLine(r, num(r.sales_per_year_3y), SAMPLE_YEARS);
+    });
+    fitPriors();
+    writeTerms(JSON.parse(JSON.stringify(SAMPLE_TERMS)));
+    $('ob-intro').textContent = 'A made-up bearing vendor, late in the year. The buyer has a ' + lines.length + '-part order ready to send.';
+    showError('');
+    render();
+  }
+
+  function parseCSV(text){
+    var rows = [], row = [], f = '', q = false;
+    text = text.replace(/^﻿/, '');
+    for (var i = 0; i < text.length; i++){
+      var c = text[i];
+      if (q){
+        if (c === '"'){ if (text[i + 1] === '"'){ f += '"'; i++; } else q = false; }
+        else f += c;
+      } else if (c === '"') q = true;
+      else if (c === ','){ row.push(f); f = ''; }
+      else if (c === '\n' || c === '\r'){
+        if (c === '\r' && text[i + 1] === '\n') i++;
+        row.push(f); f = ''; if (row.some(function(x){ return x.trim() !== ''; })) rows.push(row); row = [];
+      } else f += c;
+    }
+    row.push(f); if (row.some(function(x){ return x.trim() !== ''; })) rows.push(row);
+    return rows;
+  }
+  function norm(h){ return String(h).trim().toLowerCase().replace(/[\s\-.\/#()]+/g, '_').replace(/^_|_$/g, ''); }
+  // From the column name: whether sales are per month, per year, or a total, and
+  // over how many years ("Usage 24M" is a two-year total).
+  function guessBasis(h){
+    var n = norm(h);
+    var years = /36|3_?y/.test(n) ? 3 : /24|2_?y/.test(n) ? 2 : 1;
+    if (/month/.test(n)) return ['month', years];
+    if (/per_year|annual|yearly|avg/.test(n)) return ['year', years];
+    return [years > 1 ? 'total' : 'year', years];
+  }
+
+  // A loaded file shows its columns matched to what the tool needs; every change
+  // to a match rebuilds the order at once.
+  function loadCSV(text, name){
+    var rows = parseCSV(text);
+    if (rows.length < 2) return showError('That file has no rows under its header.');
+    var head = rows[0].map(function(h){ return h.trim(); }), nh = head.map(norm);
+    var map = {};
+    FIELDS.forEach(function(f){
+      var at = -1;
+      f.al.some(function(a){ at = nh.indexOf(a); return at >= 0; });
+      // No exact name: take the first column whose name says what it holds.
+      if (at < 0 && f.fz) nh.some(function(h, i){ if (f.fz.test(h)) { at = i; return true; } return false; });
+      map[f.k] = at;
+    });
+    var basis = map.usage >= 0 ? guessBasis(head[map.usage]) : ['year', 1];
+    file = {name:name, head:head, rows:rows.slice(1), map:map, basis:basis[0], years:basis[1]};
+    drawMap();
+    applyMap();
+  }
+  function drawMap(){
+    var opt = function(sel){
+      return '<option value="-1">(not in this file)</option>' + file.head.map(function(h, i){
+        return '<option value="' + i + '"' + (i === sel ? ' selected' : '') + '>' + esc(h || 'column ' + (i + 1)) + '</option>';
+      }).join('');
+    };
+    var html = '<h4>Match your columns</h4><p class="mh">' + esc(file.name) + ': ' + plural(file.rows.length, 'row', 'rows') +
+      '. We matched what we could. Check each one; <span class="req-mark">*</span> is needed.</p><div class="mg">';
+    FIELDS.forEach(function(f){
+      html += '<div class="ob-row"><label for="map-' + f.k + '">' + f.label + (f.req ? ' <span class="req-mark">*</span>' : '') +
+        '</label><select id="map-' + f.k + '" data-k="' + f.k + '">' + opt(file.map[f.k]) + '</select></div>';
+    });
+    html += '<div class="use"><label for="map-basis">The "how many sell" column is</label><select id="map-basis">' +
+      ['year:an average per year', 'month:an average per month', 'total:a total'].map(function(p){
+        var v = p.split(':'); return '<option value="' + v[0] + '"' + (v[0] === file.basis ? ' selected' : '') + '>' + v[1] + '</option>';
+      }).join('') + '</select><label for="map-years">over</label><input id="map-years" type="number" min="1" max="10" step="1" value="' + file.years + '">' +
+      '<span>years of history. More years make slow sellers easier to judge.</span></div></div>';
+    $('ob-map').innerHTML = html;
+  }
+  function applyMap(){
+    var missing = FIELDS.filter(function(f){ return f.req && file.map[f.k] < 0; }).map(function(f){ return f.label.toLowerCase(); });
+    if (missing.length) return showError('Match a column for: ' + missing.join(', ') + '.');
+    var years = Math.max(1, file.years);
+    var perYear = file.basis === 'month' ? 12 : file.basis === 'total' ? 1 / years : 1;
+    var parsed = file.rows.map(function(r){
+      var o = {};
+      FIELDS.forEach(function(f){ o[f.k] = file.map[f.k] >= 0 ? r[file.map[f.k]] : ''; });
+      return toLine(o, num(o.usage) * perYear, years);
+    }).filter(function(l){ return l.sku !== ''; });
+    if (!parsed.length) return showError('No rows with a part number were found.');
+    lines = parsed;
+    fitPriors();
+    var branches = {}; lines.forEach(function(l){ branches[l.branch] = 1; });
+    $('ob-intro').textContent = 'Your order from ' + file.name + ': ' + plural(lines.length, 'part', 'parts') +
+      (Object.keys(branches).length > 1 ? ' across ' + Object.keys(branches).length + ' branches' : '') + '. Set the vendor\'s deal below to match.';
+    showError('');
+    render();
+  }
+  function showError(msg){ var e = $('ob-err'); e.textContent = msg; e.style.display = msg ? 'block' : 'none'; }
+
+  function download(name, rows){
+    var csv = rows.map(function(r){ return r.map(function(v){ v = String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }).join(','); }).join('\r\n');
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
+    a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 0);
+  }
+
+  // ---- output ----
+  var lastBuilt = [];
+  function li(cls, html){ return '<li' + (cls ? ' class="' + cls + '"' : '') + '>' + html + '</li>'; }
+
+  function freightText(E, t){
+    if (!(t.frMin > 0)) return null;
+    if (t.frMode === 'branch'){
+      if (!E.short) return ['good', 'Free freight on all ' + plural(E.ships, 'shipment', 'shipments')];
+      return ['bad', 'Pays freight on <b>' + E.short + ' of ' + plural(E.ships, 'shipment', 'shipments') + '</b> (' + money(E.freight) + ')'];
+    }
+    return E.freight > 0 ? ['bad', 'Pays <b>' + money(E.freight) + ' freight</b>'] : ['good', 'Gets <b>free freight</b>'];
+  }
+
+  function render(){
+    var t = readTerms();
+    var base = lines.map(function(l){ return l.sugg; });
+    var built = build(t);
+    lastBuilt = built;
+    var A = evaluate(base, t), Bv = evaluate(built, t);
+    var delta = Bv.net - A.net, tiers = t.rbKind === 'none' ? [] : rebateTiers(t);
+
+    // 1. The buyer's order, as it stands
+    $('s1-big').textContent = money(A.S);
+    var s1 = [];
+    s1.push(li(A.pct > 0 ? 'good' : 'bad', A.pct > 0 ? 'Gets <b>' + pctText(A.pct) + ' off</b>' : 'Too small for a discount'));
+    var ft = freightText(A, t); if (ft) s1.push(li(ft[0], ft[1]));
+    if (tiers.length){
+      var next = tiers.filter(function(x){ return x[0] > A.period; })[0];
+      if (A.rbPct > 0) s1.push(li('good', 'Earns the <b>' + pctText(A.rbPct) + ' rebate</b>' + (next ? '' : ' for the year')));
+      if (next) s1.push(li('bad', 'The year\'s buying comes to ' + money(A.period) + ': <b>' + money(next[0] - A.period) + ' short</b> of the ' + pctText(next[1]) + ' rebate'));
+    }
+    if (A.carry > 0.5) s1.push(li('bad', 'Stock beyond what\'s needed now will cost <b>' + money(A.carry) + '</b> to hold'));
+    $('s1-list').innerHTML = s1.join('');
+
+    // 2. What changes
+    var addU = 0, addP = 0, addD = 0, dropP = 0, dropD = 0, dropWait = Infinity;
+    lines.forEach(function(l, i){
+      var d = built[i] - base[i];
+      if (d > 0){ addU += d; addP++; addD += d * l.cost; }
+      if (d < 0){ dropP++; dropD -= d * l.cost; if (base[i] > l.need) dropWait = Math.min(dropWait, waitYears(l, base[i] - l.need)); }
+    });
+    var s2 = [];
+    if (!addP && !dropP){
+      $('s2-big').textContent = 'Nothing';
+      s2.push(li('', 'The buyer\'s order is already the best one for this deal.'));
+    } else {
+      $('s2-big').textContent = money(Bv.S);
+      if (addP) s2.push(li('good', '<b>Adds ' + plural(addU, 'unit', 'units') + '</b> of ' + plural(addP, 'part', 'parts') + ' that sell soon: +' + money(addD)));
+      if (dropP) s2.push(li('bad', '<b>Leaves off ' + plural(dropP, 'part', 'parts') + '</b>' + (dropWait < Infinity ? ' that would sit ' + spanText(dropWait) + ' or longer' : '') + ': −' + money(dropD)));
+      s2.push(li('', 'New order total ' + money(Bv.S)));
+    }
+    $('s2-list').innerHTML = s2.join('');
+
+    // 3. What you come out with
+    var big = $('s3-big');
+    big.textContent = Math.abs(delta) < 0.5 ? '$0 more' : money(delta, true);
+    big.className = 'big' + (delta < -0.5 ? ' neg' : '');
+    var s3 = [], why = '; it costs more to hold than it pays';
+    if (Bv.rebate > A.rebate + 0.5) s3.push(li('', A.rebate > 0.5 ? 'Rebate grows to <b>' + money(Bv.rebate) + '</b>' : 'Earns the <b>' + money(Bv.rebate) + ' rebate</b>'));
+    if (Bv.rebate < A.rebate - 0.5) s3.push(li('', 'Gives up ' + money(A.rebate - Bv.rebate) + ' of rebate' + why));
+    if (Bv.pct > A.pct) s3.push(li('', 'Moves up to <b>' + pctText(Bv.pct) + ' off</b>'));
+    if (Bv.pct < A.pct) s3.push(li('', 'Gives up the ' + pctText(A.pct) + ' discount (−' + money(A.disc - Bv.disc) + ')' + why));
+    if (Bv.freight < A.freight - 0.5) s3.push(li('', 'Saves <b>' + money(A.freight - Bv.freight) + ' freight</b>'));
+    if (Bv.freight > A.freight + 0.5) s3.push(li('', 'Pays ' + money(Bv.freight - A.freight) + ' more freight' + why));
+    if (Math.abs(Bv.carry - A.carry) > 0.5) s3.push(li('', 'Holding cost of extra stock: <b>' + money(Bv.carry) + '</b> instead of ' + money(A.carry)));
+    s3.push(li('', Math.abs(delta) < 0.5 ? 'Send the buyer\'s order as it is.' : 'That is ' + money(Math.abs(delta)) + (delta > 0 ? ' better' : ' worse') + ' than the buyer\'s order, after holding cost'));
+    $('s3-list').innerHTML = s3.join('');
+
+    $('deal-sum').textContent = dealSummary(t);
+    compare(A, Bv, delta);
+    gauges(A, Bv, t, tiers);
+    table(base, built, t, A, Bv);
+  }
+
+  function compare(A, Bv, delta){
+    var rows = [
+      ['Order total', A.S, Bv.S, false],
+      ['Discount (' + pctText(A.pct) + ' / ' + pctText(Bv.pct) + ')', A.disc, Bv.disc, true],
+      ['Freight paid', -A.freight, -Bv.freight, true],
+      ['Year-end rebate', A.rebate, Bv.rebate, true],
+      ['Cost of holding the extra stock', -A.carry, -Bv.carry, true]
+    ];
+    var html = rows.map(function(r){
+      var d = r[2] - r[1];
+      return '<tr><td>' + r[0] + '</td><td>' + money(r[1]) + '</td><td>' + money(r[2]) + '</td><td class="' +
+        (!r[3] ? '' : d > 0.5 ? 'up' : d < -0.5 ? 'down' : '') + '">' + money(d, true) + '</td></tr>';
+    }).join('');
+    html += '<tr class="tot"><td>What you keep</td><td>' + money(A.net) + '</td><td>' + money(Bv.net) +
+      '</td><td class="' + (delta > 0.5 ? 'up' : delta < -0.5 ? 'down' : '') + '">' + money(delta, true) + '</td></tr>';
+    $('ob-compare').innerHTML = html;
+  }
+
+  function gauges(A, Bv, t, tiers){
+    var out = '';
+    var marks = [[t.t1Min, pctText(t.t1Pct) + ' off'], [t.t2Min, pctText(t.t2Pct) + ' off']];
+    if (t.frMode !== 'branch') marks.unshift([t.frMin, 'free freight']);
+    var top = Math.max(t.t2Min, t.t1Min, t.frMode !== 'branch' ? t.frMin : 0, A.S, Bv.S) * 1.12 || 1;
+    out += gauge('This order', A.S, Bv.S, 0, top, marks, money(A.S) + ' → ' + money(Bv.S));
+    if (tiers.length){
+      var pre = t.ytd + t.rest;
+      var focus = (tiers.filter(function(x){ return x[0] > pre + Math.min(A.S, Bv.S); })[0] || tiers[tiers.length - 1])[0];
+      var lo = Math.max(0, Math.min(pre, focus) - Math.max(focus - pre, Bv.S, A.S) * 1.6);
+      var hi = Math.max(focus, pre + Math.max(A.S, Bv.S)) + (focus - lo) * 0.08;
+      out += gauge('The year\'s buying from this vendor', pre + A.S, pre + Bv.S, lo, hi,
+        tiers.map(function(x){ return [x[0], pctText(x[1]) + ' rebate at ' + money(x[0])]; }), money(pre + A.S) + ' → ' + money(pre + Bv.S));
+    }
+    $('ob-gauges').innerHTML = out;
+  }
+  function gauge(label, a, b, lo, hi, marks, right){
+    var pct = function(v){ return Math.max(0, Math.min(100, (v - lo) / (hi - lo) * 100)); };
+    // A label close to the one before it drops to a second row; labels near an end
+    // anchor to that end so they stay inside the card.
+    var last = -100, lower = false, rows = 1;
+    var m = marks.filter(function(x){ return x[0] > 0 && x[0] >= lo && x[0] <= hi; })
+      .sort(function(p, q){ return p[0] - q[0]; }).map(function(x){
+        var p = pct(x[0]);
+        lower = (p - last < 16) ? !lower : false;
+        if (lower) rows = 2;
+        last = p;
+        var cls = 'ob-mark' + (lower ? ' lo' : '') + (p > 80 ? ' r' : p < 12 ? ' l' : '');
+        return '<div class="' + cls + '" style="left:' + p + '%"><span>' + esc(x[1]) + '</span></div>';
+      }).join('');
+    return '<div class="ob-g' + (rows > 1 ? ' two-rows' : '') + '"><div class="lbl"><span>' + label + '</span><b>' + right + '</b></div><div class="ob-track">' +
+      '<div class="ob-fill base" style="width:' + pct(a) + '%"></div><div class="ob-fill built" style="width:' + pct(b) + '%"></div>' + m + '</div></div>';
+  }
+
+  // Why each part was added or left off. The build buys the dollars cheapest to
+  // hold first: a unit's holding cost per dollar of order value is what it costs
+  // to hold until it sells, divided by its price. Units under the line went in,
+  // units over it came out. Box sizes and thresholds can blur the line, and then
+  // the page says so rather than claiming a clean cutoff.
+  function perDollar(l, k, rate){ return rate * waitYears(l, k); }
+  function cents(f){ return f >= 0.995 ? '$' + f.toFixed(2) : Math.max(1, Math.round(f * 100)) + '\u00a2'; }
+  function table(base, built, t, A, Bv){
+    var rate = t.carry / 100, added = [], dropped = [], same = 0;
+    lines.forEach(function(l, i){
+      var d = built[i] - base[i];
+      if (d > 0) added.push(i); else if (d < 0) dropped.push(i); else same++;
+    });
+    var byValue = function(i, j){ return Math.abs((built[j] - base[j]) * lines[j].cost) - Math.abs((built[i] - base[i]) * lines[i].cost); };
+    added.sort(byValue); dropped.sort(byValue);
+
+    // The most expensive dollar put in, and the cheapest one taken out.
+    var addMax = -1, dropMin = Infinity;
+    added.forEach(function(i){ var l = lines[i]; if (built[i] > l.need) addMax = Math.max(addMax, perDollar(l, built[i] - l.need, rate)); });
+    dropped.forEach(function(i){ var l = lines[i]; dropMin = Math.min(dropMin, perDollar(l, built[i] - l.need + 1, rate)); });
+    var clean = addMax < 0 || dropMin === Infinity || addMax < dropMin;
+    var line = addMax;
+
+    var gained = [];
+    if (Bv.rebate > A.rebate + 0.5) gained.push('the year-end rebate');
+    if (Bv.pct > A.pct) gained.push('the ' + pctText(Bv.pct) + ' discount');
+    if (Bv.freight < A.freight - 0.5) gained.push('free freight');
+
+    var html = '';
+    if (added.length || dropped.length){
+      var s = 'Order Build puts in the dollars that are cheapest to hold and takes out the dearest. ' +
+        'Each part\'s cost to hold is shown per dollar of order value: what holding it until it sells costs, divided by its price. ';
+      if (addMax >= 0 && dropMin < Infinity && clean)
+        s += 'Everything added costs <b>' + cents(addMax) + ' or less</b> per dollar to hold; everything left off would cost <b>' + cents(dropMin) + ' or more</b>.';
+      else if (addMax >= 0 && dropMin === Infinity)
+        s += 'Everything added costs <b>' + cents(addMax) + ' or less</b> per dollar to hold.';
+      else if (addMax < 0)
+        s += 'Nothing on this deal pays enough to cover holding extra stock, so the extras come off. Everything left off would cost <b>' + cents(dropMin) + ' or more</b> per dollar to hold.';
+      else
+        s += 'Box sizes and the thresholds mean there is no single cutoff here, so compare the figures part by part.';
+      if (gained.length && addMax >= 0) s += ' That is how the order reaches ' + gained.join(' and ') + ' for the least holding cost.';
+      html += '<p class="gs how-chose">' + s + '</p>';
+    }
+
+    var SHOW = 6;
+    var row = function(i, badge, figure, over, hold, hidden){
+      var l = lines[i];
+      var sub = [l.branch, l.desc, l.pack > 1 ? 'box of ' + l.pack : ''].filter(Boolean).join(' \u00b7 ');
+      return '<tr' + (hidden ? ' class="x"' : '') + '><td><span class="sku">' + esc(l.sku) + '</span><span class="pd">' + esc(sub) +
+        '</span></td><td>' + badge + '</td><td>' + oftenText(l.rate) + '</td><td class="n"><span class="cpd' + (over ? ' over' : '') + '">' + figure +
+        '</span><span class="pd">' + (hold > 0.5 ? money(hold) + ' in all' : '') + '</span></td></tr>';
+    };
+    var head = '<table class="ob-mini"><thead><tr><th>Part</th><th>Change</th><th>Sells</th><th class="n">Cost to hold, per $1' +
+      (clean && line >= 0 && line < Infinity ? ' (line: ' + cents(line) + ')' : '') + '</th></tr></thead><tbody>';
+
+    if (added.length){
+      var addD = 0;
+      var addRows = added.map(function(i, n){
+        var l = lines[i], d = built[i] - base[i];
+        addD += d * l.cost;
+        var hold = carryFor(l, built[i], rate) - carryFor(l, Math.max(base[i], l.need), rate);
+        var fig = built[i] > l.need ? cents(perDollar(l, built[i] - l.need, rate)) : 'needed now';
+        return row(i, '<span class="ob-badge add">+' + d + '</span>', fig, false, hold, n >= SHOW);
+      });
+      html += '<div class="grp"><p class="gs"><b>Added: ' + plural(added.length, 'part', 'parts') + ', +' + money(addD) + '.</b></p>' +
+        head + addRows.join('') + '</tbody></table>' +
+        (added.length > SHOW ? '<button type="button" class="ob-all" data-n="' + (added.length - SHOW) + '">Show ' + (added.length - SHOW) + ' more</button>' : '') + '</div>';
+    }
+    if (dropped.length){
+      var dropD = 0;
+      var dropRows = dropped.map(function(i){
+        var l = lines[i], d = base[i] - built[i];
+        dropD += d * l.cost;
+        var hold = carryFor(l, base[i], rate) - carryFor(l, built[i], rate);
+        return row(i, '<span class="ob-badge drop">\u2212' + d + '</span>', cents(perDollar(l, built[i] - l.need + 1, rate)), true, hold, false);
+      });
+      html += '<div class="grp"><p class="gs"><b>Left off: ' + plural(dropped.length, 'part', 'parts') + ', \u2212' + money(dropD) + '.</b></p>' +
+        head + dropRows.join('') + '</tbody></table></div>';
+    }
+    html += '<p class="gs" style="margin:0"><b>Unchanged: ' + plural(same, 'part', 'parts') + '.</b> ' + (same ? 'Ordered exactly as the buyer had ' + (same === 1 ? 'it.' : 'them.') : '') + '</p>';
+    $('ob-lines').innerHTML = html;
+  }
+
+  // ---- wiring ----
+  NUM_IDS.concat(SEL_IDS).forEach(function(id){
+    $(id).addEventListener(SEL_IDS.indexOf(id) >= 0 ? 'change' : 'input', function(){ if (id === 'rbKind') syncKind(); if (lines.length) render(); });
+    if (MONEY_IDS[id]) $(id).addEventListener('blur', function(){
+      var raw = String($(id).value).replace(/[$,\s]/g, '');
+      if (raw !== '' && isFinite(raw)) $(id).value = fmtField(id, parseFloat(raw));
+    });
+  });
+  // Optional parts of the deal: a higher rebate tier, and a spending limit.
+  $('rb2-add').addEventListener('click', function(){
+    var t = readTerms();
+    $('rb2Min').value = fmtField('rb2Min', Math.round((t.rbMin || 100000) * 1.1 / 1000) * 1000);
+    if (!(t.rb2Pct > 0)) $('rb2Pct').value = t.rbPct + 1;
+    showOptional('rb2', true); $('rb2Min').focus(); render();
+  });
+  $('rb2-del').addEventListener('click', function(){ $('rb2Min').value = ''; showOptional('rb2', false); render(); });
+  $('cap-add').addEventListener('click', function(){
+    $('cap').value = fmtField('cap', Math.ceil(evaluate(lastBuilt, readTerms()).S / 1000) * 1000);
+    showOptional('cap', true); $('cap').focus(); render();
+  });
+  $('cap-del').addEventListener('click', function(){ $('cap').value = ''; showOptional('cap', false); render(); });
+  $('ob-sample').addEventListener('click', loadSample);
+  $('ob-lines').addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('.ob-all'); if (!b) return;
+    var tbl = b.parentNode.querySelector('.ob-mini');
+    var open = tbl.classList.toggle('all');
+    b.textContent = open ? 'Show fewer' : 'Show ' + b.getAttribute('data-n') + ' more';
+  });
+  $('ob-map').addEventListener('change', function(e){
+    if (!file) return;
+    var el = e.target;
+    if (el.id === 'map-basis') file.basis = el.value;
+    else if (el.id === 'map-years') file.years = Math.max(1, num(el.value));
+    else if (el.getAttribute('data-k')) file.map[el.getAttribute('data-k')] = parseInt(el.value, 10);
+    applyMap();
+  });
+  $('ob-file').addEventListener('change', function(e){
+    var f = e.target.files && e.target.files[0]; if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function(){ loadCSV(String(rd.result), f.name); };
+    rd.readAsText(f); e.target.value = '';
+  });
+  $('ob-file-label').addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); $('ob-file').click(); } });
+  $('ob-template').addEventListener('click', function(){ download('order-build-sample.csv', [SAMPLE_COLS].concat(SAMPLE_LINES)); });
+  $('ob-export').addEventListener('click', function(){
+    var rows = [['sku','description','branch','qty','box_qty','unit_cost','extended']];
+    lines.forEach(function(l, i){ if (lastBuilt[i] > 0) rows.push([l.sku, l.desc, l.branch, lastBuilt[i], l.pack, l.cost.toFixed(2), (l.cost * lastBuilt[i]).toFixed(2)]); });
+    download('order-build-order.csv', rows);
+  });
+  loadSample();
+})();
+</script>
+</body>
+</html>
