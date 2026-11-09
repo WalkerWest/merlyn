@@ -86,6 +86,27 @@
     .mm-row:first-child .mm-b:before{content:'Order Build';display:block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#0F6E56;margin-bottom:3px;}
     .mm-more{font-size:13px;color:var(--t3);margin-top:14px;}
     .mm-more a{color:#0F6E56;}
+    /* ---- what it is worth ---- */
+    .worth{border:0.5px solid var(--b1);border-radius:var(--r2);padding:22px 24px;max-width:860px;}
+    .worth h3{font-size:19px;margin-bottom:6px;}
+    .worth .w-sub{font-size:14px;color:var(--t2);line-height:1.6;max-width:680px;}
+    .wt-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0 6px;}
+    .wt{background:var(--bg2);border-radius:var(--r1);padding:12px 14px;}
+    .wt.mid{background:#E1F5EE;}
+    .wt .k{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:var(--t3);}
+    .wt.mid .k{color:#0F6E56;}
+    .wt .v{font-family:'Zilla Slab',Georgia,serif;font-size:28px;font-weight:500;color:var(--t1);line-height:1.2;margin:2px 0 6px;}
+    .wt.mid .v{color:#0F6E56;}
+    .wt dl{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:12.5px;font-variant-numeric:tabular-nums;}
+    .wt dt{color:var(--t2);}
+    .wt dd{text-align:right;color:var(--t1);}
+    .w-note{font-size:12.5px;color:var(--t3);line-height:1.5;}
+    .lev{margin:18px 0 4px;max-width:600px;}
+    .lev h4{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:var(--t3);margin-bottom:4px;}
+    .lev div{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;color:var(--t2);padding:6px 0;border-bottom:0.5px dashed var(--b1);font-variant-numeric:tabular-nums;}
+    .lev div b{color:var(--t1);font-weight:500;white-space:nowrap;}
+    .lev div.net{border-bottom:none;color:var(--t1);font-weight:500;}
+    .w-caveat{font-size:13px;color:#6B4A12;background:#FEF9EE;border-radius:var(--r1);padding:10px 14px;margin-top:14px;line-height:1.55;}
 
     /* ---- what your history adds ---- */
     .better{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
@@ -93,7 +114,7 @@
     .bc h4{font-family:'Zilla Slab',Georgia,serif;font-size:16.5px;font-weight:500;color:var(--t1);margin-bottom:8px;}
     .bc p{font-size:13.5px;color:var(--t2);line-height:1.6;flex:1;}
     .bc p.today{flex:0;font-size:12.5px;color:#854F0B;margin-top:12px;padding-top:10px;border-top:0.5px dashed #FAC775;}
-    .bc.ask{background:#085041;border-color:#085041;}
+    .bc.ask{background:#085041;border-color:#085041;grid-column:1 / -1;}
     .bc.ask h4{color:#FAC775;}
     .bc.ask p{color:#9FE1CB;}
     .bc.ask p.how{margin-top:14px;font-size:13px;}
@@ -305,6 +326,8 @@
       .inner{padding:0 16px;}
       .pair{grid-template-columns:1fr;}
       .better{grid-template-columns:1fr;}
+      .worth{padding:18px 16px;}
+      .wt-grid{grid-template-columns:1fr;}
       .mm{padding:18px 16px;}
       .mm-row{grid-template-columns:1fr;gap:4px;margin-bottom:6px;}
       .mm-row .mm-a:before{content:'Min/max';display:block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#854F0B;margin-bottom:3px;}
@@ -347,7 +370,7 @@
     <div class="inner">
       <p class="he"><span class="hed"></span>Regularis Order Build</p>
       <h1>Vendors pay you to order more.<br><em>Order the right more.</em></h1>
-      <p>Bearing vendors reward bigger orders with a discount, free freight, or a rebate at year end. To get there, you add parts to the order. Order Build tells you which parts to add: the ones you will sell soon. And which to leave off: the ones that would sit on the shelf for years.</p>
+      <p>Bearing vendors reward bigger orders with a discount, free freight, or a rebate at year end. To get there, you add parts to the order. Order Build tells you which parts to add: the ones you will sell soon. And which to leave off: the ones that would sit on the shelf for years. When a vendor announces a price increase, it tells you which parts are worth buying before it.</p>
       <div class="ctas" style="margin-top:26px;">
         <a href="#try" class="bp">See it on a sample order</a>
         <a href="contact.html?interest=order-build" class="bg">Try it on your own order ↗</a>
@@ -386,6 +409,31 @@
           <div class="mm-row"><p class="mm-a">The vendor's discount tiers, freight minimum and rebate are invisible to it.</p><p class="mm-b">Order Build weighs the deal on every order, and says when chasing it doesn't pay.</p></div>
         </div>
         <p class="mm-more">What else min/max misses, such as sales lost because a part was out, is in <a href="#better">What your history adds</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="worth" style="padding-top:0;scroll-margin-top:72px;">
+    <div class="inner" style="padding-top:0;">
+      <div class="worth">
+        <h3>Order Build is the first piece. Here is the size of the whole.</h3>
+        <p class="w-sub">Set every stock level from demand, not only the vendor orders, and inventory falls by an estimated 5 to 16 percent, while the parts most at risk of running out get more. For every $10 million of inventory at cost:</p>
+        <div class="wt-grid">
+          <div class="wt"><p class="k">Conservative</p><p class="v">5.5%</p><dl><dt>Cash freed, once</dt><dd>$545,000</dd><dt>Saved each year</dt><dd>$136,000</dd></dl></div>
+          <div class="wt mid"><p class="k">Expected</p><p class="v">10.8%</p><dl><dt>Cash freed, once</dt><dd>$1,075,000</dd><dt>Saved each year</dt><dd>$269,000</dd></dl></div>
+          <div class="wt"><p class="k">Stretch</p><p class="v">15.8%</p><dl><dt>Cash freed, once</dt><dd>$1,580,000</dd><dt>Saved each year</dt><dd>$395,000</dd></dl></div>
+        </div>
+        <p class="w-note">The cash comes back over 12 to 18 months, as stock sells down instead of being replaced. The yearly saving is holding cost at 25% of inventory value.</p>
+        <div class="lev">
+          <h4>Where it comes from, expected case</h4>
+          <div><span>Safety stock held centrally, where one buffer covers every branch</span><b>5.0%</b></div>
+          <div><span>Better forecasts, so less safety stock is needed</span><b>3.0%</b></div>
+          <div><span>Less stock in the off-season for seasonal parts</span><b>2.3%</b></div>
+          <div><span>Slow movers and parts for customers who have stopped buying</span><b>2.0%</b></div>
+          <div><span>Less: more stock on parts at risk of running out</span><b>&minus;1.5%</b></div>
+          <div class="net"><span>Net reduction in inventory</span><b>10.8%</b></div>
+        </div>
+        <p class="w-caveat"><b>These are industry estimates, not your numbers.</b> They come from published benchmarks (McKinsey on forecast error, Phocas on dead stock, the textbook holding rate) and the square-root rule for pooled stock, and they leave out the sales recovered from fewer stockouts. A history diagnostic replaces each one with your own figures, lever by lever, before anything changes. See <a href="#better" style="color:#854F0B;">what your history adds</a>.</p>
       </div>
     </div>
   </section>
@@ -526,7 +574,7 @@
   <section id="better" style="background:var(--bg2);scroll-margin-top:72px;">
     <div class="inner">
       <h2>What your history adds</h2>
-      <p class="sub">The page above works from one sales number per part, with an allowance for how uncertain a slow seller's number is. Most of a bearing catalog sells a few times a year or less, and that is where a single number is weakest. With two to three years of your sales history, the same tool gets sharper in five ways.</p>
+      <p class="sub">The page above works from one sales number per part, with an allowance for how uncertain a slow seller's number is. Most of a bearing catalog sells a few times a year or less, and that is where a single number is weakest. With two to three years of your sales history, the same tool gets sharper in six ways.</p>
       <div class="better">
         <div class="bc">
           <h4>A truer sales rate</h4>
@@ -554,9 +602,15 @@
         </div>
         <div class="bc">
           <h4>Stock targets worth trusting</h4>
-          <p>"Needed now" is only as good as the target behind it. Instead of taking each branch's reorder settings as they stand, the targets are set from the sales history, across all your branches at once, so one unit at one branch can cover its neighbors.</p>
+          <p>"Needed now" is only as good as the target behind it. Instead of taking each branch's reorder settings as they stand, the targets are set from the sales history, across all your branches at once, so one unit at one branch can cover its neighbors. If you buy into a central warehouse, the safety stock sits there, where one buffer covers every branch.</p>
           <p class="today">Today: your ERP's order points, taken as given.</p>
           <p class="how">The math: <button type="button" class="tip" popovertarget="tip-ortools">network stocking model (OR-Tools)</button></p>
+        </div>
+        <div class="bc">
+          <h4>What history can't see</h4>
+          <p>Some of what moves demand isn't in your history yet: tariffs on a product's country of origin, a key customer in trouble, a poor planting forecast for farm parts. Buyers adjust for these by feel. The better model gives that judgment a place: each factor scored with its source and a review date, capped so no single score swings a buy far, and dropped if it doesn't make the forecast better.</p>
+          <p class="today">Today: the buyer's judgment, applied by hand to the result.</p>
+          <p class="how">The math: <button type="button" class="tip" popovertarget="tip-adjust">scored adjustments</button></p>
         </div>
         <div class="bc ask">
           <h4>What it takes</h4>
@@ -573,12 +627,12 @@
         <ol class="road">
           <li><div><b>Order Build on your orders</b><span class="dur">about 6 weeks</span></div>
             <p>Your buyer runs real vendor orders through it; we review the results together, line by line.</p>
-            <p class="get">You get: the incentives worth earning, proved on your own orders, with nothing connected.</p></li>
+            <p class="get">You get: the incentives worth earning, and the price increases worth beating, proved on your own orders, with nothing connected.</p></li>
           <li><div><b>History diagnostic</b><span class="dur">6 to 8 weeks</span></div>
-            <p>Two to three years of your sales history, read-only, cleaned and forecast. Your current reorder settings are compared with optimized ones on demand they haven't seen.</p>
-            <p class="get">You get: a report of inventory dollars against fill rate by branch, slow and dead stock, and where cash is tied up.</p></li>
+            <p>Two to three years of your sales history, read-only, cleaned and forecast. Your current reorder settings are compared with optimized ones on demand they haven't seen. Your buyers' scorecard for what history can't see is set up and tested.</p>
+            <p class="get">You get: a report of inventory dollars against fill rate by branch, slow and dead stock, where cash is tied up, and the savings estimate on this page redone with your own numbers.</p></li>
           <li><div><b>Stocking review</b><span class="dur">about 3 months</span></div>
-            <p>Stock targets for every part at every branch, set across the whole network. A planner reviews proposed changes each month before anything reaches the ERP.</p>
+            <p>Stock targets for every part at every branch, set across the whole network. If you buy into a central warehouse, its safety stock is set with the branches', so one buffer covers them all. A planner reviews proposed changes each month before anything reaches the ERP.</p>
             <p class="get">You get: reorder settings set from demand and kept current.</p></li>
           <li><div><b>Real-time replenishment</b><span class="dur">about 4 months</span></div>
             <p>Each counter sale is checked against its target as it happens. Single-part reorders wait for the next vendor order unless they are needed now, and lost sales are recorded at the counter.</p>
@@ -592,6 +646,22 @@
       </div>
 
       <!-- Technical notes. Native popovers: Esc or a click outside closes them. -->
+      <div class="pop" id="tip-adjust" popover>
+        <p class="pk">Judgment, measured</p>
+        <h5>Scored adjustments to the forecast</h5>
+        <p>Each outside factor gets two scores: its effect on demand, from &minus;3 to +3, and its supply risk, from 0 to 3, each with a confidence, a source and a review-by date. Each product group has a sensitivity to each factor: 0 for none, 1 for normal, 2 for high. Farm signals reach farm parts; tariffs reach imported lines hardest.</p>
+<pre>demand change, group g  = &Sigma; over factors f of
+    score[f] &middot; %/point[f] &middot; confidence[f] &middot; sensitivity[f,g]
+                                               (capped)
+lead-time change        = the same, from supply risk (capped)
+
+adjusted rate = rate without season
+              &middot; (1 + demand change) &middot; season index</pre>
+        <p>Two safeguards. Trend is measured against the same months last year, so a seasonal part is not counted twice: once by its trend going into the season, and again by its seasonal index. And every factor is tested, the forecast with it against the forecast without it, on demand it has not seen; a factor that does not help loses its weight. A score past its review date stops counting until someone reviews it.</p>
+        <p>Key customers get a public-records health check (status, bankruptcy, judgments, liens). A customer at risk lowers the demand behind its parts, and one that has stopped buying releases the stock held for it.</p>
+        <button type="button" class="pop-x" popovertarget="tip-adjust" popovertargetaction="hide">Close</button>
+      </div>
+
       <div class="pop" id="tip-croston" popover>
         <p class="pk">Forecasting</p>
         <h5>Intermittent demand: Croston and SBA</h5>
@@ -1110,7 +1180,7 @@ subject  one level per part and branch;  budget and space by branch
     });
     fitPriors();
     writeTerms(JSON.parse(JSON.stringify(SAMPLE_TERMS)));
-    $('ob-intro').textContent = 'A made-up bearing vendor, late in the year. The buyer has a ' + lines.length + '-part order ready to send.';
+    $('ob-intro').textContent = 'A made-up bearing vendor, late in the year. The buyer has a ' + lines.length + '-part order ready to send. To see a price increase, add one under "Change the vendor\'s deal."';
     showError('');
     render();
   }
