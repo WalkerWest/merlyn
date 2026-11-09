@@ -437,14 +437,19 @@
       </details>
 
       <details class="more">
-        <summary>Change the vendor's deal <span class="hint" id="deal-sum">discounts, freight, rebate, holding cost</span></summary>
+        <summary>Change the vendor's deal <span class="hint" id="deal-sum">discounts, price rises, freight, rebate, holding cost</span></summary>
         <div class="body">
           <!-- The deal reads as sentences; each number in it is an editable blank. -->
           <form class="deal" id="ob-terms" onsubmit="return false">
             <div class="dc">
-              <h4>Discount</h4>
+              <h4>Price and discount</h4>
               <p>Orders over <span class="f m"><input id="t1Min" inputmode="decimal" aria-label="First discount: orders over, dollars"></span> get <span class="f p"><input id="t1Pct" inputmode="decimal" aria-label="First discount, percent"></span> off.</p>
               <p>Orders over <span class="f m"><input id="t2Min" inputmode="decimal" aria-label="Bigger discount: orders over, dollars"></span> get <span class="f p"><input id="t2Pct" inputmode="decimal" aria-label="Bigger discount, percent"></span> off.</p>
+              <div id="inc-wrap" hidden>
+                <p>Prices rise <span class="f p"><input id="incPct" inputmode="decimal" aria-label="Price increase, percent"></span> in <span class="f n"><input id="incWeeks" inputmode="decimal" aria-label="Weeks until the price increase"></span> weeks. <button type="button" class="lnk" id="inc-del">remove</button></p>
+                <p class="help">A part you would otherwise buy after the rise is worth buying now when the rise saves more than holding it costs. Best run on the last order before the rise.</p>
+              </div>
+              <p><button type="button" class="lnk" id="inc-add">+ add a price increase</button></p>
             </div>
             <div class="dc">
               <h4>Freight</h4>
@@ -509,7 +514,7 @@
         </div>
         <div class="step">
           <h4>Pick the order that leaves the most money</h4>
-          <p>It tries every order size, adds up the discount, freight and rebate each one earns, takes off the holding cost, and keeps the best. Then it shows you why, part by part.</p>
+          <p>It tries every order size, adds up the discount, freight and rebate each one earns and any price rise it gets ahead of, takes off the holding cost, and keeps the best. Then it shows you why, part by part.</p>
         </div>
       </div>
       <div class="prose" style="margin-top:34px;">
@@ -752,13 +757,17 @@ subject  one level per part and branch;  budget and space by branch
    per branch first (cheapest-to-hold way to reach each branch total), then
    combines the branches, charging freight on any shipment under the minimum.
    Finally it picks the order total whose discount and rebate, less freight and
-   holding cost, is highest. */
+   holding cost, is highest.
+
+   A known price rise credits each extra unit with the rise it avoids: the unit
+   would otherwise be bought after the rise when fewer than k units sell before
+   it, a negative binomial chance under the same gamma-Poisson rate. */
 (function(){
   'use strict';
 
   var SAMPLE_TERMS = {t1Min:5000, t1Pct:2, t2Min:10000, t2Pct:4, frMin:3500, frCost:240, frMode:'order',
     rbKind:'target', rbMin:250000, rbPct:2, rb2Min:'', rb2Pct:3, rbLast:230000, rbGrowth:5, rbGPct:2, rbPaid:'all',
-    ytd:239000, rest:3000, carry:25, months:12, cap:''};
+    ytd:239000, rest:3000, carry:25, months:12, cap:'', incPct:'', incWeeks:6};
 
   // sku, description, branch, unit_cost, on_hand, on_order, target, suggested_qty, sales_per_year_3y, pack_qty
   // Sales rates are yearly averages over three years of history.
@@ -817,9 +826,9 @@ subject  one level per part and branch;  budget and space by branch
 
   var $ = function(id){ return document.getElementById(id); };
   var lines = [], file = null;
-  var NUM_IDS = ['t1Min','t1Pct','t2Min','t2Pct','frMin','frCost','rbMin','rbPct','rb2Min','rb2Pct','rbLast','rbGrowth','rbGPct','ytd','rest','carry','months','cap'];
+  var NUM_IDS = ['t1Min','t1Pct','t2Min','t2Pct','frMin','frCost','rbMin','rbPct','rb2Min','rb2Pct','rbLast','rbGrowth','rbGPct','ytd','rest','carry','months','cap','incPct','incWeeks'];
   var SEL_IDS = ['frMode','rbKind','rbPaid'];
-  var BLANK_OK = {cap:1, rb2Min:1};
+  var BLANK_OK = {cap:1, rb2Min:1, incPct:1};
 
   function money(v, signed){
     var s = Math.abs(v).toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
@@ -878,6 +887,27 @@ subject  one level per part and branch;  budget and space by branch
     for (var k = 1; k <= q - line.need; k++) c += line.cost * rate * waitYears(line, k);
     return c;
   }
+  // A price rise in D years. The k-th extra unit would otherwise be bought when
+  // the k-th sale empties its place, which falls after the rise when fewer than k
+  // units sell before it. Sales over D years under the gamma-Poisson rate are
+  // negative binomial, so the chance is a running sum. Buying the unit now saves
+  // the rise on it with that chance.
+  function riseFactors(l, t){
+    var A = l.a + l.n, B = l.b + l.T, p = B / (B + Math.max(0, t.incWeeks) / 52);
+    return {A:A, q:1 - p, pj:Math.exp(A * Math.log(p)), cdf:0, k:0};
+  }
+  function riseNext(r){ r.cdf += r.pj; r.k++; r.pj *= (r.A + r.k - 1) / r.k * r.q; return Math.min(1, r.cdf); }
+  function afterRise(l, k, t){
+    var r = riseFactors(l, t), s = 0;
+    for (var j = 1; j <= k; j++) s = riseNext(r);
+    return s;
+  }
+  function saveFor(line, q, t){
+    if (!(t.incPct > 0) || q <= line.need) return 0;
+    var r = riseFactors(line, t), s = 0;
+    for (var k = 1; k <= q - line.need; k++) s += riseNext(r);
+    return s * line.cost * t.incPct / 100;
+  }
   function rebateTiers(t){
     var tiers = [];
     if (t.rbKind === 'target'){
@@ -898,10 +928,10 @@ subject  one level per part and branch;  budget and space by branch
   function discPct(S, t){ return (t.t2Min > 0 && S >= t.t2Min) ? t.t2Pct : (t.t1Min > 0 && S >= t.t1Min) ? t.t1Pct : 0; }
 
   function evaluate(qs, t){
-    var S = 0, carry = 0, rate = t.carry / 100, byBranch = {};
+    var S = 0, carry = 0, save = 0, rate = t.carry / 100, byBranch = {};
     lines.forEach(function(l, i){
       var v = l.cost * qs[i];
-      S += v; carry += carryFor(l, qs[i], rate);
+      S += v; carry += carryFor(l, qs[i], rate); save += saveFor(l, qs[i], t);
       byBranch[l.branch] = (byBranch[l.branch] || 0) + v;
     });
     var ships = t.frMode === 'branch' ? Object.keys(byBranch).map(function(b){ return byBranch[b]; }).filter(function(v){ return v > 0; }) : (S > 0 ? [S] : []);
@@ -911,19 +941,24 @@ subject  one level per part and branch;  budget and space by branch
     var period = t.ytd + t.rest + S, rb = t.rbKind === 'none' ? {amount:0, pct:0, at:0} : rebateFor(period, t);
     var total = disc + rb.amount - freight;
     return {S:S, carry:carry, pct:pct, disc:disc, rebate:rb.amount, rbPct:rb.pct, period:period,
-      freight:freight, ships:ships.length, short:short, net:total - carry};
+      freight:freight, ships:ships.length, short:short, save:save, net:total - carry + save};
   }
 
   // ---- the search ----
-  function lineOptions(l, rate, months){
+  // Each option's carry is its holding cost less any price rise it avoids.
+  function lineOptions(l, t){
+    var rate = t.carry / 100, rise = t.incPct > 0 ? t.incPct / 100 : 0, r = riseFactors(l, t);
     var pack = Math.max(1, l.pack);
     var base = Math.ceil(l.need / pack) * pack;
-    var extra = Math.max(l.sugg - base, Math.ceil(l.rate * months / 12), 0);
+    var extra = Math.max(l.sugg - base, Math.ceil(l.rate * t.months / 12), 0);
     var packs = Math.min(Math.ceil(extra / pack), 200);
     var o = [], c = 0, u = 0;
     for (var e = 0; e <= packs; e++){
       var q = base + e * pack;
-      while (u < q - l.need){ u++; c += l.cost * rate * waitYears(l, u); }
+      while (u < q - l.need){
+        u++; c += l.cost * rate * waitYears(l, u);
+        if (rise) c -= l.cost * rise * riseNext(r);
+      }
       o.push({q:q, cents:Math.round(l.cost * q * 100), carry:c});
     }
     return o;
@@ -947,7 +982,7 @@ subject  one level per part and branch;  budget and space by branch
   }
   function build(t){
     var rate = t.carry / 100, n = lines.length, perShip = t.frMode === 'branch';
-    var opts = lines.map(function(l){ return lineOptions(l, rate, t.months); });
+    var opts = lines.map(function(l){ return lineOptions(l, t); });
     var maxCents = opts.reduce(function(s, o){ return s + o[o.length - 1].cents; }, 0);
     var minCents = opts.reduce(function(s, o){ return s + o[0].cents; }, 0);
     var capCents = t.cap === '' ? Infinity : Math.round(t.cap * 100);
@@ -1034,6 +1069,7 @@ subject  one level per part and branch;  budget and space by branch
     SEL_IDS.forEach(function(id){ $(id).value = t[id]; });
     showOptional('rb2', t.rb2Min !== '' && t.rb2Min > 0);
     showOptional('cap', t.cap !== '');
+    showOptional('inc', t.incPct !== '' && t.incPct > 0);
     syncKind();
   }
   function showOptional(key, on){
@@ -1043,6 +1079,7 @@ subject  one level per part and branch;  budget and space by branch
   function dealSummary(t){
     var p = [];
     if (t.t1Min > 0) p.push(pctText(t.t1Pct) + ' off over ' + money(t.t1Min) + (t.t2Min > 0 ? ', ' + pctText(t.t2Pct) + ' over ' + money(t.t2Min) : ''));
+    if (t.incPct > 0) p.push('prices up ' + pctText(t.incPct) + ' in ' + plural(t.incWeeks, 'week', 'weeks'));
     if (t.frMin > 0) p.push('free freight over ' + money(t.frMin) + (t.frMode === 'branch' ? ' per branch' : ''));
     var tiers = t.rbKind === 'none' ? [] : rebateTiers(t);
     if (tiers.length) p.push(tiers.map(function(x){ return pctText(x[1]) + ' rebate at ' + money(x[0]); }).join(', '));
@@ -1206,6 +1243,7 @@ subject  one level per part and branch;  budget and space by branch
       if (next) s1.push(li('bad', 'The year\'s buying comes to ' + money(A.period) + ': <b>' + money(next[0] - A.period) + ' short</b> of the ' + pctText(next[1]) + ' rebate'));
     }
     if (A.carry > 0.5) s1.push(li('bad', 'Stock beyond what\'s needed now will cost <b>' + money(A.carry) + '</b> to hold'));
+    if (A.save > 0.5) s1.push(li('good', 'Stock bought ahead of the price rise saves <b>' + money(A.save) + '</b>'));
     $('s1-list').innerHTML = s1.join('');
 
     // 2. What changes
@@ -1221,7 +1259,7 @@ subject  one level per part and branch;  budget and space by branch
       s2.push(li('', 'The buyer\'s order is already the best one for this deal.'));
     } else {
       $('s2-big').textContent = money(Bv.S);
-      if (addP) s2.push(li('good', '<b>Adds ' + plural(addU, 'unit', 'units') + '</b> of ' + plural(addP, 'part', 'parts') + ' that sell soon: +' + money(addD)));
+      if (addP) s2.push(li('good', '<b>Adds ' + plural(addU, 'unit', 'units') + '</b> of ' + plural(addP, 'part', 'parts') + (t.incPct > 0 ? ' worth buying now' : ' that sell soon') + ': +' + money(addD)));
       if (dropP) s2.push(li('bad', '<b>Leaves off ' + plural(dropP, 'part', 'parts') + '</b>' + (dropWait < Infinity ? ' that would sit ' + spanText(dropWait) + ' or longer' : '') + ': −' + money(dropD)));
       s2.push(li('', 'New order total ' + money(Bv.S)));
     }
@@ -1238,24 +1276,27 @@ subject  one level per part and branch;  budget and space by branch
     if (Bv.pct < A.pct) s3.push(li('', 'Gives up the ' + pctText(A.pct) + ' discount (−' + money(A.disc - Bv.disc) + ')' + why));
     if (Bv.freight < A.freight - 0.5) s3.push(li('', 'Saves <b>' + money(A.freight - Bv.freight) + ' freight</b>'));
     if (Bv.freight > A.freight + 0.5) s3.push(li('', 'Pays ' + money(Bv.freight - A.freight) + ' more freight' + why));
+    if (Bv.save > A.save + 0.5) s3.push(li('', 'Gets ahead of the ' + pctText(t.incPct) + ' price rise: saves <b>' + money(Bv.save) + '</b>' + (A.save > 0.5 ? ' instead of ' + money(A.save) : '')));
+    if (Bv.save < A.save - 0.5) s3.push(li('', 'Saves ' + money(Bv.save) + ' on the price rise instead of ' + money(A.save) + why));
     if (Math.abs(Bv.carry - A.carry) > 0.5) s3.push(li('', 'Holding cost of extra stock: <b>' + money(Bv.carry) + '</b> instead of ' + money(A.carry)));
     s3.push(li('', Math.abs(delta) < 0.5 ? 'Send the buyer\'s order as it is.' : 'That is ' + money(Math.abs(delta)) + (delta > 0 ? ' better' : ' worse') + ' than the buyer\'s order, after holding cost'));
     $('s3-list').innerHTML = s3.join('');
 
     $('deal-sum').textContent = dealSummary(t);
-    compare(A, Bv, delta);
+    compare(A, Bv, delta, t);
     gauges(A, Bv, t, tiers);
     table(base, built, t, A, Bv);
   }
 
-  function compare(A, Bv, delta){
+  function compare(A, Bv, delta, t){
     var rows = [
       ['Order total', A.S, Bv.S, false],
       ['Discount (' + pctText(A.pct) + ' / ' + pctText(Bv.pct) + ')', A.disc, Bv.disc, true],
       ['Freight paid', -A.freight, -Bv.freight, true],
-      ['Year-end rebate', A.rebate, Bv.rebate, true],
-      ['Cost of holding the extra stock', -A.carry, -Bv.carry, true]
+      ['Year-end rebate', A.rebate, Bv.rebate, true]
     ];
+    if (t.incPct > 0) rows.push(['Price rise avoided', A.save, Bv.save, true]);
+    rows.push(['Cost of holding the extra stock', -A.carry, -Bv.carry, true]);
     var html = rows.map(function(r){
       var d = r[2] - r[1];
       return '<tr><td>' + r[0] + '</td><td>' + money(r[1]) + '</td><td>' + money(r[2]) + '</td><td class="' +
@@ -1305,10 +1346,16 @@ subject  one level per part and branch;  budget and space by branch
   // to hold until it sells, divided by its price. Units under the line went in,
   // units over it came out. Box sizes and thresholds can blur the line, and then
   // the page says so rather than claiming a clean cutoff.
-  function perDollar(l, k, rate){ return rate * waitYears(l, k); }
-  function cents(f){ return f >= 0.995 ? '$' + f.toFixed(2) : Math.max(1, Math.round(f * 100)) + '\u00a2'; }
+  // With a price rise, the figure is the holding cost less the rise the unit
+  // avoids; below zero, buying it now saves money.
+  function perDollar(l, k, t){ return t.carry / 100 * waitYears(l, k) - (t.incPct > 0 ? t.incPct / 100 * afterRise(l, k, t) : 0); }
+  function cents(f){
+    if (f < -0.005) return 'saves ' + cents(-f);
+    return f >= 0.995 ? '$' + f.toFixed(2) : Math.max(1, Math.round(f * 100)) + '\u00a2';
+  }
+  function netFor(l, q, t){ return carryFor(l, q, t.carry / 100) - saveFor(l, q, t); }
   function table(base, built, t, A, Bv){
-    var rate = t.carry / 100, added = [], dropped = [], same = 0;
+    var added = [], dropped = [], same = 0;
     lines.forEach(function(l, i){
       var d = built[i] - base[i];
       if (d > 0) added.push(i); else if (d < 0) dropped.push(i); else same++;
@@ -1317,11 +1364,13 @@ subject  one level per part and branch;  budget and space by branch
     added.sort(byValue); dropped.sort(byValue);
 
     // The most expensive dollar put in, and the cheapest one taken out.
-    var addMax = -1, dropMin = Infinity;
-    added.forEach(function(i){ var l = lines[i]; if (built[i] > l.need) addMax = Math.max(addMax, perDollar(l, built[i] - l.need, rate)); });
-    dropped.forEach(function(i){ var l = lines[i]; dropMin = Math.min(dropMin, perDollar(l, built[i] - l.need + 1, rate)); });
-    var clean = addMax < 0 || dropMin === Infinity || addMax < dropMin;
+    var addMax = -Infinity, dropMin = Infinity, anyAdd = false, rise = t.incPct > 0;
+    added.forEach(function(i){ var l = lines[i]; if (built[i] > l.need){ anyAdd = true; addMax = Math.max(addMax, perDollar(l, built[i] - l.need, t)); } });
+    dropped.forEach(function(i){ var l = lines[i]; dropMin = Math.min(dropMin, perDollar(l, built[i] - l.need + 1, t)); });
+    var clean = !anyAdd || dropMin === Infinity || addMax < dropMin;
     var line = addMax;
+    var addText = addMax < -0.005 ? 'saves <b>' + cents(-addMax) + ' or more</b> per dollar' : 'costs <b>' + cents(addMax) + ' or less</b> per dollar to hold';
+    var dropText = dropMin < -0.005 ? 'would save only <b>' + cents(-dropMin) + ' or less</b> per dollar' : 'would cost <b>' + cents(dropMin) + ' or more</b> per dollar to hold';
 
     var gained = [];
     if (Bv.rebate > A.rebate + 0.5) gained.push('the year-end rebate');
@@ -1331,37 +1380,38 @@ subject  one level per part and branch;  budget and space by branch
     var html = '';
     if (added.length || dropped.length){
       var s = 'Order Build puts in the dollars that are cheapest to hold and takes out the dearest. ' +
-        'Each part\'s cost to hold is shown per dollar of order value: what holding it until it sells costs, divided by its price. ';
-      if (addMax >= 0 && dropMin < Infinity && clean)
-        s += 'Everything added costs <b>' + cents(addMax) + ' or less</b> per dollar to hold; everything left off would cost <b>' + cents(dropMin) + ' or more</b>.';
-      else if (addMax >= 0 && dropMin === Infinity)
-        s += 'Everything added costs <b>' + cents(addMax) + ' or less</b> per dollar to hold.';
-      else if (addMax < 0)
-        s += 'Nothing on this deal pays enough to cover holding extra stock, so the extras come off. Everything left off would cost <b>' + cents(dropMin) + ' or more</b> per dollar to hold.';
+        'Each part\'s cost to hold is shown per dollar of order value: what holding it until it sells costs, divided by its price. ' +
+        (rise ? 'With the price rise, the rise each unit avoids is taken off; below zero, buying it now saves money. ' : '');
+      if (anyAdd && dropMin < Infinity && clean)
+        s += 'Everything added ' + addText + '; everything left off ' + dropText + '.';
+      else if (anyAdd && dropMin === Infinity)
+        s += 'Everything added ' + addText + '.';
+      else if (!anyAdd)
+        s += 'Nothing on this deal pays enough to cover holding extra stock, so the extras come off. Everything left off ' + dropText + '.';
       else
         s += 'Box sizes and the thresholds mean there is no single cutoff here, so compare the figures part by part.';
-      if (gained.length && addMax >= 0) s += ' That is how the order reaches ' + gained.join(' and ') + ' for the least holding cost.';
+      if (gained.length && anyAdd) s += ' That is how the order reaches ' + gained.join(' and ') + ' for the least holding cost.';
       html += '<p class="gs how-chose">' + s + '</p>';
     }
 
     var SHOW = 6;
     var row = function(i, badge, figure, over, hold, hidden){
       var l = lines[i];
-      var sub = [l.branch, l.desc, l.pack > 1 ? 'box of ' + l.pack : ''].filter(Boolean).join(' \u00b7 ');
+      var sub = [l.branch, l.desc, l.pack > 1 ? 'box of ' + l.pack : ''].filter(Boolean).join(' · ');
       return '<tr' + (hidden ? ' class="x"' : '') + '><td><span class="sku">' + esc(l.sku) + '</span><span class="pd">' + esc(sub) +
         '</span></td><td>' + badge + '</td><td>' + oftenText(l.rate) + '</td><td class="n"><span class="cpd' + (over ? ' over' : '') + '">' + figure +
-        '</span><span class="pd">' + (hold > 0.5 ? money(hold) + ' in all' : '') + '</span></td></tr>';
+        '</span><span class="pd">' + (hold > 0.5 ? money(hold) + ' in all' : hold < -0.5 ? 'saves ' + money(-hold) + ' in all' : '') + '</span></td></tr>';
     };
-    var head = '<table class="ob-mini"><thead><tr><th>Part</th><th>Change</th><th>Sells</th><th class="n">Cost to hold, per $1' +
-      (clean && line >= 0 && line < Infinity ? ' (line: ' + cents(line) + ')' : '') + '</th></tr></thead><tbody>';
+    var head = '<table class="ob-mini"><thead><tr><th>Part</th><th>Change</th><th>Sells</th><th class="n">' + (rise ? 'Cost per $1, less the rise' : 'Cost to hold, per $1') +
+      (clean && anyAdd ? ' (line: ' + cents(line) + ')' : '') + '</th></tr></thead><tbody>';
 
     if (added.length){
       var addD = 0;
       var addRows = added.map(function(i, n){
         var l = lines[i], d = built[i] - base[i];
         addD += d * l.cost;
-        var hold = carryFor(l, built[i], rate) - carryFor(l, Math.max(base[i], l.need), rate);
-        var fig = built[i] > l.need ? cents(perDollar(l, built[i] - l.need, rate)) : 'needed now';
+        var hold = netFor(l, built[i], t) - netFor(l, Math.max(base[i], l.need), t);
+        var fig = built[i] > l.need ? cents(perDollar(l, built[i] - l.need, t)) : 'needed now';
         return row(i, '<span class="ob-badge add">+' + d + '</span>', fig, false, hold, n >= SHOW);
       });
       html += '<div class="grp"><p class="gs"><b>Added: ' + plural(added.length, 'part', 'parts') + ', +' + money(addD) + '.</b></p>' +
@@ -1373,8 +1423,8 @@ subject  one level per part and branch;  budget and space by branch
       var dropRows = dropped.map(function(i){
         var l = lines[i], d = base[i] - built[i];
         dropD += d * l.cost;
-        var hold = carryFor(l, base[i], rate) - carryFor(l, built[i], rate);
-        return row(i, '<span class="ob-badge drop">\u2212' + d + '</span>', cents(perDollar(l, built[i] - l.need + 1, rate)), true, hold, false);
+        var hold = netFor(l, base[i], t) - netFor(l, built[i], t);
+        return row(i, '<span class="ob-badge drop">−' + d + '</span>', cents(perDollar(l, built[i] - l.need + 1, t)), true, hold, false);
       });
       html += '<div class="grp"><p class="gs"><b>Left off: ' + plural(dropped.length, 'part', 'parts') + ', \u2212' + money(dropD) + '.</b></p>' +
         head + dropRows.join('') + '</tbody></table></div>';
@@ -1404,6 +1454,12 @@ subject  one level per part and branch;  budget and space by branch
     showOptional('cap', true); $('cap').focus(); render();
   });
   $('cap-del').addEventListener('click', function(){ $('cap').value = ''; showOptional('cap', false); render(); });
+  $('inc-add').addEventListener('click', function(){
+    if (!(readTerms().incPct > 0)) $('incPct').value = '5';
+    if (!(readTerms().incWeeks > 0)) $('incWeeks').value = '6';
+    showOptional('inc', true); $('incPct').focus(); render();
+  });
+  $('inc-del').addEventListener('click', function(){ $('incPct').value = ''; showOptional('inc', false); render(); });
   $('ob-sample').addEventListener('click', loadSample);
   $('ob-lines').addEventListener('click', function(e){
     var b = e.target.closest && e.target.closest('.ob-all'); if (!b) return;
