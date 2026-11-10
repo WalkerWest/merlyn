@@ -164,6 +164,7 @@
     .req li{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:0.5px solid var(--b1);font-size:14px;}
     .req span:first-child{color:var(--t2);}
     .req span:last-child{color:var(--t1);text-align:right;}
+    .req-note{font-size:14px;color:var(--t2);line-height:1.65;margin-top:16px;max-width:620px;}
     .req code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;}
 
     /* ---- the tool: the story ---- */
@@ -732,18 +733,19 @@ subject  one level per part and branch;  budget and space by branch
   <section>
     <div class="inner">
       <h2>What it needs</h2>
-      <p class="sub">One row per part and branch on the suggested order, exported from the buyer's suggested purchase order screen. Any column names will do; you match them after loading.</p>
+      <p class="sub">For step 1 of the roadmap, the version on this page. One row per part on the suggested order, exported from the buyer's suggested purchase order screen. Any column names will do; you match them after loading.</p>
       <ul class="req">
         <li><span>Part number</span><span>needed</span></li>
         <li><span>What one unit costs you</span><span>needed</span></li>
         <li><span>On the shelf, and how many you want on the shelf</span><span>needed</span></li>
         <li><span>What the ERP suggests ordering</span><span>needed</span></li>
         <li><span>How many sell, and over how many years: per year, per month, or a total</span><span>needed</span></li>
-        <li><span>Branch, so freight can be judged per shipment</span><span>if you have it</span></li>
+        <li><span>Branch or warehouse, if the vendor ships to more than one</span><span>if you have it</span></li>
         <li><span>Box quantity, so parts are ordered in whole boxes</span><span>if you have it</span></li>
         <li><span>Interchange family, so a part can borrow from its equivalents</span><span>if you have it</span></li>
         <li><span>Description and quantity on order</span><span>if you have it</span></li>
       </ul>
+      <p class="req-note">Plus the vendor's terms, entered on the page: discount tiers, freight minimum, rebate and progress to date, and any announced price increase.</p>
     </div>
   </section>
 
